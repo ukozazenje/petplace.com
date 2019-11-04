@@ -1,0 +1,134 @@
+.hero-section
+  position: relative
+  .hero-title
+    position: absolute
+    width: 100%
+    bottom: 0
+    background: rgba(111, 105, 168, 0.6)
+    padding: 2rem 0
+    color: #ffffff
+    h1
+      font-size: 3.625rem
+      font-weight: 900
+      line-height: 64px
+
+.category-posts
+  background: $background-gray
+
+  .category-post-card
+    display: block
+    border: 1px solid $light-gray
+    border-radius: 6px
+    min-height: 420px
+
+    &:hover
+      cursor: pointer
+      background: #fff
+      box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1)
+      transition: all .350s ease
+
+    .card-content 
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      min-height: 220px
+    .card-img
+      position: relative
+      display: block
+
+      .card-category
+        position: absolute
+        top: 10px
+        left: 20px
+        height: 28px
+        line-height: 28px
+        font-size: 0.875rem
+        border-radius: 14px 
+        display: inline-block
+        padding: 0 14px
+        background: $purple
+        color: #fff
+
+      img 
+        border-top-left-radius: 6px
+        border-top-right-radius: 6px
+    
+    .card-title
+      h3 
+        font-size: 1.375rem
+        font-weight: 900
+        line-height: 32px
+        margin-bottom: 10px
+        a
+          color: $font-color 
+
+    .card-author
+      font-size: 0.875rem
+
+.popular-post-section
+  padding-top: 2rem
+  padding-bottom: 2.5rem
+
+  h2 
+    font-size: 2.875rem
+    font-weight: 600
+    text-align: center
+    padding-bottom: 1.5rem
+
+  .popular-post-card
+    display: block
+    position: relative
+
+  .popular-post-card-image
+    min-height: 420px
+    position: relative
+    border-radius: 6px
+
+  .popular-post-card-content
+    width: 100%
+    background: rgba(214, 115, 89, 0.72)
+    bottom: 0
+    position: absolute
+    color: #fff
+    padding: 1rem
+    border-bottom-left-radius: 6px
+    border-bottom-right-radius: 6px
+    .meta
+      font-size: 1rem
+      line-height: 24px
+    h3 
+      font-size: 1.25rem
+      font-weight: 900
+      line-height: 28px
+      min-height: 100px 
+.side-bar
+  h3 
+    display: block
+    width: 100%
+    font-size: 1.25rem
+    font-weight: 600
+    position: relative
+    margin-bottom: 1rem
+    padding-bottom: 6px
+    border-bottom: 2px solid #8F8F8F
+    &:after 
+      content: ''
+      display: block
+      border-bottom: 2px solid #FF7D5A
+      margin-top: 8px
+      margin-bottom: -8px
+      width: 100px
+  .subcategories
+    margin-top: 60px
+  .tags
+    margin-top: 60px
+    a 
+      font-size: 0.875rem
+      font-weight: 600
+      text-decoration: underline
+      margin-right: 1rem
+      color: #B9C2CC
+      transition: all 0.350s ease
+      line-height: 24px
+      &:hover
+        color: $orange
