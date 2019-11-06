@@ -1,12 +1,14 @@
 import { Link } from "gatsby"
 import React from "react"
 import logoImg from "../images/Logo.png"
+import Drawer from './navigation/drawer'
 
 const Header = ({ siteTitle }) => (
   <header>
     <div className="container is-widescreen">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
+          <Drawer />
           <Link className="navbar-item" to="/" >
             <img src={logoImg} width="112" height="28" />
           </Link>

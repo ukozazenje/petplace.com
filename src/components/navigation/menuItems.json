@@ -1,0 +1,64 @@
+{
+  "data" : [
+    {
+        "name": "Pet Care",
+        "url": "/article/category/pet-care/",
+        "children": [
+          {
+            "name": "Dog Care",
+            "url": "/article/category/pet-care/dog-care",
+            "children": [
+              { "name": "Grooming Your Dog",
+                "url": "#"
+              },
+              { "name": "Dog Excercises & Play",
+                "url": "#"
+              },
+              { "name": "Dog Adoption",
+                "url": "#"
+              },
+              { "name": "Puppy Care",
+                "url": "#"
+              },
+              { "name": "Puppy Diaries",
+                "url": "#"
+              },
+              { "name": "Senior Dog Care",
+                "url": "#"
+              }
+            ]
+          },
+          {
+            "name": "Cat Care",
+            "url": "/article/category/pet-care/cat-care",
+            "children": [
+              {}
+            ]
+          },
+          {
+            "name": "Small Pet Care",
+            "url": "/article/category/pet-care/small-pet-care",
+            "children": [
+              {}
+            ]
+          }
+        ]
+    },
+    {
+      "name": "Pet Health",
+      "url": "/article/category/pet-health/"
+    },
+    {
+      "name": "Pet Behavior & Training",
+      "url": "/article/category/pet-behavior-training/"
+    },
+    {
+      "name": "Pet Breeds",
+      "url": "/article/category/pet-breeds/"
+    },
+    {
+      "name": "Pet Insurance",
+      "url": "/article/category/pet-insurance/"
+    }
+  ]
+}
