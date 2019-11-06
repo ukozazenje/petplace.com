@@ -1,16 +1,21 @@
-import React from "react"
-import { Link } from "gatsby"
-
+import React, { Component } from "react"
+import { Link, query, useStaticQuery } from "gatsby"
+import Search from '../components/Search'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import {Formik, Field, Form} from 'formik'
+import heroImg from '../components/categories/images/heroImage'
+import Img from 'gatsby-image'
+import ImageNo from '../components/image'
+class SecondPage extends Component {
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+  render(){
 
+    return(
+    <Layout>
+      <ImageNo />
+    </Layout>
+    )
+  }
+}
 export default SecondPage

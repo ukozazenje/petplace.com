@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery, navigate } from "gatsby"
 import Layout from "../components/layout"
 import Img from 'gatsby-image'
 import Image from "../components/image"
@@ -22,7 +22,8 @@ import worldImg from "../images/world.png"
 import articles from "../images/articles.png"
 import organized from "../images/organized.png"
 import expert from "../images/expert.png"
-
+import searchHero from "../components/homepage/searchHero"
+import SearchHero from "../components/homepage/searchHero"
 const IndexPage = () => {
 
   const {allWordpressPost, allWordpressPage, allWordpressCategory} = useStaticQuery(
@@ -100,6 +101,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
+      <SearchHero />
       <LatestStories dogs={dogs} cats={cats} smallPets={smallPets} categories={allCategories}/>
       <CategoryListSection />
       <HappinessSection />

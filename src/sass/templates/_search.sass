@@ -1,0 +1,85 @@
+.search-page-section
+  background: $background-gray
+.search-card
+  border-radius: 6px
+  border: 1px solid $light-gray
+  transition: all .350s ease
+  .search-card-img
+    min-height: 300px
+    max-height: 300px
+    position: relative
+    overflow: hidden
+    img 
+      border-top-left-radius: 6px
+      border-top-right-radius: 6px
+      height: 100%
+      object-fit: cover
+      min-height: 300px
+      max-height: 300px
+      min-width: 500px
+      max-width: 100% 
+  .search-card-content
+    padding: 1rem
+    background: $background-gray
+    min-height: 200px
+    display: flex
+    flex-direction: column
+    border-bottom-right-radius: 6px
+    border-bottom-left-radius: 6px
+    justify-content: space-between
+    transition: all .350s ease
+    h3 
+      font-size: 1.375rem
+      font-weight: 900
+  &:hover
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1)
+    .search-card-content
+      cursor: pointer
+      background: #fff
+      
+      
+.search-hero-section
+  background: url('../../src/images/hero-bg.png')
+  background-size: cover
+  background-position: top center
+  background-repeat: no-repeat
+  min-height: 500px
+
+  .form-container
+    h1 
+      padding-top: 82px
+      font-size: 4.125rem
+      line-height: 66px
+      font-weight: 900
+      color: #ffffff
+      margin-bottom: 20px
+    p 
+      max-width: 700px
+      line-height: 32px
+      font-size: 1.25rem
+      margin-bottom: 20px
+      color: #ffffff
+    .search-input
+      padding-left: 50px
+      padding-right: 225px  
+      background: rgba(255, 255, 255, 0.78)
+      border-radius: 70px
+      height: 80px
+      width: 100%
+      max-width: 700px
+      font-size: 1.5rem
+      border: 1px solid rgba(255, 255, 255, 0.78)
+
+    button
+      width: 215px
+      height: 60px
+      border-radius: 50px
+      border: 1px solid $orange
+      background: $orange
+      color: #ffffff
+      text-transform: uppercase
+      font-weight: 900
+      font-size: 1.5rem
+      margin-left: -225px
+      &:hover 
+        cursor: pointer

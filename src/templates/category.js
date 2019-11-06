@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import PostList from '../components/categories/PostList'
 import Pagination from '../components/Pagination'
 import PopularPosts from '../components/categories/PopularPosts'
-import HeroSection from '../components/categories/images/categoryHero'
+import HeroSection from '../components/categories/categoryHero'
 const Category = props => {
   const { data, pageContext } = props
   const { edges: posts, totalCount } = data.allWordpressPost
