@@ -1,13 +1,11 @@
 import React from 'react'
 import dogImg from "../../../images/dog.png"
-import arrowImg from "../../../images/arrow.png"
 import petCareIcon from "../../../images/pet-care.png"
 import petHealthIcon from "../../../images/pet-health.png"
 import petInsuranceIcon from "../../../images/pet-insurance.png"
 import petTrainingIcon from "../../../images/pet-training.png"
 import breedLibraryIcon from "../../../images/breed-library.png"
 import justForFun from "../../../images/just-for-fun.png"
-import { Link } from 'gatsby'
 import Card from "./categoryCard"
 
 const CategoriesList = () => {

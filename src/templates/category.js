@@ -1,14 +1,14 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import {graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import PostList from '../components/categories/PostList'
 import Pagination from '../components/Pagination'
 import PopularPosts from '../components/categories/PopularPosts'
 import HeroSection from '../components/categories/categoryHero'
 const Category = props => {
   const { data, pageContext } = props
-  const { edges: posts, totalCount } = data.allWordpressPost
+  const { edges: posts } = data.allWordpressPost
   const { edges: subCategories } = data.allWordpressCategory
   // const { edges: tags } = data.allWordpressTag
   const { title: siteTitle } = data.site.siteMetadata

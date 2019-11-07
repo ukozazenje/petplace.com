@@ -3,7 +3,6 @@ import {Form, Formik, Field} from 'formik'
 import axios from 'axios'
 import Layout from '../components/layout'
 import NoImg from "../static/images/noPostImg"
-import HeroImg from '../static/images/homeHeroImg'
 import Pagination from "react-paginating";
 class Search extends Component {
 
@@ -39,10 +38,9 @@ class Search extends Component {
     })
   }
 
-  handlePageChange = (page, e) => {
+  handlePageChange = (page) => {
     console.log(page)
-    const { posts, currentPage } = this.state;
-
+    const { posts } = this.state;
     const offset = (page - 1) * 6;
     const currentPosts = posts.slice(offset, offset + 6);
 
@@ -58,11 +56,10 @@ class Search extends Component {
   }
   
   render(){
-    const { posts, loader, currentPosts } = this.state
+    const { loader, currentPosts } = this.state
     return (
     <Layout>
       <section className="search-hero-section">
-        {/* <HeroImg className="hero-img" /> */}
         <div className="container is-widescreen form-container">
           <div className="form-wrapper">
             <h1>Search our<br /> 
@@ -102,7 +99,7 @@ class Search extends Component {
                   <div key={post.id} className="column is-one-third">
                     <div className="search-card">
                       <div className="search-card-img">
-                        { post.featured_image.large ? <img src={post.featured_image.large} /> : <NoImg /> }
+                        { post.featured_image.large ? <img src={post.featured_image.large} alt="post" /> : <NoImg /> }
                       </div>
                       <div className="search-card-content">
                         <h3>{post.title || 'No title'}</h3>
