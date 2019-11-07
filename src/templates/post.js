@@ -24,32 +24,32 @@ const Post = ({data}) => {
     <Layout>
       <div className="single-post">
       <section className="section post-hero-section">
-        <div className="container is-widescreen"> 
+        <div className="container is-widescreen">
           <div><Link to="/" className="category-link">{(post.categories && post.categories[0] && post.categories[0].name) || 'category'}</Link></div>
           <h1>{post.title}</h1>
         </div>
       </section>
-        {post.featured_media && post.featured_media.localFile.childImageSharp ? 
-        <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
-        <NoHeroPostImg 
+        {post.featured_media && post.featured_media.localFile.childImageSharp ?
+        <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> :
+        <NoHeroPostImg
         />}
       <section className="section">
-        <div className="container is-widescreen"> 
+        <div className="container is-widescreen">
           <div className="columns">
             <div className="column is-one-quarter single-post-sidebar">
               <img className="author-img" src={avatarImg} alt="avatar" />
               <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
               <p className="post-date">{post.date}</p>
               <div className="social-icons">
-                <img src={facebookIcon}  alt="facebook" />
-                <img src={twitterIcon}  alt="twitter" />
-                <img src={pintrestIcon}  alt="pinterest" />
-                <img src={emailIcon}  alt="email" />
+                <a href={"https://www.facebook.com/sharer/sharer.php?u="+window.location.href} target="_blank"><img src={facebookIcon}  alt="facebook" /></a>
+                <a href={"https://twitter.com/intent/tweet?url="+window.location.href} target="_blank"><img src={twitterIcon}  alt="twitter" /></a>
+                <a href={"https://pinterest.com/pin/create/button/?url="+window.location.href+"&media=&description="+post.title} target="_blank"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                <a href={"mailto:info@example.com?&subject="+post.title+"&body="+window.location.href} target="_blank"><img src={emailIcon}  alt="email" /></a>
               </div>
               <img src={bannerImg} alt="banner" />
             </div>
             <div className="column">
-              <div className="single-post-content" 
+              <div className="single-post-content"
                 dangerouslySetInnerHTML={{
                   __html: post.content
                 }}
@@ -58,11 +58,11 @@ const Post = ({data}) => {
               <div className="columns">
                 <div className="column">
                   <div className="share-icons">
-                    <span><strong>Share:</strong></span> 
-                    <img src={facebookIcon}  alt="facebook" />
-                    <img src={twitterIcon}  alt="twitter" />
-                    <img src={pintrestIcon}  alt="pinterest" />
-                    <img src={emailIcon}  alt="email" />
+                    <span><strong>Share:</strong></span>
+                    <a href={"https://www.facebook.com/sharer/sharer.php?u="+window.location.href} target="_blank"><img src={facebookIcon}  alt="facebook" /></a>
+                    <a href={"https://twitter.com/intent/tweet?url="+window.location.href} target="_blank"><img src={twitterIcon}  alt="twitter" /></a>
+                    <a href={"https://pinterest.com/pin/create/button/?url="+window.location.href+"&media=&description="+post.title} target="_blank"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                    <a href={"mailto:info@example.com?&subject="+post.title+"&body="+window.location.href} target="_blank"><img src={emailIcon}  alt="email" /></a>
                   </div>
                 </div>
                 <div className="column">
