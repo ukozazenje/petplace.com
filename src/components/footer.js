@@ -21,7 +21,7 @@ const footer = () => {
             </div>
           </div>
           <div className="column">
-            <h4>Pet Care</h4>
+            <h6>Pet Care</h6>
             <div className="footer-menu-wrapper">
               <Link to="/">Dog Care</Link>
               <Link to="/">Cat Care</Link>
@@ -29,7 +29,7 @@ const footer = () => {
             </div>
           </div>
           <div className="column">
-            <h4>Pet Care</h4>
+            <h6>Pet Health</h6>
             <div className="footer-menu-wrapper">
               <Link to="/">Dog Health</Link>
               <Link to="/">Cat Health</Link>
@@ -37,7 +37,7 @@ const footer = () => {
             </div>
           </div>
           <div className="column">
-            <h4>Pet Care</h4>
+            <h6>Pet Behavior & Training</h6>
             <div className="footer-menu-wrapper">
               <Link to="/">Dog Behavior & Training</Link>
               <Link to="/">Cat Behavior & Training</Link>
@@ -45,7 +45,7 @@ const footer = () => {
             </div>
           </div>
           <div className="column">
-            <h4>Pet Care</h4>
+            <h6>Breeds</h6>
             <div className="footer-menu-wrapper">
               <Link to="/">Dog Breeds</Link>
               <Link to="/">Cat Breeds</Link>
@@ -53,7 +53,7 @@ const footer = () => {
             </div>
           </div>
           <div className="column">
-            <h4>Pet Care</h4>
+            <h6>Pet Insurance</h6>
             <div className="footer-menu-wrapper">
               <Link to="/">Pet Peeves</Link>
               <Link to="/">Pet News & Videos</Link>
