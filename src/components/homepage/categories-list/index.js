@@ -7,7 +7,7 @@ import petTrainingIcon from "../../../images/pet-training.png"
 import breedLibraryIcon from "../../../images/breed-library.png"
 import justForFun from "../../../images/just-for-fun.png"
 import Card from "./categoryCard"
-
+import DogImg from '../../../static/images/dogImg'
 const CategoriesList = () => {
   return (
     <section className="section home-page-intro">
@@ -18,7 +18,8 @@ const CategoriesList = () => {
               <h2>You Don’t Have To Be Human To <span className="highlight">Be Family</span></h2>
               <p>Ask any pet parent.  Our pets are our furry children, beloved members of our family.  We love them dearly and we want to give them the best possible life.</p>
             </div>
-            <img src={dogImg} alt="dog" />
+            {/* <img src={dogImg} alt="dog" /> */}
+            <DogImg />
           </div>
           <div className="column">
             <div className="columns">

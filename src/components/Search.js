@@ -39,7 +39,7 @@ class Search extends Component {
   }
 
   handlePageChange = (page) => {
-    console.log(page)
+    // console.log(page)
     const { posts } = this.state;
     const offset = (page - 1) * 6;
     const currentPosts = posts.slice(offset, offset + 6);
