@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Card from './postCard'
 
 export default class PostList extends Component {
   render() {
-    const { posts, title } = this.props
+    const { posts } = this.props
 
     return (
       <>

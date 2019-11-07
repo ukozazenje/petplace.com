@@ -9,36 +9,36 @@ import twitterIcon from '../images/twitter.png'
 import pintrestIcon from '../images/pintrest.png'
 import emailIcon from '../images/email.png'
 import SimilarPosts from "../components/post/SimilarPosts"
-// this is must be fixed
-import noImg from "../components/image"
+import NoHeroPostImg from "../static/images/noPostHeroImg"
 const Post = ({data}) => {
   const post = data.wordpressPost
-  // const tagList = (tags) => (
-  //   <div className="post-tags">
-  //     <span><strong>Tags:</strong> </span>
-  //     {post.tags.map(tag => (
-  //       <button className="button tag-button" type="button">{tag.name}</button>
-  //     ))}
-  //   </div>
-  // )
-
+  const tagList = (tags) => (
+    <div className="post-tags">
+      <span><strong>Tags:</strong> </span>
+      {post.tags.map(tag => (
+        <button className="button tag-button" type="button">{tag.name}</button>
+      ))}
+    </div>
+  )
   return (
     <Layout>
       <div className="single-post">
       <section className="section post-hero-section">
         <div className="container is-widescreen"> 
-          <div><Link to="/" className="category-link">{post.categories && post.categories[0] && post.categories[0].name || 'category'}</Link></div>
+          <div><Link to="/" className="category-link">{(post.categories && post.categories[0] && post.categories[0].name) || 'category'}</Link></div>
           <h1>{post.title}</h1>
         </div>
       </section>
-        {post.featured_media && post.featured_media.localFile.childImageSharp ? <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : <noImg />}
-        
+        {post.featured_media && post.featured_media.localFile.childImageSharp ? 
+        <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+        <NoHeroPostImg 
+        />}
       <section className="section">
         <div className="container is-widescreen"> 
           <div className="columns">
             <div className="column is-one-quarter single-post-sidebar">
               <img className="author-img" src={avatarImg} alt="avatar" />
-              <p className="author-name">{post.author && post.author.name || 'author name'}</p>
+              <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
               <p className="post-date">{post.date}</p>
               <div className="social-icons">
                 <img src={facebookIcon}  alt="facebook" />
@@ -66,7 +66,7 @@ const Post = ({data}) => {
                   </div>
                 </div>
                 <div className="column">
-                  {/* { post.tags ? tagList(post.tags) : null } */}
+                  { post.tags ? tagList(post.tags) : null }
                 </div>
               </div>
             </div>

@@ -108,7 +108,7 @@ exports.createPages = ({ actions, graphql }) => {
     .then(() => {
       return new Promise((resolve, reject) => {
         axios
-          .get("http://dev.ppl.torchte.ch/wp-json/ttg/v2/posts")
+          .get("http://dev.ppl.torchte.ch/wp-json/wp/v2/posts?per_page=5")
           .then(result => {
             const { data } = result
             /**
@@ -121,7 +121,7 @@ exports.createPages = ({ actions, graphql }) => {
               component: path.resolve(`./src/templates/ClientSearchTemplate.js`),
               context: {
                 bookData: {
-                  allPosts: data,
+                  allPosts: [],
                   options: {
                     indexStrategy: "Prefix match",
                     searchSanitizer: "Lower Case",

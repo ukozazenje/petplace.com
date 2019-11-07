@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
-import { Link, StaticQuery, graphql, useStaticQuery } from "gatsby"
+import React from 'react'
+import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from 'gatsby-image'
-import coverImg from '../image'
 
 const PopularPosts = (props) => {
   
@@ -62,7 +61,6 @@ const PopularPosts = (props) => {
   )
 
   const featuredPost = wordpressPage.acf.featured_posts.map((el) => el.featured_post.post_name)
-  const { edges: posts } = allWordpressPost
   const popularPosts = allWordpressPost.edges.filter(({node:post}) => featuredPost.includes(post.slug) )
   
   return (

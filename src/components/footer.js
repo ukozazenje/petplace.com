@@ -11,7 +11,7 @@ const footer = () => {
       <div className="container is-widescreen">
         <div className="columns">
           <div className="column is-one-quarter">
-            <img src={logo} className="footer-logo" />
+            <img src={logo} className="footer-logo" alt="logo" />
             <p>Working with wireframes may be a architecture to the visual design.</p>
             <div className="icons-wrapper">
               <img src={facebook} alt="social icon" />
