@@ -89,7 +89,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <HomeHeroImg />
       <SearchHero />
-      {/* <Latest /> */}
+      <Latest />
       {/* <LatestStories dogs={dogs} cats={cats} smallPets={smallPets} categories={allCategories}/> */}
       <CategoryListSection />
       <HappinessSection />
