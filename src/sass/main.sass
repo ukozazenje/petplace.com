@@ -1,52 +1,22 @@
-@import "~bulma"
+@import "~rfs/scss";
 @import "./base/variables"
+// @import Bulma after variables to override Bulma variables with custom values
+@import "~bulma"
+@import "./base/typography"
 @import "./components/pagination"
 @import "./components/category-card"
 @import "./components/category"
 @import "./components/helpers"
+@import "./components/navigation"
 @import "./templates/post"
 @import "./templates/category"
 @import "./components/form"
 @import "./components/footer"
 @import "./components/navigation"
+@import "./templates/search"
 
 .posts-list-container
   flex-wrap: wrap
-
-// .featured-section
-//   padding-top: 2rem
-//   padding-bottom: 2.5rem
-
-//   h2 
-//     font-size: 2.875rem
-//     font-weight: 600
-//     text-align: center
-//     padding-bottom: 1.5rem
-
-//   .featured-card
-//     position: relative
-
-//   .featured-card-image
-//     min-height: 420px
-//     position: relative
-//     border-radius: 6px
-
-//   .featured-card-content
-//     width: 100%
-//     background: rgba(214, 115, 89, 0.72)
-//     bottom: 0
-//     position: absolute
-//     // top: 0
-//     color: #fff
-//     padding: 1rem
-//     .meta
-//       font-size: 1rem
-//       line-height: 24px
-//     h3 
-//       font-size: 1.25rem
-//       font-weight: 900
-//       line-height: 28px
-//       min-height: 100px
 
 .home-page-intro
   .home-page-intro-heading
@@ -59,17 +29,13 @@
       padding-top: 30px
       padding-bottom: 60px
     h2 
-      text-align: left
-      line-height: 56px
-      font-size: 2.875rem
-      font-weight: 600
+      text-align: left          
     img 
       align-self: center
 
   .category-card
     padding: 20px
     text-align: center
-    color: $font-color
     border: 1px solid #E4E4E4
     border-radius: 6px
     &:hover
@@ -85,10 +51,9 @@
       min-height: 130px
     a 
       color: $font-color
-      font-size: 1.375rem
 
-    h3
-      font-weight: 600
+    h3    
+      @extend .h4
       margin-top: 20px
       margin-bottom: 20px
     .divider
@@ -96,32 +61,26 @@
       width: 15px
       margin: 20px auto
     .read-more-btn
+      @extend h6
+      line-height: 2
       margin-top: 20px
       display: block
-      font-size: 1rem
       color: $orange
-      border: 2px solid $orange
-      line-height: 30px
+      border: 2px solid $orange      
       height: 34px
-      border-radius: 17px
-      font-weight: 600
+      border-radius: 17px    
       
       img 
         margin-right: 10px
 
 .latest-stories-section
-  background: $background-light-gray
-  h1 
-    font-size: 2.875rem
-    font-weight: 900
+  background: $blue-lightest
+  h1   
     text-align: center
   .featured-categories
     margin-top: 60px
   h2 
-    border-bottom: 2px solid #8F8F8F
-    font-size: 2rem
-    line-height: 39px
-    font-weight: 600
+    border-bottom: 2px solid #8F8F8F      
     margin-bottom: 2rem
     padding-bottom: 6px
     &:after
@@ -130,8 +89,7 @@
       border-bottom: 2px solid $orange
       margin-top: 8px
       margin-bottom: -8px
-      max-width: 200px
-    
+      max-width: 200px    
   .main-box
     position: relative
     img 
@@ -153,21 +111,20 @@
       bottom: 0
       height: 160px
       background: rgba(111, 105, 168, 0.6)
-      h3 
-        font-weight: 900
-        font-size: 2rem
-        line-height: 38px
+      p.date
+        @extends small
+        color: $white
+      h3    
         padding-bottom: 10px
-    .category-btn
+        a 
+          @extend .h2
+          color: $white
   
   .thumbnail-box
     display: flex
     flex-direction: row
     .category-btn
-      display: inline-block
-      font-weight: bold
-      font-size: 14px
-      line-height: 24px
+      display: inline-block    
       padding: 0 15px
       border-radius: 12px
       height: 24px
@@ -179,29 +136,24 @@
       height: 200px
     .sub-content
       padding-left: 1.5rem
-      h3 
-        font-weight: 900
-        font-size: 1.375rem
-        line-height: 32px
-        
+      p.date
+        @extend small
+      h3
+        @extend .h5
+        margin-bottom: .5rem
 
 .pet-happiness 
-  background: $background-gray
+  background: $blue-lightest
   .intro
     p 
       max-width: 470px
-      font-size: 1.125rem
       margin-bottom: 20px
-    h2, .highlight 
-      font-size: 2.875rem
-      line-height: 56px
+    h2, .highlight       
       max-width: 420px
-      margin-bottom: 20px
-      font-weight: 900
+      margin-bottom: 20px    
   h4 
-    font-size: 1.375rem
-    color: $orange
-    line-height: 34px
+    @extend .h5
+    color: $orange    
     padding-bottom: 10px
     position: relative
     margin-bottom: 10px
@@ -214,7 +166,6 @@
       bottom: 0
       left: 0
   p 
-    font-size: 1.25rem
     max-width: 270px
   
   .happiness-list

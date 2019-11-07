@@ -1,28 +1,13 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
-import Img from 'gatsby-image'
-import Image from "../components/image"
 import SEO from "../components/seo"
-import dogImg from "../images/dog.png"
-import arrowImg from "../images/arrow.png"
-import petCareIcon from "../images/pet-care.png"
-import petHealthIcon from "../images/pet-health.png"
-import petInsuranceIcon from "../images/pet-insurance.png"
-import petTrainingIcon from "../images/pet-training.png"
-import breedLibraryIcon from "../images/breed-library.png"
-import justForFun from "../images/just-for-fun.png"
-import categoryImg from "../images/BG.png"
-import LatestStories from "../components/homepage/latest-stories"
 import HappinessSection from "../components/homepage/pet-happiness"
 import ContactUsSection from "../components/homepage/contact-us"
 import CategoryListSection from "../components/homepage/categories-list"
-import happinessImg from "../images/happiness.png"
-import worldImg from "../images/world.png"
-import articles from "../images/articles.png"
-import organized from "../images/organized.png"
-import expert from "../images/expert.png"
-
+import SearchHero from "../components/homepage/searchHero"
+import Latest from '../components/homepage/latest-stories/latestStoriesHome'
+import LatestStories from '../components/homepage/latest-stories/'
 const IndexPage = () => {
 
   const {allWordpressPost, allWordpressPage, allWordpressCategory} = useStaticQuery(
@@ -92,7 +77,7 @@ const IndexPage = () => {
       }
     `
   )
-    console.log(allWordpressPost.edges)
+    // console.log(allWordpressPost.edges)
     const smallPets = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'small-pet-care')
     const dogs = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'dog-care')
     const cats = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'cat-care') 
@@ -100,10 +85,13 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <LatestStories dogs={dogs} cats={cats} smallPets={smallPets} categories={allCategories}/>
+      <SearchHero />
+      <Latest />
+      {/* <LatestStories dogs={dogs} cats={cats} smallPets={smallPets} categories={allCategories}/> */}
       <CategoryListSection />
       <HappinessSection />
       <ContactUsSection />
+      
     </Layout>
   )
 }

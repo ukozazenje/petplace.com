@@ -35,7 +35,7 @@ module.exports = {
          * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: "http://dev.ppl.torchte.ch",
+        baseUrl: "dev.ppl.torchte.ch/",
         // The protocol. This can be http or https.
         protocol: "http",
         // Indicates whether the site is hosted on wordpress.com.
@@ -108,7 +108,7 @@ module.exports = {
           "**/categories",
           "**/posts",
           "**/pages",
-          // "**/tags",
+          "**/tags",
           "**/users",
           "**/media",
           // "**/ttg/v2/posts"
@@ -126,13 +126,13 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-remote-images`,
-      options: {
-        nodeType: "wordpressWpProjects",
-        imagePath: "http://dev.ppl.torchte.ch/wp-json/wp/v2/media",
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-remote-images`,
+    //   options: {
+    //     nodeType: "wordpressWpProjects",
+    //     imagePath: "https://petplace-staging.mdrkdjq6-liquidwebsites.com/wp-json/wp/v2/media",
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

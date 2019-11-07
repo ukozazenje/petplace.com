@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
-import coverImg from '../image'
 import Img from 'gatsby-image'
 
 const PostCard = ({post}) => {
@@ -19,7 +18,10 @@ const PostCard = ({post}) => {
   return (
     <Link to={`${post.path}`} className="category-post-card">
       <div className="card-img">
-        <Img fluid={(post.featured_media && post.featured_media.localFile.childImageSharp.fluid) || data.placeholderImage.childImageSharp.fluid} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} />
+        { post.featured_media && post.featured_media.localFile.childImageSharp.fluid ?
+          <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> :
+          <Img sizes={{ ...data.placeholderImage.childImageSharp.fluid, aspectRatio: 4 / 3}} alt='post image' /> 
+        }
         <Link to={post.categories && post.categories[0].path} className="card-category">
           {post.categories && post.categories[0].name}
         </Link>
@@ -34,7 +36,7 @@ const PostCard = ({post}) => {
           </h3>
         </div>
         <div className="card-author">
-          <span>{post.date || 'date'}   ·  </span><span >{post.author && post.author.name || 'author' }</span>
+          <span>{post.date || 'date'}   ·  </span><span >{post.author ? post.author.name || 'author' : null }</span>
         </div>
       </div>
     </Link>

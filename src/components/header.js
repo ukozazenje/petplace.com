@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React from "react"
-import logoImg from "../images/Logo.png"
 import Drawer from './navigation/drawer'
+import logoImg from "../images/logo.svg"
 
 const Header = ({ siteTitle }) => (
   <header>
@@ -10,7 +10,7 @@ const Header = ({ siteTitle }) => (
         <div className="navbar-brand">
           <Drawer />
           <Link className="navbar-item" to="/" >
-            <img src={logoImg} width="112" height="28" />
+            <img src={logoImg} width="112" height="28" alt="logo" />
           </Link>
 
           <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

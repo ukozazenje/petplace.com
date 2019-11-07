@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroImg from '../heroImage'
+import HeroImg from './images/heroImage'
 
 const categoryHero = ({title}) => {
   return (

@@ -2,12 +2,13 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { paginate } = require('gatsby-awesome-pagination')
+const axios = require("axios")
 
 const getOnlyPublished = edges =>
   _.filter(edges, ({ node }) => node.status === 'publish')
 
 const getCategoryPosts = (edges, id) =>
-  _.filter(edges, ({ node }) => node.categories && node.categories[0].id == id )
+  _.filter(edges, ({ node }) => node.categories && _.find(node.categories, ['id', id] ) )
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -104,51 +105,41 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
     })
-    // .then(() => {
-    //   return graphql(`
-    //     {
-    //       allWordpressPage(filter: {slug: {eq: "home"}}) {
-    //         edges {
-    //           node {
-    //             acf {
-    //               category_rows {
-    //                 category
-    //                 posts {
-    //                   post {
-    //                     wordpress_id
-    //                     post_author
-    //                   }
-    //                 }
-    //               }
-    //               featured_posts {
-    //                 featured_post {
-    //                   post_title
-    //                   wordpress_id
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //       }
-    //     }
-    //   `)
-    // })
-    // .then((result) => {
-    //   if (result.errors) {
-    //     result.errors.forEach(e => console.error(e.toString()))
-    //     return Promise.reject(result.errors)
-    //   }
-    //   const homeTemplate = path.resolve(`./src/templates/post.js`)
-    //   const category_rows = result.data.allWordpressPage.edges[0].node.acf.category_rows
-    //   const categories = category_rows.map((category_row) => category_row.category)
-    //   const acf_posts = category_rows.map((category_row) => category_row.posts)
-    //   createPage({
-    //     path: `/home`,
-    //     component: homeTemplate,
-    //     context: {
-    //       categories: categories,
-    //       acf_posts: acf_posts
-    //     },
-    //   })
-    // })
+    .then(() => {
+      return new Promise((resolve, reject) => {
+        axios
+          .get("http://dev.ppl.torchte.ch/wp-json/wp/v2/posts?per_page=5")
+          .then(result => {
+            const { data } = result
+            /**
+             * creates a dynamic page with the data received
+             * injects the data into the context object alongside with some options
+             * to configure js-search
+             */
+            createPage({
+              path: "/search",
+              component: path.resolve(`./src/templates/ClientSearchTemplate.js`),
+              context: {
+                bookData: {
+                  allPosts: [],
+                  options: {
+                    indexStrategy: "Prefix match",
+                    searchSanitizer: "Lower Case",
+                    TitleIndex: true,
+                    AuthorIndex: true,
+                    SearchByTerm: true,
+                  },
+                },
+              },
+            })
+            resolve()
+          })
+          .catch(err => {
+            console.log("====================================")
+            console.log(`error creating Page:${err}`)
+            console.log("====================================")
+            reject(new Error(`error on page creation:\n${err}`))
+          })
+      })
+    })
 }
