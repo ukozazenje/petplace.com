@@ -1,5 +1,7 @@
-@import "~bulma"
 @import "./base/variables"
+// @import Bulma after variables to override Bulma variables with custom values
+@import "~bulma"
+@import "./base/typography"
 @import "./components/pagination"
 @import "./components/category-card"
 @import "./components/category"
@@ -9,43 +11,9 @@
 @import "./components/form"
 @import "./components/footer"
 @import "./templates/search"
+
 .posts-list-container
   flex-wrap: wrap
-
-// .featured-section
-//   padding-top: 2rem
-//   padding-bottom: 2.5rem
-
-//   h2 
-//     font-size: 2.875rem
-//     font-weight: 600
-//     text-align: center
-//     padding-bottom: 1.5rem
-
-//   .featured-card
-//     position: relative
-
-//   .featured-card-image
-//     min-height: 420px
-//     position: relative
-//     border-radius: 6px
-
-//   .featured-card-content
-//     width: 100%
-//     background: rgba(214, 115, 89, 0.72)
-//     bottom: 0
-//     position: absolute
-//     // top: 0
-//     color: #fff
-//     padding: 1rem
-//     .meta
-//       font-size: 1rem
-//       line-height: 24px
-//     h3 
-//       font-size: 1.25rem
-//       font-weight: 900
-//       line-height: 28px
-//       min-height: 100px
 
 .home-page-intro
   .home-page-intro-heading
@@ -109,7 +77,7 @@
         margin-right: 10px
 
 .latest-stories-section
-  background: $background-light-gray
+  background: $blue-lightest
   h1 
     font-size: 2.875rem
     font-weight: 900
@@ -185,7 +153,7 @@
         
 
 .pet-happiness 
-  background: $background-gray
+  background: $blue-lightest
   .intro
     p 
       max-width: 470px
