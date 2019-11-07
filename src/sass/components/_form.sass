@@ -1,23 +1,23 @@
 .contact-us-form 
+  @include font-size(14px)
   background: $purple-dark
   text-align: center
   color: #ffffff
   input[type="text"]
     background: $mauve
-    color: #ffffff
-    font-size: 1.125rem
-    line-height: 32px
+    color: #ffffff        
     padding: 12px 30px
     border-radius: 50px
     border: 1px solid $mauve
     width: 330px
-    margin: 15px 10px
+    margin: 0 10px
+    @include font-size(24px)
+  .column
+    padding: 0
   button
+    @extend .h4
     background: $orange
-    color: #ffffff
-    font-size: 1.25rem
-    font-weight: 600
-    line-height: 32px
+    color: #ffffff       
     padding: 12px 30px
     border-radius: 50px
     border: 1px solid $orange
@@ -27,13 +27,12 @@
       background: #EA7856
       cursor: pointer
   .disclaimer
-    color: #ffffff
-    font-size: 0.875rem
+    @include font-size(14px)
+    color: #ffffff    
   input[type="checkbox"]
     margin-right: 10px
   label 
     margin-right: 30px
-  h3
-    font-size: 2.875rem
-    font-weight: 900
+  h3    
     margin-bottom: 2rem
+    color: $white

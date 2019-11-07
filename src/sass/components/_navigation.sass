@@ -1,3 +1,11 @@
+header
+  padding: .5rem 0
+  .navbar-item img
+    max-height: 100%
+    width: 100%
+    min-width: 150px
+    max-width: 200px
+
 .MuiDrawer-paper.MuiPaper-root 
   width: 100%
   padding: 0
@@ -36,9 +44,13 @@ button.menu-close
     display: block
     text-align: right
     z-index: 100000
-    color: #ffffff
-    font-size: 2rem
+    color: #ffffff    
     padding: 0 1rem 0 0
 
 header .menu-open:hover, header .menu-open:active, header .menu-open:visited 
   background: transparent
+
+.navbar-end
+  display: none
+  @media only screen and (min-width: 1024px)
+    display: flex
