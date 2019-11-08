@@ -68,7 +68,7 @@ exports.createPages = ({ actions, graphql }) => {
     .then(() => {
       return graphql(`
         {
-          allWordpressPost {
+          allWordpressPost(sort: {fields: date, order: ASC}) {
             edges {
               node {
                 id
@@ -94,13 +94,14 @@ exports.createPages = ({ actions, graphql }) => {
       const postsPublished =getOnlyPublished(allPublishPosts)
 
       // Iterate over the array of posts
-      _.each(postsPublished, ({ node: post }) => {
+      _.each(postsPublished, ({ node: post }, key) => {
         // Create the Gatsby page for this WordPress post
         createPage({
           path: `${post.path}`,
           component: postTemplate,
           context: {
             id: post.id,
+            nextPostId: postsPublished[key + 1] ? postsPublished[key + 1].node.id : postsPublished[0].node.id
           },
         })
       })
