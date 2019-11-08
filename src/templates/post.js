@@ -26,6 +26,9 @@ class Post extends Component  {
         ))}
       </div>
     )
+
+    const pageLink = this.props.location && this.props.location.href
+
     return (
       <Layout noFooter>
         <div className="single-post">
@@ -47,10 +50,10 @@ class Post extends Component  {
                 <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
                 <p className="post-date">{post.date}</p>
                 <div className="social-icons">
-                  <a href={"https://www.facebook.com/sharer/sharer.php?u="+window.location.href} target="_blank"><img src={facebookIcon}  alt="facebook" /></a>
-                  <a href={"https://twitter.com/intent/tweet?url="+window.location.href} target="_blank"><img src={twitterIcon}  alt="twitter" /></a>
-                  <a href={"https://pinterest.com/pin/create/button/?url="+window.location.href+"&media=&description="+post.title} target="_blank"> <img src={pintrestIcon}  alt="pinterest" /></a>
-                  <a href={"mailto:info@example.com?&subject="+post.title+"&body="+window.location.href} target="_blank"><img src={emailIcon}  alt="email" /></a>
+                  <a href={"https://www.facebook.com/sharer/sharer.php?u="+pageLink} target="_blank"><img src={facebookIcon}  alt="facebook" /></a>
+                  <a href={"https://twitter.com/intent/tweet?url="+pageLink} target="_blank"><img src={twitterIcon}  alt="twitter" /></a>
+                  <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                  <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank"><img src={emailIcon}  alt="email" /></a>
                 </div>
                 <img src={bannerImg} alt="banner" />
               </div>
