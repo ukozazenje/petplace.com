@@ -3,7 +3,7 @@ import { Link, navigate } from 'gatsby'
 import BottomScrollListener from 'react-bottom-scroll-listener'
 import NextPostImg from "../../images/next-post.png"
 import Img from 'gatsby-image'
-
+import NoImg from '../../static/images/noNextPost'
 const NextPost = ({posts}) => {
   return (
     <section  className="section next-post-section">
@@ -13,7 +13,11 @@ const NextPost = ({posts}) => {
           <div className="nex-post">
             <h3>Next Aticle</h3>
             <Link to={post.path}>
-              <Img fixed={post.featured_media.localFile.childImageSharp.fixed} alt="" className="next-post-img" />
+              { 
+                post.featured_media && post.featured_media.localFile.childImageSharp ? 
+                <Img fixed={post.featured_media.localFile.childImageSharp.fixed} alt="" className="next-post-img" /> :
+                <NoImg />
+              }
             </Link>
             <Link to={post.categories[0].path}>
               <p>{post.categories[0].name}</p>
