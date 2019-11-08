@@ -12,7 +12,6 @@ import SimilarPosts from "../components/post/SimilarPosts"
 import NoHeroPostImg from "../static/images/noPostHeroImg"
 import NextPost from "../components/post/NextPost"
 
-
 class Post extends Component  {
 
   render(){
