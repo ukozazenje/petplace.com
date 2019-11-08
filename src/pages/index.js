@@ -80,10 +80,10 @@ const IndexPage = () => {
     `
   )
     // console.log(allWordpressPost.edges)
-    const smallPets = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'small-pet-care')
-    const dogs = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'dog-care')
-    const cats = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'cat-care') 
-    const allCategories  = allWordpressCategory.edges
+    // const smallPets = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'small-pet-care')
+    // const dogs = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'dog-care')
+    // const cats = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'cat-care') 
+    // const allCategories  = allWordpressCategory.edges
   return (
     <Layout>
       <SEO title="Home" />
