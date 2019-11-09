@@ -82,7 +82,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        <NextPost posts={posts} />
+        <NextPost posts={posts} location={{...this.props.location}} />
         </div>
       </Layout>
     )

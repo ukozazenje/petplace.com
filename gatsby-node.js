@@ -15,7 +15,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     return graphql(`
       {
-        allWordpressPost {
+        allWordpressPost(sort: {fields: date, order: ASC}) {
           edges {
             node {
               id

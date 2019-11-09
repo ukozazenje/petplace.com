@@ -7,7 +7,7 @@ import ContactUsSection from "../components/homepage/contact-us"
 import CategoryListSection from "../components/homepage/categories-list"
 import SearchHero from "../components/homepage/searchHero"
 import Latest from '../components/homepage/latest-stories/latestStoriesHome'
-import LatestStories from '../components/homepage/latest-stories/'
+// import LatestStories from '../components/homepage/latest-stories/'
 import HomeHeroImg from "../static/images/homeHeroImg"
 
 const IndexPage = () => {
