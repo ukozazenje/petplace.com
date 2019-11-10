@@ -51,3 +51,20 @@
 .lime-transparent
   @include background-opacity($lime, 0.6)
   
+.mobile-img
+  @media only screen and (max-width : 460px)
+    display: block
+  @media only screen and (min-width : 461px)
+    display: none
+    
+.tablet-img
+  display: none
+  @media only screen and (min-width : 461px)
+    display: block
+  +desktop 
+    display: none
+
+.desktop-img
+  display: none
+  +desktop
+    display: block

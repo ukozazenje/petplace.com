@@ -1,10 +1,20 @@
 import React from 'react'
-import HeroImg from './images/heroImage'
+import HomeHeroImg from '../../static/images/categoryHeroImg'
+import TabletHeroImg from '../../static/images/tabletCategoryHeroImg'
+import MobileHeroImg from '../../static/images/mobileCategoryHeroImg'
 import {categoryColor} from '../functions'
 const categoryHero = ({title}) => {
   return (
     <section className="hero-section">
-      <HeroImg />
+      <div className="desktop-img">
+          <HomeHeroImg />
+        </div>
+        <div className="tablet-img">
+          <TabletHeroImg />
+        </div>
+        <div className="mobile-img">
+          <MobileHeroImg />
+        </div>
       <div className={`hero-title ${categoryColor(title)}-transparent`}>
         <div className="container is-widescreen"> 
           <h1>{title}</h1>
