@@ -9,15 +9,9 @@ const Header = ({ siteTitle }) => (
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <Drawer />
-          <Link className="navbar-item" to="/" >
+          <Link className="navbar-item" to="/" >  
             <img src={logoImg} width="112" height="28" alt="logo" />
           </Link>
-
-          <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
         </div>
 
         <div className="navbar-end">

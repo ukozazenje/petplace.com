@@ -7,19 +7,17 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { BrowserRouter } from 'react-router-dom'
 
 import Header from "./header"
 import Footer from './footer'
 import "../sass/main.sass"
+
 const Layout = ({ children }) => {
   return (
     <>
-      <BrowserRouter>
-	      <Header />  
-	      {children}
-	      <Footer />
-      </BrowserRouter>
+      <Header />  
+      {children}
+      <Footer />
     </>
   )
 }
