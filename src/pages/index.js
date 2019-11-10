@@ -8,6 +8,8 @@ import CategoryListSection from "../components/homepage/categories-list"
 import SearchHero from "../components/homepage/searchHero"
 import Latest from '../components/homepage/latest-stories/latestStoriesHome'
 import LatestStories from '../components/homepage/latest-stories/'
+import HomeHeroImg from "../static/images/homeHeroImg"
+
 const IndexPage = () => {
 
   const {allWordpressPost, allWordpressPage, allWordpressCategory} = useStaticQuery(
@@ -85,6 +87,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
+      <HomeHeroImg />
       <SearchHero />
       <Latest />
       {/* <LatestStories dogs={dogs} cats={cats} smallPets={smallPets} categories={allCategories}/> */}

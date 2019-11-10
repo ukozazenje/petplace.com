@@ -181,7 +181,7 @@ const PopularPosts = (props) => {
   }
   // const featuredPost = wordpressPage.acf.featured_posts.map((el) => el.featured_post.post_name)
   // const popularPosts = allWordpressPost.edges.filter(({node:post}) => featuredPost.includes(post.slug) )
-  console.log('posts', posts)
+  // console.log('posts', posts)
   return (
     <section className="section latest-stories-section">
       <div className="container is-widescreen">

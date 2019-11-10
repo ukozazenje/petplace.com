@@ -4,6 +4,7 @@ import axios from 'axios'
 import Layout from '../components/layout'
 import NoImg from "../static/images/noPostImg"
 import Pagination from "react-paginating";
+import HomeHeroImg from "../static/images/homeHeroImg"
 class Search extends Component {
 
   state = {
@@ -39,7 +40,7 @@ class Search extends Component {
   }
 
   handlePageChange = (page) => {
-    console.log(page)
+    // console.log(page)
     const { posts } = this.state;
     const offset = (page - 1) * 6;
     const currentPosts = posts.slice(offset, offset + 6);
@@ -59,6 +60,7 @@ class Search extends Component {
     const { loader, currentPosts } = this.state
     return (
     <Layout>
+      <HomeHeroImg />
       <section className="search-hero-section">
         <div className="container is-widescreen form-container">
           <div className="form-wrapper">

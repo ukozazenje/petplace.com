@@ -35,9 +35,9 @@ module.exports = {
          * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: "dev.ppl.torchte.ch/",
+        baseUrl: 'petplace-staging.mdrkdjq6-liquidwebsites.com',
         // The protocol. This can be http or https.
-        protocol: "http",
+        protocol: 'https',
         // Indicates whether the site is hosted on wordpress.com.
         // If false, then the assumption is made that the site is self hosted.
         // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
@@ -87,7 +87,7 @@ module.exports = {
         // It can help you debug specific API Endpoints problems.
         verboseOutput: false,
         // Set how many pages are retrieved per API request.
-        // perPage: 100,
+        perPage: 100,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
           sourceUrl: "https://source-url.com",
