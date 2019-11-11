@@ -29,9 +29,10 @@ const ContactUs = () => {
                   cat_crazy: values.cat_crazy,
                   date: new Date().toUTCString()
                 }
+              ).then(
+                window.location = "/subscription-confirmation"
               )
 
-            console.log(values)
           }}
           render={({ values, errors, touched }) => (
             <Form>
@@ -64,11 +65,11 @@ const ContactUs = () => {
                   </label>
                 </div>
               </div>
-              <Field 
-                type="email" 
-                name="email" 
-                placeholder="Type your email" 
-                className={ errors.email && touched.email ? "field-error" : "" }  
+              <Field
+                type="email"
+                name="email"
+                placeholder="Type your email"
+                className={ errors.email && touched.email ? "field-error" : "" }
               />
               <Field type="email" name="email_confirm" placeholder="Confirm your email" className={ errors.email_confirm && touched.email_confirm ? "field-error" : "" } />
               {/* <ErrorMessage name="email" component="div" /> */}
