@@ -24,24 +24,24 @@ const CategoriesList = () => {
           <div className="column is-two-thirds-tablet">
             <div className="columns">
               <div className="column is-one-third-tablet">
-                <Card icon={petCareIcon} link='/article/category/pet-care/' title="Pet Care" text="Vets, vet techs, trainers and behaviorists from industry worldwide" />
+                <Card icon={petCareIcon} link='/article/category/pet-care/' title="Pet Care" text="Tips and tricks to keep your pet happy and healthy." />
               </div>
               <div className="column is-one-third-tablet">
-                <Card icon={petHealthIcon} link='/article/category/pet-health/' title="Pet Health" text="Vets, vet techs, trainers and behaviorists from industry worldwide" />
+                <Card icon={petHealthIcon} link='/article/category/pet-health/' title="Pet Health" text="Research symptoms and treatment measures for common illnesses and standard procedures." />
               </div>
               <div className="column is-one-third-tablet">
-                <Card icon={petInsuranceIcon} link='/article/category/pet-insurance/' title="Pet Insurance" text="Vets, vet techs, trainers and behaviorists from industry worldwide" />
+                <Card icon={petInsuranceIcon} link='/article/category/pet-insurance/' title="Pet Insurance" text="Request a quote or shop for plans based on your personal budget and the unique needs of your pet." />
               </div>
             </div>
             <div className="columns">
               <div className="column is-one-third-tablet">
-                <Card icon={petTrainingIcon} link='/article/category/pet-behavior-training/' title="Pet Training" text="Vets, vet techs, trainers and behaviorists from industry worldwide" />
+                <Card icon={petTrainingIcon} link='/article/category/pet-behavior-training/' title="Pet Training" text="Learn about vet-approved and humane methods to provide your pet with structure and form healthy habits." />
               </div>
               <div className="column is-one-third-tablet">
-                <Card icon={breedLibraryIcon} link='/article/category/breeds/' title="Breed Library" text="Vets, vet techs, trainers and behaviorists from industry worldwide" />
+                <Card icon={breedLibraryIcon} link='/article/category/breeds/' title="Breed Library" text="Research breeds if you're planning to adopt or learn more about that special pet at home." />
               </div>
               <div className="column is-one-third-tablet">
-                <Card icon={justForFun} link='/article/category/just-for-fun/' title="Just for Fun" text="Vets, vet techs, trainers and behaviorists from industry worldwide" />
+                <Card icon={justForFun} link='/article/category/just-for-fun/' title="Just for Fun" text="Catch up on trendy pet names, handy products, and the latest in lighthearted news." />
               </div>
             </div>
           </div>

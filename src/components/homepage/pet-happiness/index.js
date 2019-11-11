@@ -25,7 +25,7 @@ const PetHappiness = () => {
                 {/* <img src={expert} alt="" /> */}
                 <ExpertIcon />
                 <h4>Pet Experts</h4>
-                <p>World-class editorial team of pet experts and authors</p>
+                <p>A world-class editorial team of pet experts and authors</p>
               </div>
               <div className="column">
                 {/* <img src={worldImg} alt="" /> */}
