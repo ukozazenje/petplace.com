@@ -6,46 +6,87 @@ header
     min-width: 150px
     max-width: 200px
 
+a.navbar-item:hover
+  background: transparent
+
+.menu-icon
+  width: 25px
+
+.MuiSvgIcon-root
+  color: $orange
+
+.MuiCollapse-wrapper
+  width: 100%
+
 .MuiDrawer-paper.MuiPaper-root 
   width: 100%
   padding: 0
   background-color: #3B092C
   color: #ffffff
 
+.MuiButtonBase-root .MuiButtonBase-root
+  color: $orange !important
+
 .MuiDrawer-paper.MuiPaper-root a 
-  color: #ffffff
+  color: $orange
   text-decoration: none
 
 @media only screen and (min-width: 480px) 
   .MuiDrawer-paper.MuiPaper-root 
-    width: 300px
+    width: 33%
+    min-width: 450px
+
+.MuiCollapse-container.MuiCollapse-entered, .MuiCollapse-container
+  display: flex
+  flex-direction: nowrap
+  justify-content: space-between
+  text-indent: 1.5rem
+  font-size: 12px
+  line-height: 1
+  background-color: $purple-darkest
+  color: #ffffff
+  .MuiListItem-button.MuiListItem-root
+    border: none
+  span 
+    color: #ffffff
+    font-family: "Libre Franklin"
+    font-weight: 400
+  .MuiSvgIcon-root
+    color: #ffffff
+  &:hover
+    background-color: $purple-darkest
+
+.MuiCollapse-wrapperInner .MuiCollapse-wrapperInner
+  text-indent: 3rem
   
 ul.MuiList-root 
   padding: 0
 
-ul.MuiList-root div:hover, ul.MuiList-root div:active, ul.MuiList-root div:visited, 
-li.MuiListItem-root:hover, li.MuiListItem-root:active, li.MuiListItem-root:visited,
-button.menu-close:hover, button.menu-close:active, button.menu-close:visited 
-  background: transparent
-
 li.MuiListItem-divider 
-  border: none
+  border-bottom: 2px solid #ffffff
+  padding: .8rem 0
 
 .MuiListItemText-inset 
-  padding-left: 0
+  padding-left: 25px !important
 
 .MuiListItem-button.MuiListItem-root  
   display: flex
   flex-direction: row
   text-align: left
   justify-content: space-between
+  line-height: 2
+  border-bottom: 1px solid rgba(255, 255, 255, .3)
 
 button.menu-close 
-    display: block
-    text-align: right
+    position: absolute
+    width: 71px
+    height: 71px
+    right: 0
+    top: 0
     z-index: 100000
     color: #ffffff    
-    padding: 0 1rem 0 0
+    padding: 0
+    font-size: 2rem
 
 header .menu-open:hover, header .menu-open:active, header .menu-open:visited 
   background: transparent
