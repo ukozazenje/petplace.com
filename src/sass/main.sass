@@ -78,7 +78,13 @@
   h1   
     text-align: center
   .featured-categories
-    margin-top: 60px
+    margin-top: 60px 
+    .is-ancestor
+      +touch 
+        display: block
+    .tile.is-5.is-vertical.is-parent 
+      +touch 
+        width: 100%
   h2 
     border-bottom: 2px solid #8F8F8F      
     margin-bottom: 2rem
@@ -97,6 +103,14 @@
     .main-img 
       height: 100%
       width: 100%
+    .main-box-mobile-img 
+      display: block 
+      +tablet 
+        display: none 
+    .main-box-desktop-img 
+      display: none 
+      +tablet 
+        display: block
     .main-content
       color: #fff
       border-bottom-left-radius: 6px
@@ -132,8 +146,11 @@
       background: red
     .thumbnail-img
       border-radius: 6px
-      min-width: 200px
-      height: 200px
+      min-width: 120px
+      height: 120px
+      +tablet 
+        min-width: 200px
+        height: 200px
     .sub-content
       padding-left: 1.5rem
       p.date

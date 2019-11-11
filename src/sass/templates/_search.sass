@@ -111,25 +111,37 @@
       color: #ffffff
     input.search-input
       @include font-size(24px)
-      padding-left: 50px
-      padding-right: 225px  
+      padding-left: 30px
+      padding-right: 90px  
       background: rgba(255, 255, 255, 0.78)
       border-radius: 70px
-      height: 80px
+      height: 60px
       width: 100%
       max-width: 700px      
       border: 1px solid rgba(255, 255, 255, 0.78)
+      +tablet 
+        padding-right: 225px
+        height: 80px
+        padding-left: 50px
 
     button
       @extend h5
-      width: 215px
-      height: 60px
+      width: 76px
+      line-height: 35px
+      height: 40px
       border-radius: 50px
       border: 1px solid $orange
       background: $orange
       color: #ffffff
       text-transform: uppercase 
-      margin-left: -225px
+      margin-left: -86px 
+      +tablet 
+        width: 215px
+        line-height: 35px
+        height: 60px
+        margin-left: -225px 
+      img
+        vertical-align: bottom
       &:hover 
         cursor: pointer
 
