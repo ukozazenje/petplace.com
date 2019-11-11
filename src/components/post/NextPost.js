@@ -11,10 +11,10 @@ class  NextPost extends Component {
         <div className="container is-fullhd">
           {this.props.posts.map(({ node: post }) => (
             <div className="nex-post">
-              <h3>Next Aticle</h3>
+              <h3>Next Article</h3>
               <Link to={post.path}>
-                { 
-                  post.featured_media && post.featured_media.localFile.childImageSharp ? 
+                {
+                  post.featured_media && post.featured_media.localFile.childImageSharp ?
                   <Img fixed={post.featured_media.localFile.childImageSharp.fixed} alt="" className="next-post-img" /> :
                   <NoImg />
                 }
@@ -28,7 +28,7 @@ class  NextPost extends Component {
               <Link to={post.path} state={{ lastLocation: this.props.location }}>
                 <img src={NextPostImg} alt="Next post" />
               </Link>
-              <BottomScrollListener debounce={100} onBottom={ () => window.location.href = `${post.path}`} /> 
+              <BottomScrollListener debounce={100} onBottom={ () => window.location.href = `${post.path}`} />
             </div>
           ))}
         </div>

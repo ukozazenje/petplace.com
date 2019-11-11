@@ -7,7 +7,7 @@ const ContactUs = () => {
     <section className="section contact-us-form">
       <div className="container is-fullhd">
         <Formik
-          initialValues={{ email: "", email_confirm: "", dog_crazy: true, puppy: true, cat_crazy: true}}
+          initialValues={{ email: "", email_confirm: "", dog_crazy: true, puppy: false, cat_crazy: true}}
           validate={values => {
             let errors = {}
             if(!values.email){
@@ -24,7 +24,7 @@ const ContactUs = () => {
                 "https://psluo758l6.execute-api.us-east-1.amazonaws.com/prod/emails",
                 {
                   email: values.email,
-                  puppy: values.puppy,
+                  puppy: false,
                   dog_crazy: values.dog_crazy,
                   cat_crazy: values.cat_crazy,
                   date: new Date().toUTCString()
@@ -48,14 +48,6 @@ const ContactUs = () => {
                   </label>
                   <Field
                     type="checkbox"
-                    name="puppy"
-                    checked={values.puppy}
-                  />
-                  <label htmlFor="puppy">
-                    Yes, Send Me The Puppy Newsletter.
-                  </label>
-                  <Field
-                    type="checkbox"
                     name="cat_crazy"
                     checked={values.cat_crazy}
                   />
@@ -64,15 +56,16 @@ const ContactUs = () => {
                   </label>
                 </div>
               </div>
-              <Field 
-                type="email" 
-                name="email" 
-                placeholder="Type your email" 
-                className={ errors.email && touched.email ? "field-error" : "" }  
+              <Field
+                type="email"
+                name="email"
+                placeholder="Type your email"
+                className={ errors.email && touched.email ? "field-error" : "" }
               />
               <Field type="email" name="email_confirm" placeholder="Confirm your email" className={ errors.email_confirm && touched.email_confirm ? "field-error" : "" } />
               {/* <ErrorMessage name="email" component="div" /> */}
               <button type="submit">Sign Up Now</button>
+              <p>By signing up, you agree to our <a>Terms of Service</a> and <a>Privacy Policy</a>.</p>
             </Form>
           )}
         />

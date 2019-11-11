@@ -15,7 +15,7 @@ const PetHappiness = () => {
         <div className="columns">
           <div className="column  intro">
             <h2>Your Pet’s <span className="highlight">Health</span> and <span className="highlight">Happiness</span> Comes First!</h2>
-            <p>Ask any pet parent.  Our pets are our furry children, beloved members of our family.  We love them dearly and we want to give them the best possible life.</p>
+            <p>Our dedicated team of authors and experts are here to provide you with pet information that you can depend on.</p>
             {/* <img src={happinessImg} /> */}
             <PetHappinessImage />
           </div>
@@ -25,13 +25,13 @@ const PetHappiness = () => {
                 {/* <img src={expert} alt="" /> */}
                 <ExpertIcon />
                 <h4>Pet Experts</h4>
-                <p>A world-class editorial team of pet experts and authors</p>
+                <p>A world-class editorial team of pet experts and authors.</p>
               </div>
               <div className="column">
                 {/* <img src={worldImg} alt="" /> */}
                 <WorldIcon />
                 <h4>Worldwide Vets</h4>
-                <p>Vets, vet techs, trainers and behaviorists from industry worldwide</p>
+                <p>Vets, vet techs, trainers, behaviorists, and industry experts from around the world.</p>
               </div>
             </div>
             <div className="columns">
@@ -39,13 +39,13 @@ const PetHappiness = () => {
                 {/* <img src={articles} alt="" /> */}
                 <ArticleIcon />
                 <h4>10,000 approved articles</h4>
-                <p>Library of over 10,000 veterinarian written/approved articles</p>
+                <p>A library featuring over 10,000 veterinarian-written/approved articles.</p>
               </div>
               <div className="column">
                 {/* <img src={organized} alt="" /> */}
                 <OrganizedIcon />
                 <h4>Super Organized</h4>
-                <p>Access to all the information you need to make more informed decisions</p>
+                <p>Access to all of the information you need to make more informed decisions.</p>
               </div>
             </div>
           </div>
