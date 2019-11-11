@@ -2,9 +2,12 @@ import React, {Component} from 'react'
 import {Form, Formik, Field} from 'formik'
 import axios from 'axios'
 import Layout from '../components/layout'
-import NoImg from "../static/images/noPostImg"
-import Pagination from "react-paginating";
+import OrderBy from './search/orderBy'
+import SideBar from './search/sideBar'
+import PostsList from './search/postsList'
 import HomeHeroImg from "../static/images/homeHeroImg"
+import MobileHeroImg from "../static/images/mobileHomeHeroImg"
+import TabletHeroImg from "../static/images/tabletHomeHeroImg"
 class Search extends Component {
 
   state = {
@@ -12,21 +15,36 @@ class Search extends Component {
     loader: true,
     currentPosts: [],
     currentPage: 1,
-    totalPages: 0
+    totalPages: 0,
+    form: {
+      numbers: "60",
+      days: '30',
+      orderBy: 'date',
+      order: 'DSC',
+      title: 'dog'
+    }
   }
 
   handleSubmit = (value) => {
+    const title = value || 'pet'
+    const {numbers, days, order, orderBy} = this.state.form
     this.setState({
       loader:true
     })
-    axios.get(`http://staging.ppl.torchte.ch/wp-json/ttg/v2/post/${value}`)
+    axios.get(`https://petplace-staging.mdrkdjq6-liquidwebsites.com/wp-json/ttg/v1/post/${title}/${orderBy}/${order}/${days}/${numbers}`)
       .then(res => {
-        // console.log(res.data)
         this.setState({
           posts: res.data,
           loader: false,
           currentPosts: res.data.slice(0, 6),
-          currentPage: 1
+          currentPage: 1,
+          form: {
+            numbers: numbers,
+            days: days,
+            orderBy: orderBy,
+            order: order,
+            title: title
+          }
         })
       })
   }
@@ -53,116 +71,115 @@ class Search extends Component {
   };
 
   componentDidMount(){
-    this.props.location.state && this.props.location.state.title ? this.handleSubmit(this.props.location.state.title) : this.noSearchTerm()
+    this.props.location.state && this.props.location.state.title ? this.handleSubmit(this.props.location.state.title) : this.handleSubmit('dog') 
   }
   
+  setFormValues = (e) => {
+    console.log(e)
+    const name = e.target.name
+    const value = e.target.value 
+
+    this.setState({
+      form: {
+        ...this.state.form,
+        [name]: value
+      }
+    })
+  }
+
+  setOrderBy = (e) => {
+    const value = e.target.value 
+    console.log(e.target.value)
+    switch (value) {
+      case 'title-a-z':
+        return this.setState({
+          form: {
+            ...this.state.form,
+            orderBy: 'title',
+            order: 'DSC'
+          }
+        })
+      case 'title-z-a':
+        return this.setState({
+          form: {
+            ...this.state.form,
+            orderBy: 'title',
+            order: 'ASC',
+          }
+        })
+      case 'date-asc':
+        return this.setState({
+          form: {
+            ...this.state.form,
+            orderBy: 'date',
+            order: 'ASC',
+          }
+        })
+      case 'date-dsc':
+       return  this.setState({
+          form: {
+            ...this.state.form,
+            orderBy: 'date',
+            order: 'DSC',
+          }
+        })
+      default:
+       return  this.setState({
+          form: {
+            ...this.state.form,
+            orderBy: 'date',
+            order: 'ASC',
+          }
+        })
+    }
+  }
   render(){
     const { loader, currentPosts } = this.state
     return (
-    <Layout>
-      <HomeHeroImg />
-      <section className="search-hero-section">
-        <div className="container is-widescreen form-container">
-          <div className="form-wrapper">
-            <h1>Search our<br /> 
-            Vet-Approved Articles</h1>
-            <p>Our pets are our furry children, beloved members of our family.  Pet Care, Health, Insurance, Behavior, Traning and Pet Breeds </p>
-            <Formik
-              initialValues={{ title: '' }}
-              onSubmit={(values, actions) => {
-                this.handleSubmit(values.title)
-              }}
-              render={(props) => (
-                <Form>
-                  <Field type="text" name="title" placeholder="Search...." className="search-input" />
-                  <button type="submit" className="search-button">Submit</button>
-                </Form>
-              )}
-            />
-          </div>
+      <Layout>
+        <div className="desktop-img">
+          <HomeHeroImg />
         </div>
-      </section>
-      <section className="section search-page-section">
-        <div className="container is-widescreen">
-          <div className="columns">
-            <div className="column is-one-quarter side-bar">
-              <div className="categories">
-                <h2>Categories</h2>
-              </div>
-              <div>
-                <h2>Tags</h2>
-              </div>
-            </div>
-            <div className="column">
-              <div className="columns"style={{flexWrap: 'wrap'}}>
-                { loader ? 
-                <h1>loading...</h1> : 
-                currentPosts.map((post) => (
-                  <div key={post.id} className="column is-one-third">
-                    <div className="search-card">
-                      <div className="search-card-img">
-                        { post.featured_image.large ? <img src={post.featured_image.large} alt="post" /> : <NoImg /> }
-                      </div>
-                      <div className="search-card-content">
-                        <h3>{post.title || 'No title'}</h3>
-                        <div className="meta">
-                          <span>{post.date || 'no date'}</span><span>{post.author_name || 'Petplace.com'}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              }
-              </div>
-              <Pagination
-                  total={this.state.posts.length}
-                  limit={6}
-                  pageCount={3}
-                  currentPage={this.state.currentPage}
-                >
-                  {({
-                    pages,
-                    currentPage,
-                    hasNextPage,
-                    hasPreviousPage,
-                    previousPage,
-                    nextPage,
-                    totalPages,
-                    getPageItemProps
-                  }) => (
-                    <div>
-                      {hasPreviousPage && (
-                        <button
-                          {...getPageItemProps({
-                            pageValue: previousPage,
-                            onPageChange: this.handlePageChange
-                          })}
-                        >
-                          {"<"}
-                        </button>
-                      )}
-                        Page: {currentPage} of {totalPages}
-                      {hasNextPage && (
-                        <button
-                          {...getPageItemProps({
-                            pageValue: nextPage,
-                            onPageChange: this.handlePageChange
-                          })}
-                        >
-                          {">"}
-                        </button>
-                      )}
-                    </div>
-                  )}
-                </Pagination>
+        <div className="tablet-img">
+          <TabletHeroImg />
+        </div>
+        <div className="mobile-img">
+          <MobileHeroImg />
+        </div>
+        
+        <section className="search-hero-section">
+          <div className="container is-widescreen form-container">
+            <div className="form-wrapper">
+              <h1>Search our<br /> 
+              Vet-Approved Articles</h1>
+              <p>Our pets are our furry children, beloved members of our family.  Pet Care, Health, Insurance, Behavior, Traning and Pet Breeds </p>
+              <Formik
+                initialValues={{title: ""}}
+                onSubmit={(values, actions) => {
+                  this.handleSubmit(values.title)
+                }}
+                render={(props) => (
+                  <Form>
+                    <Field type="text" name="title" placeholder="Search...." className="search-input" />
+                    <button type="submit" className="search-button">Submit</button>
+                  </Form>
+                )}
+              />
             </div>
           </div>
-        </div>
+        </section>
+        <OrderBy onChange={this.setOrderBy} className="is-hidden-until-widescreen"/>
+        <section className="section search-page-section">
+          <div className="container is-widescreen">
+            <div className="columns search-page-columns">
+              <SideBar days={this.state.form.days} onChange={this.setFormValues} setOrderBy={this.setOrderBy}/>
+              <PostsList loader={loader} currentPosts={currentPosts} total={this.state.posts.length} currentPage={this.state.currentPage} onPageChange={this.handlePageChange} />
+            </div>
+          </div>
         </section>
       </Layout>
     )
   }
 }
-
 
 export default Search

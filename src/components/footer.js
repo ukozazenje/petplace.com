@@ -14,10 +14,10 @@ const footer = () => {
             <img src={logo} className="footer-logo" alt="logo" />
             <p>Working with wireframes may be a architecture to the visual design.</p>
             <div className="icons-wrapper">
-              <a href="https://www.facebook.com/petplacefans" target="_blank"><img src={facebook} alt="social icon" /></a>
-              <a href="https://www.instagram.com/petplace/" target="_blank"><img src={instagram} alt="social icon" /></a>
+              <a href="https://www.facebook.com/petplacefans" target="_blank" rel="noopener noreferrer"><img src={facebook} alt="social icon" /></a>
+              <a href="https://www.instagram.com/petplace/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="social icon" /></a>
               <img src={googlePlus} alt="social icon" />
-              <a href="https://twitter.com/PetPlaceFans" target="_blank"><img src={twitter} alt="social icon" /></a>
+              <a href="https://twitter.com/PetPlaceFans" target="_blank" rel="noopener noreferrer"><img src={twitter} alt="social icon" /></a>
             </div>
           </div>
           <div className="column">

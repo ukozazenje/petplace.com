@@ -1,6 +1,7 @@
 import React from "react"
+import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,20 +14,30 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const NoNextPost = () => {
+const MostPopularTags = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "no-next-post.jpg" }) {
-        childImageSharp {
-          fixed(width: 164, height: 164) {
-            ...GatsbyImageSharpFixed
+      allWordpressTag(sort: {fields: count, order: DESC}, limit: 10) {
+        edges {
+          node {
+            count
+            name
+            slug
           }
         }
       }
     }
   `)
+    
+  const { edges: tags } = data.allWordpressTag 
 
-  return <Img fixed={data.placeholderImage.childImageSharp.fixed} />
+  console.log(tags)
+
+  return (
+    tags.map(({ node: tag }) => (
+      <Link className="tag-links" to="/">{tag.name.replace(/&amp;/g, '&')}</Link>
+    ))
+  )
 }
 
-export default NoNextPost
+export default MostPopularTags

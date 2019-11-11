@@ -11,7 +11,7 @@ import emailIcon from '../images/email.png'
 import SimilarPosts from "../components/post/SimilarPosts"
 import NoHeroPostImg from "../static/images/noPostHeroImg"
 import NextPost from "../components/post/NextPost"
-
+import {categoryColor} from "../components/functions"
 class Post extends Component  {
 
   render(){
@@ -33,7 +33,7 @@ class Post extends Component  {
         <div className="single-post">
         <section className="section post-hero-section">
           <div className="container is-widescreen"> 
-            <div><Link to="/" className="category-link">{(post.categories && post.categories[0] && post.categories[0].name) || 'category'}</Link></div>
+            <div><Link to={(post.categories && post.categories[0] && post.categories[0].path) || '/'} className={`category-link ${categoryColor(post.categories && post.categories[0] && post.categories[0].name)}`}>{(post.categories && post.categories[0] && post.categories[0].name) || 'category'}</Link></div>
             <h1>{post.title}</h1>
           </div>
         </section>
@@ -49,10 +49,10 @@ class Post extends Component  {
                 <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
                 <p className="post-date">{post.date}</p>
                 <div className="social-icons">
-                  <a href={"https://www.facebook.com/sharer/sharer.php?u="+pageLink} target="_blank"><img src={facebookIcon}  alt="facebook" /></a>
-                  <a href={"https://twitter.com/intent/tweet?url="+pageLink} target="_blank"><img src={twitterIcon}  alt="twitter" /></a>
-                  <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank"> <img src={pintrestIcon}  alt="pinterest" /></a>
-                  <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank"><img src={emailIcon}  alt="email" /></a>
+                  <a href={"https://www.facebook.com/sharer/sharer.php?u="+pageLink} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
+                  <a href={"https://twitter.com/intent/tweet?url="+pageLink} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
+                  <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                  <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                 </div>
                 <img src={bannerImg} alt="banner" />
               </div>
@@ -67,10 +67,10 @@ class Post extends Component  {
                   <div className="column">
                     <div className="share-icons">
                       <span><strong>Share:</strong></span> 
-                      <a href={"https://www.facebook.com/sharer/sharer.php?u="+pageLink} target="_blank"><img src={facebookIcon}  alt="facebook" /></a>
-                      <a href={"https://twitter.com/intent/tweet?url="+pageLink} target="_blank"><img src={twitterIcon}  alt="twitter" /></a>
-                      <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank"> <img src={pintrestIcon}  alt="pinterest" /></a>
-                      <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank"><img src={emailIcon}  alt="email" /></a>
+                      <a href={"https://www.facebook.com/sharer/sharer.php?u="+pageLink} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
+                      <a href={"https://twitter.com/intent/tweet?url="+pageLink} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
+                      <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                      <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                     </div>
                   </div>
                   <div className="column">
@@ -82,7 +82,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        <NextPost posts={posts} />
+        <NextPost posts={posts} location={{...this.props.location}} />
         </div>
       </Layout>
     )

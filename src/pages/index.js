@@ -7,8 +7,10 @@ import ContactUsSection from "../components/homepage/contact-us"
 import CategoryListSection from "../components/homepage/categories-list"
 import SearchHero from "../components/homepage/searchHero"
 import Latest from '../components/homepage/latest-stories/latestStoriesHome'
-import LatestStories from '../components/homepage/latest-stories/'
+// import LatestStories from '../components/homepage/latest-stories/'
 import HomeHeroImg from "../static/images/homeHeroImg"
+import MobileHeroImg from "../static/images/mobileHomeHeroImg"
+import TabletHeroImg from "../static/images/tabletHomeHeroImg"
 
 const IndexPage = () => {
 
@@ -80,14 +82,22 @@ const IndexPage = () => {
     `
   )
     // console.log(allWordpressPost.edges)
-    const smallPets = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'small-pet-care')
-    const dogs = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'dog-care')
-    const cats = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'cat-care') 
-    const allCategories  = allWordpressCategory.edges
+    // const smallPets = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'small-pet-care')
+    // const dogs = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'dog-care')
+    // const cats = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'cat-care') 
+    // const allCategories  = allWordpressCategory.edges
   return (
     <Layout>
       <SEO title="Home" />
-      <HomeHeroImg />
+      <div className="desktop-img">
+        <HomeHeroImg />
+      </div>
+      <div className="tablet-img">
+        <TabletHeroImg />
+      </div>
+      <div className="mobile-img">
+        <MobileHeroImg />
+      </div>
       <SearchHero />
       <Latest />
       {/* <LatestStories dogs={dogs} cats={cats} smallPets={smallPets} categories={allCategories}/> */}

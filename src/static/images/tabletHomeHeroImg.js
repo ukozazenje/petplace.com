@@ -13,20 +13,21 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const NoNextPost = () => {
+const TabletHomeHero = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "no-next-post.jpg" }) {
+      tabletHomeHeroImage: file(relativePath: { eq: "hero-bg.png" }) {
         childImageSharp {
-          fixed(width: 164, height: 164) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 1024) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
     }
   `)
 
-  return <Img fixed={data.placeholderImage.childImageSharp.fixed} />
+  return  <Img sizes={{ ...data.tabletHomeHeroImage.childImageSharp.fluid, aspectRatio: 16 / 10 }} alt="hero"  /> 
+
 }
 
-export default NoNextPost
+export default TabletHomeHero

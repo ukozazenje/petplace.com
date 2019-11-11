@@ -1,8 +1,8 @@
 import React from 'react'
-import worldImg from "../../../images/world.png"
-import articles from "../../../images/articles.png"
-import organized from "../../../images/organized.png"
-import expert from "../../../images/expert.png"
+// import worldImg from "../../../images/world.png"
+// import articles from "../../../images/articles.png"
+// import organized from "../../../images/organized.png"
+// import expert from "../../../images/expert.png"
 import PetHappinessImage from "../../../static/images/petHappinesImg"
 import OrganizedIcon from "../../../static/images/organizedIcon"
 import ExpertIcon from "../../../static/images/expertIcon"
