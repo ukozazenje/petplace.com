@@ -1,5 +1,52 @@
 .search-page-section
   background: $blue-lightest
+  padding-top: 0
+  .search-page-columns 
+    flex-wrap: wrap
+    +widescreen
+        flex-wrap: nowrap
+  .side-bar
+    transition: all 0.350s ease
+    background: $purple-dark
+    flex-basis: 100%
+    padding: 0
+    margin: 0 -0.75rem
+    color: #ffffff
+    
+    +widescreen
+      background: transparent
+      flex-basis: auto
+      padding: 0 0.75rem
+      margin: 0
+      color: $font-color
+    .filter-btn
+      cursor: pointer
+      text-align: center
+      color: $orange
+      font-size: 1.25rem
+      font-weight: 600
+      padding: 1rem  0
+      +widescreen 
+        display: none
+    .search-filters 
+      padding: 0 0.75rem
+      // height: 0
+      overflow: hidden
+      // opacity: 1
+      display: none
+      transition: all 0.350s ease
+      &.is-active
+        display: block
+        // opacity: 1
+        // height: 100%
+      +widescreen
+        padding: 0
+        display: block
+    h3 
+      color: #ffffff
+      +widescreen
+        color: $font-color
+
 .search-card
   border-radius: 6px
   border: 1px solid $blue-light
@@ -81,7 +128,7 @@
       border: 1px solid $orange
       background: $orange
       color: #ffffff
-      text-transform: uppercase
+      text-transform: uppercase 
       margin-left: -225px
       &:hover 
         cursor: pointer

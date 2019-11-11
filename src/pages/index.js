@@ -9,6 +9,8 @@ import SearchHero from "../components/homepage/searchHero"
 import Latest from '../components/homepage/latest-stories/latestStoriesHome'
 // import LatestStories from '../components/homepage/latest-stories/'
 import HomeHeroImg from "../static/images/homeHeroImg"
+import MobileHeroImg from "../static/images/mobileHomeHeroImg"
+import TabletHeroImg from "../static/images/tabletHomeHeroImg"
 
 const IndexPage = () => {
 
@@ -87,7 +89,15 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <HomeHeroImg />
+      <div className="desktop-img">
+        <HomeHeroImg />
+      </div>
+      <div className="tablet-img">
+        <TabletHeroImg />
+      </div>
+      <div className="mobile-img">
+        <MobileHeroImg />
+      </div>
       <SearchHero />
       <Latest />
       {/* <LatestStories dogs={dogs} cats={cats} smallPets={smallPets} categories={allCategories}/> */}

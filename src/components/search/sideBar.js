@@ -1,9 +1,14 @@
-import React from 'react'
-
-const sideBar = ({days, onChange}) => {
+import React, { useState } from 'react'
+import OrderBy from './orderBy'
+const SideBar = ({days, onChange, setOrderBy}) => {
+  const [ menu, setMenuState ] = useState(false);
+  console.log(menu)
   return (
-    <div className="column is-one-quarter side-bar">
-      <div className="categories">
+    <div className="column is-one-quarter-widescreen side-bar">
+      <div className="filter-btn" onClick={() => setMenuState((menu) => !menu)}>
+        <span>Filters</span>
+      </div>
+      <div className={`search-filters ${menu ? 'is-active' : ''}`}>
         <h3>Filter by date</h3>
         <div className="radio ">
           <input type="radio" name="days" value="1" onChange={onChange} checked={days === '1'}/>
@@ -31,12 +36,13 @@ const sideBar = ({days, onChange}) => {
           <option value="50">50</option>
           <option value="60">60</option>
         </select>
+        <div>
+          <h3>Most popular tags</h3>
+        </div>
       </div>
-      <div>
-        <h3>Most popular tags</h3>
-      </div>
+      <OrderBy onChange={setOrderBy} className="is-hidden-widescreen" />
     </div>
   )
 }
 
-export default sideBar
+export default SideBar

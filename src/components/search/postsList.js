@@ -14,12 +14,12 @@ const postsList = ({loader, currentPosts, total, currentPage, onPageChange}) => 
             <div key={post.id} className="column is-half-tablet is-one-third-desktop">
               <div className="search-card">
                 <div className="search-card-img">
-                  <Link to={post.link.replace('http://dev.ppl.torchte.ch/', '/')}>
+                  <Link to={post.link.replace('https://petplace-staging.mdrkdjq6-liquidwebsites.com/', '/')}>
                     { post.featured_image.large ? <img src={post.featured_image.large} alt="post" /> : <NoImg /> }
                   </Link>
                 </div>
                 <div className="search-card-content">
-                  <h3><Link to={post.link.replace('http://dev.ppl.torchte.ch/', '/')}>{post.title || 'No title'}</Link></h3>
+                  <h3><Link to={post.link.replace('https://petplace-staging.mdrkdjq6-liquidwebsites.com/', '/')}>{post.title || 'No title'}</Link></h3>
                   <div className="meta">
                     <span>{post.date || 'no date'}</span> <span>{post.author_name || 'Petplace.com'}</span>
                   </div>

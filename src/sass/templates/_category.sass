@@ -7,10 +7,16 @@
     background: rgba(111, 105, 168, 0.6)
     padding: 2rem 0
     color: #ffffff 
-
+  .category-title
+    h1 
+      padding: 0 24px
+      +widescreen
+        padding: 0
 .category-posts
+  padding-top: 0
   background: $blue-lightest
-
+  +widescreen 
+    padding-top: 60px
   .category-post-card
     display: block
     border: 1px solid $blue-light
@@ -85,14 +91,57 @@
     .meta      
     h3       
       min-height: 100px 
+.categories-columns
+  flex-wrap: wrap
+  +widescreen
+    flex-wrap: nowrap
 .side-bar
+  transition: all 0.350s ease
+  background: $purple-dark
+  flex-basis: 100%
+  padding: 0
+  margin: 0 -0.75rem
+  color: #ffffff
+  +widescreen
+    background: transparent
+    flex-basis: auto
+    padding: 0 0.75rem
+    margin: 0
+    color: $font-color
+
+  .filter-btn
+    cursor: pointer
+    text-align: center
+    color: $orange
+    font-size: 1.25rem
+    font-weight: 600
+    padding: 1rem  0
+    +widescreen 
+      display: none
+  .category-filters 
+    padding: 0 0.75rem
+    // height: 0
+    overflow: hidden
+    // opacity: 1
+    display: none
+    transition: all 0.350s ease
+    &.is-active
+      display: block
+      // opacity: 1
+      // height: 100%
+    +widescreen
+      padding: 0
+      display: block
   h3 
     display: block
-    width: 100    
+    width: 100%   
     position: relative
     margin-bottom: 1rem
     padding-bottom: 6px
     border-bottom: 2px solid #8F8F8F
+    color: #ffffff
+    +widescreen
+      color: $font-color
     &:after 
       content: ''
       display: block
@@ -100,13 +149,36 @@
       margin-top: 8px
       margin-bottom: -8px
       width: 100px
-  .subcategories
-    margin-top: 60px
+  .subcategories-wrapper
+    display: flex 
+    flex-wrap: wrap
+    flex-direction: column
+    text-align: left
+    align-items:  center 
+    +tablet 
+      flex-direction: row 
+    +widescreen 
+      flex-direction: column 
+      align-items: flex-start
+    .subcategories-btn
+      background: #ffffff 
+      padding: 0 1rem
+      font-size: 1.125rem
+      border: 1px solid #D0D5DF
+      border-radius: 20px
+      min-height: 40px
+      margin: 1rem 2rem
+      +widescreen
+        margin: 0.5rem 0
+      a 
+        color: $font-color
   .tags
-    margin-top: 60px
+    padding: 30px 0 60px 0
     a       
       text-decoration: underline
       margin-right: 1rem
+      font-weight: 900
+      line-height: 32px
       color: #B9C2CC
       transition: all 0.350s ease      
       &:hover

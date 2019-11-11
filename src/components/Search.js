@@ -31,7 +31,7 @@ class Search extends Component {
     this.setState({
       loader:true
     })
-    axios.get(`http://dev.ppl.torchte.ch/wp-json/ttg/v1/post/${title}/${orderBy}/${order}/${days}/${numbers}`)
+    axios.get(`https://petplace-staging.mdrkdjq6-liquidwebsites.com/wp-json/ttg/v1/post/${title}/${orderBy}/${order}/${days}/${numbers}`)
       .then(res => {
         this.setState({
           posts: res.data,
@@ -168,11 +168,11 @@ class Search extends Component {
             </div>
           </div>
         </section>
-        <OrderBy onChange={this.setOrderBy} />
+        <OrderBy onChange={this.setOrderBy} className="is-hidden-until-widescreen"/>
         <section className="section search-page-section">
           <div className="container is-widescreen">
-            <div className="columns">
-              <SideBar days={this.state.form.days} onChange={this.setFormValues} />
+            <div className="columns search-page-columns">
+              <SideBar days={this.state.form.days} onChange={this.setFormValues} setOrderBy={this.setOrderBy}/>
               <PostsList loader={loader} currentPosts={currentPosts} total={this.state.posts.length} currentPage={this.state.currentPage} onPageChange={this.handlePageChange} />
             </div>
           </div>

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const orderBy = ({onChange}) => {
+const orderBy = ({onChange, className}) => {
   return (
-    <section className="section order-section">
+    <section className={`section order-section ${className}`}>
       <div className="container is-widescreen">
         <select className="search-select" name="orderby" onChange={onChange}>
           <option value="title-a-z">Sort by</option>

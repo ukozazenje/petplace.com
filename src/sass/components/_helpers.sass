@@ -61,10 +61,14 @@
   display: none
   @media only screen and (min-width : 461px)
     display: block
-  +desktop 
+  +widescreen 
     display: none
 
 .desktop-img
   display: none
-  +desktop
+  +widescreen
+    display: block
+.is-hidden-until-widescreen 
+  display: none 
+  +widescreen
     display: block
