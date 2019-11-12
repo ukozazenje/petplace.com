@@ -10,6 +10,7 @@ import pintrestIcon from '../images/pintrest.png'
 import emailIcon from '../images/email.png'
 import SimilarPosts from "../components/post/SimilarPosts"
 import NoHeroPostImg from "../static/images/noPostHeroImg"
+import NoMobileHeroPostImg from "../static/images/noPostHeroMobileImg"
 import NextPost from "../components/post/NextPost"
 import {categoryColor} from "../components/functions"
 class Post extends Component  {
@@ -37,10 +38,18 @@ class Post extends Component  {
             <h1>{post.title}</h1>
           </div>
         </section>
-          {post.featured_media && post.featured_media.localFile.childImageSharp ? 
-          <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
-          <NoHeroPostImg 
-          />}
+        <div className="post-hero-img">
+          <div className="is-hidden-touch">
+            {post.featured_media && post.featured_media.localFile.childImageSharp ? 
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+            <NoHeroPostImg />}
+          </div>
+          <div className="is-hidden-desktop">
+            {post.featured_media && post.featured_media.localFile.childImageSharp ? 
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 12 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+            <NoMobileHeroPostImg />}
+          </div>
+        </div>
         <section className="section">
           <div className="container is-widescreen"> 
             <div className="columns">
