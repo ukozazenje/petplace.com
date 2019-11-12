@@ -84,10 +84,10 @@ const IndexPage = () => {
     // console.log(allWordpressPost.edges)
     // const smallPets = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'small-pet-care')
     // const dogs = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'dog-care')
-    // const cats = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'cat-care') 
+    // const cats = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'cat-care')
     // const allCategories  = allWordpressCategory.edges
   return (
-    <Layout>
+    <Layout noSearch={true}>
       <SEO title="Home" />
       <div className="grid-container">
         <div className="desktop-img">
@@ -104,10 +104,10 @@ const IndexPage = () => {
       <CategoryListSection />
       <Latest />
       {/* <LatestStories dogs={dogs} cats={cats} smallPets={smallPets} categories={allCategories}/> */}
-      
+
       <HappinessSection />
       <ContactUsSection />
-      
+
     </Layout>
   )
 }
