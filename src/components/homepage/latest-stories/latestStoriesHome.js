@@ -79,7 +79,6 @@ const PopularPosts = (props) => {
     const filteredPosts = postIds.map((id) => {
       return allWordpressPost.edges.filter(({node: post}) => post.wordpress_id === id)
     })
-    // console.log(filteredPosts)
     return filteredPosts
   }
   const acfPosts = wordpressPage.acf.category_rows
@@ -88,57 +87,11 @@ const PopularPosts = (props) => {
           {
             category: filterCategories(acf.category, allWordpressCategory),
             posts: filterPosts(acf.posts.filter((el, key) => { if(key < 3) { return el.post.wordpress_id}}), allWordpressPost)
-            // posts: filterPosts(acf, allWordpressPost)
           }
         )
     return acc
   },[])
   
-  // const tileParent = (post) => (
-  //   <div className="tile is-parent">
-  //     <div className="tile is-child main-box">
-  //       <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(post.featured_media.alt_text || 'post')} />
-  //       <div className="main-content">
-  //         <h3><Link to={post.path}>{post.title}</Link>Zeko</h3>
-  //         <p className="date">{post.date || 'no date'} ·  {(post.author && post.author.name) || 'PetPlace.com'}</p>
-  //       </div>
-  //     </div>
-  //   </div>
-  // )
-
-  // const tillChild = (key, post) => {
-  //   switch (key) {
-  //     case 1:
-  //       return (
-  //         <div className="tile is-child thumbnail-box flex-start">
-  //           <Link to={post.path}>
-  //             <Img fluid={(post.featured_media.localFile.childImageSharp.fluid)} alt={(post.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
-  // objectPosition="50% 50%" />
-  //           </Link>
-  //           <div className="sub-content">
-  //             <h3><Link to={post.path}>{post.title}</Link></h3>
-  //             <p className="date">{post.date} ·  {post.author.name}</p>
-  //           </div>
-  //         </div>
-  //       )
-  //     case 2:
-  //       return (
-  //         <div className="tile is-child thumbnail-box flex-end">
-  //           <Link to={post.path}>
-  //             <Img fluid={(post.featured_media.localFile.childImageSharp.fluid)} alt={(post.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
-  //   objectPosition="50% 50%" />
-  //           </Link>
-  //           <div className="sub-content align-slef-start">
-  //             <h3><Link to={post.path} >{post.title}</Link></h3>
-  //             <p className="date">{post.date} ·  {post.author.name}</p>
-  //           </div>
-  //         </div>
-  //       )
-    
-  //     default: return null
-  //   }
-  // }
-
   const tills = (posts, category) => {
     const mainPost = posts[0][0].node
     const firstPost = posts[1][0].node
@@ -185,16 +138,12 @@ const PopularPosts = (props) => {
       </div>
     )
   }
-  // const featuredPost = wordpressPage.acf.featured_posts.map((el) => el.featured_post.post_name)
-  // const popularPosts = allWordpressPost.edges.filter(({node:post}) => featuredPost.includes(post.slug) )
-  // console.log('posts', posts)
+  
   return (
     <section className="section latest-stories-section">
       <div className="container is-fullhd">
         <h1>Latest Stories</h1>
           {posts.map((post) => {
-            // console.log(post.posts.map(el => el[0].node))
-            
             return (
               <div className="featured-categories">
                 <h2>{post.category.name}</h2>

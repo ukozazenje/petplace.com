@@ -28,7 +28,7 @@ class Post extends Component  {
     )
 
     const pageLink = this.props.location && this.props.location.href
-
+          console.log(this.props.data)
     return (
       <Layout noFooter>
         <div className="single-post">
@@ -40,12 +40,12 @@ class Post extends Component  {
         </section>
         <div className="post-hero-img">
           <div className="is-hidden-touch">
-            {post.featured_media && post.featured_media.localFile.childImageSharp ? 
+            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ? 
             <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
             <NoHeroPostImg />}
           </div>
           <div className="is-hidden-desktop">
-            {post.featured_media && post.featured_media.localFile.childImageSharp ? 
+            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ? 
             <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
             <NoMobileHeroPostImg />}
           </div>

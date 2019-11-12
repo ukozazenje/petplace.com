@@ -18,7 +18,7 @@ class Search extends Component {
     totalPages: 0,
     form: {
       numbers: "60",
-      days: '30',
+      days: '365',
       orderBy: 'date',
       order: 'DSC',
       title: 'dog'
