@@ -12,15 +12,15 @@ import Header from "./header"
 import Footer from './footer'
 import "../sass/main.sass"
 
-const Layout = ({ children, noFooter }) => {
+const Layout = ({ children, noFooter, noSearch }) => {
   return (
     <>
-      <Header />  
+      <Header noSearch={noSearch} />
       {children}
-      { 
-        noFooter 
-        ? null : 
-        <Footer /> 
+      {
+        noFooter
+        ? null :
+        <Footer />
       }
     </>
   )

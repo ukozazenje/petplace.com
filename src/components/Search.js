@@ -63,7 +63,7 @@ class Search extends Component {
     const offset = (page - 1) * 6;
     const currentPosts = posts.slice(offset, offset + 6);
 
-    
+
     this.setState({
       currentPage: page,
       currentPosts,
@@ -71,13 +71,13 @@ class Search extends Component {
   };
 
   componentDidMount(){
-    this.props.location.state && this.props.location.state.title ? this.handleSubmit(this.props.location.state.title) : this.handleSubmit('dog') 
+    this.props.location.state && this.props.location.state.title ? this.handleSubmit(this.props.location.state.title) : this.handleSubmit('dog')
   }
-  
+
   setFormValues = (e) => {
     console.log(e)
     const name = e.target.name
-    const value = e.target.value 
+    const value = e.target.value
 
     this.setState({
       form: {
@@ -88,7 +88,7 @@ class Search extends Component {
   }
 
   setOrderBy = (e) => {
-    const value = e.target.value 
+    const value = e.target.value
     console.log(e.target.value)
     switch (value) {
       case 'title-a-z':
@@ -136,7 +136,7 @@ class Search extends Component {
   render(){
     const { loader, currentPosts } = this.state
     return (
-      <Layout>
+      <Layout noSearch={true}>
         <div className="desktop-img">
           <HomeHeroImg />
         </div>
@@ -146,11 +146,11 @@ class Search extends Component {
         <div className="mobile-img">
           <MobileHeroImg />
         </div>
-        
+
         <section className="search-hero-section">
           <div className="container is-fullhd form-container">
             <div className="form-wrapper">
-              <h1>Search our<br /> 
+              <h1>Search our<br />
               Vet-Approved Articles</h1>
               <p>Our pets are our furry children, beloved members of our family.  Pet Care, Health, Insurance, Behavior, Traning and Pet Breeds </p>
               <Formik
