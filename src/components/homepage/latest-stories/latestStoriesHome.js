@@ -148,7 +148,12 @@ const PopularPosts = (props) => {
       <div className="tile is-ancestor">
         <div className="tile is-parent">
           <div className="tile is-child main-box">
-            <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_media.alt_text || 'post')} />
+            <div className="main-box-mobile-img">
+              <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(mainPost.featured_media.alt_text || 'post')} />
+            </div>
+            <div className="main-box-desktop-img">
+              <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_media.alt_text || 'post')} />
+            </div>
             <div className={`main-content ${categoryColor(category)}-transparent`}>
               <h3><Link to={mainPost.path}>{mainPost.title}</Link></h3>
               <p className="date">{mainPost.date || 'no date'} ·  {(mainPost.author && mainPost.author.name) || 'PetPlace.com'}</p>
@@ -185,7 +190,7 @@ const PopularPosts = (props) => {
   // console.log('posts', posts)
   return (
     <section className="section latest-stories-section">
-      <div className="container is-widescreen">
+      <div className="container is-fullhd">
         <h1>Latest Stories</h1>
           {posts.map((post) => {
             // console.log(post.posts.map(el => el[0].node))

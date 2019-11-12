@@ -11,7 +11,7 @@ import ArticleIcon from "../../../static/images/articlesIcon"
 const PetHappiness = () => {
   return (
     <section className="section pet-happiness">
-      <div className="container is-widescreen">
+      <div className="container is-fullhd">
         <div className="columns">
           <div className="column  intro">
             <h2>Your Pet’s <span className="highlight">Health</span> and <span className="highlight">Happiness</span> Comes First!</h2>

@@ -3,7 +3,7 @@
 
 @mixin background-opacity($color, $opacity: 0.6) 
   background: $color !important
-  background: rgba($color, $opacity) !important
+  background: darken(rgba($color, $opacity), 10%) !important
 
 // Color Palette
 
@@ -31,3 +31,5 @@ $family-primary-weight: 400
 $family-secondary: 'Raleway', sans-serif
 $family-secondary-weight: 800
 $font-color: $purple-darkest
+$text-shadow: 2px 3px 5px rgba(0,0,0,0.5)
+$text-shadow-small: 1px 1px 3px rgba(0,0,0,0.7)

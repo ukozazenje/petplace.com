@@ -3,7 +3,7 @@ import React from 'react'
 const orderBy = ({onChange, className}) => {
   return (
     <section className={`section order-section ${className}`}>
-      <div className="container is-widescreen">
+      <div className="container is-fullhd">
         <select className="search-select" name="orderby" onChange={onChange}>
           <option value="title-a-z">Sort by</option>
           <option value="title-a-z">title A-Z</option>

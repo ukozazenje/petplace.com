@@ -20,7 +20,7 @@ const Category = props => {
       <Helmet title={`${category} | ${siteTitle}`} />
       <HeroSection title={category} />
       <section className="section category-posts">
-        <div className="container is-widescreen">
+        <div className="container is-fullhd">
           <div className="columns categories-columns">
             <div className="column is-one-quarter-widescreen side-bar">
               <div className="filter-btn" onClick={() => setMenuState((menu) => !menu)}>

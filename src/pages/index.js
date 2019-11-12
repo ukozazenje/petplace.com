@@ -89,19 +89,22 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div className="desktop-img">
-        <HomeHeroImg />
+      <div className="grid-container">
+        <div className="desktop-img">
+          <HomeHeroImg />
+        </div>
+        <div className="tablet-img">
+          <TabletHeroImg />
+        </div>
+        <div className="mobile-img">
+          <MobileHeroImg />
+        </div>
+        <SearchHero />
       </div>
-      <div className="tablet-img">
-        <TabletHeroImg />
-      </div>
-      <div className="mobile-img">
-        <MobileHeroImg />
-      </div>
-      <SearchHero />
+      <CategoryListSection />
       <Latest />
       {/* <LatestStories dogs={dogs} cats={cats} smallPets={smallPets} categories={allCategories}/> */}
-      <CategoryListSection />
+      
       <HappinessSection />
       <ContactUsSection />
       

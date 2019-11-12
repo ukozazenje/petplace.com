@@ -11,7 +11,7 @@ const LatestStories = ({cats, dogs, smallPets}) => {
 
   return (
     <section className="section latest-stories-section">
-        <div className="container is-widescreen">
+        <div className="container is-fullhd">
           <h2>Similar Posts</h2>
           <div className="columns">
             <div className="column">

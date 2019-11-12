@@ -148,7 +148,7 @@ class Search extends Component {
         </div>
         
         <section className="search-hero-section">
-          <div className="container is-widescreen form-container">
+          <div className="container is-fullhd form-container">
             <div className="form-wrapper">
               <h1>Search our<br /> 
               Vet-Approved Articles</h1>
@@ -170,7 +170,7 @@ class Search extends Component {
         </section>
         <OrderBy onChange={this.setOrderBy} className="is-hidden-until-widescreen"/>
         <section className="section search-page-section">
-          <div className="container is-widescreen">
+          <div className="container is-fullhd">
             <div className="columns search-page-columns">
               <SideBar days={this.state.form.days} onChange={this.setFormValues} setOrderBy={this.setOrderBy}/>
               <PostsList loader={loader} currentPosts={currentPosts} total={this.state.posts.length} currentPage={this.state.currentPage} onPageChange={this.handlePageChange} />

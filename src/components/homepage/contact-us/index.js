@@ -5,7 +5,7 @@ import axios from "axios"
 const ContactUs = () => {
   return (
     <section className="section contact-us-form">
-      <div className="container is-widescreen">
+      <div className="container is-fullhd">
         <Formik
           initialValues={{ email: "", email_confirm: "", dog_crazy: true, puppy: true, cat_crazy: true}}
           validate={values => {
@@ -14,7 +14,7 @@ const ContactUs = () => {
               errors.email = 'Email is Required'
             }
             if (values.email !== values.email_confirm) {
-              errors.email = "Email values don't match"
+              errors.email_confirm = "Email values don't match"
             }
             return errors;
           }}
@@ -33,10 +33,9 @@ const ContactUs = () => {
 
             console.log(values)
           }}
-          render={({ values, errors }) => (
+          render={({ values, errors, touched }) => (
             <Form>
               <h3>Get the best of PetPlace straight to your inbox.</h3>
-              <ErrorMessage name="email" component="div" />
               <div className="columns">
                 <div className="column">
                   <Field
@@ -65,8 +64,14 @@ const ContactUs = () => {
                   </label>
                 </div>
               </div>
-              <Field type="email" name="email"  />
-              <Field type="email" name="email_confirm"  />
+              <Field 
+                type="email" 
+                name="email" 
+                placeholder="Type your email" 
+                className={ errors.email && touched.email ? "field-error" : "" }  
+              />
+              <Field type="email" name="email_confirm" placeholder="Confirm your email" className={ errors.email_confirm && touched.email_confirm ? "field-error" : "" } />
+              {/* <ErrorMessage name="email" component="div" /> */}
               <button type="submit">Sign Up Now</button>
             </Form>
           )}
