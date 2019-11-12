@@ -12,7 +12,7 @@ h6, .h6
 
 h1, .h1
 	@include font-size(58px)
-	line-height: 1.2
+	line-height: 1.1
 
 h2, .h2
 	@include font-size(40px)
@@ -20,7 +20,7 @@ h2, .h2
 
 h3, .h3
 	@include font-size(36px)
-	line-height: 1.2
+	line-height: 1.1
 
 h4, .h4
 	@include font-size(30px)
@@ -37,10 +37,13 @@ h6, .h6
 p,
 ul,
 li
-	@include font-size(18px)
+	@include font-size(16px)
 	font-weight: $family-primary-weight
 	color: $font-color
-	line-height: 1.5
+	line-height: 1.4
+	@media only screen and (min-width: 600px)
+		@include font-size(18px)
+		line-height: 1.5
 
 small
 	@include font-size(14px)

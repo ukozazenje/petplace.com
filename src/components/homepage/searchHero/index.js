@@ -5,7 +5,7 @@ import searchImg from '../../../images/search-next.png'
 const SearchHero = () => {
   return (
     <section className="search-hero-section">
-      <div className="container is-widescreen form-container">
+      <div className="form-container">
         <div className="form-wrapper">
           <h1>Search our<br /> 
           Vet-Approved Articles</h1>

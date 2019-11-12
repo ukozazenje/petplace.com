@@ -12,7 +12,6 @@
     padding: 0
     margin: 0 -0.75rem
     color: #ffffff
-    
     +widescreen
       background: transparent
       flex-basis: auto
@@ -88,21 +87,39 @@
   .container
     text-align: right
 .search-hero-section
-  // background: url('../../src/images/hero-bg.png')
-  // background: red
-  // background-size: cover
-  // background-position: top center
-  // background-repeat: no-repeat
-  // min-height: 500px
-  position: absolute
-  top: 70px
-  width: 100%
+  grid-column-start: 1
+  grid-column-end: 2
+  grid-row-start: 1
+  grid-row-end: 2
+  display: flex
+  align-items: center
+  justify-content: center
   .form-wrapper
     padding-left: 1rem
     padding-right: 1rem
+    @media screen and (min-width: 461px)
+      padding-left: 2rem
+    +fullhd
+      padding: 0
   .form-container
-    h1 
-      padding-top: 82px      
+    justify-self: center
+    max-width: 700px
+    +tablet
+      width: 100%
+      max-width: 1152px
+    +fullhd
+      max-width: 1344px
+    form
+      @media screen and (min-width: 461px)
+        max-width: 500px
+        display: grid
+        grid-template-columns: 1fr 250px
+        grid-template-rows: 1fr
+      +tablet
+        max-width: 600px
+      +fullhd
+        max-width: 700px
+    h1    
       color: #ffffff
       margin-bottom: 20px
     p 
@@ -110,28 +127,47 @@
       margin-bottom: 20px
       color: #ffffff
     input.search-input
-      @include font-size(24px)
-      padding-left: 50px
-      padding-right: 225px  
+      outline: none
+      @include font-size(18px)
       background: rgba(255, 255, 255, 0.78)
       border-radius: 70px
-      height: 80px
-      width: 100%
-      max-width: 700px      
+      max-width: 500px
+      padding: 15px 30px 15px 30px
+      margin-bottom: 1rem
+      width: 100%    
       border: 1px solid rgba(255, 255, 255, 0.78)
-
+      @media screen and (min-width: 461px)
+        margin-bottom: 0
+        grid-column-start: 1
+        grid-column-end: 3
+        grid-row-start: 1
+        grid-row-end: 2
+      +tablet
+        max-width: 700px
+        padding: 20px 225px 20px 30px
+        @include font-size(24px)
     button
-      @extend h5
-      width: 215px
-      height: 60px
+      @extend .h5
+      width: 100%
+      outline: none
       border-radius: 50px
-      border: 1px solid $orange
+      padding: 11px 30px 11px 30px
       background: $orange
       color: #ffffff
       text-transform: uppercase 
-      margin-left: -225px
+      border: 1px solid rgba(255, 255, 255, 0.78)
+      @media screen and (min-width: 461px)
+        margin: 2px 2px 2px 0
+        padding: 11px 45px 11px 45px
+        width: inherit
+        grid-column-start: 2
+        grid-column-end: 3
+        grid-row-start: 1
+        grid-row-end: 2
       &:hover 
         cursor: pointer
+      +tablet
+        padding: 20px 50px 20px 50px
 
 .radio 
   margin: 0.5rem

@@ -10,6 +10,8 @@
   .category-title
     h1 
       padding: 0 24px
+      color: $white
+      text-shadow: $text-shadow
       +widescreen
         padding: 0
 .category-posts
@@ -39,16 +41,21 @@
       display: block
 
       .card-category
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
         position: absolute
+        line-height: 1.7
         top: 10px
         left: 20px
         height: 28px        
-
         border-radius: 14px 
         display: inline-block
         padding: 0 14px
         background: $purple
         color: #fff
+      .card-category.lime
+        color: $purple-dark
+        text-shadow: none
 
       img 
         border-top-left-radius: 6px
