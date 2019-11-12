@@ -12,7 +12,7 @@ const footer = () => {
         <div className="columns">
           <div className="column is-one-quarter">
             <img src={logo} className="footer-logo" alt="logo" />
-            <p>Working with wireframes may be a architecture to the visual design.</p>
+            <p>By Vets. For Pets.</p>
             <div className="icons-wrapper">
               <a href="https://www.facebook.com/petplacefans" target="_blank" rel="noopener noreferrer"><img src={facebook} alt="social icon" /></a>
               <a href="https://www.instagram.com/petplace/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="social icon" /></a>
