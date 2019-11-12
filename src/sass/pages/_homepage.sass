@@ -1,0 +1,218 @@
+.posts-list-container
+  flex-wrap: wrap
+  padding-top: 3rem 
+  +widescreen 
+    padding-top: 0
+
+.home-page-intro
+  .home-page-intro-heading
+    display: flex
+    flex-direction: column 
+    justify-content: center
+    p 
+      text-align: left
+      padding-top: 30px
+      padding-bottom: 60px
+    h2 
+      text-align: left          
+    img 
+      align-self: center
+
+  .category-card
+    padding: 10px
+    text-align: center
+    border: 1px solid #E4E4E4
+    border-radius: 6px
+    display: grid
+    grid-template-rows: 1fr
+    grid-template-columns: 130px 1fr
+    +tablet 
+      display: flex
+      flex-direction: column
+    &:hover
+      background: #fff
+      cursor: pointer
+      box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1)
+      border-color: transparent
+      transition: all .350s ease
+    .image-wrapper
+      display: flex
+      align-items: center
+      justify-content: center
+      min-height: 130px
+      grid-row-start:  1
+      grid-row-end: 2
+      grid-column-start: 1
+      grid-column-end: 2
+      +tablet 
+        margin-bottom: 1rem
+    p
+      font-size: 14px
+    a 
+      color: $font-color
+    .copy-wrapper
+      grid-row-start:  1
+      grid-row-end: 2
+      grid-column-start: 2
+      grid-column-end: 3
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+    h3    
+      @extend .h4
+      @include font-size(18px)
+    hr.divider
+      text-align: center
+      background: $orange
+      width: 15px
+      margin: .7rem 0
+    .read-more-btn
+      @extend h6
+      display: none
+      max-width: 250px
+      width: 100%
+      line-height: 2
+      margin-top: 20px
+      color: $orange
+      border: 2px solid $orange      
+      height: 34px
+      border-radius: 17px
+      +tablet
+        display: block    
+      
+      img 
+        margin-right: 10px
+
+.latest-stories-section
+  background: $blue-lightest
+  h1   
+    text-align: center
+  .featured-categories
+    margin-top: 60px 
+    .is-ancestor
+      +touch 
+        display: block
+    .tile.is-5.is-vertical.is-parent 
+      +touch 
+        width: 100%
+  h2 
+    border-bottom: 2px solid #8F8F8F      
+    margin-bottom: 2rem
+    padding-bottom: 6px
+    &:after
+      content: ''
+      display: block
+      border-bottom: 2px solid $orange
+      margin-top: 8px
+      margin-bottom: -8px
+      max-width: 200px    
+  .main-box
+    position: relative
+    img 
+      border-radius: 6px
+    .main-img 
+      height: 100%
+      width: 100%
+    .main-box-mobile-img 
+      display: block 
+      +tablet 
+        display: none 
+    .main-box-desktop-img 
+      display: none 
+      +tablet 
+        display: block
+    .main-content
+      color: #fff
+      border-bottom-left-radius: 6px
+      border-bottom-right-radius: 6px
+      position: absolute
+      padding: 0 20px
+      display: flex
+      justify-content: center
+      flex-direction: column
+      width: 100%
+      background: 
+      bottom: 0
+      height: 160px
+      background: rgba(111, 105, 168, 0.6)
+      p.date
+        @extends small
+        color: $white
+        text-shadow: $text-shadow-small
+      h3    
+        padding-bottom: 10px
+        text-shadow: $text-shadow
+        a 
+          @extend .h2
+          color: $white
+  
+  .thumbnail-box
+    display: flex
+    flex-direction: row
+    .category-btn
+      display: inline-block    
+      padding: 0 15px
+      border-radius: 12px
+      height: 24px
+      color: #fff
+      background: red
+    .thumbnail-img
+      border-radius: 6px
+      min-width: 120px
+      height: 120px
+      +tablet 
+        min-width: 146px
+        height: 146px 
+      +widescreen 
+        min-width: 200px
+        height: 200px 
+    .sub-content
+      padding-left: 1.5rem
+      p.date
+        @extend small
+      h3
+        @extend .h5
+        margin-bottom: .5rem
+
+.pet-happiness 
+  background: $blue-lightest
+  .intro
+    p 
+      max-width: 470px
+      margin-bottom: 20px
+    h2, .highlight       
+      max-width: 420px
+      margin-bottom: 20px    
+  h4 
+    @extend .h5
+    color: $orange    
+    padding-bottom: 10px
+    position: relative
+    margin-bottom: 10px
+    &:after
+      position: absolute
+      content: ""
+      width: 15px
+      height: 1px
+      background: #46896B
+      bottom: 0
+      left: 0
+  p 
+    max-width: 270px
+  
+  .happiness-list
+    .columns
+      margin-bottom: 35px
+
+.grid-container
+  display: grid
+  grid-template-rows: 1fr
+  grid-template-columns: 1fr
+  .form-container
+    z-index: 1
+  .desktop-img, .mobile-img, .tablet-img
+    grid-column-start: 1
+    grid-column-end: 2
+    grid-row-start: 1
+    grid-row-end: 2

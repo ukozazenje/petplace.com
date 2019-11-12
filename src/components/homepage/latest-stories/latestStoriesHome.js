@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from 'gatsby-image'
+import {categoryColor} from '../../functions'
 const PopularPosts = (props) => {
   
   const {allWordpressPost, wordpressPage, allWordpressCategory} = useStaticQuery(
@@ -93,52 +94,52 @@ const PopularPosts = (props) => {
     return acc
   },[])
   
-  const tileParent = (post) => (
-    <div className="tile is-parent">
-      <div className="tile is-child main-box">
-        <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(post.featured_media.alt_text || 'post')} />
-        <div className="main-content">
-          <h3><Link to={post.path}>{post.title}</Link>Zeko</h3>
-          <p className="date">{post.date || 'no date'} ·  {(post.author && post.author.name) || 'PetPlace.com'}</p>
-        </div>
-      </div>
-    </div>
-  )
+  // const tileParent = (post) => (
+  //   <div className="tile is-parent">
+  //     <div className="tile is-child main-box">
+  //       <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(post.featured_media.alt_text || 'post')} />
+  //       <div className="main-content">
+  //         <h3><Link to={post.path}>{post.title}</Link>Zeko</h3>
+  //         <p className="date">{post.date || 'no date'} ·  {(post.author && post.author.name) || 'PetPlace.com'}</p>
+  //       </div>
+  //     </div>
+  //   </div>
+  // )
 
-  const tillChild = (key, post) => {
-    switch (key) {
-      case 1:
-        return (
-          <div className="tile is-child thumbnail-box flex-start">
-            <Link to={post.path}>
-              <Img fluid={(post.featured_media.localFile.childImageSharp.fluid)} alt={(post.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
-  objectPosition="50% 50%" />
-            </Link>
-            <div className="sub-content">
-              <h3><Link to={post.path}>{post.title}</Link></h3>
-              <p className="date">{post.date} ·  {post.author.name}</p>
-            </div>
-          </div>
-        )
-      case 2:
-        return (
-          <div className="tile is-child thumbnail-box flex-end">
-            <Link to={post.path}>
-              <Img fluid={(post.featured_media.localFile.childImageSharp.fluid)} alt={(post.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
-    objectPosition="50% 50%" />
-            </Link>
-            <div className="sub-content align-slef-start">
-              <h3><Link to={post.path} >{post.title}</Link></h3>
-              <p className="date">{post.date} ·  {post.author.name}</p>
-            </div>
-          </div>
-        )
+  // const tillChild = (key, post) => {
+  //   switch (key) {
+  //     case 1:
+  //       return (
+  //         <div className="tile is-child thumbnail-box flex-start">
+  //           <Link to={post.path}>
+  //             <Img fluid={(post.featured_media.localFile.childImageSharp.fluid)} alt={(post.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
+  // objectPosition="50% 50%" />
+  //           </Link>
+  //           <div className="sub-content">
+  //             <h3><Link to={post.path}>{post.title}</Link></h3>
+  //             <p className="date">{post.date} ·  {post.author.name}</p>
+  //           </div>
+  //         </div>
+  //       )
+  //     case 2:
+  //       return (
+  //         <div className="tile is-child thumbnail-box flex-end">
+  //           <Link to={post.path}>
+  //             <Img fluid={(post.featured_media.localFile.childImageSharp.fluid)} alt={(post.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
+  //   objectPosition="50% 50%" />
+  //           </Link>
+  //           <div className="sub-content align-slef-start">
+  //             <h3><Link to={post.path} >{post.title}</Link></h3>
+  //             <p className="date">{post.date} ·  {post.author.name}</p>
+  //           </div>
+  //         </div>
+  //       )
     
-      default: return null
-    }
-  }
+  //     default: return null
+  //   }
+  // }
 
-  const tills = (posts) => {
+  const tills = (posts, category) => {
     const mainPost = posts[0][0].node
     const firstPost = posts[1][0].node
     const secondPost = posts[2][0].node
@@ -147,8 +148,13 @@ const PopularPosts = (props) => {
       <div className="tile is-ancestor">
         <div className="tile is-parent">
           <div className="tile is-child main-box">
-            <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_media.alt_text || 'post')} />
-            <div className="main-content">
+            <div className="main-box-mobile-img">
+              <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(mainPost.featured_media.alt_text || 'post')} />
+            </div>
+            <div className="main-box-desktop-img">
+              <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_media.alt_text || 'post')} />
+            </div>
+            <div className={`main-content ${categoryColor(category)}-transparent`}>
               <h3><Link to={mainPost.path}>{mainPost.title}</Link></h3>
               <p className="date">{mainPost.date || 'no date'} ·  {(mainPost.author && mainPost.author.name) || 'PetPlace.com'}</p>
             </div>
@@ -181,10 +187,10 @@ const PopularPosts = (props) => {
   }
   // const featuredPost = wordpressPage.acf.featured_posts.map((el) => el.featured_post.post_name)
   // const popularPosts = allWordpressPost.edges.filter(({node:post}) => featuredPost.includes(post.slug) )
-  console.log('posts', posts)
+  // console.log('posts', posts)
   return (
     <section className="section latest-stories-section">
-      <div className="container is-widescreen">
+      <div className="container is-fullhd">
         <h1>Latest Stories</h1>
           {posts.map((post) => {
             // console.log(post.posts.map(el => el[0].node))
@@ -192,7 +198,7 @@ const PopularPosts = (props) => {
             return (
               <div className="featured-categories">
                 <h2>{post.category.name}</h2>
-                {tills(post.posts)}
+                {tills(post.posts, post.category.name)}
               </div>
             )
           })}

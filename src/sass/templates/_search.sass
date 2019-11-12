@@ -1,5 +1,51 @@
 .search-page-section
   background: $blue-lightest
+  padding-top: 0
+  .search-page-columns 
+    flex-wrap: wrap
+    +widescreen
+        flex-wrap: nowrap
+  .side-bar
+    transition: all 0.350s ease
+    background: $purple-dark
+    flex-basis: 100%
+    padding: 0
+    margin: 0 -0.75rem
+    color: #ffffff
+    +widescreen
+      background: transparent
+      flex-basis: auto
+      padding: 0 0.75rem
+      margin: 0
+      color: $font-color
+    .filter-btn
+      cursor: pointer
+      text-align: center
+      color: $orange
+      font-size: 1.25rem
+      font-weight: 600
+      padding: 1rem  0
+      +widescreen 
+        display: none
+    .search-filters 
+      padding: 0 0.75rem
+      // height: 0
+      overflow: hidden
+      // opacity: 1
+      display: none
+      transition: all 0.350s ease
+      &.is-active
+        display: block
+        // opacity: 1
+        // height: 100%
+      +widescreen
+        padding: 0
+        display: block
+    h3 
+      color: #ffffff
+      +widescreen
+        color: $font-color
+
 .search-card
   border-radius: 6px
   border: 1px solid $blue-light
@@ -16,8 +62,10 @@
       object-fit: cover
       min-height: 300px
       max-height: 300px
-      min-width: 500px
       max-width: 100% 
+      min-width: 500px
+      +mobile 
+        min-width: 100%
   .search-card-content
     padding: 1rem
     background: $blue-lightest
@@ -34,16 +82,44 @@
       cursor: pointer
       background: #fff
       
-      
+.order-section 
+  background: $blue-lightest
+  .container
+    text-align: right
 .search-hero-section
-  background: url('../../src/images/hero-bg.png')
-  background-size: cover
-  background-position: top center
-  background-repeat: no-repeat
-  min-height: 500px
+  grid-column-start: 1
+  grid-column-end: 2
+  grid-row-start: 1
+  grid-row-end: 2
+  display: flex
+  align-items: center
+  justify-content: center
+  .form-wrapper
+    padding-left: 1rem
+    padding-right: 1rem
+    @media screen and (min-width: 461px)
+      padding-left: 2rem
+    +fullhd
+      padding: 0
   .form-container
-    h1 
-      padding-top: 82px      
+    justify-self: center
+    max-width: 700px
+    +tablet
+      width: 100%
+      max-width: 1152px
+    +fullhd
+      max-width: 1344px
+    form
+      @media screen and (min-width: 461px)
+        max-width: 500px
+        display: grid
+        grid-template-columns: 1fr 250px
+        grid-template-rows: 1fr
+      +tablet
+        max-width: 600px
+      +fullhd
+        max-width: 700px
+    h1    
       color: #ffffff
       margin-bottom: 20px
     p 
@@ -51,25 +127,108 @@
       margin-bottom: 20px
       color: #ffffff
     input.search-input
-      @include font-size(24px)
-      padding-left: 50px
-      padding-right: 225px  
+      outline: none
+      @include font-size(18px)
       background: rgba(255, 255, 255, 0.78)
       border-radius: 70px
-      height: 80px
-      width: 100%
-      max-width: 700px      
+      max-width: 500px
+      padding: 15px 30px 15px 30px
+      margin-bottom: 1rem
+      width: 100%    
       border: 1px solid rgba(255, 255, 255, 0.78)
-
+      @media screen and (min-width: 461px)
+        margin-bottom: 0
+        grid-column-start: 1
+        grid-column-end: 3
+        grid-row-start: 1
+        grid-row-end: 2
+      +tablet
+        max-width: 700px
+        padding: 20px 225px 20px 30px
+        @include font-size(24px)
     button
-      @extend h5
-      width: 215px
-      height: 60px
+      @extend .h5
+      width: 100%
+      outline: none
       border-radius: 50px
-      border: 1px solid $orange
+      padding: 11px 30px 11px 30px
       background: $orange
       color: #ffffff
-      text-transform: uppercase
-      margin-left: -225px
+      text-transform: uppercase 
+      border: 1px solid rgba(255, 255, 255, 0.78)
+      @media screen and (min-width: 461px)
+        margin: 2px 2px 2px 0
+        padding: 11px 45px 11px 45px
+        width: inherit
+        grid-column-start: 2
+        grid-column-end: 3
+        grid-row-start: 1
+        grid-row-end: 2
       &:hover 
         cursor: pointer
+      +tablet
+        padding: 20px 50px 20px 50px
+
+.radio 
+  margin: 0.5rem
+  width: 100%
+.radio input[type=radio] 
+  position: absolute
+  opacity: 0
+  top: 1px
+  left: 5px
+  z-index: 99
+
+.radio input[type=radio] + .radio-label:before 
+  content: ""
+  background: #f4f4f4
+  border-radius: 100%
+  border: 1px solid #b4b4b4
+  display: inline-block
+  width: 1.4em
+  height: 1.4em
+  position: relative
+  top: -0.2em
+  margin-right: 1em
+  vertical-align: top
+  cursor: pointer
+  text-align: center
+  transition: all 250ms ease
+
+.radio input[type=radio]:checked + .radio-label:before 
+  background-color: $orange
+  box-shadow: inset 0 0 0 4px #f4f4f4
+
+.radio input[type=radio]:focus + .radio-label:before 
+  outline: none
+  border-color: $orange
+
+.radio input[type=radio]:disabled + .radio-label:before 
+  box-shadow: inset 0 0 0 4px #f4f4f4
+  border-color: #b4b4b4
+  background: #b4b4b4
+
+.radio input[type=radio] + .radio-label:empty:before 
+  margin-right: 0
+        
+.search-select 
+  padding: 1px 12px 2px 20px
+  -webkit-appearance: none
+  background-image: url('../images/arrow-down.png')
+  background-position: calc(100% - 13px) 50%
+  background-repeat: no-repeat
+  background-size: 11px 6px
+  background-color: #fff
+  border-radius: 20px
+  width: 230px
+  height: 40px
+  font-size: 1rem
+  font-weight: 900
+  border-color: #D0D5DF
+
+.loader-wrapper 
+  padding-top: 90px
+  height: 100vh
+  width: 100%
+  display: flex
+  justify-content: center

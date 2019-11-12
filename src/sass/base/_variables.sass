@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap')
 @import url('https://fonts.googleapis.com/css?family=Raleway:800&display=swap')
 
+@mixin background-opacity($color, $opacity: 0.6) 
+  background: $color !important
+  background: darken(rgba($color, $opacity), 10%) !important
+
 // Color Palette
 
 $purple-darkest: #28061E
@@ -13,6 +17,11 @@ $blue: #678FDA
 $blue-light: #C4D1E9
 $blue-lightest: #F2F6FC 
 $orange: #FF7D5A
+$red: #FF6662
+$gold: #FFCB6A 
+$emerald: #1FD02B 
+$magenta: #DA5BD4 
+$lime: #ABEF22 
 
 // Fonts
 
@@ -22,3 +31,5 @@ $family-primary-weight: 400
 $family-secondary: 'Raleway', sans-serif
 $family-secondary-weight: 800
 $font-color: $purple-darkest
+$text-shadow: 2px 3px 5px rgba(0,0,0,0.5)
+$text-shadow-small: 1px 1px 3px rgba(0,0,0,0.7)

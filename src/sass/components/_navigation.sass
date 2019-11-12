@@ -6,51 +6,114 @@ header
     min-width: 150px
     max-width: 200px
 
-.MuiDrawer-paper.MuiPaper-root 
+a.navbar-item:hover
+  background: transparent
+
+.menu-icon
+  width: 25px
+
+.MuiSvgIcon-root
+  color: $orange
+
+.MuiCollapse-wrapper
+  width: 100%
+
+.MuiDrawer-paper.MuiPaper-root
   width: 100%
   padding: 0
   background-color: #3B092C
   color: #ffffff
 
-.MuiDrawer-paper.MuiPaper-root a 
-  color: #ffffff
+.MuiButtonBase-root .MuiButtonBase-root
+  color: $orange !important
+
+.MuiDrawer-paper.MuiPaper-root a
+  color: $orange
   text-decoration: none
 
-@media only screen and (min-width: 480px) 
-  .MuiDrawer-paper.MuiPaper-root 
-    width: 300px
-  
-ul.MuiList-root 
+@media only screen and (min-width: 480px)
+  .MuiDrawer-paper.MuiPaper-root
+    width: 33%
+    min-width: 450px
+
+.MuiCollapse-container.MuiCollapse-entered, .MuiCollapse-container
+  display: flex
+  flex-direction: nowrap
+  justify-content: space-between
+  text-indent: 1.5rem
+  font-size: 12px
+  line-height: 1
+  background-color: $purple-darkest
+  color: #ffffff
+  .MuiListItem-button.MuiListItem-root
+    border: none
+  span
+    color: #ffffff
+    font-family: "Libre Franklin"
+    font-weight: 400
+  .MuiSvgIcon-root
+    color: #ffffff
+  &:hover
+    background-color: $purple-darkest
+
+.MuiCollapse-wrapperInner .MuiCollapse-wrapperInner
+  text-indent: 3rem
+
+ul.MuiList-root
   padding: 0
 
-ul.MuiList-root div:hover, ul.MuiList-root div:active, ul.MuiList-root div:visited, 
-li.MuiListItem-root:hover, li.MuiListItem-root:active, li.MuiListItem-root:visited,
-button.menu-close:hover, button.menu-close:active, button.menu-close:visited 
-  background: transparent
+li.MuiListItem-divider
+  border-bottom: 2px solid #ffffff
+  padding: .8rem 0
 
-li.MuiListItem-divider 
-  border: none
+.MuiListItemText-inset
+  padding-left: 25px !important
 
-.MuiListItemText-inset 
-  padding-left: 0
-
-.MuiListItem-button.MuiListItem-root  
+.MuiListItem-button.MuiListItem-root
   display: flex
   flex-direction: row
   text-align: left
   justify-content: space-between
+  line-height: 2
+  border-bottom: 1px solid rgba(255, 255, 255, .3)
 
-button.menu-close 
-    display: block
-    text-align: right
+button.menu-close
+    position: absolute
+    width: 71px
+    height: 71px
+    right: 0
+    top: 0
     z-index: 100000
-    color: #ffffff    
-    padding: 0 1rem 0 0
+    color: #ffffff
+    padding: 0
+    font-size: 2rem
 
-header .menu-open:hover, header .menu-open:active, header .menu-open:visited 
+header .menu-open:hover, header .menu-open:active, header .menu-open:visited
   background: transparent
 
 .navbar-end
   display: none
   @media only screen and (min-width: 1024px)
     display: flex
+
+input[type="text"]
+  &.navigation-search
+    background: #FF7D5A
+    color: #ffffff
+    outline: none
+    border: none
+    border-radius: 50px
+    height: 40px
+    width: 214px
+    padding-left: 20px
+    font-size: 15px
+    margin-top: 7px
+    margin-left: 15px
+    background-image: url('../images/search-icon.svg')
+    background-repeat: no-repeat
+    background-position: 95% center
+    background-size: 18px
+
+input[type="text"]
+  &.navigation-search::placeholder
+    color: #ffffff

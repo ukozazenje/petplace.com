@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 import Img from 'gatsby-image'
-
+import {categoryColor} from '../functions'
 const PostCard = ({post}) => {
   const data = useStaticQuery(graphql`
     query {
@@ -22,7 +22,7 @@ const PostCard = ({post}) => {
           <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> :
           <Img sizes={{ ...data.placeholderImage.childImageSharp.fluid, aspectRatio: 4 / 3}} alt='post image' /> 
         }
-        <Link to={post.categories && post.categories[0].path} className="card-category">
+        <Link to={post.categories && post.categories[0].path} className={`card-category ${categoryColor(post.categories && post.categories[0].name)}`}>
           {post.categories && post.categories[0].name}
         </Link>
       </div>

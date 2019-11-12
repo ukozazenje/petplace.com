@@ -3,15 +3,22 @@
   background: $purple-dark
   text-align: center
   color: #ffffff
-  input[type="text"]
+  ::placeholder
+    color: #ffffff
+  input[type="email"]
     background: $mauve
     color: #ffffff        
     padding: 12px 30px
     border-radius: 50px
     border: 1px solid $mauve
-    width: 330px
-    margin: 0 10px
+    width: 100%
+    margin: 0.5rem 0
+    +tablet
+      margin: 0 10px
+      width: 330px
     @include font-size(24px)
+    &.field-error 
+      background: #9F1E1E
   .column
     padding: 0
   button

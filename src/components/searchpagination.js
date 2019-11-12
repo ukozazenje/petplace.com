@@ -150,7 +150,7 @@ class Pagination extends Component {
 
     const { currentPage } = this.state;
     const pages = this.fetchPageNumbers();
-    console.log(pages)
+    // console.log(pages)
     return (
       <Fragment>
         <nav aria-label="Countries Pagination">
