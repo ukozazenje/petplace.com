@@ -16,7 +16,7 @@ const categoryHero = ({title}) => {
           <MobileHeroImg />
         </div>
       <div className={`hero-title ${categoryColor(title)}-transparent`}>
-        <div className="container is-widescreen category-title"> 
+        <div className="container is-fullhd category-title"> 
           <h1>{title.replace(/&amp;/g, '&')}</h1>
         </div>
       </div>

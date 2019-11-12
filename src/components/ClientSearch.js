@@ -118,7 +118,7 @@ class ClientSearch extends Component {
       <Layout>
         <section className="section">
         
-        <div className="container is-widescreen">
+        <div className="container is-fullhd">
           <div>
             <form onSubmit={this.handleSubmit}>
               <div style={{ margin: "0 auto" }}>

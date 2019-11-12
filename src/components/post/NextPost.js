@@ -8,7 +8,7 @@ class  NextPost extends Component {
   render(){
     return (
       <section  className="section next-post-section">
-        <div className="container is-widescreen">
+        <div className="container is-fullhd">
           {this.props.posts.map(({ node: post }) => (
             <div className="nex-post">
               <h3>Next Aticle</h3>

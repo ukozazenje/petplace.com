@@ -8,7 +8,7 @@ import logo from "../images/logo-footer.png"
 const footer = () => {
   return (
     <footer className="section">
-      <div className="container is-widescreen">
+      <div className="container is-fullhd">
         <div className="columns">
           <div className="column is-one-quarter">
             <img src={logo} className="footer-logo" alt="logo" />

@@ -33,7 +33,7 @@ class Post extends Component  {
       <Layout noFooter>
         <div className="single-post">
         <section className="section post-hero-section">
-          <div className="container is-widescreen"> 
+          <div className="container is-fullhd"> 
             <div><Link to={(post.categories && post.categories[0] && post.categories[0].path) || '/'} className={`category-link ${categoryColor(post.categories && post.categories[0] && post.categories[0].name)}`}>{(post.categories && post.categories[0] && post.categories[0].name) || 'category'}</Link></div>
             <h1>{post.title}</h1>
           </div>
@@ -46,12 +46,12 @@ class Post extends Component  {
           </div>
           <div className="is-hidden-desktop">
             {post.featured_media && post.featured_media.localFile.childImageSharp ? 
-            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 12 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
             <NoMobileHeroPostImg />}
           </div>
         </div>
         <section className="section">
-          <div className="container is-widescreen"> 
+          <div className="container is-fullhd"> 
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
                 <img className="author-img" src={avatarImg} alt="avatar" />

@@ -25,7 +25,7 @@ const SearchHero = () => {
             render={(props) => (
               <Form>
                 <Field type="text" name="title" placeholder="Search for Posts..." className="search-input" />
-                <button type="submit" className="search-button"><img src={searchImg} alt=""/><span className="is-hidden-mobile">Search</span></button>
+                <button type="submit" className="search-button">Search</button>
               </Form>
             )}
           />

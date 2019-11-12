@@ -5,7 +5,7 @@ import axios from "axios"
 const ContactUs = () => {
   return (
     <section className="section contact-us-form">
-      <div className="container is-widescreen">
+      <div className="container is-fullhd">
         <Formik
           initialValues={{ email: "", email_confirm: "", dog_crazy: true, puppy: true, cat_crazy: true}}
           validate={values => {

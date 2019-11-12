@@ -65,7 +65,7 @@ const PopularPosts = (props) => {
   
   return (
     <section className="section similar-post-section">
-      <div className="container is-widescreen">
+      <div className="container is-fullhd">
         <h2>Popular Posts</h2>
         <div className="columns">
           { popularPosts.map(({node:post}) => (

@@ -15,7 +15,7 @@ const NoPostHeroMobileImg = () => {
     }
   `)
 
-  return <Img sizes={{...data.noPostHeroMobileImg.childImageSharp.fluid, aspectRatio: 16 / 12}} alt="" /> 
+  return <Img sizes={{...data.noPostHeroMobileImg.childImageSharp.fluid, aspectRatio: 16 / 8}} alt="" /> 
 }
 
 export default NoPostHeroMobileImg

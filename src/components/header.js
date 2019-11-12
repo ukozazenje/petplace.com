@@ -5,7 +5,7 @@ import logoImg from "../images/logo.svg"
 
 const Header = ({ siteTitle }) => (
   <header>
-    <div className="container is-widescreen">
+    <div className="container is-fullhd">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <Drawer />

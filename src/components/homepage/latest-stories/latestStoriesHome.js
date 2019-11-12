@@ -190,7 +190,7 @@ const PopularPosts = (props) => {
   // console.log('posts', posts)
   return (
     <section className="section latest-stories-section">
-      <div className="container is-widescreen">
+      <div className="container is-fullhd">
         <h1>Latest Stories</h1>
           {posts.map((post) => {
             // console.log(post.posts.map(el => el[0].node))
