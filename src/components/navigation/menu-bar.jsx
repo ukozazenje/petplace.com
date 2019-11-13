@@ -11,15 +11,14 @@ import menuItems from "./menuItems";
 import { ListItemIcon, createMuiTheme, ThemeProvider } from "@material-ui/core";
 import AccessAlarmIcon from "@material-ui/icons/AccessAlarm";
 import Typography from "@material-ui/core/Typography";
+import SocialLinks from "../categories/socialLinks.js"
 
 import logoImg from "../../images/logo-white.svg"
 
 const navTheme = createMuiTheme({
   props: {
-      // Name of the component ⚛️
       MuiButtonBase: {
-        // The properties to apply
-        disableRipple: true, // No more ripple, on the whole application 💣!
+        disableRipple: true,
       },
     },
   typography: {
@@ -82,7 +81,7 @@ class MenuBar extends Component {
   render() {
     const { menuOptions } = this.props;
     return (
-        <div className="list-container">      
+        <div className="navigation-1 list-container">      
           <Drawer
             variant="persistent"
             anchor="left"
@@ -101,6 +100,17 @@ class MenuBar extends Component {
                 </List>
               </Typography>
             </ThemeProvider>
+            <div className="navigation-2">
+              <ul className="misc-nav">
+                <li><Link to="/article/category/drug-library/library/">Drug Library</Link></li>
+                <li><Link to="/article/category/vet-qa-parent/vet-qa/">Vet Q&amp;A</Link> </li>
+                <li><Link to="/vet-locator/">Vet Locator</Link></li>
+                <li><Link to="/article/category/just-for-fun/">Just For Fun</Link></li>
+                <li><Link to="/article/category/just-for-fun/surveys-polls/">Surveys &amp; Polls</Link></li>
+                <li><Link to="/article/category/just-for-fun/reader-stories/">Reader Stories</Link></li>
+              </ul>
+              <SocialLinks />
+            </div>
           </div>
         </Drawer>     
       </div>
