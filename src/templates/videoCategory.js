@@ -7,8 +7,8 @@ import VideoPost from "../images/video-img.png"
 import { Link, graphql  } from 'gatsby'
 import Img from 'gatsby-image'
 import NoPostImg from '../static/images/noPostImg'
-const VideosPage = ({data}) => {
-  console.log(data.allWordpressPost.edges[0].node)
+const VideosCategoryPage = ({data}) => {
+  console.log(data.allWordpressPost.edges[0])
   return (
     <Layout>
       <section className="section featured-video-section">
@@ -112,11 +112,17 @@ const VideosPage = ({data}) => {
   )
 }
 
-export default VideosPage
+export default VideosCategoryPage
 
-export const query = graphql`
-  {
-    allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: "videos"}}}}) {
+export const pageQuery = graphql`
+  query VideoCategoryPage($catPath: String!, $limit: Int!, $skip: Int!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allWordpressPost(filter: {categories: {elemMatch: {path: {eq: $catPath}}}}, limit: $limit, skip: $skip) {
+      totalCount
       edges {
         node {
           id

@@ -56,7 +56,7 @@ const footer = () => {
             <h6>Pet Insurance</h6>
             <div className="footer-menu-wrapper">
               <Link to="/article/category/just-for-fun/pet-peeves/">Pet Peeves</Link>
-              <Link to="/videos">Pet News & Videos</Link>
+              <Link to="article/category/just-for-fun/videos/">Pet News & Videos</Link>
               <Link to="/article/category/just-for-fun/fun-stuff/">Fun Stuff</Link>
               <Link to="/article/category/just-for-fun/just-for-kids/">Just For Kids</Link>
               <Link to="/article/category/just-for-fun/surveys-polls/">Surveys & Polls</Link>

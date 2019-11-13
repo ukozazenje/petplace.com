@@ -47,22 +47,37 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const categoriesTemplate = path.resolve(`./src/templates/category.js`)
+      const videoCategoriesTemplate = path.resolve(`./src/templates/videoCategory.js`)
 
       const allPosts = result.data.allWordpressPost.edges
       const posts = getOnlyPublished(allPosts)
 
       _.each(result.data.allWordpressCategory.edges, ({ node: cat }) => {
-        paginate({
-          createPage,
-          items: getCategoryPosts(posts, cat.id),
-          itemsPerPage: 6,
-          pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `${cat.path}` : `${cat.path}page`),
-          component: categoriesTemplate,
-          context: {
-            catPath: cat.path,
-            name: cat.name,
-          }
-        })
+        if(cat.slug === 'videos'){
+          paginate({
+            createPage,
+            items: getCategoryPosts(posts, cat.id),
+            itemsPerPage: 3,
+            pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `${cat.path}` : `${cat.path}page`),
+            component: videoCategoriesTemplate,
+            context: {
+              catPath: cat.path,
+              name: cat.name,
+            }
+          })
+        } else {
+          paginate({
+            createPage,
+            items: getCategoryPosts(posts, cat.id),
+            itemsPerPage: 6,
+            pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `${cat.path}` : `${cat.path}page`),
+            component: categoriesTemplate,
+            context: {
+              catPath: cat.path,
+              name: cat.name,
+            }
+          })
+        }
       })
     })
     .then(() => {
