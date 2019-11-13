@@ -1,5 +1,4 @@
 import React from 'react'
-import dogImg from "../../../images/dog.png"
 import petCareIcon from "../../../images/pet-care.png"
 import petHealthIcon from "../../../images/pet-health.png"
 import petInsuranceIcon from "../../../images/pet-insurance.png"
@@ -18,7 +17,6 @@ const CategoriesList = () => {
               <h2>You Don’t Have To Be Human To <span className="highlight">Be Family</span></h2>
               <p>Ask any pet parent.  Our pets are our furry children, beloved members of our family.  We love them dearly and we want to give them the best possible life.</p>
             </div>
-            {/* <img src={dogImg} alt="dog" /> */}
             <DogImg />
           </div>
           <div className="column is-two-thirds-tablet">
