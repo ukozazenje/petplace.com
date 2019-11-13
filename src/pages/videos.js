@@ -7,7 +7,7 @@ import VideoPost from "../images/video-img.png"
 import { Link, graphql  } from 'gatsby'
 import Img from 'gatsby-image'
 import NoPostImg from '../static/images/noPostImg'
-const videosPage = ({data}) => {
+const VideosPage = ({data}) => {
   console.log(data.allWordpressPost.edges[0].node)
   return (
     <Layout>
@@ -112,7 +112,7 @@ const videosPage = ({data}) => {
   )
 }
 
-export default videosPage
+export default VideosPage
 
 export const query = graphql`
   {
