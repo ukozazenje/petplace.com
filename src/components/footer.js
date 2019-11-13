@@ -1,10 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import facebook from '../images/facebook-footer.png'
-import pintrest from '../images/pinterest-footer.png'
-import twitter from "../images/twitter-footer.png"
-import instagram from '../images/instagram-footer.png'
-import logo from "../images/logo-footer.png"
+import SocialLinks from "./categories/socialLinks.js"
+import logo from "../images/logo.svg"
 const footer = () => {
   return (
     <footer className="section">
@@ -13,12 +10,7 @@ const footer = () => {
           <div className="column is-one-quarter">
             <img src={logo} className="footer-logo" alt="logo" />
             <p>By Vets. For Pets.</p>
-            <div className="icons-wrapper">
-              <a href="https://www.facebook.com/petplacefans" target="_blank" rel="noopener noreferrer"><img src={facebook} alt="social icon" /></a>
-              <a href="https://www.instagram.com/petplace/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="social icon" /></a>
-              <a href="https://www.pinterest.com/petplacefans/" target="_blank" rel="noopener noreferrer"><img src={pintrest} alt="social icon" /></a>
-              <a href="https://twitter.com/PetPlaceFans" target="_blank" rel="noopener noreferrer"><img src={twitter} alt="social icon" /></a>
-            </div>
+            <SocialLinks/>
           </div>
           <div className="column">
             <h6>Pet Care</h6>
