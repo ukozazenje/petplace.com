@@ -7,14 +7,14 @@ const SearchHero = () => {
     <section className="search-hero-section">
       <div className="form-container">
         <div className="form-wrapper">
-          <h1>Search our<br /> 
+          <h1>Search Our<br />
           Vet-Approved Articles</h1>
-          <p>Our pets are our furry children, beloved members of our family.  Pet Care, Health, Insurance, Behavior, Traning and Pet Breeds </p>
+          <p>Our comprehensive library of informative articles covers medical diagnosis, wellness tips, breed bios, and everything in between.</p>
           <Formik
             initialValues={{ title: '' }}
             onSubmit={(values, actions) => {
               navigate(
-                '/search', 
+                '/search',
                 {
                   state: {
                     title: values.title

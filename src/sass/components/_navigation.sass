@@ -1,13 +1,27 @@
 header
   padding: .5rem 0
+  .navbar-item
+    padding: 0
   .navbar-item img
     max-height: 100%
     width: 100%
-    min-width: 150px
-    max-width: 200px
+    max-width: 170px
+    margin-left: 1rem
+    +desktop
+      max-width: 200px
+      margin-left: 0
+
 
 a.navbar-item:hover
   background: transparent
+
+.navbar-brand
+  display: flex
+  flex-direction: row-reverse
+  justify-content: space-between
+  +desktop
+    flex-direction: row
+    justify-content: flex-start
 
 .menu-icon
   width: 25px
@@ -18,21 +32,24 @@ a.navbar-item:hover
 .MuiCollapse-wrapper
   width: 100%
 
-.MuiDrawer-paper.MuiPaper-root 
+.MuiDrawer-paper.MuiPaper-root
   width: 100%
   padding: 0
   background-color: #3B092C
   color: #ffffff
+  display: flex
+  flex-direction: column
+  position: relative
 
 .MuiButtonBase-root .MuiButtonBase-root
   color: $orange !important
 
-.MuiDrawer-paper.MuiPaper-root a 
+.MuiDrawer-paper.MuiPaper-root a
   color: $orange
   text-decoration: none
 
-@media only screen and (min-width: 480px) 
-  .MuiDrawer-paper.MuiPaper-root 
+@media only screen and (min-width: 480px)
+  .MuiDrawer-paper.MuiPaper-root
     width: 33%
     min-width: 450px
 
@@ -47,7 +64,7 @@ a.navbar-item:hover
   color: #ffffff
   .MuiListItem-button.MuiListItem-root
     border: none
-  span 
+  span
     color: #ffffff
     font-family: "Libre Franklin"
     font-weight: 400
@@ -58,18 +75,18 @@ a.navbar-item:hover
 
 .MuiCollapse-wrapperInner .MuiCollapse-wrapperInner
   text-indent: 3rem
-  
-ul.MuiList-root 
+
+ul.MuiList-root
   padding: 0
 
-li.MuiListItem-divider 
+li.MuiListItem-divider
   border-bottom: 2px solid #ffffff
   padding: .8rem 0
 
-.MuiListItemText-inset 
+.MuiListItemText-inset
   padding-left: 25px !important
 
-.MuiListItem-button.MuiListItem-root  
+.MuiListItem-button.MuiListItem-root
   display: flex
   flex-direction: row
   text-align: left
@@ -77,21 +94,78 @@ li.MuiListItem-divider
   line-height: 2
   border-bottom: 1px solid rgba(255, 255, 255, .3)
 
-button.menu-close 
+button.menu-close
     position: absolute
     width: 71px
     height: 71px
     right: 0
     top: 0
     z-index: 100000
-    color: #ffffff    
+    color: #ffffff
     padding: 0
     font-size: 2rem
 
-header .menu-open:hover, header .menu-open:active, header .menu-open:visited 
+header .menu-open:hover, header .menu-open:active, header .menu-open:visited
   background: transparent
 
 .navbar-end
   display: none
   @media only screen and (min-width: 1024px)
+    width: 100%
     display: flex
+    flex-direction: row
+    align-content: center
+    justify-content: flex-end
+    align-items: center
+  a.navbar-item
+    padding: 0 .7rem
+    text-align: center
+    line-height: 1.2
+    @include font-size(15px)
+    +widescreen
+      padding: 0 1.2rem
+      @include font-size(16px)
+
+input[type="text"]
+  &.navigation-search
+    background: #FF7D5A
+    color: #ffffff
+    outline: none
+    border: none
+    border-radius: 50px
+    height: 40px
+    width: 214px
+    margin-right: 1rem
+    padding-left: 20px
+    font-size: 15px
+    background-image: url('../images/search-icon.svg')
+    background-repeat: no-repeat
+    background-position: 95% center
+    background-size: 18px
+    +fullhd
+      margin-right: 0
+
+input[type="text"]
+  &.navigation-search::placeholder
+    color: #ffffff
+
+ul.misc-nav
+  font-weight: 
+  display: flex
+  flex-direction: row
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  padding-top: 2.5rem
+  padding-left: 2.5rem
+  li
+    font-family: $family-primary
+    font-weight: $family-primary-weight
+    @include font-size(14px)
+    flex: 1 0 200px
+    box-sizing: border-box
+    margin-bottom: 1rem
+    max-width: calc(50% - 10px)
+.icons-wrapper
+  padding-top: 2.5rem
+  padding-left: 2rem
