@@ -7,14 +7,14 @@ const ContactUs = () => {
     <section className="section contact-us-form">
       <div className="container is-fullhd">
         <Formik
-          initialValues={{ email: "", email_confirm: "", dog_crazy: true, puppy: false, cat_crazy: true}}
+          initialValues={{ email: "", name: "", dog_crazy: true, cat_crazy: true}}
           validate={values => {
             let errors = {}
             if(!values.email){
               errors.email = 'Email is Required'
             }
-            if (values.email !== values.email_confirm) {
-              errors.email_confirm = "Email values don't match"
+            if (!values.name) {
+              errors.name = "Name is required"
             }
             return errors;
           }}
@@ -24,14 +24,14 @@ const ContactUs = () => {
                 "https://psluo758l6.execute-api.us-east-1.amazonaws.com/prod/emails",
                 {
                   email: values.email,
-                  puppy: false,
                   dog_crazy: values.dog_crazy,
                   cat_crazy: values.cat_crazy,
+                  name: values.name,
                   date: new Date().toUTCString()
                 }
+              ).then(
+                window.location = "/subscription-confirmation"
               )
-
-            console.log(values)
           }}
           render={({ values, errors, touched }) => (
             <Form>
@@ -62,7 +62,7 @@ const ContactUs = () => {
                 placeholder="Type your email"
                 className={ errors.email && touched.email ? "field-error" : "" }
               />
-              <Field type="email" name="email_confirm" placeholder="Confirm your email" className={ errors.email_confirm && touched.email_confirm ? "field-error" : "" } />
+              <Field type="text" name="name" placeholder="Enter your name" className={ errors.name && touched.name ? "field-error" : "" } />
               {/* <ErrorMessage name="email" component="div" /> */}
               <button type="submit">Sign Up Now</button>
               <p>By signing up, you agree to our <a>Terms of Service</a> and <a>Privacy Policy</a>.</p>
