@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import {categoryColor} from '../../functions'
 const PopularPosts = (props) => {
   
-  const {allWordpressPost, wordpressPage, allWordpressCategory} = useStaticQuery(
+  const {allWordpressPost, wordpressPage, allWordpressCategory, placeholderImage} = useStaticQuery(
     graphql`
       query {
         wordpressPage(slug: {eq: "home"}) {
@@ -63,6 +63,13 @@ const PopularPosts = (props) => {
             }
           }
         }
+        placeholderImage: file(relativePath: { eq: "no-img.jpeg" }) {
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `
   )
@@ -102,10 +109,16 @@ const PopularPosts = (props) => {
         <div className="tile is-parent">
           <div className="tile is-child main-box">
             <div className="main-box-mobile-img">
-              <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(mainPost.featured_media.alt_text || 'post')} />
+              { (mainPost.featured_media && mainPost.featured_media.localFile && mainPost.featured_media.localFile.childImageSharp.fluid) ?
+                <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(mainPost.featured_media.alt_text || 'post')} /> :
+                <Img sizes={{ ...placeholderImage.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(mainPost.featured_media.alt_text || 'post')} />
+              }
             </div>
             <div className="main-box-desktop-img">
-              <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_media.alt_text || 'post')} />
+              { (mainPost.featured_media && mainPost.featured_media.localFile && mainPost.featured_media.localFile.childImageSharp.fluid) ?
+                <Img sizes={{ ...mainPost.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_media.alt_text || 'post')} /> :
+                <Img sizes={{ ...placeholderImage.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_media.alt_text || 'post')} />
+              }
             </div>
             <div className={`main-content ${categoryColor(category)}-transparent`}>
               <h3><Link to={mainPost.path}>{mainPost.title}</Link></h3>
@@ -118,6 +131,10 @@ const PopularPosts = (props) => {
             <Link to={firstPost.path}>
               <Img fluid={(firstPost.featured_media.localFile.childImageSharp.fluid)} alt={(firstPost.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
   objectPosition="50% 50%" />
+              { (firstPost.featured_media && firstPost.featured_media.localFile && firstPost.featured_media.localFile.childImageSharp.fluid) ?
+                <Img fluid={(firstPost.featured_media.localFile.childImageSharp.fluid)} alt={(firstPost.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover" objectPosition="50% 50%" /> :
+                <Img fluid={(placeholderImage.childImageSharp.fluid)} alt={(firstPost.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover" objectPosition="50% 50%" /> 
+              }
             </Link>
             <div className="sub-content">
               <h3><Link to={firstPost.path}>{firstPost.title}</Link></h3>
@@ -126,8 +143,10 @@ const PopularPosts = (props) => {
           </div>
           <div className="tile is-child thumbnail-box flex-end">
             <Link to={secondPost.path}>
-              <Img fluid={(secondPost.featured_media.localFile.childImageSharp.fluid)} alt={(secondPost.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
-    objectPosition="50% 50%" />
+              { (secondPost.featured_media && secondPost.featured_media.localFile && secondPost.featured_media.localFile.childImageSharp.fluid) ?
+                <Img fluid={(secondPost.featured_media.localFile.childImageSharp.fluid)} alt={(secondPost.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover" objectPosition="50% 50%" /> :
+                <Img fluid={(placeholderImage.childImageSharp.fluid)} alt={(secondPost.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover" objectPosition="50% 50%" /> 
+              }
             </Link>
             <div className="sub-content align-slef-start">
               <h3><Link to={secondPost.path} >{secondPost.title}</Link></h3>
