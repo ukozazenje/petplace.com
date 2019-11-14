@@ -180,7 +180,7 @@ class VetLocator extends Component{
                     return(
                     <Form>
                       <>
-                        <div >
+                        <div className="section">
                           <p className="form-text">Search By Location</p>
                           <PlacesAutocomplete
                             value={this.state.address || ''}
@@ -230,8 +230,7 @@ class VetLocator extends Component{
                             )}
                           </PlacesAutocomplete>
                         </div>
-                        <br />
-                        <div className="select is-multiple">
+                        <div className="select is-multiple section">
                           <p className="form-text">Search Radius</p>
                           <ErrorMessage name='radius' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
                           <InputRange
@@ -250,9 +249,7 @@ class VetLocator extends Component{
                               setFieldValue('search', value)
                             }} />
                         </div>
-                        <br />
-                        <br />
-                        <div>
+                        <div className="section">
                           <p className="form-text">Results</p>
                           <ErrorMessage name='limit' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
                           <button className={`container-radio button ${values.limit === '5' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '5')} n>5
@@ -271,13 +268,12 @@ class VetLocator extends Component{
                               <input type="radio" value='25'  name="limit" onChange={() => setFieldValue("limit", '25')} className="input-radio" />
                           </button>
                         </div>
-                        <br />
-                        <button
-                          type='submit'
-                          className='button is-rounded is-medium is-fullwidth button-submit'
-                        >
-                          Search
-                        </button>
+                        <div className="section">
+                          <button
+                            type='submit'
+                            className='button is-rounded is-medium is-fullwidth button-submit'
+                          >Search</button>
+                        </div>
                       </>
                     </Form>
                   )}}
