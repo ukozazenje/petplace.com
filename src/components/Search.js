@@ -137,15 +137,15 @@ class Search extends Component {
     const { loader, currentPosts } = this.state
     return (
       <Layout noSearch={true}>
-        <div className="desktop-img">
-          <HomeHeroImg />
-        </div>
-        <div className="tablet-img">
-          <TabletHeroImg />
-        </div>
-        <div className="mobile-img">
-          <MobileHeroImg />
-        </div>
+        {/*<div className="desktop-img">*/}
+        {/*  <HomeHeroImg />*/}
+        {/*</div>*/}
+        {/*<div className="tablet-img">*/}
+        {/*  <TabletHeroImg />*/}
+        {/*</div>*/}
+        {/*<div className="mobile-img">*/}
+        {/*  <MobileHeroImg />*/}
+        {/*</div>*/}
 
         <section className="search-hero-section">
           <div className="container is-fullhd form-container">

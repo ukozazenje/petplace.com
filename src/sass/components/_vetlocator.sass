@@ -6,9 +6,12 @@
    width: 10px
    height: 10px
 
- #g-map
+ #map
+   position: absolute
+   top: 0
+   bottom: 0
    width: 100%
-   height: 100%
+
    //position: absolute
    //top: 0
    //right: 0
@@ -18,18 +21,29 @@
  .map-side-bar
    display: inline-block
    position: absolute
-   top: 25px
+   top: 100px
    left: 0
    margin: 12px
-   background-color: #59314b
+   background: $purple-dark
+   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1)
+   border-radius: 6px 0px 0px 6px
    color: black
    z-index: 100
    padding: 6px
    font-weight: bold
    opacity: 0.8
    //filter:alpha(opacity=40)
-   height: 80%
-   width: 30%
+   height: 640px
+   width: 460px
+   border-radius: 5px
+
+ .form-text
+  font-family: Raleway
+  font-style: normal
+  font-weight: 800
+  font-size: 18px
+  line-height: 34px
+  color: #FFFFFF
 
  .store-list
    display: flex
@@ -41,8 +55,43 @@
    margin-bottom: 15px
 
  .direction-btn
-   background-color: #ff7d5a
+   background-color: $orange
    border-radius: 25px
-   color: white
-     
-     
+   color: $blue-lightest
+   padding: 5px
+
+ .input-place
+    background: $purple-darkest
+    border: 1px solid #DBDEE7
+    box-sizing: border-box
+    border-radius: 6px
+    color: #DBDEE7
+
+ .input::placeholder
+   color: $blue-lightest
+
+ .input-radio
+   padding: 5px
+
+ .input-range__track--active
+   background: $orange
+
+ .input-range__slider
+   background: $orange
+ .input-range
+   width: 430px
+
+ .button-submit
+  background-color: $orange
+  color: $blue-lightest
+
+ .container-radio
+   border: 1px solid #DBDEE7
+   color: #FFFFFF
+   background-color: $purple-darkest
+   margin-left: 5px
+   &.active
+     background: $mauve
+
+ input[type="radio"]
+   opacity: 0

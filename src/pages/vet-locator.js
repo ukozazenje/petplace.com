@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom';
 import MapGL, { Marker, Popup } from "react-map-gl"
 import { GoogleApiWrapper } from "google-maps-react"
 import { ErrorMessage, Field, Form, Formik } from "formik"
@@ -7,12 +8,11 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 import "mapbox-gl/dist/mapbox-gl.css"
-
-import pointer from '../images/pointer.svg'
+import 'react-input-range/lib/css/index.css';
+import InputRange from 'react-input-range';
+import pointer from '../images/pinIcon.svg'
 import vetlocator from '../vet_locator';
 
-import Header from "../components/header"
-import Footer from "../components/footer"
 import Layout from "../components/layout"
 import ContactUsSection from "../components/homepage/contact-us"
 import SEO from "../components/seo"
@@ -26,8 +26,6 @@ class VetLocator extends Component{
       viewport: {
         latitude: 42.079148,
         longitude: -72.62957,
-        width: '100%',
-        height: '700px',
         zoom: 14
       },
       selectedStore: null,
@@ -40,7 +38,7 @@ class VetLocator extends Component{
       limit: 20,
       search: '',
       nearestStores: [],
-      address: ''
+      address: '',
     }
   }
   componentDidMount() {
@@ -49,11 +47,9 @@ class VetLocator extends Component{
     }else{
       this.setState({
         viewport: {
-          latitude: 42.079148,
-          longitude: -72.62957,
-          width: '100vw',
-          height: '100vh',
-          zoom: 14
+          latitude: this.state.viewport.latitude,
+          longitude: this.state.viewport.longitude,
+          zoom: this.state.viewport.zoom
         }
       })
       this.handleSubmit();
@@ -70,11 +66,9 @@ class VetLocator extends Component{
 
   setViewport(value){
     let newViewport = {
-      height: "100vh",
-      width: "100vw",
       latitude: value.lat,
       longitude: value.lng,
-      zoom: 14
+      zoom: this.state.viewport.zoom
     }
     this.setState({
       viewport: newViewport
@@ -89,11 +83,9 @@ class VetLocator extends Component{
   setUserLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
       let newViewport = {
-        height: "100vh",
-        width: "100vw",
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
-        zoom: 14
+        zoom: this.state.viewport.zoom
       }
       this.setState({
         viewport: newViewport
@@ -122,6 +114,7 @@ class VetLocator extends Component{
   handleSubmit(){
 
     const radius = this.state.radius;
+    console.log("RADDDDIUSSSS", radius)
     const allStores = vetlocator.vets || [];
     const lat1 = this.state.viewport.latitude;
     const lon1 = this.state.viewport.longitude;
@@ -158,59 +151,6 @@ class VetLocator extends Component{
 
   render() {
     let { viewport} = this.state
-
-    //styles
-    // const style = {
-    //   background: 'none',
-    //   border: 'none',
-    //   cursor: 'pointer',
-    //   width: '10px',
-    //   height: '10px',
-    // }
-    // const container = {
-    //   width: '80%',
-    //   height: '100%',
-    //   position: 'absolute',
-    //   top: 0,
-    //   right: 0,
-    //   left: 0,
-    //   bottom: 0,
-    //   marginLeft: '15%'
-    // }
-    // const sidebar = {
-    //   display: 'inline-block',
-    //   position: 'absolute',
-    //   top: '25px',
-    //   left: 0,
-    //   margin: '12px',
-    //   backgroundColor: '#59314b',
-    //   color: 'black',
-    //   zIndex: '100',
-    //   padding: '6px',
-    //   fontWeight: 'bold',
-    //   opacity:0.8,
-    //   filter:'alpha(opacity=40)',
-    //   height: '80%',
-    //   width: '30%',
-    // }
-    // const containerStores = {
-    //   display: 'flex',
-    //   flexDirection: 'row',
-    //   justifyContent: 'space-around',
-    //   width: '80%',
-    //   textAlign: 'center',
-    //   borderBottom: "1px solid black",
-    //   marginBottom: '15px',
-    // }
-    // const buttonD = {
-    //   backgroundColor: '#ff7d5a',
-    //   borderRadius: '25px',
-    //   color: 'white'
-    // }
-    // const divS = {
-    //   width: '33%'
-    // }
-
     return (
       <Layout noSearch={true}>
         <SEO title="Vet Locator" />
@@ -218,6 +158,10 @@ class VetLocator extends Component{
           <div className="vet-locator-page">
           <section className="section vet-locator-wrapper">
             <div className="container fullhd">
+              <div>
+                <h1>Vet Locator</h1>
+                <p>Find A Veterinarian Near You!</p>
+              </div>
               <div className="map-side-bar">
                 <Formik
                   enableReinitialize={true}
@@ -232,25 +176,32 @@ class VetLocator extends Component{
                     this.handleSubmit()
                   }}
 
-                  render={({ values, errors, setFieldValue }) => (
+                  render={({ values, errors, setFieldValue }) => {
+                    return(
                     <Form>
                       <>
-                        <div>
-                          Search:
+                        <div >
+                          <p className="form-text">Search By Location</p>
                           <PlacesAutocomplete
                             value={this.state.address || ''}
                             onChange={this.handleChange}
                             onSelect={e => {
                               this.handleSelect(e)
                               setFieldValue('search', e)
+                              this.setState({
+                                address: e,
+                                search: e
+                              })
                             }}
+                            className="input-place"
+                            name="search"
                           >
                             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                               <div>
                                 <input
                                   {...getInputProps({
-                                    placeholder: 'Search Places ...',
-                                    className: 'location-search-input',
+                                    placeholder: 'Add your location...',
+                                    className: 'location-search-input input',
                                   })}
                                 />
                                 <div className="autocomplete-dropdown-container">
@@ -280,102 +231,102 @@ class VetLocator extends Component{
                           </PlacesAutocomplete>
                         </div>
                         <br />
-                        <div>
-                          {/*<label htmlFor='search'>Search</label>*/}
-                          <ErrorMessage name='search' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
-                          <Field
-                            name='search'
-                            type='text'
-                            value={values.search || ''}
-                            disabled
-                          />
-                        </div>
-                        <br />
-                        <div>
-                          <label htmlFor='radius'>Radius</label>
+                        <div className="select is-multiple">
+                          <p className="form-text">Search Radius</p>
                           <ErrorMessage name='radius' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
-                          <Field
+                          <InputRange
+                            maxValue={50}
+                            minValue={1}
+                            value={this.state.radius || 50}
                             name='radius'
-                            component="select"
-                            value={values.radius || ''}
-                          >
-                            <option value='' disabled>Select Radius</option>
-                            <option value='50'>50 miles</option>
-                            <option value='30'>30 miles</option>
-                            <option value='20'>20 miles</option>
-                            <option value='10'>10 miles</option>
-                          </Field>
+                            className="is"
+                            onChange={value => {
+                              this.setState({
+                                radius: value ,
+                                formik: {
+                                radius: value
+                                }
+                              })
+                              setFieldValue('search', value)
+                            }} />
                         </div>
                         <br />
+                        <br />
                         <div>
-                          <label htmlFor='limit'>Limit</label>
+                          <p className="form-text">Results</p>
                           <ErrorMessage name='limit' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
-                          <Field
-                            name='limit'
-                            component="select"
-                            value={values.limit || ''}
-                          >
-                            <option value='' disabled>Select Limit</option>
-                            <option value='5'>5</option>
-                            <option value='10'>10</option>
-                            <option value='15'>15</option>
-                            <option value='20'>20</option>
-                            <option value='25'>25</option>
-                          </Field>
+                          <button className={`container-radio button ${values.limit === '5' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '5')} n>5
+                             <input type="radio" value='5' name="limit" onChange={() => setFieldValue("limit", '5')}  className="input-radio" />
+                          </button>
+                          <button className={`container-radio button ${values.limit === '10' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '10')}>10
+                              <input type="radio" value='10' name="limit" onChange={() => setFieldValue("limit", '10')} className="input-radio" />
+                          </button>
+                          <button className={`container-radio button ${values.limit === '15' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '15')}>15
+                             <input type="radio" value='15' name="limit" onChange={() => setFieldValue("limit", '15')} className="input-radio" />
+                          </button>
+                          <button className={`container-radio button ${values.limit === '20' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '20')}>20
+                             <input type="radio" value='20' name="limit" onChange={() => setFieldValue("limit", '20')} className="input-radio" />
+                          </button>
+                          <button className={`container-radio button ${values.limit === '25' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '25')}>25
+                              <input type="radio" value='25'  name="limit" onChange={() => setFieldValue("limit", '25')} className="input-radio" />
+                          </button>
                         </div>
                         <br />
                         <button
                           type='submit'
-                          className='button'
+                          className='button is-rounded is-medium is-fullwidth button-submit'
                         >
-                          Submit
+                          Search
                         </button>
                       </>
                     </Form>
-                  )}
+                  )}}
                 />
               </div>
-              <MapGL
-                { ...viewport }
-                mapboxApiAccessToken={token}
-                mapStyle="mapbox://styles/goranloncar/ck2ufbepi08ah1cn4xni1idvw"
-                container="g-map"
-                onViewportChange={this.handleViewportChange}
-              >
-                {this.state.nearestStores.map((store, key)=>
-                  (
-                    <Marker key={key}
-                            longitude={parseFloat(store.lng)}
-                            latitude={parseFloat(store.lat)}
-                    >
-                      <a className=""  onClick={(ev) => {
-                        ev.preventDefault();
-                        this.setSelectedStore(store)
-                      }}>
-                        <img src={pointer} alt="SKATE Bard" />
-                      </a>
-                    </Marker>
-                  )
-                )}
-                {this.state.selectedStore ?
-                  (
-                    <Popup
-                      latitude={parseFloat(this.state.selectedStore.lat)}
-                      longitude={parseFloat(this.state.selectedStore.lng)}
-                      onClose = {() => {
-                        this.setSelectedStore(null)
-                      }}
-                    >
-                      <div>
-                        <h4>{this.state.selectedStore.post_title}</h4>
-                        <p>Address: {this.state.selectedStore.address}</p>
-                        <p>City: {this.state.selectedStore.city}</p>
-                        <p>Email: {this.state.selectedStore.email}</p>
-                      </div>
-                    </Popup>
-                  )
-                  : null}
-              </MapGL>
+                <MapGL
+                  { ...viewport }
+                  mapboxApiAccessToken={token}
+                  mapStyle="mapbox://styles/goranloncar/ck2ufbepi08ah1cn4xni1idvw"
+                  width = "100vw"
+                  height = "100vh"
+                  onViewportChange={this.handleViewportChange}
+                >
+                  {this.state.nearestStores.map((store, key)=>
+                    (
+                      <Marker key={key}
+                              longitude={parseFloat(store.lng)}
+                              latitude={parseFloat(store.lat)}
+                      >
+                        <a className=""  onClick={(ev) => {
+                          ev.preventDefault();
+                          this.setSelectedStore(store)
+                        }}>
+                          <img src={pointer} alt="Store" />
+                        </a>
+                      </Marker>
+                    )
+                  )}
+                  {this.state.selectedStore ?
+                    (
+                      <Popup
+                        latitude={parseFloat(this.state.selectedStore.lat)}
+                        longitude={parseFloat(this.state.selectedStore.lng)}
+                        onClose = {() => {
+                          this.setSelectedStore(null)
+                        }}
+                      >
+                        <div>
+                          <h4>{this.state.selectedStore.post_title}</h4>
+                          <p>Address: {this.state.selectedStore.address}</p>
+                          <p>City: {this.state.selectedStore.city}</p>
+                          <p>Email: {this.state.selectedStore.email}</p>
+                        </div>
+                      </Popup>
+                    )
+                    : null}
+                </MapGL>
+
+
             </div>
           </section>
           <br/>
@@ -386,17 +337,17 @@ class VetLocator extends Component{
                 const lng = parseFloat(store.lng);
                 return (
                   <div className="columns" key={key} >
-                    <div className="column">
+                    <div className="column is-5">
                       <h3 >{store.post_title}</h3>
                       <p>{store.address}</p>
                       <p>{store.city}, {store.state}, {store.country} </p>
                     </div>
-                    <div className="column">
+                    <div className="column is-5">
                       <p><strong>Phone: </strong>{store.phone}</p>
                       <p><strong>Distance:</strong> {store.distance}</p>
                     </div>
-                    <div className="column">
-                      <a href={`http://www.google.com/maps/place/${lat},${lng}`} target="_blank">Directions</a>
+                    <div className="column is-2">
+                      <a className="direction-btn" href={`http://www.google.com/maps/place/${lat},${lng}`} target="_blank">Directions</a>
                     </div>
                   </div>
                 )
