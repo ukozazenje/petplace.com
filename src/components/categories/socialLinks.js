@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import facebook from '../../images/facebook-footer.png'
-import pintrest from '../../images/pinterest-footer.png'
-import twitter from "../../images/twitter-footer.png"
-import instagram from '../../images/instagram-footer.png'
+import facebook from '../../images/facebookIcon.svg'
+import pintrest from '../../images/pinterestIcon.svg'
+import twitter from "../../images/twitterIcon.svg"
+import instagram from '../../images/instagramIcon.svg'
 
 const socialLinks = () => {
 
