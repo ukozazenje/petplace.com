@@ -19,6 +19,7 @@ import SEO from "../components/seo"
 const token=process.env.GATSBY_MAPBOX;
 
 class VetLocator extends Component{
+
   constructor(props) {
     super(props)
     this.state = {
@@ -40,6 +41,7 @@ class VetLocator extends Component{
       address: '',
     }
   }
+
   componentDidMount() {
     if (navigator.geolocation) {
       this.setUserLocation()
@@ -54,8 +56,6 @@ class VetLocator extends Component{
       this.handleSubmit();
     }
   }
-
-
 
   handleViewportChange = viewport => {
     this.setState({
@@ -73,6 +73,7 @@ class VetLocator extends Component{
       viewport: newViewport
     })
   }
+
   setSelectedStore(store){
     this.setState({
       selectedStore: store
@@ -111,7 +112,6 @@ class VetLocator extends Component{
   }
 
   handleSubmit(){
-
     const radius = this.state.radius;
     const allStores = vetlocator.vets || [];
     const lat1 = this.state.viewport.latitude;
@@ -148,19 +148,20 @@ class VetLocator extends Component{
   }
 
   render() {
+
     let { viewport} = this.state
     const styleMap = {
-      width: '1590px',
+      width: '1344px',
       height: '700px'
     }
+    console.log("STATTEEE", this.state)
     return (
       <Layout noSearch={true}>
         <SEO title="Vet Locator" />
-
           <div className="vet-locator-page">
           <section className="section vet-locator-wrapper category-posts">
-            <div className="container fullhd">
-              <div>
+            <div className="container fullhd map-container">
+              <div className="header-text">
                 <h1>Vet Locator</h1>
                 <p>Find A Veterinarian Near You!</p>
               </div>
@@ -170,6 +171,7 @@ class VetLocator extends Component{
                   initialValues={{...this.state.formik}}
 
                   onSubmit={( values ) => {
+                    console.log("VALUEEES", values)
                     this.setState({
                       radius: values.radius || this.state.radius,
                       limit: values.limit || this.state.limit,
@@ -203,7 +205,7 @@ class VetLocator extends Component{
                                 <input
                                   {...getInputProps({
                                     placeholder: 'Add your location...',
-                                    className: 'location-search-input input',
+                                    className: 'location-search-input input input-place',
                                   })}
                                 />
                                 <div className="autocomplete-dropdown-container">
@@ -212,7 +214,6 @@ class VetLocator extends Component{
                                     const className = suggestion.active
                                       ? 'suggestion-item--active'
                                       : 'suggestion-item';
-                                    // inline style for demonstration purpose
                                     const style = suggestion.active
                                       ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                                       : { backgroundColor: '#ffffff', cursor: 'pointer' };
@@ -281,6 +282,7 @@ class VetLocator extends Component{
                   )}}
                 />
               </div>
+              <div className="test">
                 <MapGL
                   { ...viewport }
                   mapboxApiAccessToken={token}
@@ -299,7 +301,7 @@ class VetLocator extends Component{
                           ev.preventDefault();
                           this.setSelectedStore(store)
                         }}>
-                          <img src={pointer} alt="Store" />
+                          <img src={pointer} alt="Store" className="poointer"/>
                         </a>
                       </Marker>
                     )
@@ -323,24 +325,22 @@ class VetLocator extends Component{
                     )
                     : null}
                 </MapGL>
-
-
+              </div>
             </div>
           </section>
-          <br/>
           <section className="section">
             <div className="container is-fullhd">
               {this.state.nearestStores.map((store, key) => {
                 const lat = parseFloat(store.lat);
                 const lng = parseFloat(store.lng);
                 return (
-                  <div className="columns" key={key} >
-                    <div className="column is-5">
-                      <h3 >{store.post_title}</h3>
+                  <div className="columns hr" key={key} >
+                    <div className="column is-5 stores-p">
+                      <h3 className="stores-h1">{store.post_title}</h3>
                       <p>{store.address}</p>
                       <p>{store.city}, {store.state}, {store.country} </p>
                     </div>
-                    <div className="column is-5">
+                    <div className="column is-5 stores-p">
                       <p><strong>Phone: </strong>{store.phone}</p>
                       <p><strong>Distance:</strong> {store.distance}</p>
                     </div>
@@ -348,6 +348,7 @@ class VetLocator extends Component{
                       <a className="direction-btn" href={`http://www.google.com/maps/place/${lat},${lng}`} target="_blank">Directions</a>
                     </div>
                   </div>
+
                 )
               })}
             </div>
