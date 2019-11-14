@@ -129,8 +129,6 @@ const PopularPosts = (props) => {
         <div className="tile is-5 is-vertical is-parent">
           <div className="tile is-child thumbnail-box flex-start">
             <Link to={firstPost.path}>
-              <Img fluid={(firstPost.featured_media.localFile.childImageSharp.fluid)} alt={(firstPost.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
-  objectPosition="50% 50%" />
               { (firstPost.featured_media && firstPost.featured_media.localFile && firstPost.featured_media.localFile.childImageSharp.fluid) ?
                 <Img fluid={(firstPost.featured_media.localFile.childImageSharp.fluid)} alt={(firstPost.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover" objectPosition="50% 50%" /> :
                 <Img fluid={(placeholderImage.childImageSharp.fluid)} alt={(firstPost.featured_media.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover" objectPosition="50% 50%" /> 
