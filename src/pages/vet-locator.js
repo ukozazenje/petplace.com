@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
 import MapGL, { Marker, Popup } from "react-map-gl"
 import { GoogleApiWrapper } from "google-maps-react"
 import { ErrorMessage, Field, Form, Formik } from "formik"
@@ -26,7 +25,7 @@ class VetLocator extends Component{
       viewport: {
         latitude: 42.079148,
         longitude: -72.62957,
-        zoom: 14
+        zoom: 12
       },
       selectedStore: null,
       formik: {
@@ -114,7 +113,6 @@ class VetLocator extends Component{
   handleSubmit(){
 
     const radius = this.state.radius;
-    console.log("RADDDDIUSSSS", radius)
     const allStores = vetlocator.vets || [];
     const lat1 = this.state.viewport.latitude;
     const lon1 = this.state.viewport.longitude;
@@ -151,12 +149,16 @@ class VetLocator extends Component{
 
   render() {
     let { viewport} = this.state
+    const styleMap = {
+      width: '1590px',
+      height: '700px'
+    }
     return (
       <Layout noSearch={true}>
         <SEO title="Vet Locator" />
 
           <div className="vet-locator-page">
-          <section className="section vet-locator-wrapper">
+          <section className="section vet-locator-wrapper category-posts">
             <div className="container fullhd">
               <div>
                 <h1>Vet Locator</h1>
@@ -283,8 +285,8 @@ class VetLocator extends Component{
                   { ...viewport }
                   mapboxApiAccessToken={token}
                   mapStyle="mapbox://styles/goranloncar/ck2ufbepi08ah1cn4xni1idvw"
-                  width = "100vw"
-                  height = "100vh"
+                  width = {styleMap.width}
+                  height = {styleMap.height}
                   onViewportChange={this.handleViewportChange}
                 >
                   {this.state.nearestStores.map((store, key)=>
