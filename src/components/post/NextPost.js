@@ -13,8 +13,8 @@ class  NextPost extends Component {
             <div className="nex-post">
               <h3>Next Article</h3>
               <Link to={post.path}>
-                {
-                  post.featured_media && post.featured_media.localFile.childImageSharp ?
+                { 
+                  post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ? 
                   <Img fixed={post.featured_media.localFile.childImageSharp.fixed} alt="" className="next-post-img" /> :
                   <NoImg />
                 }

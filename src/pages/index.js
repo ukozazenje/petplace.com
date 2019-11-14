@@ -14,73 +14,73 @@ import TabletHeroImg from "../static/images/tabletHomeHeroImg"
 
 const IndexPage = () => {
 
-  const {allWordpressPost, allWordpressPage, allWordpressCategory} = useStaticQuery(
-    graphql`
-      query {
-        allWordpressPost(filter: {categories: {elemMatch: {slug: {in: ["dog-care", "cat-care","small-pet-care"]}}}}) {
-          edges {
-            node {
-              id
-              title
-              excerpt
-              wordpress_id
-              author {
-                name
-                slug
-              }
-              date(formatString: "MMMM DD, YYYY")
-              slug
-              path
-              categories {
-                id
-                path
-                name
-                slug
-              }
-              featured_media {
-                source_url
-                alt_text
-                localFile {
-                  childImageSharp {
-                    fixed(width: 200, height: 200) {
-                      ...GatsbyImageSharpFixed
-                    }
-                    fluid(maxWidth: 768, quality:100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        allWordpressPage(filter: {slug: {eq: "home"}}) {
-          edges {
-            node {
-              acf {
-                category_rows {
-                  category
-                }
-              }
-            }
-          }
-        }
-        allWordpressCategory {
-          edges {
-            node {
-              id
-              name
-              path
-              parent_element {
-                path
-                slug
-              }
-            }
-          }
-        }
-      }
-    `
-  )
+  // const {allWordpressPost, allWordpressPage, allWordpressCategory} = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       allWordpressPost(filter: {categories: {elemMatch: {slug: {in: ["dog-care", "cat-care","small-pet-care"]}}}}) {
+  //         edges {
+  //           node {
+  //             id
+  //             title
+  //             excerpt
+  //             wordpress_id
+  //             author {
+  //               name
+  //               slug
+  //             }
+  //             date(formatString: "MMMM DD, YYYY")
+  //             slug
+  //             path
+  //             categories {
+  //               id
+  //               path
+  //               name
+  //               slug
+  //             }
+  //             featured_media {
+  //               source_url
+  //               alt_text
+  //               localFile {
+  //                 childImageSharp {
+  //                   fixed(width: 200, height: 200) {
+  //                     ...GatsbyImageSharpFixed
+  //                   }
+  //                   fluid(maxWidth: 768, quality:100) {
+  //                     ...GatsbyImageSharpFluid
+  //                   }
+  //                 }
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //       allWordpressPage(filter: {slug: {eq: "home"}}) {
+  //         edges {
+  //           node {
+  //             acf {
+  //               category_rows {
+  //                 category
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //       allWordpressCategory {
+  //         edges {
+  //           node {
+  //             id
+  //             name
+  //             path
+  //             parent_element {
+  //               path
+  //               slug
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // )
     // console.log(allWordpressPost.edges)
     // const smallPets = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'small-pet-care')
     // const dogs = allWordpressPost.edges.filter((edge) => edge.node.categories[0].slug === 'dog-care')

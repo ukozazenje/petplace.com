@@ -3,6 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from 'gatsby-image'
 import coverImg from '../image'
 import {categoryColor} from '../functions'
+
 const PopularPosts = (props) => {
   
   const {allWordpressPost, wordpressPage} = useStaticQuery(
