@@ -9,7 +9,7 @@ import PlacesAutocomplete, {
 import "mapbox-gl/dist/mapbox-gl.css"
 import 'react-input-range/lib/css/index.css';
 import InputRange from 'react-input-range';
-import pointer from '../images/pinIcon.svg'
+import pointer from '../images/pin-location.svg'
 import vetlocator from '../vet_locator';
 
 import Layout from "../components/layout"
@@ -31,11 +31,11 @@ class VetLocator extends Component{
       selectedStore: null,
       formik: {
         search: '',
-        limit: 20,
+        limit: 25,
         radius: 50
       },
       radius: 50,
-      limit: 20,
+      limit: 25,
       search: '',
       nearestStores: [],
       address: '',
@@ -301,27 +301,27 @@ class VetLocator extends Component{
                               <ErrorMessage name='limit' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
                               <div className="columns is-mobile is-gapless">
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '5' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '5')}>5
+                                  <button className={`container-radio button ${values.limit === '5' || this.state.limit == '5' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '5')}>5
                                     <input type="radio" value='5' name="limit" onChange={() => setFieldValue("limit", '5')}  className="input-radio" placeholder='5'/>
                                   </button>
                                 </div>
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '10' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '10')}>10
+                                  <button className={`container-radio button ${values.limit === '10' || this.state.limit == '10' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '10')}>10
                                     <input type="radio" value='10' name="limit" onChange={() => setFieldValue("limit", '10')} className="input-radio" />
                                   </button>
                                 </div>
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '15' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '15')}>15
+                                  <button className={`container-radio button ${values.limit === '15' || this.state.limit == '15' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '15')}>15
                                     <input type="radio" value='15' name="limit" onChange={() => setFieldValue("limit", '15')} className="input-radio" />
                                   </button>
                                 </div>
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '20' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '20')}>20
+                                  <button className={`container-radio button ${values.limit === '20' || this.state.limit == '20' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '20')}>20
                                     <input type="radio" value='20' name="limit" onChange={() => setFieldValue("limit", '20')} className="input-radio" />
                                   </button>
                                 </div>
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '25' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '25')}>25
+                                  <button className={`container-radio button ${values.limit === '25' || this.state.limit == '25' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '25')}>25
                                     <input type="radio" value='25'  name="limit" onChange={() => setFieldValue("limit", '25')} className="input-radio" />
                                   </button>
                                 </div>
