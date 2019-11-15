@@ -26,7 +26,7 @@ class Post extends Component  {
         ))}
       </div>
     )
-
+    console.log(this.props.pageContext)
     const pageLink = this.props.location && this.props.location.href
           console.log(this.props.data)
     return (
@@ -91,7 +91,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        {/* <NextPost posts={posts} location={{...this.props.location}} /> */}
+        <NextPost post={this.props.pageContext.nextPost} location={{...this.props.location}} />
         </div>
       </Layout>
     )

@@ -34,16 +34,29 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const categoriesTemplate = path.resolve(`./src/templates/category.js`)
+      const categoriesVideoTemplate = path.resolve(`./src/templates/videoCategory.js`)
       _.each(result.data.allWordpressCategory.edges, ({ node: cat }) => {
-        createPage({
-          path: `${cat.path}`,
-          component: categoriesTemplate,
-          context: {
-            id: cat.id,
-            slug: cat.slug,
-            title: cat.name
-          },
-        })
+        if(cat.slug !== 'videos') {
+          createPage({
+            path: `${cat.path}`,
+            component: categoriesTemplate,
+            context: {
+              id: cat.id,
+              slug: cat.slug,
+              title: cat.name
+            },
+          })
+        } else {
+          createPage({
+            path: `${cat.path}`,
+            component: categoriesVideoTemplate,
+            context: {
+              id: cat.id,
+              slug: cat.slug,
+              title: cat.name
+            },
+          })
+        }
       })
     })
     .then(() => {
@@ -56,6 +69,15 @@ exports.createPages = ({ actions, graphql }) => {
                 slug
                 path
                 status
+                title
+                categories {
+                  id
+                  name
+                  path
+                }
+                featured_media {
+                  source_url
+                }
               }
             }
           }

@@ -8,7 +8,7 @@ const SideBar = ({days, onChange, setOrderBy}) => {
       <div className="filter-btn" onClick={() => setMenuState((menu) => !menu)}>
         <span>Filters</span>
       </div>
-      <div className={`search-filters ${menu ? 'is-active' : ''}`}>
+      <div className={`category-filters search-filters ${menu ? 'is-active' : ''}`}>
         <h3>Filter by date</h3>
         <div className="radio ">
           <input type="radio" name="days" value="1" onChange={onChange} checked={days === '1'}/>
