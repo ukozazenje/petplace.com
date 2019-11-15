@@ -19,9 +19,12 @@ class  NextPost extends Component {
                 <NoImg />
               }
             </Link>
-            <Link to={post.categories[0].path}>
-              <p>{post.categories[0].name}</p>
-            </Link>
+            { post && post.categories && post.categories[0] && post.categories[0].path ? 
+              <Link to={post.categories[0].path}>
+                <p>{post.categories[0].name}</p>
+              </Link> :
+              null
+            }
             <Link to={post.path}>
               <h4>{post.title}</h4>
             </Link>
