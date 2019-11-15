@@ -154,7 +154,6 @@ class VetLocator extends Component{
       width: '1344px',
       height: '700px'
     }
-    console.log("STATTEEE", this.state)
     return (
       <Layout noSearch={true}>
         <SEO title="Vet Locator" />
@@ -216,7 +215,6 @@ class VetLocator extends Component{
                     initialValues={{...this.state.formik}}
 
                     onSubmit={( values ) => {
-                      console.log("VALUEEES", values)
                       this.setState({
                         radius: values.radius || this.state.radius,
                         limit: values.limit || this.state.limit,
@@ -305,12 +303,12 @@ class VetLocator extends Component{
                                     <input type="radio" value='5' name="limit" onChange={() => setFieldValue("limit", '5')}  className="input-radio" placeholder='5'/>
                                   </button>
                                 </div>
-                                <div className="column " >
+                                <div className="column" >
                                   <button className={`container-radio button ${values.limit === '10' || this.state.limit == '10' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '10')}>10
                                     <input type="radio" value='10' name="limit" onChange={() => setFieldValue("limit", '10')} className="input-radio" />
                                   </button>
                                 </div>
-                                <div className="column " >
+                                <div className="column" >
                                   <button className={`container-radio button ${values.limit === '15' || this.state.limit == '15' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '15')}>15
                                     <input type="radio" value='15' name="limit" onChange={() => setFieldValue("limit", '15')} className="input-radio" />
                                   </button>
@@ -358,7 +356,7 @@ class VetLocator extends Component{
                       <p><strong>Distance:</strong> {store.distance}</p>
                     </div>
                     <div className="column is-2">
-                      <a className="direction-btn" href={`http://www.google.com/maps/place/${lat},${lng}`}
+                      <a className="direction-btn is-medium" href={`http://www.google.com/maps/place/${lat},${lng}`}
                          target="_blank">Directions</a>
                     </div>
                   </div>
