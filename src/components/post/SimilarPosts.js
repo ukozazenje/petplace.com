@@ -11,9 +11,11 @@ const PopularPosts = (props) => {
           acf {
             featured_posts {
               category_link
+              category_path
               category_name
               author_name
               post_date
+              path
               link
               post_title
               wordpress_id
@@ -44,14 +46,14 @@ const PopularPosts = (props) => {
         <div className="columns">
           { featuredPost.map((post) => (
             <div key={post.wordpress_id} className="column">
-              <Link to={post.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')} className="similar-post-card" >
+              <Link to={post.path} className="similar-post-card" >
                 { (post.featured_image && post.featured_image.full.localFile.childImageSharp.fluid) ? 
                 <Img className="similar-post-card-image" sizes={{ ...post.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> : 
                 <Img className="similar-post-card-image" sizes={{ ...props.data.placeholderImage.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> }
                  
                 <div className="similar-post-card-content">
-                  <Link to={post.category_link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>{post.category_name.replace(/&amp;/g, '&')}</Link>
-                  <Link to={post.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')} className="similar-post-card" ><h3>{post.post_title.substring(0, 34).replace(/<[^>]+>/g, "").concat(" ...")}</h3></Link>
+                  <Link to={post.category_path}>{post.category_name.replace(/&amp;/g, '&')}</Link>
+                  <Link to={post.path} className="similar-post-card" ><h3>{post.post_title.substring(0, 34).replace(/<[^>]+>/g, "").concat(" ...")}</h3></Link>
                 </div>
               </Link>
             </div>

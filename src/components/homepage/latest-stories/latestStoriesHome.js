@@ -12,9 +12,11 @@ const PopularPosts = (props) => {
             category_rows {
               category
               link
+              path
               posts {
                 author_name
                 link
+                path
                 post_date
                 post_title
                 featured_image {
@@ -87,29 +89,29 @@ const PopularPosts = (props) => {
               <Img sizes={{ ...mainPost.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_image.full.alt_text || 'post')} />
             </div>
             <div className={`main-content ${categoryColor(category)}-transparent`}>
-              <h3><Link to={mainPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>{mainPost.post_title}</Link></h3>
+              <h3><Link to={mainPost.path}>{mainPost.post_title}</Link></h3>
               <p className="date">{mainPost.post_date || 'no date'} ·  {(mainPost.author_name) || 'PetPlace.com'}</p>
             </div>
           </div>
         </div>
         <div className="tile is-5 is-vertical is-parent">
           <div className="tile is-child thumbnail-box flex-start">
-            <Link to={firstPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>
+            <Link to={firstPost.path}>
               <Img fluid={(firstPost.featured_image.full.localFile.childImageSharp.fluid)} alt={(firstPost.featured_image.full.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
   objectPosition="50% 50%" />
             </Link>
             <div className="sub-content">
-              <h3><Link to={firstPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>{firstPost.post_title}</Link></h3>
+              <h3><Link to={firstPost.path}>{firstPost.post_title}</Link></h3>
               <p className="date">{firstPost.post_date} ·  {firstPost.author_name}</p>
             </div>
           </div>
           <div className="tile is-child thumbnail-box flex-end">
-            <Link to={secondPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>
+            <Link to={secondPost.path}>
               <Img fluid={(secondPost.featured_image.full.localFile.childImageSharp.fluid)} alt={(secondPost.featured_image.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
     objectPosition="50% 50%" />
             </Link>
             <div className="sub-content align-slef-start">
-              <h3><Link to={secondPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')} >{secondPost.post_title}</Link></h3>
+              <h3><Link to={secondPost.path} >{secondPost.post_title}</Link></h3>
               <p className="date">{secondPost.post_date} ·  {secondPost.author_name}</p>
             </div>
           </div>
