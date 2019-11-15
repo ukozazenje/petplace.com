@@ -4,44 +4,26 @@ import Img from 'gatsby-image'
 
 const PopularPosts = (props) => {
   
-  const {allWordpressPost, wordpressPage, placeholderImage} = useStaticQuery(
+  const {wordpressTtgPages} = useStaticQuery(
     graphql`
       query {
-        wordpressPage(slug: {eq: "home"}) {
-          id
+        wordpressTtgPages(wordpress_id: {eq: 6}) {
           acf {
             featured_posts {
-              featured_post {
-                post_name
-              }
-            }
-          }
-        }
-        allWordpressPost {
-          edges {
-            node {
-              id
-              title
-              excerpt
-              author {
-                name
-                slug
-              }
-              date(formatString: "MMMM DD, YYYY")
-              slug
-              path
-              categories {
-                id
-                path
-                name
-              }
-              featured_media {
-                source_url
-                alt_text
-                localFile {
-                  childImageSharp {
-                    fluid(maxHeight: 400) {
-                      ...GatsbyImageSharpFluid
+              category_link
+              category_name
+              author_name
+              post_date
+              link
+              post_title
+              wordpress_id
+              featured_image {
+                full {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 300) {
+                        ...GatsbyImageSharpFluid
+                      }
                     }
                   }
                 }
@@ -49,35 +31,27 @@ const PopularPosts = (props) => {
             }
           }
         }
-        placeholderImage: file(relativePath: { eq: "no-img.jpeg" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       }
     `
   )
 
-  const featuredPost = wordpressPage.acf.featured_posts.map((el) => el.featured_post.post_name)
-  const popularPosts = allWordpressPost.edges.filter(({node:post}) => featuredPost.includes(post.slug) )
+  const featuredPost = wordpressTtgPages.acf.featured_posts
   
   return (
     <section className="section similar-post-section">
       <div className="container is-fullhd">
         <h2>Popular Posts</h2>
         <div className="columns">
-          { popularPosts.map(({node:post}) => (
-            <div key={post.id} className="column">
-              <Link to={post.path} className="similar-post-card" >
-                { (post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp.fluid) ? 
-                <Img className="similar-post-card-image" sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> : 
-                <Img className="similar-post-card-image" sizes={{ ...placeholderImage.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> }
+          { featuredPost.map((post) => (
+            <div key={post.wordpress_id} className="column">
+              <Link to={post.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')} className="similar-post-card" >
+                { (post.featured_image && post.featured_image.full.localFile.childImageSharp.fluid) ? 
+                <Img className="similar-post-card-image" sizes={{ ...post.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> : 
+                <Img className="similar-post-card-image" sizes={{ ...props.data.placeholderImage.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> }
                  
                 <div className="similar-post-card-content">
-                  <Link to={post.categories && post.categories[0].path}>{post.categories && post.categories[0].name}</Link>
-                  <h3>{post.title.substring(0, 34).replace(/<[^>]+>/g, "").concat(" ...")}</h3>
+                  <Link to={post.category_link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>{post.category_name.replace(/&amp;/g, '&')}</Link>
+                  <Link to={post.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')} className="similar-post-card" ><h3>{post.post_title.substring(0, 34).replace(/<[^>]+>/g, "").concat(" ...")}</h3></Link>
                 </div>
               </Link>
             </div>

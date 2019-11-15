@@ -19,26 +19,27 @@ const pagination = ({total, currentPage, onPageChange}) => {
         totalPages,
         getPageItemProps
       }) => (
-        <div>
+        <div className="pagination-buttons">
           {hasPreviousPage && (
             <button
+              className="prev"
               {...getPageItemProps({
                 pageValue: previousPage,
                 onPageChange: onPageChange
               })}
             >
-              {"<"}
+              {""}
             </button>
           )}
             Page: {currentPage} of {totalPages}
           {hasNextPage && (
-            <button
+            <button className="next"
               {...getPageItemProps({
                 pageValue: nextPage,
                 onPageChange: onPageChange
               })}
             >
-              {">"}
+              {""}
             </button>
           )}
         </div>
