@@ -66,7 +66,7 @@ const footer = () => {
             <div className="column is-5">
               <ul>
                 <li><Link to="/privacy-policy/">Privacy Policy</Link></li>
-                <li><Link to="/terms-conditions/">Terms & Conditions</Link></li>
+                <li><Link to="/">Terms & Conditions</Link></li>
                 <li><Link to="/site-map/">Site Map</Link></li>
               </ul>
             </div>
