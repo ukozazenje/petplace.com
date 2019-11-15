@@ -35,6 +35,13 @@ const PopularPosts = (props) => {
             }
           }
         }
+        placeholderImage: file(relativePath: { eq: "no-img.jpeg" }) {
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `
   )
