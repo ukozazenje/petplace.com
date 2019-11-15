@@ -25,8 +25,7 @@
     display: block
     border: 1px solid $blue-light
     border-radius: 6px
-    min-height: 420px
-
+    margin-bottom: 1rem
     &:hover
       cursor: pointer
       background: #fff
@@ -55,9 +54,6 @@
         padding: 0 14px
         background: $purple
         color: #fff
-      .card-category.lime
-        color: $purple-dark
-        text-shadow: none
 
       img 
         border-top-left-radius: 6px
@@ -76,12 +72,14 @@
   padding-bottom: 2.5rem
 
   h2    
+    display: block
     text-align: center
-    padding-bottom: 1.5rem
+    padding-bottom: 3rem
 
   .popular-post-card
     display: block
     position: relative
+    margin-bottom: 1rem
 
   .popular-post-card-image
     min-height: 420px
@@ -97,9 +95,12 @@
     padding: 1rem
     border-bottom-left-radius: 6px
     border-bottom-right-radius: 6px
+    text-shadow: $text-shadow
     .meta      
     h3       
-      min-height: 100px 
+      margin-bottom: 1rem
+      color: $white
+      @include font-size(24px)
 .categories-columns
   flex-wrap: wrap
   +widescreen

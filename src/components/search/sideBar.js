@@ -36,9 +36,7 @@ const SideBar = ({days, onChange, setOrderBy}) => {
           <option value="50">50</option>
           <option value="60">60</option>
         </select>
-        <div>
-          <h3>Most popular tags</h3>
-        </div>
+        <h3>Most popular tags</h3>
       </div>
       <OrderBy onChange={setOrderBy} className="is-hidden-widescreen" />
     </div>
