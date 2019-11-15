@@ -14,23 +14,23 @@ export const categoryColor = ( category ) => {
   if (filteredCategory.length > 0) {
     switch (filteredCategory[0]) {
       case 'dog care':
-        return 'purple'
+        return 'mauve'
       case 'cat care':
         return 'orange'
       case 'pet care':
-        return 'lime'
+        return 'blue-dark'
       case 'health':
         return 'red'
       case 'pet behavior':
         return 'magenta'
       case 'pet insurance':
-        return 'emerald'
+        return 'green'
       case 'small pet care':
-        return 'blue'
+        return 'purple-light'
       case 'breeds':
         return 'gold'
       default:
-        return 'purple'
+        return 'blue'
     }
   
   } else {

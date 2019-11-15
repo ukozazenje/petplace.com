@@ -1,8 +1,15 @@
 .pagination
+  margin-top: 2rem
   font-size: 1.125rem
   line-height: 32px
   justify-content: flex-end
   padding: 0 0.75rem
+  display: flex
+  flex-basis: 100%
+  button 
+    background: transparent 
+    border: none
+    cursor: pointer
   .next
     position: relative
     width: 7px
@@ -44,4 +51,5 @@
       &:before
         // background: red
 
-      
+  .pagination-buttons
+    display: flex

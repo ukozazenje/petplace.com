@@ -17,7 +17,7 @@ class Post extends Component  {
 
   render(){
     const post = this.props.data.wordpressPost
-    const { edges: posts } = this.props.data.allWordpressPost
+    // const { edges: posts } = this.props.data.allWordpressPost
     const tagList = (tags) => (
       <div className="post-tags">
         <span><strong>Tags:</strong> </span>
@@ -26,7 +26,7 @@ class Post extends Component  {
         ))}
       </div>
     )
-
+    console.log(this.props.pageContext)
     const pageLink = this.props.location && this.props.location.href
           console.log(this.props.data)
     return (
@@ -34,7 +34,7 @@ class Post extends Component  {
         <div className="single-post">
         <section className="section post-hero-section">
           <div className="container is-fullhd"> 
-            <div><Link to={(post.categories && post.categories[0] && post.categories[0].path) || '/'} className={`category-link ${categoryColor(post.categories && post.categories[0] && post.categories[0].name)}`}>{(post.categories && post.categories[0] && post.categories[0].name) || 'category'}</Link></div>
+            <div><Link to={(post.categories && post.categories[0] && post.categories[0].path) || '/'} className={`category-link ${categoryColor(post.categories && post.categories[0] && post.categories[0].name)}`}>{(post.categories && post.categories[0] && post.categories[0].name.replace(/&amp;/g, '&')) || 'category'}</Link></div>
             <h1>{post.title}</h1>
           </div>
         </section>
@@ -91,7 +91,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        <NextPost posts={posts} location={{...this.props.location}} />
+        <NextPost post={this.props.pageContext.nextPost} location={{...this.props.location}} />
         </div>
       </Layout>
     )
@@ -103,7 +103,7 @@ export default Post
 
 
 export const pageQuery = graphql`
-  query PostPage($id: String!, $nextPostId: String!){
+  query PostPage($id: String!){
     wordpressPost(id: { eq: $id }) {
       id
       title
@@ -134,39 +134,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    allWordpressPost(filter: {id: {eq: $nextPostId}}) {
-      edges {
-        node {
-          id
-          title
-          excerpt
-          wordpress_id
-          author {
-            name
-            slug
-          }
-          date(formatString: "MMMM DD, YYYY")
-          slug
-          path
-          categories {
-            id
-            path
-            name
-          }
-          featured_media {
-            source_url
-            alt_text
-            localFile {
-              childImageSharp {
-                fixed(width: 164, height: 164) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    
   }
 `

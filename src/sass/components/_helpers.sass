@@ -17,24 +17,34 @@
   background: $blue !important
 .purple
   background: $purple !important
+.purple-light
+    background: $purple-light !important
 .red
   background: $red  !important
 .gold 
   background: $gold !important
-.emerald
-  background: $emerald !important
+.green
+  background: $green !important
 .magenta
-  background: $magenta !important 
-.lime
-  background: $lime !important
+  background: $magenta !important
+.mauve
+  background: $mauve !important 
+.blue-dark
+  background: $blue-dark !important
 
 .orange-transparent
   @include background-opacity($orange, 0.6)
 .blue-transparent
   @include background-opacity($blue, 0.6)
+
+.blue-dark-transparent
+  @include background-opacity($blue-dark, 0.6)
   
 .purple-transparent
   @include background-opacity($purple, 0.6)
+
+.purple-light-transparent
+  @include background-opacity($purple-light, 0.6)
 
 .red-transparent
   @include background-opacity($red, 0.6)
@@ -42,14 +52,14 @@
 .gold-transparent 
   @include background-opacity($gold, 0.6)
   
-.emerald-transparent
-  @include background-opacity($emerald, 0.6)
+.green-transparent
+  @include background-opacity($green, 0.6)
   
 .magenta-transparent
   @include background-opacity($magenta, 0.6)
   
-.lime-transparent
-  @include background-opacity($lime, 0.6)
+.mauve-transparent
+  @include background-opacity($mauve, 0.6)
   
 .mobile-img
   @media only screen and (max-width : 460px)
