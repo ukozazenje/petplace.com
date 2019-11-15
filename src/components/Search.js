@@ -31,7 +31,7 @@ class Search extends Component {
     this.setState({
       loader:true
     })
-    axios.get(`https://petplace-staging.mdrkdjq6-liquidwebsites.com/wp-json/ttg/v1/post/${title}/${orderBy}/${order}/${days}/${numbers}`)
+    axios.get(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/wp-json/ttg/v2/post/${title}/${orderBy}/${order}/${days}/${numbers}`)
       .then(res => {
         this.setState({
           posts: res.data,

@@ -12,7 +12,7 @@ const SideBar = ({days, onChange, setOrderBy}) => {
         <h3>Filter by date</h3>
         <div className="radio ">
           <input type="radio" name="days" value="1" onChange={onChange} checked={days === '1'}/>
-          <label className="radio-label">last 24h</label>
+          <label className="radio-label">last 24 hours</label>
         </div>
         <div className="radio">
           <input onChange={onChange} type="radio" name="days" value="7" checked={days === '7'}/>
@@ -20,7 +20,7 @@ const SideBar = ({days, onChange, setOrderBy}) => {
         </div>
         <div className="radio">
           <input onChange={onChange} type="radio" name="days" value="30" checked={days === '30'}/>
-          <label className="radio-label">last mount</label>
+          <label className="radio-label">last month</label>
         </div>
         <div className="radio">
           <input onChange={onChange} onClick={onChange} type="radio" name="days" value="365" checked={days === '365'}/>

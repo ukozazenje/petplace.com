@@ -15,19 +15,6 @@ exports.createPages = ({ actions, graphql }) => {
 
     return graphql(`
       {
-        allWordpressPost(sort: {fields: date, order: ASC}) {
-          edges {
-            node {
-              id
-              slug
-              status
-              categories {
-                id
-                slug
-              }
-            }
-          }
-        }
         allWordpressCategory(filter: { count: { gt: 0 } }) {
           edges {
             node {
@@ -47,37 +34,16 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const categoriesTemplate = path.resolve(`./src/templates/category.js`)
-      const videoCategoriesTemplate = path.resolve(`./src/templates/videoCategory.js`)
-
-      const allPosts = result.data.allWordpressPost.edges
-      const posts = getOnlyPublished(allPosts)
-
       _.each(result.data.allWordpressCategory.edges, ({ node: cat }) => {
-        if(cat.slug === 'videos'){
-          paginate({
-            createPage,
-            items: getCategoryPosts(posts, cat.id),
-            itemsPerPage: 3,
-            pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `${cat.path}` : `${cat.path}page`),
-            component: videoCategoriesTemplate,
-            context: {
-              catPath: cat.path,
-              name: cat.name,
-            }
-          })
-        } else {
-          paginate({
-            createPage,
-            items: getCategoryPosts(posts, cat.id),
-            itemsPerPage: 6,
-            pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? `${cat.path}` : `${cat.path}page`),
-            component: categoriesTemplate,
-            context: {
-              catPath: cat.path,
-              name: cat.name,
-            }
-          })
-        }
+        createPage({
+          path: `${cat.path}`,
+          component: categoriesTemplate,
+          context: {
+            id: cat.id,
+            slug: cat.slug,
+            title: cat.name
+          },
+        })
       })
     })
     .then(() => {
@@ -116,7 +82,7 @@ exports.createPages = ({ actions, graphql }) => {
           component: postTemplate,
           context: {
             id: post.id,
-            nextPostId: postsPublished[key + 1] ? postsPublished[key + 1].node.id : postsPublished[0].node.id
+            nextPost: postsPublished[key + 1] ? postsPublished[key + 1].node : postsPublished[0].node
           },
         })
       })
@@ -124,7 +90,7 @@ exports.createPages = ({ actions, graphql }) => {
     .then(() => {
       return new Promise((resolve, reject) => {
         axios
-          .get("http://dev.ppl.torchte.ch/wp-json/wp/v2/posts?per_page=5")
+          .get("http://dev.ppl.torchte.ch/wp-json/ttg/v2/pages")
           .then(result => {
             const { data } = result
             /**

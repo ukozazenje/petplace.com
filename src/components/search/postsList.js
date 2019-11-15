@@ -29,7 +29,9 @@ const postsList = ({loader, currentPosts, total, currentPage, onPageChange}) => 
           ))
         }
       </div>
-      <Pagination total={total} currentPage={currentPage} onPageChange={onPageChange} />
+      <div className="pagination">
+        <Pagination total={total} currentPage={currentPage} onPageChange={onPageChange} />
+      </div>
     </div>
   )
 }
