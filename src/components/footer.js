@@ -9,7 +9,7 @@ const footer = () => {
         <div className="columns">
           <div className="column is-one-quarter">
             <img src={logo} className="footer-logo" alt="logo" />
-            <p>By Vets. For Pets.</p>
+            <p className="tagline">By Vets. For Pets.</p>
             <SocialLinks/>
           </div>
           <div className="column">

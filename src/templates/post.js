@@ -3,7 +3,6 @@ import Layout from '../components/layout'
 import Img from 'gatsby-image'
 import {Link} from 'gatsby'
 import avatarImg from '../images/avatar.png'
-import bannerImg from '../images/baner-sidebar.png'
 import facebookIcon from '../images/facebook.png'
 import twitterIcon from '../images/twitter.png'
 import pintrestIcon from '../images/pintrest.png'
@@ -50,7 +49,7 @@ class Post extends Component  {
             <NoMobileHeroPostImg />}
           </div>
         </div>
-        <section className="section">
+        <section className="section main-section">
           <div className="container is-fullhd"> 
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
@@ -63,7 +62,6 @@ class Post extends Component  {
                   <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
                   <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                 </div>
-                <img src={bannerImg} alt="banner" />
               </div>
               <div className="column">
                 <div className="single-post-content" 

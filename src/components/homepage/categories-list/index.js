@@ -19,7 +19,7 @@ const CategoriesList = () => {
             </div>
             <DogImg />
           </div>
-          <div className="column is-two-thirds-tablet">
+          <div className="column is-two-thirds-tablet category-cards">
             <div className="columns">
               <div className="column is-one-third-tablet">
                 <Card icon={petCareIcon} link='/article/category/pet-care/' title="Pet Care" text="Tips and tricks to keep your pet happy and healthy." />
