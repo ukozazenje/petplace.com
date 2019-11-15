@@ -18,7 +18,7 @@ class Search extends Component {
     totalPages: 0,
     form: {
       numbers: "60",
-      days: '30',
+      days: '365',
       orderBy: 'date',
       order: 'DSC',
       title: 'dog'
@@ -137,16 +137,16 @@ class Search extends Component {
     const { loader, currentPosts } = this.state
     return (
       <Layout noSearch={true}>
-        {/*<div className="desktop-img">*/}
-        {/*  <HomeHeroImg />*/}
-        {/*</div>*/}
-        {/*<div className="tablet-img">*/}
-        {/*  <TabletHeroImg />*/}
-        {/*</div>*/}
-        {/*<div className="mobile-img">*/}
-        {/*  <MobileHeroImg />*/}
-        {/*</div>*/}
-
+        <div className="grid-container">
+          <div className="desktop-img">
+            <HomeHeroImg />
+          </div>
+          <div className="tablet-img">
+            <TabletHeroImg />
+          </div>
+          <div className="mobile-img">
+            <MobileHeroImg />
+          </div>
         <section className="search-hero-section">
           <div className="container is-fullhd form-container">
             <div className="form-wrapper">
@@ -168,6 +168,7 @@ class Search extends Component {
             </div>
           </div>
         </section>
+        </div>
         <OrderBy onChange={this.setOrderBy} className="is-hidden-until-widescreen"/>
         <section className="section search-page-section">
           <div className="container is-fullhd">

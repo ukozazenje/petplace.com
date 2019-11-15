@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 
 const PopularPosts = (props) => {
   
-  const {allWordpressPost, wordpressPage} = useStaticQuery(
+  const {allWordpressPost, wordpressPage, placeholderImage} = useStaticQuery(
     graphql`
       query {
         wordpressPage(slug: {eq: "home"}) {
@@ -71,9 +71,9 @@ const PopularPosts = (props) => {
           { popularPosts.map(({node:post}) => (
             <div key={post.id} className="column">
               <Link to={post.path} className="similar-post-card" >
-                { (post.featured_media && post.featured_media.localFile.childImageSharp.fluid) ? 
+                { (post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp.fluid) ? 
                 <Img className="similar-post-card-image" sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> : 
-                <Img className="similar-post-card-image" sizes={{ ...props.data.placeholderImage.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> }
+                <Img className="similar-post-card-image" sizes={{ ...placeholderImage.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> }
                  
                 <div className="similar-post-card-content">
                   <Link to={post.categories && post.categories[0].path}>{post.categories && post.categories[0].name}</Link>
