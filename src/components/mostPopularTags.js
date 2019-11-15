@@ -20,6 +20,7 @@ const MostPopularTags = () => {
       allWordpressTag(sort: {fields: count, order: DESC}, limit: 10) {
         edges {
           node {
+            id
             count
             name
             slug
@@ -35,7 +36,7 @@ const MostPopularTags = () => {
 
   return (
     tags.map(({ node: tag }) => (
-      <Link className="tag-links" to="/">{tag.name.replace(/&amp;/g, '&')}</Link>
+      <Link key={tag.id} className="tag-links" to="/">{tag.name.replace(/&amp;/g, '&')}</Link>
     ))
   )
 }

@@ -1,16 +1,33 @@
 .single-post 
-  margin-top: 30px
+  margin-top: 1rem
   +widescreen 
     margin-top: 40px
-  color: $font-color 
+  section.section
+    padding: 0 1rem
   .post-hero-section
     padding-top: 0 
     padding-bottom: 1.5rem
     +widescreen 
       padding-bottom: 3rem
+  .post-hero-img
+    display: block
+    margin-bottom: 2rem
   h1 
-    // margin-bottom: 50px
     max-width: 800px
+    margin-bottom: 1rem
+  h2
+    margin-top: 1rem
+    margin-bottom: 1rem
+  p 
+    margin-bottom: .75rem
+  li
+    margin-bottom: .25rem
+  .main-section
+    margin-bottom: 2rem
+    h2
+      @include font-size(22px)
+    h3
+      @include font-size(18px)
   .category-link
     font-family: $family-secondary
     font-weight: $family-secondary-weight
@@ -24,31 +41,31 @@
     display: inline-block
     text-align: center
     margin-bottom: 20px
-
   .single-post-content
-    margin-top: 50px
     a 
-      color: $orange
-    h2 
-      margin-top: 40px
-      margin-bottom: 20px      
+      color: $orange   
     ul 
       margin-top: 20px
       list-style-type: circle
       padding-left: 20px
   
   .single-post-sidebar
-    margin-top: 50px  
-
+    padding-top: 0
+    padding-bottom: 0
+    margin-bottom: .5rem
+    p.author-name
+      margin-bottom: 0
+    .author-img
+      margin-bottom: .5rem
     .post-date
       color: $blue-light
-
+      margin-bottom: .5rem
     .social-icons
-      margin-top: 20px
-      margin-bottom: 50px
-      img 
-        display: inline-block
-        margin-right: 10px
+      line-height: 1
+      display: flex
+      flex-direction: row
+      justify-content: space-around
+      width: 150px
   .share-icons
     display: flex
     flex-direction: row
@@ -66,23 +83,32 @@
     align-items: center
     justify-content: flex-end
       
-.similar-post-section
-  background: $blue-lightest
-  h2     
-    text-align: center
+  section.similar-post-section
+    padding-top: .5rem
+    padding-bottom: 1.5rem
     margin-bottom: 1.5rem
-  .similar-post-card
-    display: flex
-  .similar-post-card-content
-    padding-left: 0.75rem
-    a 
-      color: $font-color
-    h3 
-      color: $font-color      
+    background: $blue-lightest
+    h2     
+      text-align: center
+      margin-bottom: 2rem
+    .similar-post-card
+      display: flex
+      flex-direction: row
+      margin-bottom: 1rem
+    .similar-post-card-content
+      padding-left: 0.75rem
+      line-height: 1
+      a 
+        color: $font-color
+        @include font-size(14px)
+        line-height: 1
+      h3 
+        color: $font-color
+        @include font-size(22px)     
 
-  .similar-post-card-image
-    min-width: 160px
-    border-radius: 6px 
+    .similar-post-card-image
+      border-radius: 6px 
+      min-width: 120px
 .next-post-section
   text-align: center
   padding-top: 90px
@@ -95,4 +121,8 @@
     margin-bottom: 40px
   h4 
     margin-bottom: 40px
-  
+  .next-post-img
+    width: 164px
+    height: 164px
+    object-fit: cover
+    object-position: 50% 50%

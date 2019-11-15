@@ -16,12 +16,14 @@ const PostCard = ({post}) => {
   `)
 
   return (
-    <Link to={`${post.path}`} className="category-post-card">
+    <div className="category-post-card">
       <div className="card-img">
-        { post.featured_media && post.featured_media.localFile.childImageSharp.fluid ?
-          <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> :
-          <Img sizes={{ ...data.placeholderImage.childImageSharp.fluid, aspectRatio: 4 / 3}} alt='post image' /> 
-        }
+        <Link to={`${post.path}`}>
+          { post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp && post.featured_media.localFile.childImageSharp.fluid ?
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> :
+            <Img sizes={{ ...data.placeholderImage.childImageSharp.fluid, aspectRatio: 4 / 3}} alt='post image' /> 
+          }
+        </Link>
         <Link to={post.categories && post.categories[0].path} className={`card-category ${categoryColor(post.categories && post.categories[0].name)}`}>
           {post.categories && post.categories[0].name}
         </Link>
@@ -39,7 +41,7 @@ const PostCard = ({post}) => {
           <span>{post.date || 'date'}   ·  </span><span >{post.author ? post.author.name || 'author' : null }</span>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 

@@ -1,3 +1,4 @@
+/* autoprefixer grid: on */
 .posts-list-container
   flex-wrap: wrap
   padding-top: 3rem 
@@ -9,26 +10,40 @@
     display: flex
     flex-direction: column 
     justify-content: center
+    margin-bottom: 1rem
     p 
       text-align: left
-      padding-top: 30px
-      padding-bottom: 60px
+      margin-bottom: 1rem
     h2 
-      text-align: left          
+      text-align: left  
+      margin-bottom: 1rem        
     img 
       align-self: center
 
+  .category-cards
+    margin-bottom: 0
+    .columns
+      align-items: stretch
+      +tablet 
+        margin-bottom: 2rem
+
   .category-card
+    height: 100%
     padding: 10px
     text-align: center
-    border: 1px solid #E4E4E4
-    border-radius: 6px
+    border: 1px solid $gray-light
+    border-bottom: none
     display: grid
     grid-template-rows: 1fr
     grid-template-columns: 130px 1fr
     +tablet 
       display: flex
       flex-direction: column
+      justify-content: center
+      border-radius: 6px
+    +desktop
+      padding-top: 2rem
+      padding-bottom: 2rem
     &:hover
       background: #fff
       cursor: pointer
@@ -39,11 +54,13 @@
       display: flex
       align-items: center
       justify-content: center
-      min-height: 130px
       grid-row-start:  1
       grid-row-end: 2
       grid-column-start: 1
       grid-column-end: 2
+      img
+        max-height: 80px
+        max-width: 80px
       +tablet 
         margin-bottom: 1rem
     p
@@ -59,9 +76,10 @@
       flex-direction: column
       align-items: center
       justify-content: center
-    h3    
-      @extend .h4
-      @include font-size(18px)
+      h3    
+        @include font-size(18px)
+        +desktop
+          @include font-size(26px)
     hr.divider
       text-align: center
       background: $orange
@@ -83,6 +101,9 @@
       
       img 
         margin-right: 10px
+
+  .category-card:last-child
+    border-bottom: 1px solid $gray-light
 
 .latest-stories-section
   background: $blue-lightest
@@ -127,15 +148,13 @@
       border-bottom-left-radius: 6px
       border-bottom-right-radius: 6px
       position: absolute
-      padding: 0 20px
+      padding: 1rem 2rem
       display: flex
       justify-content: center
       flex-direction: column
       width: 100%
       background: 
       bottom: 0
-      height: 160px
-      background: rgba(111, 105, 168, 0.6)
       p.date
         @extends small
         color: $white
@@ -143,9 +162,12 @@
       h3    
         padding-bottom: 10px
         text-shadow: $text-shadow
+        text-overflow: ellipsis
         a 
-          @extend .h2
+          @extend .h3
           color: $white
+          +tablet
+            @include font-size(36px)
   
   .thumbnail-box
     display: flex
@@ -169,11 +191,19 @@
         height: 200px 
     .sub-content
       padding-left: 1.5rem
+      height: 100%
+      display: flex
+      flex-direction: column
+      justify-content: center
       p.date
         @extend small
       h3
-        @extend .h5
+        @extend .h6
         margin-bottom: .5rem
+        @media screen and (min-width: 461px)
+          @include font-size(22px)
+          line-height: 1.1
+
 
 .pet-happiness 
   background: $blue-lightest
@@ -197,13 +227,20 @@
       height: 1px
       background: #46896B
       bottom: 0
-      left: 0
+      left: calc(50% - 10px)
   p 
     max-width: 270px
+  .gatsby-image-wrapper
+    margin-bottom: .5rem
   
   .happiness-list
     .columns
       margin-bottom: 35px
+    .column
+      display: flex
+      flex-direction: column
+      align-items: center
+      margin-bottom: 2rem
 
 .grid-container
   display: grid

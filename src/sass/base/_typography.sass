@@ -19,15 +19,15 @@ h2, .h2
 	line-height: 1.1
 
 h3, .h3
-	@include font-size(36px)
+	@include font-size(32px)
 	line-height: 1.1
 
 h4, .h4
-	@include font-size(30px)
+	@include font-size(28px)
 	line-height: 1
 
 h5, .h5
-	@include font-size(24px)
+	@include font-size(22px)
 	line-height: 1
 
 h6, .h6
@@ -44,6 +44,20 @@ li
 	@media only screen and (min-width: 600px)
 		@include font-size(18px)
 		line-height: 1.5
+
+ol, ul
+	margin-bottom: .5rem
+
+ul li
+	list-style: disc
+
+ol
+	padding-left: 1.5rem
+
+ol li
+	list-style: inherit
+	list-style-position: outside
+	padding-left: .5rem
 
 small
 	@include font-size(14px)

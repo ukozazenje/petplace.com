@@ -13,7 +13,7 @@ const PetHappiness = () => {
     <section className="section pet-happiness">
       <div className="container is-fullhd">
         <div className="columns">
-          <div className="column  intro">
+          <div className="column intro">
             <h2>Your Pet’s <span className="highlight">Health</span> and <span className="highlight">Happiness</span> Comes First!</h2>
             <p>Our dedicated team of authors and experts are here to provide you with pet information that you can depend on.</p>
             {/* <img src={happinessImg} /> */}
