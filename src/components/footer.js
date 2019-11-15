@@ -49,7 +49,7 @@ const footer = () => {
             <h6>Just For Fun</h6>
             <div className="footer-menu-wrapper">
               <Link to="/article/category/just-for-fun/pet-peeves/">Pet Peeves</Link>
-              <Link to="article/category/just-for-fun/videos/">Pet News & Videos</Link>
+              <Link to="/article/category/just-for-fun/videos/">Pet News & Videos</Link>
               <Link to="/article/category/just-for-fun/fun-stuff/">Fun Stuff</Link>
               <Link to="/article/category/just-for-fun/just-for-kids/">Just For Kids</Link>
               <Link to="/article/category/just-for-fun/surveys-polls/">Surveys & Polls</Link>
@@ -71,9 +71,9 @@ const footer = () => {
               </ul>
             </div>
             <div className="column is-7">
-              <p>©Copyright 1999 - 2019. The IHC Group. All Rights Reserved</p>
-           </div> 
-          </div> 
+              <p>&copy;Copyright 1999 - 2019. The IHC Group. All Rights Reserved</p>
+           </div>
+          </div>
         </div>
       </section>
     </footer>

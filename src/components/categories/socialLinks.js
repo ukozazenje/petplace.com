@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import facebook from '../../images/facebookIcon.svg'
 import pintrest from '../../images/pinterestIcon.svg'
 import twitter from "../../images/twitterIcon.svg"

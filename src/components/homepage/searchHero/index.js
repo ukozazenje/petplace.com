@@ -22,13 +22,14 @@ const SearchHero = () => {
                 }
               )
             }}
-            render={(props) => (
+          >
+            {(props) => (
               <Form>
                 <Field type="text" name="title" placeholder="Search for Posts..." className="search-input" />
                 <button type="submit" className="search-button">Search</button>
               </Form>
             )}
-          />
+          </Formik>
         </div>
       </div>
     </section>

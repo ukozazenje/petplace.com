@@ -13,14 +13,14 @@ class  NextPost extends Component {
           <div className="nex-post">
             <h3>Next Article</h3>
             <Link to={post.path}>
-              { 
-                post && post.featured_media && post.featured_media.source_url ? 
+              {
+                post && post.featured_media && post.featured_media.source_url ?
                 <img className="next-post-img" src={post.featured_media.source_url} alt="nex post" /> :
                 <NoImg />
               }
             </Link>
             <Link to={post.categories[0].path}>
-              <p>{post.categories[0].name}</p>
+              <p>{post.categories[0].name.replace(/&amp;/g, '&')}</p>
             </Link>
             <Link to={post.path}>
               <h4>{post.title}</h4>
