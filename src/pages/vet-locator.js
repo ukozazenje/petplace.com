@@ -160,129 +160,13 @@ class VetLocator extends Component{
         <SEO title="Vet Locator" />
           <div className="vet-locator-page">
           <section className="section vet-locator-wrapper category-posts">
-            <div className="container fullhd map-container">
-              <div className="header-text">
-                <h1>Vet Locator</h1>
-                <p>Find A Veterinarian Near You!</p>
-              </div>
-              <div className="map-side-bar">
-                <Formik
-                  enableReinitialize={true}
-                  initialValues={{...this.state.formik}}
-
-                  onSubmit={( values ) => {
-                    console.log("VALUEEES", values)
-                    this.setState({
-                      radius: values.radius || this.state.radius,
-                      limit: values.limit || this.state.limit,
-                      search: values.search || ''
-                    })
-                    this.handleSubmit()
-                  }}
-
-                  render={({ values, errors, setFieldValue }) => {
-                    return(
-                    <Form>
-                      <>
-                        <div className="section">
-                          <p className="form-text">Search By Location</p>
-                          <PlacesAutocomplete
-                            value={this.state.address || ''}
-                            onChange={this.handleChange}
-                            onSelect={e => {
-                              this.handleSelect(e)
-                              setFieldValue('search', e)
-                              this.setState({
-                                address: e,
-                                search: e
-                              })
-                            }}
-                            className="input-place"
-                            name="search"
-                          >
-                            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                              <div>
-                                <input
-                                  {...getInputProps({
-                                    placeholder: 'Add your location...',
-                                    className: 'location-search-input input input-place',
-                                  })}
-                                />
-                                <div className="autocomplete-dropdown-container">
-                                  {loading && <div>Loading...</div>}
-                                  {suggestions.map(suggestion => {
-                                    const className = suggestion.active
-                                      ? 'suggestion-item--active'
-                                      : 'suggestion-item';
-                                    const style = suggestion.active
-                                      ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                                      : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                                    return (
-                                      <div
-                                        {...getSuggestionItemProps(suggestion, {
-                                          className,
-                                          style,
-                                        })}
-                                      >
-                                        <span>{suggestion.description}</span>
-                                      </div>
-                                    );
-                                  })}
-                                </div>
-                              </div>
-                            )}
-                          </PlacesAutocomplete>
-                        </div>
-                        <div className="select is-multiple section">
-                          <p className="form-text">Search Radius</p>
-                          <ErrorMessage name='radius' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
-                          <InputRange
-                            maxValue={50}
-                            minValue={1}
-                            value={this.state.radius || 50}
-                            name='radius'
-                            className="is"
-                            onChange={value => {
-                              this.setState({
-                                radius: value ,
-                                formik: {
-                                radius: value
-                                }
-                              })
-                              setFieldValue('search', value)
-                            }} />
-                        </div>
-                        <div className="section">
-                          <p className="form-text">Results</p>
-                          <ErrorMessage name='limit' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
-                          <button className={`container-radio button ${values.limit === '5' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '5')} n>5
-                             <input type="radio" value='5' name="limit" onChange={() => setFieldValue("limit", '5')}  className="input-radio" />
-                          </button>
-                          <button className={`container-radio button ${values.limit === '10' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '10')}>10
-                              <input type="radio" value='10' name="limit" onChange={() => setFieldValue("limit", '10')} className="input-radio" />
-                          </button>
-                          <button className={`container-radio button ${values.limit === '15' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '15')}>15
-                             <input type="radio" value='15' name="limit" onChange={() => setFieldValue("limit", '15')} className="input-radio" />
-                          </button>
-                          <button className={`container-radio button ${values.limit === '20' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '20')}>20
-                             <input type="radio" value='20' name="limit" onChange={() => setFieldValue("limit", '20')} className="input-radio" />
-                          </button>
-                          <button className={`container-radio button ${values.limit === '25' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '25')}>25
-                              <input type="radio" value='25'  name="limit" onChange={() => setFieldValue("limit", '25')} className="input-radio" />
-                          </button>
-                        </div>
-                        <div className="section">
-                          <button
-                            type='submit'
-                            className='button is-rounded is-medium is-fullwidth button-submit'
-                          >Search</button>
-                        </div>
-                      </>
-                    </Form>
-                  )}}
-                />
-              </div>
-              <div className="test">
+          <div className="container is-full-hd">
+            <div className="header-text column  is-half">
+              <h1>Vet Locator</h1>
+              <p>Find A Veterinarian Near You!</p>
+            </div>
+            <div className="columns fullhd map-container">
+              <div className="test column is-two-thirds is-mobile">
                 <MapGL
                   { ...viewport }
                   mapboxApiAccessToken={token}
@@ -326,15 +210,144 @@ class VetLocator extends Component{
                     : null}
                 </MapGL>
               </div>
+              <div className="map-side-bar column is-one-third is-mobile ">
+                  <Formik
+                    enableReinitialize={true}
+                    initialValues={{...this.state.formik}}
+
+                    onSubmit={( values ) => {
+                      console.log("VALUEEES", values)
+                      this.setState({
+                        radius: values.radius || this.state.radius,
+                        limit: values.limit || this.state.limit,
+                        search: values.search || ''
+                      })
+                      this.handleSubmit()
+                    }}
+
+                    render={({ values, errors, setFieldValue }) => {
+                      return(
+                        <Form>
+                            <div className="field section section-mobile">
+                              <p className="form-text">Search By Location</p>
+                              <PlacesAutocomplete
+                                value={this.state.address || ''}
+                                onChange={this.handleChange}
+                                onSelect={e => {
+                                  this.handleSelect(e)
+                                  setFieldValue('search', e)
+                                  this.setState({
+                                    address: e,
+                                    search: e
+                                  })
+                                }}
+                                className="input-place"
+                                name="search"
+                              >
+                                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                                  <div>
+                                    <input
+                                      {...getInputProps({
+                                        placeholder: 'Add your location...',
+                                        className: 'location-search-input input input-place',
+                                      })}
+                                    />
+                                    <div className="autocomplete-dropdown-container">
+                                      {loading && <div>Loading...</div>}
+                                      {suggestions.map(suggestion => {
+                                        const className = suggestion.active
+                                          ? 'suggestion-item--active'
+                                          : 'suggestion-item';
+                                        const style = suggestion.active
+                                          ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                                          : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                                        return (
+                                          <div
+                                            {...getSuggestionItemProps(suggestion, {
+                                              className,
+                                              style,
+                                            })}
+                                          >
+                                            <span>{suggestion.description}</span>
+                                          </div>
+                                        );
+                                      })}
+                                    </div>
+                                  </div>
+                                )}
+                              </PlacesAutocomplete>
+                            </div>
+                            <div className="select is-multiple field section section-mobile range-slider">
+                              <p className="form-text">Search Radius</p>
+                              <ErrorMessage name='radius' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
+                              <InputRange
+                                maxValue={50}
+                                minValue={1}
+                                value={this.state.radius || 50}
+                                name='radius'
+                                className="is"
+                                onChange={value => {
+                                  this.setState({
+                                    radius: value ,
+                                    formik: {
+                                      radius: value
+                                    }
+                                  })
+                                  setFieldValue('search', value)
+                                }} />
+                            </div>
+                            <div className="field section section-mobile">
+                              <p className="form-text">Results</p>
+                              <ErrorMessage name='limit' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
+                              <div className="columns is-mobile is-gapless">
+                                <div className="column " >
+                                  <button className={`container-radio button ${values.limit === '5' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '5')}>5
+                                    <input type="radio" value='5' name="limit" onChange={() => setFieldValue("limit", '5')}  className="input-radio" placeholder='5'/>
+                                  </button>
+                                </div>
+                                <div className="column " >
+                                  <button className={`container-radio button ${values.limit === '10' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '10')}>10
+                                    <input type="radio" value='10' name="limit" onChange={() => setFieldValue("limit", '10')} className="input-radio" />
+                                  </button>
+                                </div>
+                                <div className="column " >
+                                  <button className={`container-radio button ${values.limit === '15' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '15')}>15
+                                    <input type="radio" value='15' name="limit" onChange={() => setFieldValue("limit", '15')} className="input-radio" />
+                                  </button>
+                                </div>
+                                <div className="column " >
+                                  <button className={`container-radio button ${values.limit === '20' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '20')}>20
+                                    <input type="radio" value='20' name="limit" onChange={() => setFieldValue("limit", '20')} className="input-radio" />
+                                  </button>
+                                </div>
+                                <div className="column " >
+                                  <button className={`container-radio button ${values.limit === '25' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '25')}>25
+                                    <input type="radio" value='25'  name="limit" onChange={() => setFieldValue("limit", '25')} className="input-radio" />
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="field section section-mobile">
+                              <button
+                                type='submit'
+                                className='button is-rounded is-medium is-fullwidth button-submit'
+                              >Search</button>
+                            </div>
+                        </Form>
+                      )}}
+                  />
+              </div>
             </div>
+          </div>
           </section>
+        {this.state.nearestStores.length > 0 ?
           <section className="section">
             <div className="container is-fullhd">
               {this.state.nearestStores.map((store, key) => {
                 const lat = parseFloat(store.lat);
                 const lng = parseFloat(store.lng);
                 return (
-                  <div className="columns hr" key={key} >
+                  <div className="columns hr" key={key}>
                     <div className="column is-5 stores-p">
                       <h3 className="stores-h1">{store.post_title}</h3>
                       <p>{store.address}</p>
@@ -345,14 +358,15 @@ class VetLocator extends Component{
                       <p><strong>Distance:</strong> {store.distance}</p>
                     </div>
                     <div className="column is-2">
-                      <a className="direction-btn" href={`http://www.google.com/maps/place/${lat},${lng}`} target="_blank">Directions</a>
+                      <a className="direction-btn" href={`http://www.google.com/maps/place/${lat},${lng}`}
+                         target="_blank">Directions</a>
                     </div>
                   </div>
-
                 )
               })}
             </div>
-          </section>
+          </section> : ''
+        }
           </div>
         <ContactUsSection />
       </Layout>

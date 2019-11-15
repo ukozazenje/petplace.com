@@ -7,6 +7,9 @@
    line-height: 34px
    color: #FFFFFF
 
+ .header-text
+   padding-bottom: 40px
+
  .header-text > h1
    font-family: $family-secondary
    font-style: normal
@@ -31,7 +34,11 @@
    margin-bottom: 10px
 
  .map-container
-   overflow: hidden
+   +tablet
+     display: flex
+     flex-direction: row-reverse
+
+ //  overflow: hidden
 
  .map-pointer
    background: none
@@ -40,23 +47,24 @@
    width: 10px
    height: 10px
 
+ .test
+   padding-bottom: 0 !important
+   +desktop
+   padding-left: 0
+   padding-bottom: 12px
+
  .map-side-bar
-   display: inline-block
-   position: absolute
-   top: 100px
-   left: 0
-   margin: 12px
+   margin: 0 12px 12px 12px !important
    background: $purple-dark
    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1)
-   border-radius: 6px 0px 0px 6px
    color: black
-   z-index: 100
    padding: 6px
    font-weight: bold
    opacity: 0.8
-   height: 640px
-   width: 460px
-   border-radius: 5px
+   height: 450px
+   +tablet
+     height: auto
+     margin: 12px 0 12px 12px !important
 
  .form-text
   font-family: Raleway
@@ -89,6 +97,8 @@
    width: 142px
    height: 32px
 
+ .range-slider
+    width: 95%
 
  .input-place
     background: $purple-darkest
@@ -96,7 +106,13 @@
     box-sizing: border-box
     border-radius: 6px
     color: #DBDEE7
-    width: 400px
+    //width: 200px
+    //+tablet
+    //  width: 200px
+    //+desktop
+    //  width: 200px
+    //+widescreen
+    //  width: 400px
 
  .input::placeholder
    color: $blue-lightest
@@ -106,17 +122,26 @@
 
  .input-range__track--active
    background: $orange
+   //width: 200px
+   //+tablet
+   // width: 200px
+   //+desktop
+   // width: 400px
 
  .input-range__slider
    background: $orange
  .input-range
-   width: 400px
+   //width: 200px
    margin-top: 10px
+   +tablet
+     width: 100%
+   +desktop
+     width: 100%
 
  .button-submit
   background-color: $orange
   color: $blue-lightest
-  width: 400px
+  //width: 400px
   font-family: $family-secondary
   font-style: normal
   font-weight: 800
@@ -124,19 +149,22 @@
   line-height: 34px
   text-align: center
   color: #FFFFFF
-
-  border-radius: 50px
+  //border-radius: 50px
 
  .container-radio
    font-family: $family-secondary
    font-style: normal
    font-weight: 800
-   font-size: 16px
-   line-height: 24px
+   //font-size: 16px
+   //line-height: 24px
    border: 1px solid #DBDEE7
    color: #FFFFFF
    background-color: $purple-darkest
-   margin-left: 5px
+   padding-left: 5px
+   padding-right: 0
+   text-align: center
+   width: 38px
+   //margin-left: 5px
    &.active
      background: $mauve
 
@@ -172,3 +200,11 @@
    font-size: 16px
    line-height: 24px
    color: #000000
+
+ .section-mobile
+   padding: 0.5rem 0.5rem
+   +tablet
+     padding: 3rem 1.5rem
+   +desktop
+     padding: 3rem 1.5rem
+
