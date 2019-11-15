@@ -4,7 +4,8 @@ import SocialLinks from "./categories/socialLinks.js"
 import logo from "../images/logo.svg"
 const footer = () => {
   return (
-    <footer className="section">
+    <footer>
+      <section className="footer-nav section">
       <div className="container is-fullhd">
         <div className="columns">
           <div className="column is-one-quarter">
@@ -45,7 +46,7 @@ const footer = () => {
             </div>
           </div>
           <div className="column">
-            <h6>Pet Insurance</h6>
+            <h6>Just For Fun</h6>
             <div className="footer-menu-wrapper">
               <Link to="/article/category/just-for-fun/pet-peeves/">Pet Peeves</Link>
               <Link to="article/category/just-for-fun/videos/">Pet News & Videos</Link>
@@ -58,6 +59,23 @@ const footer = () => {
           </div>
         </div>
       </div>
+      </section>
+      <section className="footer-container section">
+        <div className="container is-fullhd">
+          <div className="columns">
+            <div className="column is-5">
+              <ul>
+                <li><Link to="/privacy-policy/">Privacy Policy</Link></li>
+                <li><Link to="/terms-conditions/">Terms & Conditions</Link></li>
+                <li><Link to="/site-map/">Site Map</Link></li>
+              </ul>
+            </div>
+            <div className="column is-7">
+              <p>©Copyright 1999 - 2019. The IHC Group. All Rights Reserved</p>
+           </div> 
+          </div> 
+        </div>
+      </section>
     </footer>
   )
 }

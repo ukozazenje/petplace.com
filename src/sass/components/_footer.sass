@@ -1,20 +1,48 @@
 footer
   background: $blue-lightest
-  p.tagline 
-    margin-bottom: 1rem
-  .icons-wrapper
-    display: flex
-    flex-direction: row
-    justify-content: space-between 
-    width: 175px
-  .column
-    margin-bottom: 1rem
-  .footer-menu-wrapper
+  .footer-nav
+    padding: 3rem 0
+    p.tagline 
+      margin-bottom: 1rem
+    .icons-wrapper
+      display: flex
+      flex-direction: row
+      justify-content: space-between 
+      width: 175px
+    .column
+      margin-bottom: 1rem
+    .footer-menu-wrapper
+      display: flex
+      flex-direction: column
+      a 
+        @include font-size(14px)
+        color: $font-color
+        line-height: 2
+    h6
+      
+      margin-bottom: .5rem
+      color: $blue-dark
+
+  .footer-container.section
+    padding: 2rem 1rem
+    clear: both
+    background: $purple-dark
     display: flex
     flex-direction: column
-    a 
-      color: $font-color
-  h6
-    @include font-size(18px)
-    margin-bottom: .5rem
-    color: $blue-dark
+    justify-content: center
+    +tablet
+      flex-direction: row-reverse
+    ul
+      display: flex
+      flex-direction: row 
+      justify-content: space-between
+      li
+        list-style: none
+      li a
+        color: $white
+        @include font-size(13px)
+    p
+      color: $white
+      text-align: right
+      @include font-size(13px)
+
