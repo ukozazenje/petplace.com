@@ -13,6 +13,7 @@ import NoHeroPostImg from "../static/images/noPostHeroImg"
 import NoMobileHeroPostImg from "../static/images/noPostHeroMobileImg"
 import NextPost from "../components/post/NextPost"
 import {categoryColor} from "../components/functions"
+import Seo from '../components/seo'
 class Post extends Component  {
 
   render(){
@@ -31,6 +32,7 @@ class Post extends Component  {
           console.log(this.props.data)
     return (
       <Layout noFooter>
+        <Seo title={post.title} />
         <div className="single-post">
         <section className="section post-hero-section">
           <div className="container is-fullhd"> 
@@ -58,10 +60,10 @@ class Post extends Component  {
                 <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
                 <p className="post-date">{post.date}</p>
                 <div className="social-icons">
-                  <a href={"https://www.facebook.com/sharer/sharer.php?u="+pageLink} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
-                  <a href={"https://twitter.com/intent/tweet?url="+pageLink} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
-                  <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
-                  <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                  <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
+                  <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
+                  <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                  <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                 </div>
                 <img src={bannerImg} alt="banner" />
               </div>
@@ -76,10 +78,10 @@ class Post extends Component  {
                   <div className="column">
                     <div className="share-icons">
                       <span><strong>Share:</strong></span> 
-                      <a href={"https://www.facebook.com/sharer/sharer.php?u="+pageLink} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
-                      <a href={"https://twitter.com/intent/tweet?url="+pageLink} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
-                      <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
-                      <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                      <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
+                      <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
+                      <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                      <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                     </div>
                   </div>
                   <div className="column">
