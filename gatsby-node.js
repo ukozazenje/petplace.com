@@ -163,6 +163,14 @@ exports.createPages = ({ actions, graphql }) => {
               id: page.id,
             },
           })
+        } else if(page.slug === 'terms-of-service') {
+          createPage({
+            path: `${page.path}`,
+            component: pageTemplate,
+            context: {
+              id: page.id,
+            },
+          })
         } else {
           return null
         }
