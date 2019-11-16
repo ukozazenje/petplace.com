@@ -139,7 +139,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Iterate over the array of posts
       _.each(allPages, ({ node: page }, key) => {
         // Create the Gatsby page for this WordPress post
-        if(page.slug === 'privacy-policy') {
+        if(page.slug === 'privacy-policy' || page.slug === 'about-us' || page.slug === 'prnews' || page.slug === 'terms-of-service') {
           createPage({
             path: `${page.path}`,
             component: pageTemplate,
@@ -147,32 +147,6 @@ exports.createPages = ({ actions, graphql }) => {
               id: page.id,
             },
           })
-        } else if(page.slug === 'about-us') {
-          createPage({
-            path: `${page.path}`,
-            component: pageTemplate,
-            context: {
-              id: page.id,
-            },
-          })
-        } else if(page.slug === 'prnews') {
-          createPage({
-            path: `${page.path}`,
-            component: pageTemplate,
-            context: {
-              id: page.id,
-            },
-          })
-        } else if(page.slug === 'terms-of-service') {
-          createPage({
-            path: `${page.path}`,
-            component: pageTemplate,
-            context: {
-              id: page.id,
-            },
-          })
-        } else {
-          return null
         }
       })
     })
