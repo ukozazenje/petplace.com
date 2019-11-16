@@ -152,19 +152,20 @@ class Search extends Component {
             <div className="form-wrapper">
               <h1>Search our<br />
               Vet-Approved Articles</h1>
-              <p>Our pets are our furry children, beloved members of our family.  Pet Care, Health, Insurance, Behavior, Traning and Pet Breeds </p>
+              <p>Our pets are our furry children, beloved members of our family. Pet Care, Health, Insurance, Behavior, Traning and Pet Breeds </p>
               <Formik
                 initialValues={{title: ""}}
                 onSubmit={(values, actions) => {
                   this.handleSubmit(values.title)
                 }}
-                render={(props) => (
+              >
+                {(props) => (
                   <Form>
                     <Field type="text" name="title" placeholder="Search...." className="search-input" />
                     <button type="submit" className="search-button">Submit</button>
                   </Form>
                 )}
-              />
+              </Formik>
             </div>
           </div>
         </section>

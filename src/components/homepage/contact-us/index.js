@@ -34,7 +34,8 @@ const ContactUs = () => {
                 window.location = "/subscription-confirmation"
               )
           }}
-          render={({ values, errors, touched }) => (
+        >
+          {({ values, errors, touched }) => (
             <Form>
               <h3>Get the best of PetPlace straight to your inbox.</h3>
               <div className="columns">
@@ -69,7 +70,7 @@ const ContactUs = () => {
               <p>By signing up, you agree to our <Link to="/terms-of-service">Terms of Service</Link> and <Link to='/privacy-policy'>Privacy Policy</Link>.</p>
             </Form>
           )}
-        />
+        </Formik>
       </div>
     </section>
   )

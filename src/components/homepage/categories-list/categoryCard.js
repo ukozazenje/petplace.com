@@ -10,10 +10,10 @@ const CategoryCard = ({icon, link, title, text}) => {
           <img src={icon} alt="icon" />
         </div>
         <div className="copy-wrapper">
-          <h3><Link to={link}>{title}</Link></h3>
+          <h3>{title}</h3>
           <hr className="divider" />
           <p>{text}</p>
-          <Link to={link} className="read-more-btn"><img src={arrowImg} alt="read more" />Read more</Link>
+          <div className="read-more-btn"><img src={arrowImg} alt="read more" />Read more</div>
         </div>
       </div>
     </Link>
