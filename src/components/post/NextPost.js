@@ -13,8 +13,8 @@ class  NextPost extends Component {
           <div className="nex-post">
             <h3>Next Article</h3>
             <Link to={post.path}>
-              { 
-                post && post.featured_media && post.featured_media.source_url ? 
+              {
+                post && post.featured_media && post.featured_media.source_url ?
                 <img className="next-post-img" src={post.featured_media.source_url} alt="nex post" /> :
                 <NoImg />
               }

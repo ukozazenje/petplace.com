@@ -4,7 +4,7 @@ import { navigate } from 'gatsby'
 class NavigationSearch extends Component {
 
   handleSearch = (e) => {
-    if (e.which == 13 || e.keyCode == 13) {
+    if (e.which === 13 || e.keyCode === 13) {
       navigate(
         '/search',
         {

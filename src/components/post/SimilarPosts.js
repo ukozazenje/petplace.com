@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from 'gatsby-image'
 
 const PopularPosts = (props) => {
-  
+
   const {wordpressTtgPages} = useStaticQuery(
     graphql`
       query {
@@ -38,7 +38,7 @@ const PopularPosts = (props) => {
   )
 
   const featuredPost = wordpressTtgPages.acf.featured_posts
-  
+
   return (
     <section className="section similar-post-section">
       <div className="container is-fullhd">
@@ -47,15 +47,15 @@ const PopularPosts = (props) => {
           { featuredPost.map((post) => (
             <div key={post.wordpress_id} className="column">
               <Link to={post.path} className="similar-post-card" >
-                { (post.featured_image && post.featured_image.full.localFile.childImageSharp.fluid) ? 
-                <Img className="similar-post-card-image" sizes={{ ...post.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> : 
+                { (post.featured_image && post.featured_image.full.localFile.childImageSharp.fluid) ?
+                <Img className="similar-post-card-image" sizes={{ ...post.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> :
                 <Img className="similar-post-card-image" sizes={{ ...props.data.placeholderImage.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> }
-                 
+              </Link>
+
                 <div className="similar-post-card-content">
                   <Link to={post.category_path}>{post.category_name.replace(/&amp;/g, '&')}</Link>
                   <Link to={post.path} className="similar-post-card" ><h3>{post.post_title.substring(0, 34).replace(/<[^>]+>/g, "").concat(" ...")}</h3></Link>
                 </div>
-              </Link>
             </div>
           ) ) }
         </div>

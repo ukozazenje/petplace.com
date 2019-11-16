@@ -2,7 +2,7 @@ import React, { Component }  from 'react'
 import Layout from '../components/layout'
 import Img from 'gatsby-image'
 import {Link} from 'gatsby'
-import avatarImg from '../images/avatar.png'
+import avatarImg from '../images/avatar_pp.svg'
 import bannerImg from '../images/baner-sidebar.png'
 import facebookIcon from '../images/facebook.png'
 import twitterIcon from '../images/twitter.png'
@@ -35,25 +35,25 @@ class Post extends Component  {
         <Seo title={post.title} />
         <div className="single-post">
         <section className="section post-hero-section">
-          <div className="container is-fullhd"> 
+          <div className="container is-fullhd">
             <div><Link to={(post.categories && post.categories[0] && post.categories[0].path) || '/'} className={`category-link ${categoryColor(post.categories && post.categories[0] && post.categories[0].name)}`}>{(post.categories && post.categories[0] && post.categories[0].name.replace(/&amp;/g, '&')) || 'category'}</Link></div>
             <h1>{post.title}</h1>
           </div>
         </section>
         <div className="post-hero-img">
           <div className="is-hidden-touch">
-            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ? 
-            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ?
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> :
             <NoHeroPostImg />}
           </div>
           <div className="is-hidden-desktop">
-            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ? 
-            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ?
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> :
             <NoMobileHeroPostImg />}
           </div>
         </div>
         <section className="section">
-          <div className="container is-fullhd"> 
+          <div className="container is-fullhd">
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
                 <img className="author-img" src={avatarImg} alt="avatar" />
@@ -68,7 +68,7 @@ class Post extends Component  {
                 <img src={bannerImg} alt="banner" />
               </div>
               <div className="column">
-                <div className="single-post-content" 
+                <div className="single-post-content"
                   dangerouslySetInnerHTML={{
                     __html: post.content
                   }}
@@ -77,7 +77,7 @@ class Post extends Component  {
                 <div className="columns">
                   <div className="column">
                     <div className="share-icons">
-                      <span><strong>Share:</strong></span> 
+                      <span><strong>Share:</strong></span>
                       <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
                       <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
                       <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
@@ -98,7 +98,7 @@ class Post extends Component  {
       </Layout>
     )
   }
-  
+
 }
 
 export default Post
