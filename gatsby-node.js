@@ -110,6 +110,47 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
     .then(() => {
+      return graphql(`
+        {
+          allWordpressPage {
+            edges {
+              node {
+                id
+                slug
+                wordpress_id
+                path
+              }
+            }
+          }
+        }
+      `)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const pageTemplate = path.resolve(`./src/templates/page.js`)
+
+      // In production builds, filter for only published posts.
+      const allPages = result.data.allWordpressPage.edges
+
+      // Iterate over the array of posts
+      _.each(allPages, ({ node: page }, key) => {
+        // Create the Gatsby page for this WordPress post
+        if(page.slug === 'privacy-policy' || page.slug === 'about-us' || page.slug === 'prnews' || page.slug === 'terms-of-service') {
+          createPage({
+            path: `${page.path}`,
+            component: pageTemplate,
+            context: {
+              id: page.id,
+            },
+          })
+        }
+      })
+    })
+    .then(() => {
       return new Promise((resolve, reject) => {
         axios
           .get("http://dev.ppl.torchte.ch/wp-json/ttg/v2/pages")
