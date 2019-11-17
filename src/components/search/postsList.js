@@ -5,7 +5,7 @@ import * as SVGLoaders from 'svg-loaders-react'
 import NoImg from "../../static/images/noPostImg"
 
 
-const postsList = ({loader, currentPosts, total, currentPage, onPageChange}) => {
+const postsList = ({loader, currentPosts, total, currentPage, onPageChange, limit}) => {
   return (
     <div className="column">
       <div className="columns"style={{flexWrap: 'wrap'}}>
@@ -30,7 +30,7 @@ const postsList = ({loader, currentPosts, total, currentPage, onPageChange}) => 
         }
       </div>
       <div className="pagination">
-        <Pagination total={total} currentPage={currentPage} onPageChange={onPageChange} />
+        <Pagination limit={limit} total={total} currentPage={currentPage} onPageChange={onPageChange} />
       </div>
     </div>
   )
