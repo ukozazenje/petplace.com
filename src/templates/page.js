@@ -7,7 +7,6 @@ const Page = ({data}) => {
     <Layout>
       <section className="section page-content">
         <div className="container is-fullhd">
-          <h1>{page.title}</h1>
           <div className="single-post-content" 
               dangerouslySetInnerHTML={{
                 __html: page.content
