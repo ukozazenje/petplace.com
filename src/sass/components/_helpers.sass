@@ -4,7 +4,7 @@
 
 .flex-end
   align-items: flex-end
-  
+
 .flex-star
   align-items: flex-start
 
@@ -12,25 +12,55 @@
   align-self: flex-start
 
 .orange
-  background: $orange !important
-.blue 
-  background: $blue !important
+  border: 1px solid $orange
+  color: $orange
+  &:last-child
+      background: orange !important
+.blue
+  border: 1px solid $blue
+  color: $blue
+  &:last-child
+      background: blue !important
 .purple
-  background: $purple !important
+  border: 1px solid $purple
+  color: $purple
+  &:last-child
+      background: purple !important
 .purple-light
-    background: $purple-light !important
+    border: 1px solid $purple
+    color: $purple-light
+    &:last-child
+      background: purple !important
 .red
-  background: $red  !important
-.gold 
-  background: $gold !important
+  border: 1px solid $red
+  color: $red
+  &:last-child
+      background: red !important
+.gold
+  border: 1px solid $gold
+  color: $gold
+  &:last-child
+      background: gold !important
 .green
-  background: $green !important
+  border: 1px solid $green
+  color: $green
+  &:last-child
+      background: green !important
 .magenta
-  background: $magenta !important
+  border: 1px solid $magenta
+  color: $magenta
+  &:last-child
+      background: magenta !important
 .mauve
-  background: $mauve !important 
+  border: 1px solid $mauve
+  color: $mauve
+  &:last-child
+      background: mauve !important
 .blue-dark
-  background: $blue-dark !important
+  border: 1px solid $blue
+  color: $blue-dark
+  &:last-child
+      background: blue !important
 
 .orange-transparent
   @include background-opacity($orange, 0.6)
@@ -39,7 +69,7 @@
 
 .blue-dark-transparent
   @include background-opacity($blue-dark, 0.6)
-  
+
 .purple-transparent
   @include background-opacity($purple, 0.6)
 
@@ -48,37 +78,37 @@
 
 .red-transparent
   @include background-opacity($red, 0.6)
-  
-.gold-transparent 
+
+.gold-transparent
   @include background-opacity($gold, 0.6)
-  
+
 .green-transparent
   @include background-opacity($green, 0.6)
-  
+
 .magenta-transparent
   @include background-opacity($magenta, 0.6)
-  
+
 .mauve-transparent
   @include background-opacity($mauve, 0.6)
-  
+
 .mobile-img
   @media only screen and (max-width : 460px)
     display: block
   @media only screen and (min-width : 461px)
     display: none
-    
+
 .tablet-img
   display: none
   @media only screen and (min-width : 461px)
     display: block
-  +widescreen 
+  +widescreen
     display: none
 
 .desktop-img
   display: none
   +widescreen
     display: block
-.is-hidden-until-widescreen 
-  display: none 
+.is-hidden-until-widescreen
+  display: none
   +widescreen
     display: block
