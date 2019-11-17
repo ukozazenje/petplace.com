@@ -67,14 +67,14 @@ class Tags extends Component  {
                                 }
                               </Link>
                               <Link to={post.category_path} className={`card-category ${categoryColor(post.category_name)}`}>
-                                {post.category_name}
+                                {post.category_name.replace(/&amp;/g, '&')}
                               </Link>
                             </div>
                             <div className="card-content">
                               <div className="card-title">
                                 <h3>
                                   <Link to={`${post.path}`}>
-                                    {post.title || 'title'}
+                                    {post.title.replace(/&amp;/g, '&') || 'title'}
                                   </Link>
                                 </h3>
                               </div>
