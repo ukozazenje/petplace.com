@@ -44,7 +44,7 @@ class Tags extends Component  {
     const total = posts.length
     return (
       <Layout>
-        <HeroSection title={this.props.data.wordpressTtgTags.name} />
+        <HeroSection title={'dog care'} />
         <section className="section category-posts">
           <div className="container is-fullhd">
             <div className="columns categories-columns">

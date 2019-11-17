@@ -48,16 +48,6 @@ exports.createPages = ({ actions, graphql }) => {
               title: cat.name
             },
           })
-        } else {
-          createPage({
-            path: `${cat.path}`,
-            component: categoriesVideoTemplate,
-            context: {
-              id: cat.id,
-              slug: cat.slug,
-              title: cat.name
-            },
-          })
         }
       })
     })
