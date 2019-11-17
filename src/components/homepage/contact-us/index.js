@@ -1,6 +1,7 @@
 import React from "react"
 import { Form, Formik, Field } from "formik"
 import axios from "axios"
+import { Link } from 'gatsby'
 
 const ContactUs = () => {
   return (
@@ -66,7 +67,7 @@ const ContactUs = () => {
               <Field type="text" name="name" placeholder="Enter your name" className={ errors.name && touched.name ? "field-error" : "" } />
               {/* <ErrorMessage name="email" component="div" /> */}
               <button type="submit">Sign Up Now</button>
-              <p>By signing up, you agree to our <a>Terms of Service</a> and <a>Privacy Policy</a>.</p>
+              <p>By signing up, you agree to our <Link to="/terms-of-service">Terms of Service</Link> and <Link to='/privacy-policy'>Privacy Policy</Link>.</p>
             </Form>
           )}
         </Formik>
