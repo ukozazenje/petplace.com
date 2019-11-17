@@ -8,7 +8,7 @@ const categoryRow = ({category, categories}) => {
   // const categoryImg = category[0].node.featured_media.localFile.childImageSharp.fluid
   return (
     <div className="featured-categories">
-      <h2>{category && category[0] && category[0].node.categories[0].name}</h2>
+      <h2>{category && category[0] && category[0].node.categories[0].name.replace(/&amp;/g, '&')}</h2>
       <div className="tile is-ancestor">
         <div className="tile is-parent">
           <div className="tile is-child main-box">
@@ -41,7 +41,7 @@ const categoryRow = ({category, categories}) => {
             </div>
           </div>
         </div>
-      </div>    
+      </div>
     </div>
   )
 }
