@@ -11,6 +11,6 @@ export default (props) => (
         <Link to="/" className="divider"><img src={rightArrow} alt="right arrow"/></Link>
         <Link to="/" className={`category-link ${categoryColor(props.post.categories && props.post.categories[0] && props.post.categories[0].name)}`}>Dog Exercise &amp; Play</Link>
         <Link to="/" className="divider"><img src={rightArrow} alt="right arrow"/></Link>
-        <Link to="/" className={`category-link ${categoryColor(props.post.categories && props.post.categories[0] && props.post.categories[0].name)}`}>Puppy Play</Link>
+        <div className={`category-link ${categoryColor(props.post.categories && props.post.categories[0] && props.post.categories[0].name)}`}>Puppy Play</div>
     </div>
 );
