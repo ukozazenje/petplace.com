@@ -37,8 +37,7 @@ class Post extends Component  {
         <div className="single-post">
         <section className="section post-hero-section">
           <div className="container is-fullhd">
-            {/* <div><Link to={(post.categories && post.categories[0] && post.categories[0].path) || '/'} className={`category-link ${categoryColor(post.categories && post.categories[0] && post.categories[0].name)}`}>{(post.categories && post.categories[0] && post.categories[0].name.replace(/&amp;/g, '&')) || 'category'}</Link></div> */}
-            <div><Breadcrumbs post={post} /></div>
+            <Breadcrumbs category={post.categories && post.categories[0]} />
             <h1>{post.title}</h1>
           </div>
         </section>
