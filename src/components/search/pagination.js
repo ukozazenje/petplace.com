@@ -1,12 +1,12 @@
 import React from 'react'
 import Pagination from "react-paginating";
 
-const pagination = ({total, currentPage, onPageChange}) => {
+const pagination = ({limit, total, currentPage, onPageChange}) => {
   return (
     <Pagination
       total={total}
-      limit={6}
-      pageCount={3}
+      limit={limit}
+      // pageCount={3}
       currentPage={currentPage}
     >
       {({
