@@ -19,9 +19,9 @@ class  NextPost extends Component {
                 <NoImg />
               }
             </Link>
-            { post && post.categories && post.categories[0] && post.categories[0].path ? 
+            { post && post.categories && post.categories[0] && post.categories[0].path ?
               <Link to={post.categories[0].path}>
-                <p>{post.categories[0].name}</p>
+                <p>{post.categories[0].name.replace(/&amp;/g, '&')}</p>
               </Link> :
               null
             }
