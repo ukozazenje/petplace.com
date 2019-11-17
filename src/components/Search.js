@@ -19,7 +19,7 @@ class Search extends Component {
     currentPage: 1,
     totalPages: 0,
     form: {
-      numbers: "-1",
+      numbers: "200",
       days: '3000',
       orderBy: 'date',
       order: 'DSC',
