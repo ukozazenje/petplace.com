@@ -11,9 +11,9 @@ import * as SVGLoaders from 'svg-loaders-react'
 import PopularPosts from '../components/categories/PopularPosts'
 import Img from 'gatsby-image'
 
-class Tags extends Component  {
+class newCategory extends Component  {
   state = {
-    posts: this.props.data.wordpressTtgTags.posts,
+    posts: this.props.data.wordpressTtgCategories.posts,
     currentPosts: [],
     currentPage: 1,
     totalPages: 0,
@@ -23,7 +23,7 @@ class Tags extends Component  {
   componentDidMount() {
     const {limit } = this.state;
     this.setState({
-      currentPosts: this.props.data.wordpressTtgTags.posts.slice(0, limit),
+      currentPosts: this.props.data.wordpressTtgCategories.posts.slice(0, limit),
       currentPage: 1
     })
   }
@@ -44,11 +44,11 @@ class Tags extends Component  {
     const total = posts.length
     return (
       <Layout>
-        <HeroSection title={'dog care'} />
+        <HeroSection title={this.props.data.wordpressTtgCategories.name} />
         <section className="section category-posts">
           <div className="container is-fullhd">
             <div className="columns categories-columns">
-              <SideBar noSubcategory />
+              <SideBar subcategories={this.props.data.wordpressTtgCategories.subcategories} />
               <div className="column">
                   <div className="columns posts-list-container">
                     {
@@ -66,15 +66,15 @@ class Tags extends Component  {
                                   <NoImg /> 
                                 }
                               </Link>
-                              <Link to={post.category_path} className={`card-category ${categoryColor(post.category_name)}`}>
-                                {post.category_name}
+                              <Link to={post.category_path} className={`card-category ${categoryColor(post.category_name.replace(/&amp;/g, '&'))}`}>
+                                {post.category_name.replace(/&amp;/g, '&')}
                               </Link>
                             </div>
                             <div className="card-content">
                               <div className="card-title">
                                 <h3>
                                   <Link to={`${post.path}`}>
-                                    {post.title || 'title'}
+                                    {post.title.replace(/&amp;/g, '&') || 'title'}
                                   </Link>
                                 </h3>
                               </div>
@@ -87,7 +87,7 @@ class Tags extends Component  {
                       ))
                     }
                     <div className="pagination">
-                    <Pagination limit={limit} total={total} currentPage={this.state.currentPage} onPageChange={this.handlePageChange} />
+                    <Pagination limit={limit} total={total} currentPage={currentPage} onPageChange={this.handlePageChange} />
                   </div>
                 </div>
               </div>
@@ -101,13 +101,18 @@ class Tags extends Component  {
   }
 }
 
-export default Tags
+export default newCategory
 
 export const pageQuery = graphql`
-  query TagPage($id: String!){
-    wordpressTtgTags(id: { eq: $id }) {
+  query CategoryPage($id: String!){
+    wordpressTtgCategories(id: { eq: $id }) {
+      path
       name
       id
+      subcategories {
+        name
+        path
+      }
       posts {
         title
         author_name
