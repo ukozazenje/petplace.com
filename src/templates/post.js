@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import Img from 'gatsby-image'
 import {Link} from 'gatsby'
 import avatarImg from '../images/avatar_pp.svg'
-import bannerImg from '../images/baner-sidebar.png'
+import AdSet from '../components/AdSet'
 import facebookIcon from '../images/facebook.png'
 import twitterIcon from '../images/twitter.png'
 import pintrestIcon from '../images/pintrest.png'
@@ -65,7 +65,7 @@ class Post extends Component  {
                   <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
                   <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                 </div>
-                <img src={bannerImg} alt="banner" />
+                <AdSet title={post.title}/>
               </div>
               <div className="column">
                 <div className="single-post-content"
