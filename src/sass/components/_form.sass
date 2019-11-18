@@ -5,6 +5,14 @@
   color: #ffffff
   ::placeholder
     color: #ffffff
+  div.column
+    text-align: center
+    +tablet
+      &:first-child
+        text-align: right
+      &:last-child
+        text-align: left
+
   input[type="email"], input[type="text"]
     background: $mauve
     color: #ffffff
@@ -13,10 +21,11 @@
     border: 1px solid $mauve
     width: 100%
     margin: 0.5rem 0
+    max-width: 450px
     +tablet
       margin: 0 10px
       width: 330px
-    @include font-size(24px)
+    @include font-size(20px)
     &.field-error
       background: #9F1E1E
   .column
@@ -45,3 +54,4 @@
     color: $white
   p
     color: $white
+    font-size: 14px

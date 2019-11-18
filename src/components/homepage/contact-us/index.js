@@ -35,7 +35,7 @@ const ContactUs = () => {
           }}
           render={({ values, errors, touched }) => (
             <Form>
-              <h3>Get the best of PetPlace straight to your inbox.</h3>
+              <h3>Get the best of PetPlace straight to&nbsp;your&nbsp;inbox.</h3>
               <div className="columns">
                 <div className="column">
                   <Field
@@ -46,6 +46,8 @@ const ContactUs = () => {
                   <label htmlFor="dog_crazy">
                     Yes, Send Me The Dog Crazy Newsletter.
                   </label>
+                </div>
+                <div className="column">
                   <Field
                     type="checkbox"
                     name="cat_crazy"

@@ -2,7 +2,7 @@ import React, { Component }  from 'react'
 import Layout from '../components/layout'
 import Img from 'gatsby-image'
 import {Link} from 'gatsby'
-import avatarImg from '../images/avatar.png'
+import avatarImg from '../images/author.svg'
 import facebook from '../images/facebookIcon.svg'
 import pintrest from '../images/pinterestIcon.svg'
 import twitter from "../images/twitterIcon.svg"
