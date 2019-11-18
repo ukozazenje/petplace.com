@@ -1,13 +1,13 @@
-import React, { useState, Component } from 'react'
+import React, { Component } from 'react'
 import Layout from '../components/layout'
 import { Link } from 'gatsby'
-import axios from 'axios'
+// import axios from 'axios'
 import NoImg from '../static/images/noPostImg'
 import {categoryColor} from '../components/functions'
 import Pagination from '../components/search/pagination'
 import HeroSection from '../components/categories/categoryHero'
 import SideBar from '../components/categories/sideBar'
-import * as SVGLoaders from 'svg-loaders-react'
+// import * as SVGLoaders from 'svg-loaders-react'
 import PopularPosts from '../components/categories/PopularPosts'
 import Img from 'gatsby-image'
 
@@ -60,10 +60,10 @@ class Tags extends Component  {
                           <div className="category-post-card">
                             <div className="card-img">
                               <Link to={post.path}>
-                                { 
-                                  post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp && post.featured_media.localFile.childImageSharp.fluid ?  
-                                  <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> : 
-                                  <NoImg /> 
+                                {
+                                  post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp && post.featured_media.localFile.childImageSharp.fluid ?
+                                  <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> :
+                                  <NoImg />
                                 }
                               </Link>
                               <Link to={post.category_path} className={`card-category ${categoryColor(post.category_name)}`}>
@@ -87,7 +87,7 @@ class Tags extends Component  {
                       ))
                     }
                     <div className="pagination">
-                    <Pagination limit={limit} total={total} currentPage={this.state.currentPage} onPageChange={this.handlePageChange} />
+                    <Pagination limit={limit} total={total} currentPage={currentPage} onPageChange={this.handlePageChange} />
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@ class Tags extends Component  {
         </section>
         <PopularPosts />
       </Layout>
-      
+
     )
   }
 }

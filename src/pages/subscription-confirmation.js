@@ -4,12 +4,12 @@ import SEO from "../components/seo"
 import HappinessSection from "../components/homepage/pet-happiness"
 import ContactUsSection from "../components/homepage/contact-us"
 import CategoryListSection from "../components/homepage/categories-list"
-import SearchHero from "../components/homepage/searchHero"
+// import SearchHero from "../components/homepage/searchHero"
 import Latest from '../components/homepage/latest-stories/latestStoriesHome'
 
-import HomeHeroImg from "../static/images/homeHeroImg"
-import MobileHeroImg from "../static/images/mobileHomeHeroImg"
-import TabletHeroImg from "../static/images/tabletHomeHeroImg"
+// import HomeHeroImg from "../static/images/homeHeroImg"
+// import MobileHeroImg from "../static/images/mobileHomeHeroImg"
+// import TabletHeroImg from "../static/images/tabletHomeHeroImg"
 
 const SubscriptionConfirmationPage = () => {
 

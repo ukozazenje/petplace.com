@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react'
+import React, { Component } from 'react'
 import Layout from '../components/layout'
 import { Link } from 'gatsby'
 import NoImg from '../static/images/noPostImg'
@@ -34,7 +34,7 @@ class VideosCategoryPage extends Component{
       currentPosts,
     });
   };
-  
+
   render(){
     const {limit, currentPage, posts} = this.state
     const total = posts.length
@@ -52,7 +52,7 @@ class VideosCategoryPage extends Component{
                 </p>
                 <Link to={this.props.data.wordpressTtgCategories.posts[0].path} className="video-btn">Find out More</Link>
               </div>
-              <div className="column featured-video" 
+              <div className="column featured-video"
                 dangerouslySetInnerHTML={{
                       __html: this.props.data.wordpressTtgCategories.posts[0].content.match(/(?:<iframe[^>]*)(?:(?:\/>)|(?:>.*?<\/iframe>))/)
                     }} />
@@ -74,10 +74,10 @@ class VideosCategoryPage extends Component{
                           <div className="category-post-card">
                             <div className="card-img">
                               <Link to={post.path}>
-                                { 
-                                  post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp && post.featured_media.localFile.childImageSharp.fluid ?  
-                                  <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> : 
-                                  <NoImg /> 
+                                {
+                                  post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp && post.featured_media.localFile.childImageSharp.fluid ?
+                                  <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> :
+                                  <NoImg />
                                 }
                               </Link>
                               <Link to={post.category_path} className={`card-category ${categoryColor(post.category_name.replace(/&amp;/g, '&'))}`}>

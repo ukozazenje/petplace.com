@@ -1,7 +1,7 @@
 import React from 'react'
 import {Form, Formik, Field} from 'formik'
 import {navigate} from 'gatsby'
-import searchImg from '../../../images/search-next.png'
+// import searchImg from '../../../images/search-next.png'
 const SearchHero = () => {
   return (
     <section className="search-hero-section">
