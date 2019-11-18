@@ -4,6 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://www.petplace.com`,
     title: `PetPlace: The Web's #1 Source of Pet Information`,
     description: `Read veterinarian approved pet care articles on PetPlace.com. Find pet health information about your dog, cat and many other animals from our pet experts.`,
     author: `@gatsbyjs`,
@@ -21,6 +22,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

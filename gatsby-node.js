@@ -141,7 +141,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Iterate over the array of posts
       _.each(allPages, ({ node: page }, key) => {
         // Create the Gatsby page for this WordPress post
-        if(page.slug === 'privacy-policy' || page.slug === 'about-us' || page.slug === 'prnews' || page.slug === 'terms-of-service') {
+        if(page.slug === 'privacy-policy' || page.slug === 'about-us' || page.slug === 'prnews' || page.slug === 'terms-of-use') {
           createPage({
             path: `${page.path}`,
             component: pageTemplate,
