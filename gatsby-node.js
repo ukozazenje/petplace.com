@@ -107,7 +107,7 @@ exports.createPages = ({ actions, graphql }) => {
           context: {
             id: post.id,
             nextPostSlug: postsPublished[key + 1] ? postsPublished[key + 1].node.slug : postsPublished[0].node.slug,
-            nextPostPath: postsPublished[key + 1] ? postsPublished[key + 1].node.path : postsPublished[0].node.path
+            nextPost: postsPublished[key + 1] ? postsPublished[key + 1].node : postsPublished[0].node
           },
         })
       })

@@ -20,7 +20,6 @@ class Post extends Component  {
   render(){
     const nextPost = this.props.data.wordpressTtgPosts
     const post = this.props.data.wordpressPost
-    const nextPostPath = this.props.pageContext.nextPostPath
     const tagList = (tags) => (
       <div className="post-tags">
         <span><strong>Tags:</strong> </span>
@@ -38,7 +37,10 @@ class Post extends Component  {
         <section className="section post-hero-section">
           <div className="container is-fullhd">
             <Breadcrumbs category={post.categories && post.categories[0]} />
-            <h1>{post.title}</h1>
+            <h1 dangerouslySetInnerHTML={{
+                __html: post.title
+              }}
+            />
           </div>
         </section>
         <div className="post-hero-img">
@@ -102,7 +104,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        <NextPost post={nextPost} location={{...this.props.location}} path={nextPostPath}/>
+        <NextPost post={this.props.pageContext.nextPost} location={{...this.props.location}} nextPostImg={nextPost}/>
         </div>
       </Layout>
     )
