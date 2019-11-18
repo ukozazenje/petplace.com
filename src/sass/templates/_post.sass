@@ -34,19 +34,29 @@
       @include font-size(22px)
     h3
       @include font-size(18px)
-  .category-link
-    font-family: $family-secondary
-    font-weight: $family-secondary-weight
-    line-height: 1.9
-    background: #6F69A8
-    border-radius: 50px
-    height: 30px
-    padding-left: 20px
-    padding-right: 20px
-    color: #fff
-    display: inline-block
-    text-align: center
+  .breadcrumbs
+    display: flex
     margin-bottom: 20px
+    .home
+      margin-right: 10px
+      img
+        height: 20px
+    .category-link
+      font-family: $family-primary
+      font-weight: 500
+      line-height: 1.9
+      background: #FFFFFF
+      border-radius: 50px
+      height: 20px
+      padding-left: 10px
+      padding-right: 10px
+      display: inline-block
+      text-align: center
+      font-size: 10px
+      &:last-child
+        color: white
+    .divider img
+      margin: 0 7px 3px
   .single-post-content
     a
       color: $orange
