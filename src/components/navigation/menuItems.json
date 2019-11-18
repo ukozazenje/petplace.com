@@ -49,7 +49,7 @@
               },
               {
                 "url": "/article/category/pet-care/cat-care/cat-exercises-play",
-                "name": "Cat Exercises &amp; Play"
+                "name": "Cat Exercises & Play"
               },
               {
                 "url": "/article/category/pet-care/cat-care/cat-adoption",
@@ -219,7 +219,7 @@
     },
     {
       "name": "Pet Breeds",
-      "url": "/article/category/pet-breeds/",
+      "url": "/article/category/breeds/",
        "children": [
         {
           "url": "/article/category/breeds/dog-breeds",

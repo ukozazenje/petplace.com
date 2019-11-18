@@ -16,6 +16,7 @@ const PopularPosts = (props) => {
               author_name
               post_date
               link
+              path
               post_title
               wordpress_id
               featured_image {
@@ -44,7 +45,7 @@ const PopularPosts = (props) => {
         <div className="columns">
           { featuredPosts.map((post) => (
             <div key={post.wordpress_id} className="column">
-              <Link to={post.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')} className="popular-post-card" >
+              <Link to={post.path} className="popular-post-card" >
                 <Img className="popular-post-card-image" fluid={(post.featured_image && post.featured_image && post.featured_image.full && post.featured_image.full.localFile.childImageSharp.fluid) || coverImg} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> 
                 <div className={`popular-post-card-content ${categoryColor(post.category_name)}-transparent`}>
                   <h3>{post.post_title}</h3>

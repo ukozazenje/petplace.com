@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from 'gatsby-image'
 import {categoryColor} from '../../functions'
 const PopularPosts = (props) => {
-  
+
   const {wordpressTtgPages} = useStaticQuery(
     graphql`
       query {
@@ -12,9 +12,11 @@ const PopularPosts = (props) => {
             category_rows {
               category
               link
+              path
               posts {
                 author_name
                 link
+                path
                 post_date
                 post_title
                 featured_image {
@@ -70,12 +72,12 @@ const PopularPosts = (props) => {
   //       )
   //   return acc
   // },[])
-  
+
   const tills = (posts, category) => {
     const mainPost = posts[0]
     const firstPost = posts[1]
     const secondPost = posts[2]
-    
+
     return (
       <div className="tile is-ancestor">
         <div className="tile is-parent">
@@ -87,29 +89,29 @@ const PopularPosts = (props) => {
               <Img sizes={{ ...mainPost.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_image.full.alt_text || 'post')} />
             </div>
             <div className={`main-content ${categoryColor(category)}-transparent`}>
-              <h3><Link to={mainPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>{mainPost.post_title}</Link></h3>
+              <h3><Link to={mainPost.path}>{mainPost.post_title}</Link></h3>
               <p className="date">{mainPost.post_date || 'no date'} ·  {(mainPost.author_name) || 'PetPlace.com'}</p>
             </div>
           </div>
         </div>
         <div className="tile is-5 is-vertical is-parent">
           <div className="tile is-child thumbnail-box flex-start">
-            <Link to={firstPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>
+            <Link to={firstPost.path}>
               <Img fluid={(firstPost.featured_image.full.localFile.childImageSharp.fluid)} alt={(firstPost.featured_image.full.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
   objectPosition="50% 50%" />
             </Link>
             <div className="sub-content">
-              <h3><Link to={firstPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>{firstPost.post_title}</Link></h3>
+              <h3><Link to={firstPost.path}>{firstPost.post_title}</Link></h3>
               <p className="date">{firstPost.post_date} ·  {firstPost.author_name}</p>
             </div>
           </div>
           <div className="tile is-child thumbnail-box flex-end">
-            <Link to={secondPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')}>
+            <Link to={secondPost.path}>
               <Img fluid={(secondPost.featured_image.full.localFile.childImageSharp.fluid)} alt={(secondPost.featured_image.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
     objectPosition="50% 50%" />
             </Link>
             <div className="sub-content align-slef-start">
-              <h3><Link to={secondPost.link.replace(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/`, '/')} >{secondPost.post_title}</Link></h3>
+              <h3><Link to={secondPost.path} >{secondPost.post_title}</Link></h3>
               <p className="date">{secondPost.post_date} ·  {secondPost.author_name}</p>
             </div>
           </div>
@@ -117,20 +119,19 @@ const PopularPosts = (props) => {
       </div>
     )
   }
-  console.log('Oppp', wordpressTtgPages.acf.category_rows)
   return (
     <section className="section latest-stories-section">
       <div className="container is-fullhd">
         <h1>Latest Stories</h1>
-          {wordpressTtgPages.acf.category_rows.map((category_row) => {
+          {wordpressTtgPages.acf.category_rows.map((category_row, i) => {
             return (
-              <div className="featured-categories">
-                <h2>{category_row.category_name}</h2>
+              <div className="featured-categories" key={i}>
+                <h2>{category_row.category_name.replace(/&amp;/g, '&')}</h2>
                 {tills(category_row.posts, category_row.category_name)}
               </div>
             )
           })}
-          
+
       </div>
     </section>
   )

@@ -2,8 +2,8 @@ import React, { Component }  from 'react'
 import Layout from '../components/layout'
 import Img from 'gatsby-image'
 import {Link} from 'gatsby'
-import avatarImg from '../images/avatar.png'
-import bannerImg from '../images/baner-sidebar.png'
+import avatarImg from '../images/avatar_pp.svg'
+import AdSet from '../components/AdSet'
 import facebookIcon from '../images/facebook.png'
 import twitterIcon from '../images/twitter.png'
 import pintrestIcon from '../images/pintrest.png'
@@ -13,6 +13,8 @@ import NoHeroPostImg from "../static/images/noPostHeroImg"
 import NoMobileHeroPostImg from "../static/images/noPostHeroMobileImg"
 import NextPost from "../components/post/NextPost"
 import {categoryColor} from "../components/functions"
+import Seo from '../components/seo'
+import Breadcrumbs from '../components/Breadcrumbs';
 class Post extends Component  {
 
   render(){
@@ -31,42 +33,43 @@ class Post extends Component  {
           console.log(this.props.data)
     return (
       <Layout noFooter>
+        <Seo title={post.title} />
         <div className="single-post">
         <section className="section post-hero-section">
-          <div className="container is-fullhd"> 
-            <div><Link to={(post.categories && post.categories[0] && post.categories[0].path) || '/'} className={`category-link ${categoryColor(post.categories && post.categories[0] && post.categories[0].name)}`}>{(post.categories && post.categories[0] && post.categories[0].name.replace(/&amp;/g, '&')) || 'category'}</Link></div>
+          <div className="container is-fullhd">
+            <Breadcrumbs category={post.categories && post.categories[0]} />
             <h1>{post.title}</h1>
           </div>
         </section>
         <div className="post-hero-img">
           <div className="is-hidden-touch">
-            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ? 
-            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ?
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> :
             <NoHeroPostImg />}
           </div>
           <div className="is-hidden-desktop">
-            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ? 
-            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ?
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> :
             <NoMobileHeroPostImg />}
           </div>
         </div>
         <section className="section">
-          <div className="container is-fullhd"> 
+          <div className="container is-fullhd">
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
                 <img className="author-img" src={avatarImg} alt="avatar" />
                 <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
                 <p className="post-date">{post.date}</p>
                 <div className="social-icons">
-                  <a href={"https://www.facebook.com/sharer/sharer.php?u="+pageLink} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
-                  <a href={"https://twitter.com/intent/tweet?url="+pageLink} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
-                  <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
-                  <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                  <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
+                  <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
+                  <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                  <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                 </div>
-                <img src={bannerImg} alt="banner" />
+                <AdSet title={post.title}/>
               </div>
               <div className="column">
-                <div className="single-post-content" 
+                <div className="single-post-content"
                   dangerouslySetInnerHTML={{
                     __html: post.content
                   }}
@@ -75,11 +78,11 @@ class Post extends Component  {
                 <div className="columns">
                   <div className="column">
                     <div className="share-icons">
-                      <span><strong>Share:</strong></span> 
-                      <a href={"https://www.facebook.com/sharer/sharer.php?u="+pageLink} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
-                      <a href={"https://twitter.com/intent/tweet?url="+pageLink} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
-                      <a href={"https://pinterest.com/pin/create/button/?url="+pageLink+"&media=&description="+post.title} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
-                      <a href={"mailto:info@example.com?&subject="+post.title+"&body="+pageLink} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                      <span><strong>Share:</strong></span>
+                      <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
+                      <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
+                      <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                      <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                     </div>
                   </div>
                   <div className="column">
@@ -96,7 +99,7 @@ class Post extends Component  {
       </Layout>
     )
   }
-  
+
 }
 
 export default Post
@@ -127,7 +130,7 @@ export const pageQuery = graphql`
         alt_text
         localFile {
           childImageSharp {
-            fluid(maxWidth: 1920, quality:100) {
+            fluid(maxWidth: 1920, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

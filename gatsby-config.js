@@ -4,9 +4,11 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    siteUrl: `https://www.petplace.com`,
+    title: `PetPlace: The Web's #1 Source of Pet Information`,
+    description: `Read veterinarian approved pet care articles on PetPlace.com. Find pet health information about your dog, cat and many other animals from our pet experts.`,
     author: `@gatsbyjs`,
+    google_site_verification: `6eUJTvmXxNEIIo_WFK3iWppRstR1aJrzuKaTtqlG4oc`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,16 +22,17 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `Pet place`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo-fav.png`, // This path is relative to the root of the site.
       },
     },
     {
