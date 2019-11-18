@@ -16,8 +16,9 @@ import Breadcrumbs from '../components/Breadcrumbs';
 import AdSet from '../components/AdSet'
 
 class Post extends Component  {
-
+  
   render(){
+    const nextPost = this.props.data.wordpressTtgPosts
     const post = this.props.data.wordpressPost
     const tagList = (tags) => (
       <div className="post-tags">
@@ -100,7 +101,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        <NextPost post={this.props.pageContext.nextPost} location={{...this.props.location}} />
+        <NextPost post={nextPost} location={{...this.props.location}} />
         </div>
       </Layout>
     )
@@ -112,7 +113,7 @@ export default Post
 
 
 export const pageQuery = graphql`
-  query PostPage($id: String!){
+  query PostPage($id: String!, $nextPostSlug: String!){
     wordpressPost(id: { eq: $id }) {
       id
       title
@@ -138,6 +139,26 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 1920, quality: 100) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    wordpressTtgPosts(slug: {eq: $nextPostSlug}) {
+      category_path
+      slug
+      title
+      category {
+        cat_name
+      }
+      path
+      featured_image {
+        full {
+          localFile {
+            childImageSharp {
+              fixed(width: 164, height: 164) {
+                ...GatsbyImageSharpFixed
+              }
             }
           }
         }

@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import BottomScrollListener from 'react-bottom-scroll-listener'
 import NextPostImg from "../../images/next-post.png"
 import NoImg from '../../static/images/noNextPost'
+import Img from 'gatsby-image'
 class  NextPost extends Component {
   render(){
     const post = this.props.post
@@ -13,14 +14,18 @@ class  NextPost extends Component {
             <h3>Next Article</h3>
             <Link to={post.path}>
               {
-                post && post.featured_media && post.featured_media.source_url ?
-                <img className="next-post-img" src={post.featured_media.source_url} alt="nex post" /> :
-                <NoImg />
+              post && 
+              post.featured_image && 
+              post.featured_image.full && 
+              post.featured_image.full.localFile && 
+              post.featured_image.full.localFile.childImageSharp ? 
+              <Img className="next-img" fixed={post.featured_image.full.localFile.childImageSharp.fixed} /> :
+              <NoImg />
               }
             </Link>
-            { post && post.categories && post.categories[0] && post.categories[0].path ?
-              <Link to={post.categories[0].path}>
-                <p>{post.categories[0].name.replace(/&amp;/g, '&')}</p>
+            { post && post.category_path ?
+              <Link to={post.category_path}>
+                <p>{post.category.cat_name.replace(/&amp;/g, '&')}</p>
               </Link> :
               null
             }
