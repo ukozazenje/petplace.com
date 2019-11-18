@@ -99,9 +99,13 @@
   .container
     text-align: right
 .search-hero-section
+  -ms-grid-column: 1
   grid-column-start: 1
+  -ms-grid-column-span: 1
   grid-column-end: 2
+  -ms-grid-row: 1
   grid-row-start: 1
+  -ms-grid-row-span: 1
   grid-row-end: 2
   display: flex
   align-items: center
@@ -124,8 +128,11 @@
     form
       @media screen and (min-width: 461px)
         max-width: 500px
+        display: -ms-grid
         display: grid
+        -ms-grid-columns: 1fr 250px
         grid-template-columns: 1fr 250px
+        -ms-grid-rows: 1fr
         grid-template-rows: 1fr
       +tablet
         max-width: 600px
@@ -150,9 +157,13 @@
       border: 1px solid rgba(255, 255, 255, 0.78)
       @media screen and (min-width: 461px)
         margin-bottom: 0
+        -ms-grid-column: 1
         grid-column-start: 1
+        -ms-grid-column-span: 2
         grid-column-end: 3
+        -ms-grid-row: 1
         grid-row-start: 1
+        -ms-grid-row-span: 1
         grid-row-end: 2
       +tablet
         max-width: 700px
@@ -172,9 +183,13 @@
         margin: 2px 2px 2px 0
         padding: 11px 45px 11px 45px
         width: inherit
+        -ms-grid-column: 2
         grid-column-start: 2
+        -ms-grid-column-span: 1
         grid-column-end: 3
+        -ms-grid-row: 1
         grid-row-start: 1
+        -ms-grid-row-span: 1
         grid-row-end: 2
       &:hover 
         cursor: pointer

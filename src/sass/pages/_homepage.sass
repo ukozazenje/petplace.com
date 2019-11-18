@@ -33,8 +33,11 @@
     text-align: center
     border: 1px solid $gray-light
     border-bottom: none
+    display: -ms-grid
     display: grid
+    -ms-grid-rows: 1fr
     grid-template-rows: 1fr
+    -ms-grid-columns: 130px 1fr
     grid-template-columns: 130px 1fr
     +tablet 
       display: flex
@@ -54,9 +57,13 @@
       display: flex
       align-items: center
       justify-content: center
+      -ms-grid-row:  1
       grid-row-start:  1
+      -ms-grid-row-span: 1
       grid-row-end: 2
+      -ms-grid-column: 1
       grid-column-start: 1
+      -ms-grid-column-span: 1
       grid-column-end: 2
       img
         max-height: 80px
@@ -68,9 +75,13 @@
     a 
       color: $font-color
     .copy-wrapper
+      -ms-grid-row:  1
       grid-row-start:  1
+      -ms-grid-row-span: 1
       grid-row-end: 2
+      -ms-grid-column: 2
       grid-column-start: 2
+      -ms-grid-column-span: 1
       grid-column-end: 3
       display: flex
       flex-direction: column
