@@ -37,7 +37,7 @@ const ContactUs = () => {
         >
           {({ values, errors, touched }) => (
             <Form>
-              <h3>Get the best of PetPlace straight to your inbox.</h3>
+              <h3>Get the best of PetPlace straight to&nbsp;your&nbsp;inbox.</h3>
               <div className="columns">
                 <div className="column">
                   <Field
@@ -48,6 +48,8 @@ const ContactUs = () => {
                   <label htmlFor="dog_crazy">
                     Yes, Send Me The Dog Crazy Newsletter.
                   </label>
+                </div>
+                <div className="column">
                   <Field
                     type="checkbox"
                     name="cat_crazy"
@@ -67,7 +69,7 @@ const ContactUs = () => {
               <Field type="text" name="name" placeholder="Enter your name" className={ errors.name && touched.name ? "field-error" : "" } />
               {/* <ErrorMessage name="email" component="div" /> */}
               <button type="submit">Sign Up Now</button>
-              <p>By signing up, you agree to our <Link to="/terms-of-service">Terms of Service</Link> and <Link to='/privacy-policy'>Privacy Policy</Link>.</p>
+              <p>By signing up, you agree to our <Link to="/terms-of-use">Terms of Use</Link> and <Link to='/privacy-policy'>Privacy Policy</Link>.</p>
             </Form>
           )}
         </Formik>

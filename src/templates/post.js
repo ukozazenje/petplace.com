@@ -1,25 +1,24 @@
 import React, { Component }  from 'react'
 import Layout from '../components/layout'
 import Img from 'gatsby-image'
-import {Link} from 'gatsby'
-import avatarImg from '../images/avatar_pp.svg'
-import AdSet from '../components/AdSet'
-import facebookIcon from '../images/facebook.png'
-import twitterIcon from '../images/twitter.png'
-import pintrestIcon from '../images/pintrest.png'
-import emailIcon from '../images/email.png'
+import avatarImg from '../images/author.svg'
+import facebook from '../images/facebookIcon.svg'
+import pintrest from '../images/pinterestIcon.svg'
+import twitter from "../images/twitterIcon.svg"
+import emailIcon from '../images/emailIcon.svg'
 import SimilarPosts from "../components/post/SimilarPosts"
 import NoHeroPostImg from "../static/images/noPostHeroImg"
 import NoMobileHeroPostImg from "../static/images/noPostHeroMobileImg"
 import NextPost from "../components/post/NextPost"
-import {categoryColor} from "../components/functions"
 import Seo from '../components/seo'
+import Sticky from 'react-stickynode'
 import Breadcrumbs from '../components/Breadcrumbs';
+import AdSet from '../components/AdSet'
+
 class Post extends Component  {
 
   render(){
     const post = this.props.data.wordpressPost
-    // const { edges: posts } = this.props.data.allWordpressPost
     const tagList = (tags) => (
       <div className="post-tags">
         <span><strong>Tags:</strong> </span>
@@ -29,8 +28,7 @@ class Post extends Component  {
       </div>
     )
     console.log(this.props.pageContext)
-    const pageLink = this.props.location && this.props.location.href
-          console.log(this.props.data)
+    console.log(this.props.data)
     return (
       <Layout noFooter>
         <Seo title={post.title} />
@@ -53,40 +51,48 @@ class Post extends Component  {
             <NoMobileHeroPostImg />}
           </div>
         </div>
-        <section className="section">
+        <section className="main-content">
           <div className="container is-fullhd">
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
                 <img className="author-img" src={avatarImg} alt="avatar" />
                 <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
                 <p className="post-date">{post.date}</p>
-                <div className="social-icons">
-                  <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
-                  <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
-                  <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                <div className="share-icons-horizontal">
+                  <p>Share:</p>
+                  <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
+                  <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
+                  <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
                   <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                 </div>
                 <AdSet title={post.title}/>
+                <Sticky enabled={true} top={20} bottomBoundary='.single-post-sidebar'>
+                    <div className="share-icons-vertical">
+                      <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
+                      <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
+                      <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
+                      <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                    </div>
+                </Sticky>
               </div>
               <div className="column">
-                <div className="single-post-content"
-                  dangerouslySetInnerHTML={{
+                <div className="single-post-content" dangerouslySetInnerHTML={{
                     __html: post.content
                   }}
                 />
                 <hr />
-                <div className="columns">
-                  <div className="column">
-                    <div className="share-icons">
-                      <span><strong>Share:</strong></span>
-                      <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
-                      <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
-                      <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
-                      <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                <div className="share-icons-horizontal">
+                  <p>Share:</p>
+                  <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
+                  <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
+                  <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
+                  <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                </div>
+                <div className="container is-fullhd">
+                  <div className="columns">
+                    <div className="column">
+                      { post.tags ? tagList(post.tags) : null }
                     </div>
-                  </div>
-                  <div className="column">
-                    { post.tags ? tagList(post.tags) : null }
                   </div>
                 </div>
               </div>
