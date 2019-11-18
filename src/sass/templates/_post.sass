@@ -17,7 +17,6 @@
     display: block
     margin-bottom: 2rem
   h1 
-    max-width: 800px
     margin-bottom: 1rem
   h2
     margin-top: 1rem
@@ -55,6 +54,18 @@
       margin-top: 20px
       list-style-type: circle
       padding-left: 20px
+  .share-icons-horizontal
+      line-height: 1
+      display: flex
+      flex-direction: row
+      justify-content: space-around
+      align-items: flex-start
+      width: 200px
+      z-index: 10000000000
+      +tablet
+        display: none
+      p
+        color: darken($gray-light, 30%)
   
   .single-post-sidebar
     padding-top: 0
@@ -67,19 +78,18 @@
     .post-date
       color: $blue-light
       margin-bottom: .5rem
-    .social-icons
+    .share-icons-vertical
       line-height: 1
-      display: flex
-      flex-direction: row
+      flex-direction: column
       justify-content: space-around
+      align-items: flex-start
       width: 150px
-  .share-icons
-    display: flex
-    flex-direction: row
-    align-items: center
-    justify-content: flex-start
-    img 
-      margin-left: 10px
+      z-index: 10000000000
+      display: none
+      a
+        background-color: $white
+      +tablet
+        display: flex
   .tag-button
     margin-left: 10px
     border-radius: 30px
