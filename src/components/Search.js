@@ -3,7 +3,6 @@ import {Form, Formik, Field} from 'formik'
 import axios from 'axios'
 import Layout from '../components/layout'
 import OrderBy from './search/orderBy'
-import SideBar from './search/sideBar'
 import PostsList from './search/postsList'
 import HomeHeroImg from "../static/images/homeHeroImg"
 import MobileHeroImg from "../static/images/mobileHomeHeroImg"

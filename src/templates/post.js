@@ -1,7 +1,6 @@
 import React, { Component }  from 'react'
 import Layout from '../components/layout'
 import Img from 'gatsby-image'
-import {Link} from 'gatsby'
 import avatarImg from '../images/author.svg'
 import facebook from '../images/facebookIcon.svg'
 import pintrest from '../images/pinterestIcon.svg'
@@ -11,7 +10,6 @@ import SimilarPosts from "../components/post/SimilarPosts"
 import NoHeroPostImg from "../static/images/noPostHeroImg"
 import NoMobileHeroPostImg from "../static/images/noPostHeroMobileImg"
 import NextPost from "../components/post/NextPost"
-import {categoryColor} from "../components/functions"
 import Seo from '../components/seo'
 import Sticky from 'react-stickynode'
 import Breadcrumbs from '../components/Breadcrumbs';
@@ -21,7 +19,6 @@ class Post extends Component  {
 
   render(){
     const post = this.props.data.wordpressPost
-    // const { edges: posts } = this.props.data.allWordpressPost
     const tagList = (tags) => (
       <div className="post-tags">
         <span><strong>Tags:</strong> </span>
@@ -31,7 +28,6 @@ class Post extends Component  {
       </div>
     )
     console.log(this.props.pageContext)
-    const pageLink = this.props.location && this.props.location.href
     console.log(this.props.data)
     return (
       <Layout noFooter>
@@ -56,7 +52,7 @@ class Post extends Component  {
           </div>
         </div>
         <section className="main-content">
-          <div className="container is-fullhd"> 
+          <div className="container is-fullhd">
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
                 <img className="author-img" src={avatarImg} alt="avatar" />

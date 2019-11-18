@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MapGL, { Marker, Popup } from "react-map-gl"
 import { GoogleApiWrapper } from "google-maps-react"
-import { ErrorMessage, Field, Form, Formik } from "formik"
+import { ErrorMessage, Form, Formik } from "formik"
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
