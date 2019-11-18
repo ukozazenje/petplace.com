@@ -184,12 +184,12 @@ class VetLocator extends Component{
                               longitude={parseFloat(store.lng)}
                               latitude={parseFloat(store.lat)}
                       >
-                        <a href="#" onClick={(ev) => {
+                        <button type="button" onClick={(ev) => {
                           ev.preventDefault();
                           this.setSelectedStore(store)
                         }}>
                           <img src={pointer} alt="Store" className="poointer"/>
-                        </a>
+                        </button>
                       </Marker>
                     )
                   )}
