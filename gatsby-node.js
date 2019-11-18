@@ -106,7 +106,7 @@ exports.createPages = ({ actions, graphql }) => {
           component: postTemplate,
           context: {
             id: post.id,
-            nextPost: postsPublished[key + 1] ? postsPublished[key + 1].node : postsPublished[0].node
+            nextPostSlug: postsPublished[key + 1] ? postsPublished[key + 1].node.slug : postsPublished[0].node.slug
           },
         })
       })
