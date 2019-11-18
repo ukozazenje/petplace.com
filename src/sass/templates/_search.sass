@@ -99,9 +99,13 @@
   .container
     text-align: right
 .search-hero-section
+  -ms-grid-column: 1
   grid-column-start: 1
+  -ms-grid-column-span: 1
   grid-column-end: 2
+  -ms-grid-row: 1
   grid-row-start: 1
+  -ms-grid-row-span: 1
   grid-row-end: 2
   display: flex
   align-items: center
@@ -124,8 +128,11 @@
     form
       @media screen and (min-width: 461px)
         max-width: 500px
+        display: -ms-grid
         display: grid
+        -ms-grid-columns: 1fr 250px
         grid-template-columns: 1fr 250px
+        -ms-grid-rows: 1fr
         grid-template-rows: 1fr
       +tablet
         max-width: 600px
@@ -150,9 +157,13 @@
       border: 1px solid rgba(255, 255, 255, 0.78)
       @media screen and (min-width: 461px)
         margin-bottom: 0
+        -ms-grid-column: 1
         grid-column-start: 1
+        -ms-grid-column-span: 2
         grid-column-end: 3
+        -ms-grid-row: 1
         grid-row-start: 1
+        -ms-grid-row-span: 1
         grid-row-end: 2
       +tablet
         max-width: 700px
@@ -172,9 +183,13 @@
         margin: 2px 2px 2px 0
         padding: 11px 45px 11px 45px
         width: inherit
+        -ms-grid-column: 2
         grid-column-start: 2
+        -ms-grid-column-span: 1
         grid-column-end: 3
+        -ms-grid-row: 1
         grid-row-start: 1
+        -ms-grid-row-span: 1
         grid-row-end: 2
       &:hover 
         cursor: pointer
@@ -254,3 +269,58 @@
     +tablet
       &:last-child
         text-align: right
+
+.flex-container
+  h1    
+    color: #ffffff
+    margin-bottom: 20px
+  p 
+    max-width: 700px
+    margin-bottom: 20px
+    color: #ffffff
+  .form-container
+    padding: 0 1.5rem
+    top: 0
+    position: absolute
+    z-index: 99
+    margin-top: 2rem
+    +tablet 
+      margin-top: 3rem
+    +desktop 
+      margin-top: 2rem
+    +widescreen
+      margin-top: 3rem
+    +fullhd
+      margin-top: 5rem
+    button
+      @extend .h5
+      width: 100%
+      outline: none
+      border-radius: 50px
+      // padding: 11px 30px 11px 30px
+      height: 40px
+      background: $orange
+      color: #ffffff
+      text-transform: uppercase 
+      border: 1px solid rgba(255, 255, 255, 0.78)
+      @media screen and (min-width: 461px)
+        height: 56px 
+        width: 250px
+        margin-left: -254px
+    input.search-input
+      @include font-size(18px)
+      outline: none
+      background: rgba(255, 255, 255, 0.78)
+      border-radius: 70px
+      margin-bottom: 1rem
+      width: 100%
+      border: 1px solid rgba(255, 255, 255, 0.78)
+      display: inline-block
+      height: 44px
+      padding-left: 30px
+      padding-right: 10px
+      @media screen and (min-width: 461px) 
+        height: 63px
+        max-width: 700px
+        padding-left: 30px
+        padding-right: 260px

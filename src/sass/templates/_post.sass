@@ -2,23 +2,29 @@
   margin-top: 1rem
   +widescreen
     margin-top: 40px
-  section.section
-    padding: 0 1rem
-  .post-hero-section
-    padding-top: 0
-    padding-bottom: 1.5rem
-    +widescreen
-      padding-bottom: 3rem
+  .main-content
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin-bottom: 3rem
+  .main-content .container
+    margin: 0 1rem
+    max-width: 1044px !important
+    +tablet
+      margin: 0 2rem
   .post-hero-img
     display: block
     margin-bottom: 2rem
-  h1
-    max-width: 800px
+  h1 
     margin-bottom: 1rem
   h2
     margin-top: 1rem
     margin-bottom: 1rem
-  p
+  h3
+    @include font-size(22px)
+    margin-bottom: 1rem
+  p 
     margin-bottom: .75rem
   li
     margin-bottom: .25rem
@@ -59,7 +65,18 @@
       margin-top: 20px
       list-style-type: circle
       padding-left: 20px
-
+  .share-icons-horizontal
+      line-height: 1
+      display: flex
+      flex-direction: row
+      justify-content: space-around
+      align-items: flex-start
+      width: 200px
+      z-index: 10000000000
+      +tablet
+        display: none
+      p
+        color: darken($gray-light, 30%)
   .single-post-sidebar
     padding-top: 0
     padding-bottom: 0
@@ -67,25 +84,21 @@
     p.author-name
       margin-bottom: 0
     .author-img
-      margin-bottom: .5rem
       width: 60px
     .post-date
       color: $blue-light
       margin-bottom: .5rem
-    .social-icons
+    .share-icons-vertical
       line-height: 1
-      display: flex
-      flex-direction: row
+      flex-direction: column
       justify-content: space-around
+      align-items: flex-start
       width: 150px
-      margin-bottom: 1.5rem
-  .share-icons
-    display: flex
-    flex-direction: row
-    align-items: center
-    justify-content: flex-start
-    img
-      margin-left: 10px
+      display: none
+      a
+        background-color: $white
+      +tablet
+        display: flex
   .tag-button
     margin-left: 10px
     border-radius: 30px
@@ -140,4 +153,7 @@
     width: 164px
     height: 164px
     object-fit: cover
-    object-position: 50% 50%
+    object-position: 50% 50% 
+.post-hero-section
+  padding-top: 1rem 
+  padding-bottom: 1rem
