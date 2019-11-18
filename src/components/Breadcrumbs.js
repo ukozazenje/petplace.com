@@ -19,7 +19,7 @@ export default ({ category }) => {
             <Fragment key={i}>
               <Link to={categoryPath} className={`category-link ${categoryColor(name)}`}>{cat.replace(/-/g, ' ')}</Link>
               {
-                i < categories.length - 1 ? <div className="divider"><img src={rightArrow} alt="right arrow"/></div> : null
+                i < categories.length - 1 ? <img className="divider" src={rightArrow} alt="right arrow"/> : null
               }
             </Fragment>
           )
