@@ -146,7 +146,29 @@ class Search extends Component {
     const { loader, currentPosts } = this.state
     return (
       <Layout noSearch={true}>
-        <div className="grid-container">
+        <div className="flex-container">
+          <section className="container is-fullhd search-hero-section-flex">
+            <div className="container is-fullhd form-container">
+              <div className="form-wrapper">
+                <h1>Search Our<br />
+                Vet-Approved Articles</h1>
+                <p>Our comprehensive library of informative articles covers medical diagnosis, wellness tips, breed bios, and everything in between.</p>
+                <Formik
+                  initialValues={{title: ""}}
+                  onSubmit={(values, actions) => {
+                    this.handleSubmit(values.title)
+                  }}
+                >
+                  {(props) => (
+                    <Form>
+                      <Field type="text" name="title" placeholder="Search...." className="search-input" />
+                      <button type="submit" className="search-button">Submit</button>
+                    </Form>
+                  )}
+                </Formik>
+              </div>
+            </div>
+          </section>
           <div className="desktop-img">
             <HomeHeroImg />
           </div>
@@ -156,28 +178,6 @@ class Search extends Component {
           <div className="mobile-img">
             <MobileHeroImg />
           </div>
-        <section className="search-hero-section">
-          <div className="container is-fullhd form-container">
-            <div className="form-wrapper">
-              <h1>Search Our<br />
-              Vet-Approved Articles</h1>
-              <p>Our comprehensive library of informative articles covers medical diagnosis, wellness tips, breed bios, and everything in between.</p>
-              <Formik
-                initialValues={{title: ""}}
-                onSubmit={(values, actions) => {
-                  this.handleSubmit(values.title)
-                }}
-              >
-                {(props) => (
-                  <Form>
-                    <Field type="text" name="title" placeholder="Search...." className="search-input" />
-                    <button type="submit" className="search-button">Submit</button>
-                  </Form>
-                )}
-              </Formik>
-            </div>
-          </div>
-        </section>
         </div>
         <OrderBy onChange={this.setOrderBy} />
         <section className="section search-page-section">
