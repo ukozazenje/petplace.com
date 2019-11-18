@@ -12,7 +12,13 @@ header
       margin-left: 0
 
 a.navbar-item:hover
-  background: transparent
+  background: transparent  
+
+.MuiTypography-root.MuiListItemText-primary.MuiTypography-body1:hover 
+  border-bottom: 1px solid $orange
+
+.MuiCollapse-container.MuiCollapse-entered .MuiTypography-root.MuiListItemText-primary.MuiTypography-body1:hover 
+  border-bottom: 1px solid $white
 
 .navbar-brand
   display: flex
@@ -98,7 +104,7 @@ li.MuiListItem-divider
   flex-direction: row
   text-align: left
   justify-content: space-between
-  line-height: 2
+  line-height: 1
   border-bottom: 1px solid rgba(255, 255, 255, .3)
 
 button.menu-close
