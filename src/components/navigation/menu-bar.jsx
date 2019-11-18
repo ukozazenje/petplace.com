@@ -9,8 +9,6 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import Drawer from "@material-ui/core/Drawer";
 import menuItems from "./menuItems";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-// import AccessAlarmIcon from "@material-ui/icons/AccessAlarm";
-// import Typography from "@material-ui/core/Typography";
 import SocialLinks from "../categories/socialLinks.js"
 
 import logoImg from "../../images/logo-white.svg"
@@ -79,7 +77,6 @@ class MenuBar extends Component {
     });
   }
   render() {
-    // const { menuOptions } = this.props;
     return (
       <div className="navigation-1 list-container">
         <Drawer

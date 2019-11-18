@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import { Link } from 'gatsby'
 import BottomScrollListener from 'react-bottom-scroll-listener'
 import NextPostImg from "../../images/next-post.png"
-// import Img from 'gatsby-image'
 import NoImg from '../../static/images/noNextPost'
 class  NextPost extends Component {
   render(){

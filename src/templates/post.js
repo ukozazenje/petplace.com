@@ -1,7 +1,6 @@
 import React, { Component }  from 'react'
 import Layout from '../components/layout'
 import Img from 'gatsby-image'
-// import {Link} from 'gatsby'
 import avatarImg from '../images/avatar_pp.svg'
 import AdSet from '../components/AdSet'
 import facebookIcon from '../images/facebook.png'
@@ -12,7 +11,6 @@ import SimilarPosts from "../components/post/SimilarPosts"
 import NoHeroPostImg from "../static/images/noPostHeroImg"
 import NoMobileHeroPostImg from "../static/images/noPostHeroMobileImg"
 import NextPost from "../components/post/NextPost"
-// import {categoryColor} from "../components/functions"
 import Seo from '../components/seo'
 import Breadcrumbs from '../components/Breadcrumbs';
 class Post extends Component  {

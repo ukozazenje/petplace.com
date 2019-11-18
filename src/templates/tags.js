@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import Layout from '../components/layout'
 import { Link } from 'gatsby'
-// import axios from 'axios'
 import NoImg from '../static/images/noPostImg'
 import {categoryColor} from '../components/functions'
 import Pagination from '../components/search/pagination'
 import HeroSection from '../components/categories/categoryHero'
 import SideBar from '../components/categories/sideBar'
-// import * as SVGLoaders from 'svg-loaders-react'
 import PopularPosts from '../components/categories/PopularPosts'
 import Img from 'gatsby-image'
 
