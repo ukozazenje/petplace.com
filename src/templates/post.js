@@ -36,20 +36,20 @@ class Post extends Component  {
         <Seo title={post.title} />
         <div className="single-post">
         <section className="section post-hero-section">
-          <div className="container is-fullhd"> 
+          <div className="container is-fullhd">
             <div><Link to={(post.categories && post.categories[0] && post.categories[0].path) || '/'} className={`category-link ${categoryColor(post.categories && post.categories[0] && post.categories[0].name)}`}>{(post.categories && post.categories[0] && post.categories[0].name.replace(/&amp;/g, '&')) || 'category'}</Link></div>
             <h1>{post.title}</h1>
           </div>
         </section>
         <div className="post-hero-img">
           <div className="is-hidden-touch">
-            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ? 
-            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ?
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> :
             <NoHeroPostImg />}
           </div>
           <div className="is-hidden-desktop">
-            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ? 
-            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> : 
+            {post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp ?
+            <Img sizes={{ ...post.featured_media.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'} /> :
             <NoMobileHeroPostImg />}
           </div>
         </div>
@@ -77,7 +77,6 @@ class Post extends Component  {
                 </Sticky>
               </div>
               <div className="column single-post-content">
-                <div 
                   dangerouslySetInnerHTML={{
                     __html: post.content
                   }}
@@ -107,7 +106,7 @@ class Post extends Component  {
       </Layout>
     )
   }
-  
+
 }
 
 export default Post
@@ -138,7 +137,7 @@ export const pageQuery = graphql`
         alt_text
         localFile {
           childImageSharp {
-            fluid(maxWidth: 1920, quality:100) {
+            fluid(maxWidth: 1920, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

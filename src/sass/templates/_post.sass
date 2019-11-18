@@ -1,6 +1,6 @@
-.single-post 
+.single-post
   margin-top: 1rem
-  +widescreen 
+  +widescreen
     margin-top: 40px
   .main-content
     display: flex
@@ -48,9 +48,9 @@
     text-align: center
     margin-bottom: 20px
   .single-post-content
-    a 
-      color: $orange   
-    ul 
+    a
+      color: $orange
+    ul
       margin-top: 20px
       list-style-type: circle
       padding-left: 20px
@@ -66,7 +66,6 @@
         display: none
       p
         color: darken($gray-light, 30%)
-  
   .single-post-sidebar
     padding-top: 0
     padding-bottom: 0
@@ -84,7 +83,6 @@
       justify-content: space-around
       align-items: flex-start
       width: 150px
-      z-index: 10000000000
       display: none
       a
         background-color: $white
@@ -99,15 +97,17 @@
     flex-direction: row
     align-items: center
     justify-content: flex-end
-      
+
   section.similar-post-section
     padding-top: .5rem
     padding-bottom: 1.5rem
     margin-bottom: 1.5rem
     background: $blue-lightest
-    h2     
+    h2
       text-align: center
       margin-bottom: 2rem
+    .container .columns .column
+      display: flex
     .similar-post-card
       display: flex
       flex-direction: row
@@ -115,28 +115,28 @@
     .similar-post-card-content
       padding-left: 0.75rem
       line-height: 1
-      a 
+      a
         color: $font-color
         @include font-size(14px)
         line-height: 1
-      h3 
+      h3
         color: $font-color
-        @include font-size(22px)     
+        @include font-size(22px)
 
     .similar-post-card-image
-      border-radius: 6px 
+      border-radius: 6px
       min-width: 120px
 .next-post-section
   text-align: center
   padding-top: 90px
   padding-bottom: 90px
-  p 
+  p
     margin: 1rem 0
   .next-post-img
     border-radius: 6px
-  h3 
+  h3
     margin-bottom: 40px
-  h4 
+  h4
     margin-bottom: 40px
   .next-post-img
     width: 164px

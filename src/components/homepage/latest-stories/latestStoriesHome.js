@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from 'gatsby-image'
 import {categoryColor} from '../../functions'
 const PopularPosts = (props) => {
-  
+
   const {wordpressTtgPages} = useStaticQuery(
     graphql`
       query {
@@ -72,12 +72,12 @@ const PopularPosts = (props) => {
   //       )
   //   return acc
   // },[])
-  
+
   const tills = (posts, category) => {
     const mainPost = posts[0]
     const firstPost = posts[1]
     const secondPost = posts[2]
-    
+
     return (
       <div className="tile is-ancestor">
         <div className="tile is-parent">
@@ -119,20 +119,19 @@ const PopularPosts = (props) => {
       </div>
     )
   }
-  console.log('Oppp', wordpressTtgPages.acf.category_rows)
   return (
     <section className="section latest-stories-section">
       <div className="container is-fullhd">
         <h1>Latest Stories</h1>
-          {wordpressTtgPages.acf.category_rows.map((category_row) => {
+          {wordpressTtgPages.acf.category_rows.map((category_row, i) => {
             return (
-              <div className="featured-categories">
-                <h2>{category_row.category_name}</h2>
+              <div className="featured-categories" key={i}>
+                <h2>{category_row.category_name.replace(/&amp;/g, '&')}</h2>
                 {tills(category_row.posts, category_row.category_name)}
               </div>
             )
           })}
-          
+
       </div>
     </section>
   )

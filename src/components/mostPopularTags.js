@@ -17,7 +17,7 @@ import { useStaticQuery, graphql } from "gatsby"
 const MostPopularTags = () => {
   const data = useStaticQuery(graphql`
     query {
-      allWordpressTag(sort: {fields: count, order: DESC}, limit: 10) {
+      allWordpressTtgTags(sort: {fields: count, order: DESC}, limit: 10) {
         edges {
           node {
             id
@@ -30,14 +30,16 @@ const MostPopularTags = () => {
     }
   `)
     
-  const { edges: tags } = data.allWordpressTag 
+  const { edges: tags } = data.allWordpressTtgTags 
 
   console.log(tags)
 
   return (
-    tags.map(({ node: tag }) => (
-      <Link key={tag.id} className="tag-links" to="/">{tag.name.replace(/&amp;/g, '&')}</Link>
-    ))
+    <div className="tags">
+      {tags.map(({ node: tag }) => (
+        <Link key={tag.id} className="tag-links" to={`/tags/${tag.slug}`}>{tag.name.replace(/&amp;/g, '&')}</Link>
+      ))}
+    </div>
   )
 }
 
