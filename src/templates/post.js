@@ -20,6 +20,7 @@ class Post extends Component  {
   render(){
     const nextPost = this.props.data.wordpressTtgPosts
     const post = this.props.data.wordpressPost
+    const nextPostPath = this.props.pageContext.nextPostPath
     const tagList = (tags) => (
       <div className="post-tags">
         <span><strong>Tags:</strong> </span>
@@ -101,7 +102,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        <NextPost post={nextPost} location={{...this.props.location}} />
+        <NextPost post={nextPost} location={{...this.props.location}} path={nextPostPath}/>
         </div>
       </Layout>
     )
