@@ -2,13 +2,17 @@
   margin-top: 1rem
   +widescreen 
     margin-top: 40px
-  section.section
-    padding: 0 1rem
-  .post-hero-section
-    padding-top: 0 
-    padding-bottom: 1.5rem
-    +widescreen 
-      padding-bottom: 3rem
+  .main-content
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin-bottom: 3rem
+  .main-content .container
+    margin: 0 1rem
+    max-width: 1044px !important
+    +tablet
+      margin: 0 2rem
   .post-hero-img
     display: block
     margin-bottom: 2rem
@@ -17,6 +21,9 @@
     margin-bottom: 1rem
   h2
     margin-top: 1rem
+    margin-bottom: 1rem
+  h3
+    @include font-size(22px)
     margin-bottom: 1rem
   p 
     margin-bottom: .75rem

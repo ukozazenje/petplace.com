@@ -3,7 +3,6 @@ import Layout from '../components/layout'
 import Img from 'gatsby-image'
 import {Link} from 'gatsby'
 import avatarImg from '../images/avatar.png'
-import bannerImg from '../images/baner-sidebar.png'
 import facebookIcon from '../images/facebook.png'
 import twitterIcon from '../images/twitter.png'
 import pintrestIcon from '../images/pintrest.png'
@@ -52,7 +51,7 @@ class Post extends Component  {
             <NoMobileHeroPostImg />}
           </div>
         </div>
-        <section className="section">
+        <section className="main-content">
           <div className="container is-fullhd"> 
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
@@ -65,27 +64,28 @@ class Post extends Component  {
                   <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
                   <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                 </div>
-                <img src={bannerImg} alt="banner" />
               </div>
-              <div className="column">
-                <div className="single-post-content" 
+              <div className="column single-post-content">
+                <div 
                   dangerouslySetInnerHTML={{
                     __html: post.content
                   }}
                 />
                 <hr />
-                <div className="columns">
-                  <div className="column">
-                    <div className="share-icons">
-                      <span><strong>Share:</strong></span> 
-                      <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
-                      <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
-                      <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
-                      <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                <div className="container is-fullhd">
+                  <div className="columns">
+                    <div className="column">
+                      <div className="share-icons">
+                        <span><strong>Share:</strong></span> 
+                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebookIcon}  alt="facebook" /></a>
+                        <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitterIcon}  alt="twitter" /></a>
+                        <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrestIcon}  alt="pinterest" /></a>
+                        <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                      </div>
                     </div>
-                  </div>
-                  <div className="column">
-                    { post.tags ? tagList(post.tags) : null }
+                    <div className="column">
+                      { post.tags ? tagList(post.tags) : null }
+                    </div>
                   </div>
                 </div>
               </div>
