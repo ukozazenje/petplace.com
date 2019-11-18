@@ -7,36 +7,36 @@ import Img from 'gatsby-image'
 class  NextPost extends Component {
   render(){
     const post = this.props.post
-    const path = this.props.path
+    const nextPostImg = this.props.nextPostImg
     return (
       <section  className="section next-post-section">
         <div className="container is-fullhd">
           <div className="nex-post">
             <h3>Next Article</h3>
-            <Link to={path}>
+            <Link to={post.path}>
               {
-              post && 
-              post.featured_image && 
-              post.featured_image.full && 
-              post.featured_image.full.localFile && 
-              post.featured_image.full.localFile.childImageSharp ? 
-              <Img className="next-img" fixed={post.featured_image.full.localFile.childImageSharp.fixed} /> :
-              <NoImg />
+                nextPostImg && 
+                nextPostImg.featured_image && 
+                nextPostImg.featured_image.full && 
+                nextPostImg.featured_image.full.localFile && 
+                nextPostImg.featured_image.full.localFile.childImageSharp ? 
+                <Img className="next-img" fixed={nextPostImg.featured_image.full.localFile.childImageSharp.fixed} /> :
+                <NoImg />
               }
             </Link>
-            { post && post.category_path ?
-              <Link to={post.category_path}>
-                <p>{post.category.cat_name.replace(/&amp;/g, '&')}</p>
+            { post && post.categories && post.categories[0] && post.categories[0].path ?
+              <Link to={post.categories[0].path}>
+                <p>{post.categories[0].name.replace(/&amp;/g, '&')}</p>
               </Link> :
               null
             }
-            <Link to={path}>
+            <Link to={post.path}>
               <h4>{post.title}</h4>
             </Link>
-            <Link to={path} state={{ lastLocation: this.props.location }}>
+            <Link to={post.path} state={{ lastLocation: this.props.location }}>
               <img src={NextPostImg} alt="Next post" />
             </Link>
-            <BottomScrollListener debounce={100} onBottom={ () => window.location.href = `${path}`} />
+            <BottomScrollListener debounce={100} onBottom={ () => window.location.href = `${post.path}`} />
           </div>
         </div>
       </section>
