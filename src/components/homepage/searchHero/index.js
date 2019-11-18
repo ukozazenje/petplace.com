@@ -4,7 +4,7 @@ import {navigate} from 'gatsby'
 import searchImg from '../../../images/search-next.png'
 const SearchHero = () => {
   return (
-    <section className="search-hero-section">
+    <section className="container is-fullhd search-hero-section-flex">
       <div className="form-container">
         <div className="form-wrapper">
           <h1>Search Our<br />

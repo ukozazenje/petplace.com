@@ -33,12 +33,16 @@
     text-align: center
     border: 1px solid $gray-light
     border-bottom: none
-    display: -ms-grid
-    display: grid
-    -ms-grid-rows: 1fr
-    grid-template-rows: 1fr
-    -ms-grid-columns: 130px 1fr
-    grid-template-columns: 130px 1fr
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+    // display: -ms-grid
+    // display: grid
+    // -ms-grid-rows: 1fr
+    // grid-template-rows: 1fr
+    // -ms-grid-columns: 130px 1fr
+    // grid-template-columns: 130px 1fr
     +tablet 
       display: flex
       flex-direction: column
@@ -57,36 +61,45 @@
       display: flex
       align-items: center
       justify-content: center
-      -ms-grid-row:  1
-      grid-row-start:  1
-      -ms-grid-row-span: 1
-      grid-row-end: 2
-      -ms-grid-column: 1
-      grid-column-start: 1
-      -ms-grid-column-span: 1
-      grid-column-end: 2
+      min-width: 30%
+      // -ms-grid-row:  1
+      // grid-row-start:  1
+      // -ms-grid-row-span: 1
+      // grid-row-end: 2
+      // -ms-grid-column: 1
+      // grid-column-start: 1
+      // -ms-grid-column-span: 1
+      // grid-column-end: 2
       img
         max-height: 80px
         max-width: 80px
       +tablet 
+        min-width: 100% 
         margin-bottom: 1rem
     p
       font-size: 14px
     a 
       color: $font-color
     .copy-wrapper
-      -ms-grid-row:  1
-      grid-row-start:  1
-      -ms-grid-row-span: 1
-      grid-row-end: 2
-      -ms-grid-column: 2
-      grid-column-start: 2
-      -ms-grid-column-span: 1
-      grid-column-end: 3
+      // -ms-grid-row:  1
+      // grid-row-start:  1
+      // -ms-grid-row-span: 1
+      // grid-row-end: 2
+      // -ms-grid-column: 2
+      // grid-column-start: 2
+      // -ms-grid-column-span: 1
+      // grid-column-end: 3
+      min-width: 70%
       display: flex
       flex-direction: column
       align-items: center
       justify-content: center
+      +tablet 
+        min-width: 100%
+      p 
+        padding: 0 6px
+        min-height: 70px
+        width: 100%
       h3    
         @include font-size(18px)
         +desktop
@@ -255,14 +268,14 @@
       align-items: center
       margin-bottom: 2rem
 
-.grid-container
-  display: grid
-  grid-template-rows: 1fr
-  grid-template-columns: 1fr
-  .form-container
-    z-index: 1
-  .desktop-img, .mobile-img, .tablet-img
-    grid-column-start: 1
-    grid-column-end: 2
-    grid-row-start: 1
-    grid-row-end: 2
+// .grid-container
+//   display: grid
+//   grid-template-rows: 1fr
+//   grid-template-columns: 1fr
+//   .form-container
+//     z-index: 1
+//   .desktop-img, .mobile-img, .tablet-img
+//     grid-column-start: 1
+//     grid-column-end: 2
+//     grid-row-start: 1
+//     grid-row-end: 2

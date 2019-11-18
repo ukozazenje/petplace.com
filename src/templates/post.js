@@ -76,8 +76,8 @@ class Post extends Component  {
                     </div>
                 </Sticky>
               </div>
-              <div className="column single-post-content">
-                  dangerouslySetInnerHTML={{
+              <div className="column">
+                <div className="single-post-content" dangerouslySetInnerHTML={{
                     __html: post.content
                   }}
                 />

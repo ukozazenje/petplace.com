@@ -269,3 +269,58 @@
     +tablet
       &:last-child
         text-align: right
+
+.flex-container
+  h1    
+    color: #ffffff
+    margin-bottom: 20px
+  p 
+    max-width: 700px
+    margin-bottom: 20px
+    color: #ffffff
+  .form-container
+    padding: 0 1.5rem
+    top: 0
+    position: absolute
+    z-index: 99
+    margin-top: 2rem
+    +tablet 
+      margin-top: 3rem
+    +desktop 
+      margin-top: 2rem
+    +widescreen
+      margin-top: 3rem
+    +fullhd
+      margin-top: 5rem
+    button
+      @extend .h5
+      width: 100%
+      outline: none
+      border-radius: 50px
+      // padding: 11px 30px 11px 30px
+      height: 40px
+      background: $orange
+      color: #ffffff
+      text-transform: uppercase 
+      border: 1px solid rgba(255, 255, 255, 0.78)
+      @media screen and (min-width: 461px)
+        height: 56px 
+        width: 250px
+        margin-left: -254px
+    input.search-input
+      @include font-size(18px)
+      outline: none
+      background: rgba(255, 255, 255, 0.78)
+      border-radius: 70px
+      margin-bottom: 1rem
+      width: 100%
+      border: 1px solid rgba(255, 255, 255, 0.78)
+      display: inline-block
+      height: 44px
+      padding-left: 30px
+      padding-right: 10px
+      @media screen and (min-width: 461px) 
+        height: 63px
+        max-width: 700px
+        padding-left: 30px
+        padding-right: 260px

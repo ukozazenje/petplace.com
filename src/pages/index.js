@@ -89,7 +89,10 @@ const IndexPage = () => {
   return (
     <Layout noSearch={true}>
       <SEO title="Home" />
-      <div className="grid-container">
+      <div className="flex-container">
+        <div className="search-wrapper">
+          <SearchHero />
+        </div>
         <div className="desktop-img">
           <HomeHeroImg />
         </div>
@@ -99,7 +102,6 @@ const IndexPage = () => {
         <div className="mobile-img">
           <MobileHeroImg />
         </div>
-        <SearchHero />
       </div>
       <CategoryListSection />
       <Latest />
