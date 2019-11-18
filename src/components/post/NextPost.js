@@ -7,12 +7,13 @@ import Img from 'gatsby-image'
 class  NextPost extends Component {
   render(){
     const post = this.props.post
+    const path = this.props.path
     return (
       <section  className="section next-post-section">
         <div className="container is-fullhd">
           <div className="nex-post">
             <h3>Next Article</h3>
-            <Link to={post.path}>
+            <Link to={path}>
               {
               post && 
               post.featured_image && 
@@ -29,13 +30,13 @@ class  NextPost extends Component {
               </Link> :
               null
             }
-            <Link to={post.path}>
+            <Link to={path}>
               <h4>{post.title}</h4>
             </Link>
-            <Link to={post.path} state={{ lastLocation: this.props.location }}>
+            <Link to={path} state={{ lastLocation: this.props.location }}>
               <img src={NextPostImg} alt="Next post" />
             </Link>
-            <BottomScrollListener debounce={100} onBottom={ () => window.location.href = `${post.path}`} />
+            <BottomScrollListener debounce={100} onBottom={ () => window.location.href = `${path}`} />
           </div>
         </div>
       </section>
