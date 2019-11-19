@@ -9,21 +9,21 @@ const SideBar = ({subcategories, noSubcategory}) => {
         <span>Filters</span>
       </div>
       <div className={`category-filters search-filters ${menu ? 'is-active' : ''}`}>
-        { noSubcategory ? 
-          null : 
-          subcategories.length  > 0 ? 
+        { noSubcategory ?
+          null :
+          subcategories.length  > 0 ?
           <>
             <h3>Sub categories</h3>
             <div className="subcategories-wrapper">
-              {subcategories.map(category => (
-                <button className="subcategories-btn">
+              {subcategories.map((category, i) => (
+                <button className="subcategories-btn" key={i}>
                   <Link to={`${category.path}`} >
                     {category.name.replace(/&amp;/g, '&')}
                   </Link>
                 </button>
               ))}
             </div>
-          </> : 
+          </> :
           null
         }
         <h3>Most popular tags</h3>
