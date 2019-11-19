@@ -8,6 +8,7 @@ import HeroSection from '../components/categories/categoryHero'
 import SideBar from '../components/categories/sideBar'
 import PopularPosts from '../components/categories/PopularPosts'
 import Img from 'gatsby-image'
+import Seo from '../components/seo'
 
 class Tags extends Component  {
   state = {
@@ -42,7 +43,8 @@ class Tags extends Component  {
     const total = posts.length
     return (
       <Layout>
-        <HeroSection title={'dog care'} />
+        <Seo title={this.props.data.wordpressTtgTags.name} />
+        <HeroSection title={this.props.data.wordpressTtgTags.name} />
         <section className="section category-posts">
           <div className="container is-fullhd">
             <div className="columns categories-columns">

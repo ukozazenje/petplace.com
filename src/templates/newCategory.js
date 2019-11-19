@@ -8,6 +8,7 @@ import HeroSection from '../components/categories/categoryHero'
 import SideBar from '../components/categories/sideBar'
 import PopularPosts from '../components/categories/PopularPosts'
 import Img from 'gatsby-image'
+import Seo from '../components/seo'
 
 class newCategory extends Component  {
   state = {
@@ -42,6 +43,7 @@ class newCategory extends Component  {
     const total = posts.length
     return (
       <Layout>
+        <Seo title={this.props.data.wordpressTtgCategories.name} />
         <HeroSection title={this.props.data.wordpressTtgCategories.name} />
         <section className="section category-posts">
           <div className="container is-fullhd">
