@@ -8,7 +8,7 @@ class  NextPost extends Component {
   render(){
     const post = this.props.post
     return (
-      <section  className="section next-post-section">
+      <section className="section next-post-section">
         <div className="container is-fullhd">
           <div className="nex-post">
             <h3>Next Article</h3>
@@ -35,7 +35,7 @@ class  NextPost extends Component {
             <Link to={post.path} state={{ lastLocation: this.props.location }}>
               <img src={NextPostImg} alt="Next post" />
             </Link>
-            <BottomScrollListener debounce={100} onBottom={ () => window.location.href = `${post.path}`} />
+            <BottomScrollListener debounce={300} onBottom={ () => window.location.href = `${post.path}`} />
           </div>
         </div>
       </section>

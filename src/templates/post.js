@@ -56,15 +56,17 @@ class Post extends Component  {
           <div className="container is-fullhd">
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
-                <img className="author-img" src={avatarImg} alt="avatar" />
-                <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
-                <p className="post-date">{post.date}</p>
-                <div className="share-icons-horizontal">
-                  <p>Share:</p>
-                  <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
-                  <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
-                  <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
-                  <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                <div className="post-info"> 
+                  <img className="author-img" src={avatarImg} alt="avatar" />
+                  <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
+                  <p className="post-date">{post.date}</p>
+                  <div className="share-icons-horizontal">
+                    <p>Share:</p>
+                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
+                    <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
+                    <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
+                    <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                  </div>
                 </div>
                 <AdSet title={post.title}/>
                 <Sticky enabled={true} top={20} bottomBoundary='.single-post-sidebar'>
