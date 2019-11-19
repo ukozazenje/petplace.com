@@ -119,11 +119,9 @@ class VetLocator extends Component{
     const R1 = 3959; //miles
     //const R = 6371; // metres
     let nearestStores =  [];
-
     allStores.map((store) => {
       const storeLat = parseFloat(store.lat);
       const storeLng = parseFloat(store.lng);
-
       let φ1 = this.toRadians(lat1);
       let φ2 = this.toRadians(storeLat);
       let Δφ = this.toRadians(storeLat-lat1);
@@ -133,11 +131,11 @@ class VetLocator extends Component{
         Math.sin(Δλ/2) * Math.sin(Δλ/2);
       let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
       let distance = R1 * c;
-
       if(distance <= radius){
         store.distance = distance;
         nearestStores.push(store);
       }
+      return true;
     });
     nearestStores.sort((a,b) => a.distance - b.distance);
     const limit = this.state.limit;
@@ -147,16 +145,21 @@ class VetLocator extends Component{
     })
   }
 
-  render() {
+  setChekboxState(value, setFieldValue){
+    this.setState({
+      limit: value
+    })
+    setFieldValue("limit", value)
+  }
 
+  render() {
     let { viewport} = this.state
     const styleMap = {
       width: '1344px',
       height: '700px'
     }
-    console.log("STATTEEE", this.state)
     return (
-      <Layout noSearch={true}>
+      <Layout noSearch={false}>
         <SEO title="Vet Locator" />
           <div className="vet-locator-page">
           <section className="section vet-locator-wrapper category-posts">
@@ -181,12 +184,12 @@ class VetLocator extends Component{
                               longitude={parseFloat(store.lng)}
                               latitude={parseFloat(store.lat)}
                       >
-                        <a className=""  onClick={(ev) => {
+                        <button type="button" onClick={(ev) => {
                           ev.preventDefault();
                           this.setSelectedStore(store)
                         }}>
                           <img src={pointer} alt="Store" className="poointer"/>
-                        </a>
+                        </button>
                       </Marker>
                     )
                   )}
@@ -214,18 +217,15 @@ class VetLocator extends Component{
                   <Formik
                     enableReinitialize={true}
                     initialValues={{...this.state.formik}}
-
                     onSubmit={( values ) => {
-                      console.log("VALUEEES", values)
                       this.setState({
                         radius: values.radius || this.state.radius,
                         limit: values.limit || this.state.limit,
                         search: values.search || ''
                       })
                       this.handleSubmit()
-                    }}
-
-                    render={({ values, errors, setFieldValue }) => {
+                    }}>
+                    {({ values, errors, setFieldValue }) => {
                       return(
                         <Form>
                             <div className="field section section-mobile">
@@ -301,28 +301,28 @@ class VetLocator extends Component{
                               <ErrorMessage name='limit' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
                               <div className="columns is-mobile is-gapless">
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '5' || this.state.limit == '5' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '5')}>5
-                                    <input type="radio" value='5' name="limit" onChange={() => setFieldValue("limit", '5')}  className="input-radio" placeholder='5'/>
+                                  <button className={`container-radio  button ${values.limit === 5 || this.state.limit === 5 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(5, setFieldValue)}>5
+                                    <input type="radio" value='5' name="limit" onChange={() => {setFieldValue("limit", 5)}}  className="input-radio"/>
+                                  </button>
+                                </div>
+                                <div className="column" >
+                                  <button className={`container-radio button ${values.limit === 10 || this.state.limit === 10 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(10, setFieldValue)}>10
+                                    <input type="radio" value='10' name="limit" onChange={() => setFieldValue("limit", 10)} className="input-radio" />
+                                  </button>
+                                </div>
+                                <div className="column" >
+                                  <button className={`container-radio button ${values.limit === 15 || this.state.limit === 15 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(15, setFieldValue)}>15
+                                    <input type="radio" value='15' name="limit" onChange={() => setFieldValue("limit", 15)} className="input-radio" />
                                   </button>
                                 </div>
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '10' || this.state.limit == '10' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '10')}>10
-                                    <input type="radio" value='10' name="limit" onChange={() => setFieldValue("limit", '10')} className="input-radio" />
+                                  <button className={`container-radio button ${values.limit === 20 || this.state.limit === 20 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(20, setFieldValue)}>20
+                                    <input type="radio" value='20' name="limit" onChange={() => setFieldValue("limit", 20)} className="input-radio" />
                                   </button>
                                 </div>
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '15' || this.state.limit == '15' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '15')}>15
-                                    <input type="radio" value='15' name="limit" onChange={() => setFieldValue("limit", '15')} className="input-radio" />
-                                  </button>
-                                </div>
-                                <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '20' || this.state.limit == '20' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '20')}>20
-                                    <input type="radio" value='20' name="limit" onChange={() => setFieldValue("limit", '20')} className="input-radio" />
-                                  </button>
-                                </div>
-                                <div className="column " >
-                                  <button className={`container-radio button ${values.limit === '25' || this.state.limit == '25' ? 'active' : ''}`} type="button" onClick={() => setFieldValue("limit", '25')}>25
-                                    <input type="radio" value='25'  name="limit" onChange={() => setFieldValue("limit", '25')} className="input-radio" />
+                                  <button className={`container-radio button ${values.limit === 25 || this.state.limit === 25 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(25, setFieldValue)}>25
+                                    <input type="radio" value='25'  name="limit" onChange={() => setFieldValue("limit", 25)} className="input-radio" />
                                   </button>
                                 </div>
                               </div>
@@ -335,7 +335,7 @@ class VetLocator extends Component{
                             </div>
                         </Form>
                       )}}
-                  />
+                  </Formik>
               </div>
             </div>
           </div>
@@ -358,8 +358,8 @@ class VetLocator extends Component{
                       <p><strong>Distance:</strong> {store.distance}</p>
                     </div>
                     <div className="column is-2">
-                      <a className="direction-btn" href={`http://www.google.com/maps/place/${lat},${lng}`}
-                         target="_blank">Directions</a>
+                      <a className="direction-btn is-medium" href={`http://www.google.com/maps/place/${lat},${lng}`}
+                         target="_blank" rel="noopener noreferrer">Directions</a>
                     </div>
                   </div>
                 )
@@ -372,7 +372,6 @@ class VetLocator extends Component{
       </Layout>
     )
   }
-
 }
 
 

@@ -3,9 +3,11 @@ import { Link } from 'gatsby'
 import BottomScrollListener from 'react-bottom-scroll-listener'
 import NextPostImg from "../../images/next-post.png"
 import NoImg from '../../static/images/noNextPost'
+import Img from 'gatsby-image'
 class  NextPost extends Component {
   render(){
     const post = this.props.post
+    const nextPostImg = this.props.nextPostImg
     return (
       <section  className="section next-post-section">
         <div className="container is-fullhd">
@@ -13,8 +15,12 @@ class  NextPost extends Component {
             <h3>Next Article</h3>
             <Link to={post.path}>
               {
-                post && post.featured_media && post.featured_media.source_url ?
-                <img className="next-post-img" src={post.featured_media.source_url} alt="nex post" /> :
+                nextPostImg && 
+                nextPostImg.featured_image && 
+                nextPostImg.featured_image.full && 
+                nextPostImg.featured_image.full.localFile && 
+                nextPostImg.featured_image.full.localFile.childImageSharp ? 
+                <Img className="next-img" fixed={nextPostImg.featured_image.full.localFile.childImageSharp.fixed} /> :
                 <NoImg />
               }
             </Link>
