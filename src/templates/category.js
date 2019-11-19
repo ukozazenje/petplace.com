@@ -9,9 +9,10 @@ import HeroSection from '../components/categories/categoryHero'
 import SideBar from '../components/search/sideBar'
 import * as SVGLoaders from 'svg-loaders-react'
 import PopularPosts from '../components/categories/PopularPosts'
+import Seo from '../components/seo'
 
 class Category extends Component {
-  
+
   state = {
     posts: [],
     loader: true,
@@ -23,12 +24,11 @@ class Category extends Component {
       days: '365',
       orderBy: 'date',
       order: 'DSC',
-    } 
+    }
   }
 
   getPosts = () => {
-    console.log('Oppp')
-    const {orderBy, order, days, numbers} = this.state.form 
+    const {orderBy, order, days, numbers} = this.state.form
     axios.get(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/wp-json/ttg/v2/selected-category/${this.props.pageContext.slug}/${orderBy}/${order}/${days}/${numbers}`).then((res) => {
       this.setState({
         posts: res.data,
@@ -114,13 +114,14 @@ class Category extends Component {
         }, ()=> this.getPosts())
     }
   }
-  
+
   componentDidMount(){
     this.getPosts()
   }
   render(){
     return(
       <Layout>
+        <Seo title={this.props.pageContext.title} />
         <HeroSection title={this.props.pageContext.title} />
         <section className="section category-posts">
           <div className="container is-fullhd">
@@ -128,7 +129,7 @@ class Category extends Component {
               <SideBar days={this.state.form.days} onChange={this.setFormValues} setOrderBy={this.setOrderBy} />
               <div className="column">
                 <div className="columns posts-list-container">
-                  { this.state.loader ? 
+                  { this.state.loader ?
                   <div className="loader-wrapper"> <SVGLoaders.Bars fill="#FF7D5A" /></div> :
                   this.state.currentPosts.map((post) => (
                     <div
@@ -144,7 +145,7 @@ class Category extends Component {
                             {post.category && post.category.cat_name.replace(/&amp;/g, '&')}
                           </Link>
                         </div>
-                        
+
                         <div className="card-content">
                           <div className="card-title">
                             <h3>
