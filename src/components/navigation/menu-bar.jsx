@@ -10,6 +10,7 @@ import Drawer from "@material-ui/core/Drawer";
 import menuItems from "./menuItems";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import SocialLinks from "../categories/socialLinks.js"
+import NavigationSearch from './../NavigationSearch';
 
 import logoImg from "../../images/logo-white.svg"
 
@@ -94,7 +95,9 @@ class MenuBar extends Component {
               {this.handler(menuItems.data)}
             </List>
           </ThemeProvider>
+
           <div className="navigation-2">
+            <NavigationSearch />
             <ul className="misc-nav">
               <li><Link to="/article/category/drug-library/library/">Drug Library</Link></li>
               <li><Link to="/article/category/vet-qa-parent/vet-qa/">Vet Q&amp;A</Link> </li>

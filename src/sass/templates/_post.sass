@@ -83,6 +83,8 @@
         height: 25px
 
   .single-post-content
+    padding-left: 1.5rem
+    padding-right: 1.5rem
     a
       color: $orange
     ul
@@ -90,21 +92,52 @@
       list-style-type: circle
       padding-left: 20px
   .share-icons-horizontal
-      line-height: 1
-      display: flex
-      flex-direction: row
-      justify-content: space-around
-      align-items: flex-start
-      width: 200px
-      z-index: 10000000000
-      +tablet
-        display: none
-      p
-        color: darken($gray-light, 30%)
+    padding-left: 1.5rem
+    line-height: 1
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    align-items: flex-start
+    width: 250px
+    z-index: 10000000000
+    +tablet
+      display: none
+    p
+      color: darken($gray-light, 30%)
   .single-post-sidebar
-    padding-top: 0
-    padding-bottom: 0
+    padding-left: 2rem
+    padding-right: 2rem
     margin-bottom: .5rem
+    display: flex
+    flex-direction: column
+    align-items: center
+    @media screen and (min-width: 450px)
+      flex-direction: row
+    +tablet
+      flex-direction: column
+      align-items: flex-start
+    +fullhd
+      padding-left: 0
+    .post-info
+      align-self: flex-start
+      margin-bottom: 1rem
+      flex-basis: auto
+      width: 100%
+      @media screen and (min-width: 450px)
+        align-self: flex-end  
+      +tablet
+        align-self: flex-self
+      .share-icons-horizontal
+        padding-left: 0
+    .ppiimg-wrapper
+      width: 100%
+      text-align: center
+      flex-basis: auto
+      width: 100%
+      @media screen and (min-width: 450px)
+        text-align: right
+      +tablet
+        text-align: left
     p.author-name
       margin-bottom: 0
     .author-img
@@ -132,7 +165,6 @@
     flex-direction: row
     align-items: center
     justify-content: flex-end
-
   section.similar-post-section
     padding-top: .5rem
     padding-bottom: 1.5rem

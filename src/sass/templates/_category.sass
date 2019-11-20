@@ -133,6 +133,13 @@
     font-size: 1.25rem
     font-weight: 600
     padding: 1rem  0
+    &:before
+      transition: transform 1s linear
+      content: "✕"
+      transform: rotate(45deg)
+      font-size: 22px
+      display: inline-block
+      margin-right: .5rem
     +widescreen 
       display: none
   .category-filters 
@@ -142,6 +149,7 @@
     transition: all 0.350s ease
     &.is-active
       display: block
+
     +widescreen
       padding: 0
       display: block
