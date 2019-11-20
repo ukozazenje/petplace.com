@@ -184,7 +184,7 @@ class VetLocator extends Component{
                               longitude={parseFloat(store.lng)}
                               latitude={parseFloat(store.lat)}
                       >
-                        <button type="button" onClick={(ev) => {
+                        <button type="button" className="marker-button" onClick={(ev) => {
                           ev.preventDefault();
                           this.setSelectedStore(store)
                         }}>
