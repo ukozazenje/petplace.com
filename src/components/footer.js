@@ -65,9 +65,9 @@ const footer = () => {
           <div className="columns">
             <div className="column is-5">
               <ul>
-                <li><Link to="/privacy-policy/">Privacy Policy</Link></li>
+                <li><Link to="/privacy-policy">Privacy Policy</Link></li>
                 <li><Link to="/terms-of-use">Terms of Use</Link></li>
-                {/* <li><Link to="/site-map/">Site Map</Link></li> */}
+                <li><Link to="/about-us">About Us</Link></li>
               </ul>
             </div>
             <div className="column is-7">
