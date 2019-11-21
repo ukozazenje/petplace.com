@@ -10,11 +10,11 @@ import "mapbox-gl/dist/mapbox-gl.css"
 import 'react-input-range/lib/css/index.css';
 import InputRange from 'react-input-range';
 import pointer from '../images/pin-location.svg'
-import vetlocator from '../vet_locator';
 
 import Layout from "../components/layout"
 import ContactUsSection from "../components/homepage/contact-us"
 import SEO from "../components/seo"
+import axios from "axios"
 
 const token=process.env.GATSBY_MAPBOX;
 
@@ -39,10 +39,15 @@ class VetLocator extends Component{
       search: '',
       nearestStores: [],
       address: '',
+      allStores: {
+        "name": "stores",
+        "version": "1.0.0",
+      },
     }
   }
 
   componentDidMount() {
+    this.getStores();
     if (navigator.geolocation) {
       this.setUserLocation()
     }else{
@@ -108,12 +113,12 @@ class VetLocator extends Component{
   };
 
   toRadians(lat){
-    return lat * Math.PI / 180; ;
+    return lat * Math.PI / 180;
   }
 
   handleSubmit(){
     const radius = this.state.radius;
-    const allStores = vetlocator.vets || [];
+    const allStores = this.state.allStores.vets || [];
     const lat1 = this.state.viewport.latitude;
     const lon1 = this.state.viewport.longitude;
     const R1 = 3959; //miles
@@ -150,6 +155,18 @@ class VetLocator extends Component{
       limit: value
     })
     setFieldValue("limit", value)
+  }
+
+  getStores(){
+    axios.get('http://staging.ppl.torchte.ch/wp-json/ttg/v2/vetlocator')
+      .then((response) => {
+        this.setState(prevState => ({
+          allStores: {
+            ...prevState.allStores,
+            vets: response.data
+          }
+        }))
+      });
   }
 
   render() {
