@@ -32,7 +32,7 @@ class Post extends Component  {
     console.log(this.props.data)
     return (
       <Layout noFooter>
-        <Seo title={post.title} />
+        <Seo title={post.title} image={post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp.src || this.props.data.postHeroImg.childImageSharp.fluid.src}/>
         <div className="single-post">
         <section className="section post-hero-section">
           <div className="container is-fullhd">
@@ -166,6 +166,13 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    postHeroImg: file(relativePath: { eq: "defaultImg.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 100) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
