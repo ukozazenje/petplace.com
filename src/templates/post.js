@@ -32,7 +32,14 @@ class Post extends Component  {
     console.log(this.props.data)
     return (
       <Layout noFooter>
-        <Seo title={post.title} image={post.featured_media && post.featured_media.localFile && post.featured_media.localFile.childImageSharp.src || this.props.data.postHeroImg.childImageSharp.fluid.src}/>
+        <Seo title={post.title} image={
+          post.featured_media && 
+          post.featured_media.localFile && 
+          post.featured_media.localFile.childImageSharp && 
+          post.featured_media.localFile.childImageSharp.fluid && 
+          post.featured_media.localFile.childImageSharp.fluid.src || 
+          this.props.data.postHeroImg.childImageSharp.fluid.src
+          }/>
         <div className="single-post">
         <section className="section post-hero-section">
           <div className="container is-fullhd">
