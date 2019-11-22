@@ -48,7 +48,9 @@ const PopularPosts = (props) => {
               <Link to={post.path} className="popular-post-card" >
                 <Img className="popular-post-card-image" fluid={(post.featured_image && post.featured_image && post.featured_image.full && post.featured_image.full.localFile.childImageSharp.fluid) || coverImg} alt={(post.featured_media && post.featured_media.alt_text) || 'post image'}  /> 
                 <div className={`popular-post-card-content ${categoryColor(post.category_name)}-transparent`}>
-                  <h3>{post.post_title}</h3>
+                  <h3 dangerouslySetInnerHTML={{
+                    __html: post.post_title 
+                  }} />
                   <div className="meta">{post && post.post_date} | {(post && post.author_name) || 'author'}</div>
                 </div>
               </Link>
