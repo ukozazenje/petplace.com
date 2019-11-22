@@ -89,7 +89,11 @@ const PopularPosts = (props) => {
               <Img sizes={{ ...mainPost.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_image.full.alt_text || 'post')} />
             </div>
             <div className={`main-content ${categoryColor(category)}-transparent`}>
-              <h3><Link to={mainPost.path}>{mainPost.post_title}</Link></h3>
+              <Link to={mainPost.path}>
+                <h3 dangerouslySetInnerHTML={{
+                  __html: mainPost.post_title
+                }} />
+              </Link>
               <p className="date">{mainPost.post_date || 'no date'} ·  {(mainPost.author_name) || 'PetPlace.com'}</p>
             </div>
           </div>
@@ -101,7 +105,11 @@ const PopularPosts = (props) => {
   objectPosition="50% 50%" />
             </Link>
             <div className="sub-content">
-              <h3><Link to={firstPost.path}>{firstPost.post_title}</Link></h3>
+              <Link to={firstPost.path}>
+                <h3 dangerouslySetInnerHTML={{
+                  __html: firstPost.post_title 
+                }} />
+              </Link>
               <p className="date">{firstPost.post_date} ·  {firstPost.author_name}</p>
             </div>
           </div>
@@ -111,7 +119,11 @@ const PopularPosts = (props) => {
     objectPosition="50% 50%" />
             </Link>
             <div className="sub-content align-slef-start">
-              <h3><Link to={secondPost.path} >{secondPost.post_title}</Link></h3>
+              <Link to={secondPost.path} >
+                <h3 dangerouslySetInnerHTML={{
+                __html: secondPost.post_title 
+                }} />
+              </Link>
               <p className="date">{secondPost.post_date} ·  {secondPost.author_name}</p>
             </div>
           </div>
@@ -126,7 +138,9 @@ const PopularPosts = (props) => {
           {wordpressTtgPages.acf.category_rows.map((category_row, i) => {
             return (
               <div className="featured-categories" key={i}>
-                <h2>{category_row.category_name.replace(/&amp;/g, '&')}</h2>
+                <h2 dangerouslySetInnerHTML={{
+                  __html: category_row.category_name
+                }} />
                 {tills(category_row.posts, category_row.category_name)}
               </div>
             )

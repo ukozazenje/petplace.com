@@ -7,8 +7,9 @@ module.exports = {
     siteUrl: `https://www.petplace.com`,
     title: `PetPlace: The Web's #1 Source of Pet Information`,
     description: `Read veterinarian approved pet care articles on PetPlace.com. Find pet health information about your dog, cat and many other animals from our pet experts.`,
-    author: `@gatsbyjs`,
-    google_site_verification: `6eUJTvmXxNEIIo_WFK3iWppRstR1aJrzuKaTtqlG4oc`
+    author: `@PetPlaceFans`,
+    google_site_verification: `6eUJTvmXxNEIIo_WFK3iWppRstR1aJrzuKaTtqlG4oc`,
+    image: "/images/hero-bg.png"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

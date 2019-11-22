@@ -38,7 +38,7 @@ const PetHappiness = () => {
               <div className="column">
                 {/* <img src={articles} alt="" /> */}
                 <ArticleIcon />
-                <h4>10,000 approved articles</h4>
+                <h4>10,000 Approved Articles</h4>
                 <p>A library featuring over 10,000 veterinarian-written/approved articles.</p>
               </div>
               <div className="column">
