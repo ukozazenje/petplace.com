@@ -70,3 +70,26 @@ export const categoryImage = ( category ) => {
   }
   
 }
+
+
+export const formatDate = (date) => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+    ];
+  const year = date.substring(0,4)
+  const month = months[parseInt( date.substring(5,7))]
+  const day = date.substring(8,10)
+
+  return `${month} ${day}, ${year}`
+}
