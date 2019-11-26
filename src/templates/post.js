@@ -113,7 +113,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        {/* <NextPost post={this.props.pageContext.nextPost} location={{...this.props.location}} nextPostImg={nextPost}/> */}
+        <NextPost post={this.props.pageContext.nextPost} location={{...this.props.location}} nextPostImg={nextPost}/>
         </div>
       </Layout>
     )
@@ -164,6 +164,17 @@ export const pageQuery = graphql`
         cat_name
       }
       path
+      featured_image {
+        full {
+          localFile {
+            childImageSharp {
+              fixed(width: 164, height: 164) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+        }
+      }
     }
     postHeroImg: file(relativePath: { eq: "defaultImg.jpg" }) {
       childImageSharp {

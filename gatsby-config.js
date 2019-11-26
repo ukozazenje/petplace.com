@@ -40,7 +40,7 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
           // Fields to index
-          fields: ['title'],
+          fields: ['title', 'category_name', 'author_name'],
           // How to resolve each field's value for a supported node type
           resolvers: {
             // For any node of type wordpress__POST, list how to resolve the fields' values
@@ -49,7 +49,8 @@ module.exports = {
               title: node => node.title,
               path: node => node.path,
               author_name: node => node.author_name,
-              category: node => node.category,
+              category_name: node => node.category_name,
+              category_path: node => node.category_path,
               featured_image: node => node.featured_image
               // featured_media: (node, getNodes) => 
               //   getNodes(node.featured_media___NODE)
