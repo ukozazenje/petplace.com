@@ -40,7 +40,7 @@ exports.createPages = ({ actions, graphql }) => {
       _.each(result.data.allWordpressTtgCategories.edges, ({ node: cat }) => {
         if(cat.slug !== 'videos') {
           createPage({
-            path: `/article/category/just-for-fun/videos/`,
+            path: `${cat.path}`,
             component: categoriesTemplate,
             context: {
               id: cat.id,
@@ -50,7 +50,7 @@ exports.createPages = ({ actions, graphql }) => {
           })
         } else {
           createPage({
-            path: `${cat.path}`,
+            path: `/article/category/just-for-fun/videos/`,
             component: categoriesVideoTemplate,
             context: {
               id: cat.id,
