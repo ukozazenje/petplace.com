@@ -181,12 +181,12 @@ class VetLocator extends Component{
           <div className="vet-locator-page">
           <section className="section vet-locator-wrapper category-posts">
           <div className="container is-full-hd">
-            <div className="header-text column  is-half">
+            <div className="header-text column is-half">
               <h1>Vet Locator</h1>
               <p>Find A Veterinarian Near You!</p>
             </div>
             <div className="columns fullhd map-container">
-              <div className="test column is-two-thirds is-mobile">
+              <div className="vet-locator-map column is-two-thirds is-mobile">
                 <MapGL
                   { ...viewport }
                   mapboxApiAccessToken={token}
@@ -198,8 +198,8 @@ class VetLocator extends Component{
                   {this.state.nearestStores.map((store, key)=>
                     (
                       <Marker key={key}
-                              longitude={parseFloat(store.lng)}
-                              latitude={parseFloat(store.lat)}
+                        longitude={parseFloat(store.lng)}
+                        latitude={parseFloat(store.lat)}
                       >
                         <button type="button" className="marker-button" onClick={(ev) => {
                           ev.preventDefault();
@@ -230,7 +230,8 @@ class VetLocator extends Component{
                     : null}
                 </MapGL>
               </div>
-              <div className="map-side-bar column is-one-third is-mobile ">
+              <div className="vet-locator-form column is-one-third is-mobile">
+                <div className="map-side-bar">
                   <Formik
                     enableReinitialize={true}
                     initialValues={{...this.state.formik}}
@@ -353,6 +354,7 @@ class VetLocator extends Component{
                         </Form>
                       )}}
                   </Formik>
+                </div>
               </div>
             </div>
           </div>
