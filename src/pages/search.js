@@ -13,7 +13,7 @@ const SearchPage = ({location}) => (
       }
     `}
     render={data => (
-      <Layout>
+      <Layout noSearch={true}>
         <SearchResults searchIndex={data.siteSearchIndex.index} location={location}/>
       </Layout>
     )}

@@ -42,6 +42,7 @@ export default class Search extends Component {
         currentPosts: posts.slice(0, limit),
         currentPage: 1
       })
+      document.getElementById('search-results').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
     })
   }
 
@@ -102,6 +103,16 @@ export default class Search extends Component {
     })
   }
 
+  validate = (values) => {
+    const errors = {};
+    if(!values.title) {
+      errors.title =  "Required"
+    } else if(values.title.length < 3) {
+      errors.title = "Minimum 3 characters"
+    }
+    return errors
+  }
+
   componentDidMount(){
     this.props.location.state && this.props.location.state.title ? this.search(this.props.location.state.title) : this.search('pet')
   }
@@ -119,6 +130,7 @@ export default class Search extends Component {
               Vet-Approved Articles</h1>
               <p>Our comprehensive library of informative articles covers medical diagnosis, wellness tips, breed bios, and everything in between.</p>
               <Formik
+                validate={this.validate}
                 initialValues={{title: ""}}
                 onSubmit={(values, actions) => {
                   this.search(values.title)
@@ -128,6 +140,7 @@ export default class Search extends Component {
                   <Form>
                     <Field type="text" name="title" placeholder="Search...." className="search-input" />
                     <button type="submit" className="search-button" >Submit</button>
+                    {props.errors.title && props.touched.title ? <div className="form-error ">{props.errors.title}</div> : null}
                   </Form>
                 )}
               </Formik>
@@ -144,7 +157,7 @@ export default class Search extends Component {
           <MobileHeroImg />
         </div>
       </div>
-      <section className={`section order-section`}>
+      <section className={`section order-section`} id="search-results">
         <div className="container search-results is-fullhd">  
           <div className="columns">
             <div className="column">

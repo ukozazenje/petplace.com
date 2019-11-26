@@ -40,12 +40,12 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
           // Fields to index
-          fields: ['title', 'category_name', 'author_name'],
+          fields: ['title', 'category_name', 'author_name', 'post_tags'],
           // How to resolve each field's value for a supported node type
           resolvers: {
             // For any node of type wordpress__POST, list how to resolve the fields' values
             wordpress__ttg_posts: {
-              // data: node => node,
+              post_tags: node => node.post_tags,
               title: node => node.title,
               path: node => node.path,
               author_name: node => node.author_name,
