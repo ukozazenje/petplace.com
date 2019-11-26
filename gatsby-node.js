@@ -50,7 +50,7 @@ exports.createPages = ({ actions, graphql }) => {
           })
         } else {
           createPage({
-            path: `${cat.path}`,
+            path: `/article/category/just-for-fun/videos/`,
             component: categoriesVideoTemplate,
             context: {
               id: cat.id,
