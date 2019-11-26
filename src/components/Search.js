@@ -94,8 +94,6 @@ export default class Search extends Component {
     const order = values[1]
     const posts = [...this.state.posts]
 
-    console.log('OrderBy--->', orderBy, 'Order--->', order)
-    console.log('Unsorted--->', this.state.posts)
     let sorted = [...posts.sort(this.compareValues(orderBy, order))]
     this.setState({
       posts: [...sorted],
@@ -179,7 +177,7 @@ export default class Search extends Component {
                               post && 
                               post.featured_image &&  
                               post.featured_image.feature ? 
-                              <img src={post.featured_image.feature} alt="" /> :
+                              <img src={post.featured_image.feature.replace(process.env.GATSBY_PP_URL, process.env.GATSBY_WP_URL)} alt="" /> :
                               <NoImg />
                             }
                           </Link>
