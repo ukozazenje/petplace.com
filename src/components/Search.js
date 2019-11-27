@@ -119,7 +119,7 @@ export default class Search extends Component {
 
   render() {
     const total = this.state.posts.length 
-
+    console.log(this.state.posts)
     return (
     <>
       <div className="flex-container">
@@ -196,7 +196,7 @@ export default class Search extends Component {
                           </Link>
                           <Link 
                             to={post && post.category_path || '/'} 
-                            className={`card-category ${categoryColor(post.category_name.replace(/&amp;/g, '&'))}`} 
+                            className={`card-category ${categoryColor(post && post.category_name || 'no category')}`} 
                             dangerouslySetInnerHTML={{
                               __html: post && post.category_name || 'no category'
                             }} />
