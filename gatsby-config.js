@@ -155,7 +155,7 @@ module.exports = {
         // This option is particularly useful in case you need access to
         // URLs for thumbnails, or any other media detail.
         // Defaults to false
-        keepMediaSizes: false,
+        keepMediaSizes: true,
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {
           return entities
