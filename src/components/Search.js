@@ -1,61 +1,48 @@
-import React, {Component} from 'react'
-import {Form, Formik, Field} from 'formik'
-import axios from 'axios'
-import Layout from '../components/layout'
-import OrderBy from './search/orderBy'
-import PostsList from './search/postsList'
+import React, { Component } from "react"
+import { Index } from "elasticlunr"
+import {Link} from 'gatsby'
 import HomeHeroImg from "../static/images/homeHeroImg"
 import MobileHeroImg from "../static/images/mobileHomeHeroImg"
 import TabletHeroImg from "../static/images/tabletHomeHeroImg"
+import Pagination from "./search/pagination"
+import {Formik, Form, Field} from "formik"
+import {formatDate, categoryColor} from '../components/functions'
+import NoImg from "../static/images/noPostImg"
+
 
 const limit = 18
-class Search extends Component {
-
-  state = {
-    posts: [],
-    loader: true,
-    currentPosts: [],
-    currentPage: 1,
-    totalPages: 0,
-    form: {
-      numbers: "200",
-      days: '3000',
-      orderBy: 'date',
-      order: 'DSC',
-      title: 'dog'
+// Search component
+export default class Search extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      query: ``,
+      posts: [],
+      currentPosts: [],
+      currentPage: 1,
+      order: 'desc',
+      orderby: 'date'
     }
   }
 
-
-  handleSubmit = (value) => {
-    const {numbers, days, order, orderBy} = this.state.form
-    const title = value || this.state.form.title
+  search = title => {
+    // const query = title.target.value
+    const query = title
+    this.index = this.getOrCreateIndex()
     this.setState({
-      loader:true
-    })
-    axios.get(`${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_URL}/wp-json/ttg/v2/post/${title}/${orderBy}/${order}/${days}/${numbers}`)
-      .then(res => {
-        this.setState({
-          posts: res.data,
-          loader: false,
-          currentPosts: res.data.slice(0, limit),
-          currentPage: 1,
-          form: {
-            numbers: numbers,
-            days: days,
-            orderBy: orderBy,
-            order: order,
-            title: title
-          }
-        })
+      query,
+      // Query the index with search string to get an [] of IDs
+      posts: this.index
+        .search(query, {expand: true})
+        // Map over each ID and return the full document
+        .map(({ ref }, index) => this.index.documentStore.getDoc(ref)),
+    }, () => {
+      const posts = [...this.state.posts]
+      this.setState({
+        currentPosts: posts.slice(0, limit),
+        currentPage: 1
       })
-  }
-
-  noSearchTerm = () => {
-    this.setState({
-      posts: this.props.posts,
-      currentPosts: this.props.posts.slice(0, limit),
-      loader: false,
+      document.getElementById('search-results').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
     })
   }
 
@@ -77,119 +64,177 @@ class Search extends Component {
     });
   };
 
-  componentDidMount(){
-    this.props.location.state && this.props.location.state.title ? this.handleSubmit(this.props.location.state.title) : this.handleSubmit('pet')
-  }
-
-  setFormValues = (e) => {
-    console.log(e)
-    const name = e.target.name
-    const value = e.target.value
-
-    this.setState({
-      form: {
-        ...this.state.form,
-        [name]: value
+  compareValues = (key, order='asc') => {
+    return function(a, b) {
+      if(!a.hasOwnProperty(key) || 
+         !b.hasOwnProperty(key)) {
+        return 0; 
       }
+      
+      const varA = (typeof a[key] === 'string') ? 
+        a[key].toUpperCase() : a[key];
+      const varB = (typeof b[key] === 'string') ? 
+        b[key].toUpperCase() : b[key];
+        
+      let comparison = 0;
+      if (varA > varB) {
+        comparison = 1;
+      } else if (varA < varB) {
+        comparison = -1;
+      }
+      return (
+        (order == 'desc') ? 
+        (comparison * -1) : comparison
+      );
+    };
+  }
+  
+  sortBy = (value) => {
+    const values = value.split('-')
+    const orderBy = values[0]
+    const order = values[1]
+    const posts = [...this.state.posts]
+
+    let sorted = [...posts.sort(this.compareValues(orderBy, order))]
+    this.setState({
+      posts: [...sorted],
+      currentPosts: posts.slice(0, limit),
+      currentPage: 1
     })
   }
 
-  setOrderBy = (e) => {
-    const value = e.target.value
-    const title = this.state.form.title
-    console.log(e.target.value)
-    switch (value) {
-      case 'title-a-z':
-        return this.setState({
-          form: {
-            ...this.state.form,
-            orderBy: 'title',
-            order: 'ASC'
-          }
-        }, () => this.handleSubmit(title))
-      case 'title-z-a':
-        return this.setState({
-          form: {
-            ...this.state.form,
-            orderBy: 'title',
-            order: 'DSC',
-          }
-        }, () => this.handleSubmit(title))
-      case 'date-asc':
-        return this.setState({
-          form: {
-            ...this.state.form,
-            orderBy: 'date',
-            order: 'ASC',
-          }
-        }, () => this.handleSubmit(title))
-      case 'date-dsc':
-       return  this.setState({
-          form: {
-            ...this.state.form,
-            orderBy: 'date',
-            order: 'DSC',
-          }
-        }, () => this.handleSubmit(title))
-      default:
-       return  this.setState({
-          form: {
-            ...this.state.form,
-            orderBy: 'date',
-            order: 'ASC',
-          }
-        }, () => this.handleSubmit(title))
+  validate = (values) => {
+    const errors = {};
+    if(!values.title) {
+      errors.title =  "Required"
+    } else if(values.title.length < 3) {
+      errors.title = "Minimum 3 characters"
     }
+    return errors
   }
-  render(){
-    const { loader, currentPosts } = this.state
+
+  componentDidMount(){
+    this.props.location.state && this.props.location.state.title ? this.search(this.props.location.state.title) : this.search('pet')
+  }
+
+  render() {
+    const total = this.state.posts.length 
+
     return (
-      <Layout noSearch={true}>
-        <div className="flex-container">
-          <section className="container is-fullhd search-hero-section-flex">
-            <div className="container is-fullhd form-container">
-              <div className="form-wrapper">
-                <h1>Search Our<br />
-                Vet-Approved Articles</h1>
-                <p>Our comprehensive library of informative articles covers medical diagnosis, wellness tips, breed bios, and everything in between.</p>
-                <Formik
-                  initialValues={{title: ""}}
-                  onSubmit={(values, actions) => {
-                    this.handleSubmit(values.title)
-                  }}
-                >
-                  {(props) => (
-                    <Form>
-                      <Field type="text" name="title" placeholder="Search...." className="search-input" />
-                      <button type="submit" className="search-button">Submit</button>
-                    </Form>
-                  )}
-                </Formik>
-              </div>
-            </div>
-          </section>
-          <div className="desktop-img">
-            <HomeHeroImg />
-          </div>
-          <div className="tablet-img">
-            <TabletHeroImg />
-          </div>
-          <div className="mobile-img">
-            <MobileHeroImg />
-          </div>
-        </div>
-        <OrderBy onChange={this.setOrderBy} />
-        <section className="section search-page-section">
-          <div className="container is-fullhd">
-            <div className="columns search-page-columns">
-              {/* <SideBar days={this.state.form.days} onChange={this.setFormValues} setOrderBy={this.setOrderBy}/> */}
-              <PostsList limit={limit} loader={loader} currentPosts={currentPosts} total={this.state.posts.length} currentPage={this.state.currentPage} onPageChange={this.handlePageChange} />
+    <>
+      <div className="flex-container">
+        <section className="container is-fullhd search-hero-section-flex">
+          <div className="container is-fullhd form-container">
+            <div className="form-wrapper">
+              <h1>Search Our<br />
+              Vet-Approved Articles</h1>
+              <p>Our comprehensive library of informative articles covers medical diagnosis, wellness tips, breed bios, and everything in between.</p>
+              <Formik
+                validate={this.validate}
+                initialValues={{title: ""}}
+                onSubmit={(values, actions) => {
+                  this.search(values.title)
+                }}
+              >
+                {(props) => (
+                  <Form>
+                    <Field type="text" name="title" placeholder="Search...." className="search-input" />
+                    <button type="submit" className="search-button" >Submit</button>
+                    {props.errors.title && props.touched.title ? <div className="form-error ">{props.errors.title}</div> : null}
+                  </Form>
+                )}
+              </Formik>
             </div>
           </div>
         </section>
-      </Layout>
+        <div className="desktop-img">
+          <HomeHeroImg />
+        </div>
+        <div className="tablet-img">
+          <TabletHeroImg />
+        </div>
+        <div className="mobile-img">
+          <MobileHeroImg />
+        </div>
+      </div>
+      <section className={`section order-section`} id="search-results">
+        <div className="container search-results is-fullhd">  
+          <div className="columns">
+            <div className="column">
+              <h2>Search Results</h2>
+            </div>
+            <div className="column is-3">
+              <select className="search-select" name="orderby" onChange={(e)=>this.sortBy(e.target.value) } >
+                <option value="">Sort by</option>
+                <option value="title-asc">title A-Z</option>
+                <option value="title-desc">title Z-A</option>
+                <option value="date-asc">date ASC</option>
+                <option value="date-desc">date DSC</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section search-page-section">
+        <div className="container is-fullhd">
+          <div className="columns search-page-columns">
+            <div className="column">
+              <div className="columns"style={{flexWrap: 'wrap'}}>
+                { 
+                  this.state.currentPosts.map((post) => (
+                    <div key={post.id} className="column is-half-tablet is-one-third-desktop">
+                      <div className="category-post-card">
+                        <div className="card-img">
+                          <Link to={post.path}>
+                            {
+                              post && 
+                              post.featured_image &&  
+                              post.featured_image.feature ? 
+                              <img src={post.featured_image.feature} alt="" /> :
+                              <NoImg />
+                            }
+                          </Link>
+                          <Link 
+                            to={post && post.category_path || '/'} 
+                            className={`card-category ${categoryColor(post.category_name.replace(/&amp;/g, '&'))}`} 
+                            dangerouslySetInnerHTML={{
+                              __html: post && post.category_name || 'no category'
+                            }} />
+                        </div>
+                        <div className="card-content">
+                          <Link className="card-title" to={post.path}>
+                            <h3 dangerouslySetInnerHTML={{
+                                __html: post.title
+                              }}
+                            /> 
+                          </Link>
+                          <div className="meta">
+                            <span>{formatDate(post.date) || 'no date'}</span>&nbsp;·&nbsp;  
+                            <span dangerouslySetInnerHTML={{ __html: post.author_name || 'Petplace.com'}} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+                
+              </div>
+              <div className="pagination">
+                <Pagination limit={limit} total={total} currentPage={this.state.currentPage} onPageChange={this.handlePageChange} />
+              </div>
+            </div>
+            {/* <PostsList limit={limit} loader={loader} currentPosts={currentPosts} total={this.state.posts.length} currentPage={this.state.currentPage} onPageChange={this.handlePageChange} /> */}
+          </div>
+        </div>
+      </section>
+      </>
     )
   }
-}
+  getOrCreateIndex = () =>
+    this.index
+      ? this.index
+      : // Create an elastic lunr index and hydrate with graphql query posts
+        Index.load(this.props.searchIndex)
 
-export default Search
+  
+}

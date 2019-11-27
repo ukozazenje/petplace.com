@@ -192,41 +192,4 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
     })
-    .then(() => {
-      return new Promise((resolve, reject) => {
-        axios
-          .get("http://dev.ppl.torchte.ch/wp-json/ttg/v2/pages")
-          .then(result => {
-            const { data } = result
-            /**
-             * creates a dynamic page with the data received
-             * injects the data into the context object alongside with some options
-             * to configure js-search
-             */
-            createPage({
-              path: "/search",
-              component: path.resolve(`./src/templates/ClientSearchTemplate.js`),
-              context: {
-                bookData: {
-                  allPosts: [],
-                  options: {
-                    indexStrategy: "Prefix match",
-                    searchSanitizer: "Lower Case",
-                    TitleIndex: true,
-                    AuthorIndex: true,
-                    SearchByTerm: true,
-                  },
-                },
-              },
-            })
-            resolve()
-          })
-          .catch(err => {
-            console.log("====================================")
-            console.log(`error creating Page:${err}`)
-            console.log("====================================")
-            reject(new Error(`error on page creation:\n${err}`))
-          })
-      })
-    })
 }
