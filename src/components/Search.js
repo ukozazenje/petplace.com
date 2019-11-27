@@ -190,7 +190,7 @@ export default class Search extends Component {
                               post && 
                               post.featured_image &&  
                               post.featured_image.feature ? 
-                              <img src={post.featured_image.feature.replace(process.env.GATSBY_PP_URL, process.env.GATSBY_WP_URL)} alt="" /> :
+                              <img src={post.featured_image.feature} alt="" /> :
                               <NoImg />
                             }
                           </Link>
