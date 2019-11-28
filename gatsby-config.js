@@ -44,14 +44,15 @@ module.exports = {
           // How to resolve each field's value for a supported node type
           resolvers: {
             // For any node of type wordpress__POST, list how to resolve the fields' values
-            wordpress__ttg_posts: {
+            wordpress__rmh_posts: {
+              data: node => node,
               post_tags: node => node.post_tags,
               title: node => node.title,
               path: node => node.path,
               author_name: node => node.author_name,
               category_name: node => node.category_name,
               category_path: node => node.category_path,
-              featured_image: node => node.featured_image
+              featured_image: node => node.featured
               // featured_media: (node, getNodes) => 
               //   getNodes(node.featured_media___NODE)
                 

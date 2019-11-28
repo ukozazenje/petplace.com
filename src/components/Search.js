@@ -189,8 +189,8 @@ export default class Search extends Component {
                             {
                               post && 
                               post.featured_image &&  
-                              post.featured_image.feature ? 
-                              <img src={post.featured_image.feature} alt="" /> :
+                              post.featured_image ? 
+                              <img src={post.featured_image} alt="" /> :
                               <NoImg />
                             }
                           </Link>
@@ -209,7 +209,7 @@ export default class Search extends Component {
                             /> 
                           </Link>
                           <div className="meta">
-                            <span>{formatDate(post.date) || 'no date'}</span>&nbsp;·&nbsp;  
+                            <span>{post.date || 'no date'}</span>&nbsp;·&nbsp;  
                             <span dangerouslySetInnerHTML={{ __html: post.author_name || 'Petplace.com'}} />
                           </div>
                         </div>
