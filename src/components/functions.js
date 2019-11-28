@@ -88,7 +88,8 @@ export const formatDate = (date) => {
     'December'
     ];
   const year = date.substring(0,4)
-  const month = months[parseInt( date.substring(5,7))]
+  const month = months[parseInt( date.substring(5,7))-1]
+  console.log(month)
   const day = date.substring(8,10)
 
   return `${month} ${day}, ${year}`
