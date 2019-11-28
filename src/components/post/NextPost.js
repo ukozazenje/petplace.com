@@ -8,6 +8,7 @@ class  NextPost extends Component {
   render(){
     const post = this.props.post
     const nextPostImg = this.props.nextPostImg
+    console.log(nextPostImg)
     return (
       <section className="section next-post-section">
         <div className="container is-fullhd">
@@ -16,11 +17,10 @@ class  NextPost extends Component {
             <Link to={post.path}>
               {
                 nextPostImg && 
-                nextPostImg.featured_image && 
-                nextPostImg.featured_image.full && 
-                nextPostImg.featured_image.full.localFile && 
-                nextPostImg.featured_image.full.localFile.childImageSharp ? 
-                <Img className="next-img" fixed={nextPostImg.featured_image.full.localFile.childImageSharp.fixed} /> :
+                nextPostImg.featured_img &&
+                nextPostImg.featured_img.localFile && 
+                nextPostImg.featured_img.localFile.childImageSharp ? 
+                <Img className="next-img" fixed={nextPostImg.featured_img.localFile.childImageSharp.fixed} /> :
                 <NoImg />
               }
             </Link>

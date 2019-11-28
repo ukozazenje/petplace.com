@@ -18,7 +18,7 @@ import AdSet from '../components/AdSet'
 class Post extends Component  {
   
   render(){
-    const nextPost = this.props.data.wordpressTtgPosts
+    const nextPost = this.props.data.wordpressRmhPosts
     const post = this.props.data.wordpressPost
     const tagList = (tags) => (
       <div className="post-tags">
@@ -156,21 +156,17 @@ export const pageQuery = graphql`
         }
       }
     }
-    wordpressTtgPosts(slug: {eq: $nextPostSlug}) {
+    wordpressRmhPosts(slug: {eq: $nextPostSlug}) {
       category_path
       slug
       title
-      category {
-        cat_name
-      }
+      category_name
       path
-      featured_image {
-        full {
-          localFile {
-            childImageSharp {
-              fixed(width: 164, height: 164) {
-                ...GatsbyImageSharpFixed
-              }
+      featured_img {
+        localFile {
+          childImageSharp {
+            fixed(width: 164, height: 164) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
