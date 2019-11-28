@@ -10,7 +10,7 @@ import {formatDate, categoryColor} from '../components/functions'
 import NoImg from "../static/images/noPostImg"
 
 
-const limit = 18
+const limit = 16
 // Search component
 export default class Search extends Component {
   constructor(props) {
@@ -182,20 +182,23 @@ export default class Search extends Component {
               <div className="columns"style={{flexWrap: 'wrap'}}>
                 { 
                   this.state.currentPosts.map((post) => (
-                    <div key={post.id} className="column is-half-tablet is-one-third-desktop">
+                    <div key={post.id} className="column is-half-tablet is-one-quarter-desktop">
                       <div className="category-post-card">
                         <div className="card-img">
                           <Link to={post.path}>
                             {
                               post && 
-                              post.featured_image &&  
-                              post.featured_image ? 
-                              <img src={post.featured_image} alt="" /> :
+                              post.featured_media &&  
+                              post.featured_media.media_details &&
+                              post.featured_media.media_details.sizes &&
+                              post.featured_media.media_details.sizes.post_thumbnail && 
+                              post.featured_media.media_details.sizes.post_thumbnail.source_url ? 
+                              <img src={post.featured_media.media_details.sizes.post_thumbnail.source_url} alt="" /> :
                               <NoImg />
                             }
                           </Link>
                           <Link 
-                            to={post && post.category_path || '/'} 
+                            to={post && post.category && post.category.path || '/'} 
                             className={`card-category ${categoryColor(post && post.category_name || 'no category')}`} 
                             dangerouslySetInnerHTML={{
                               __html: post && post.category_name || 'no category'
@@ -209,7 +212,7 @@ export default class Search extends Component {
                             /> 
                           </Link>
                           <div className="meta">
-                            <span>{post.date || 'no date'}</span>&nbsp;·&nbsp;  
+                            <span>{formatDate(post.date) || 'no date'}</span>&nbsp;·&nbsp;  
                             <span dangerouslySetInnerHTML={{ __html: post.author_name || 'Petplace.com'}} />
                           </div>
                         </div>

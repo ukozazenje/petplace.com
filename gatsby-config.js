@@ -44,24 +44,27 @@ module.exports = {
           // How to resolve each field's value for a supported node type
           resolvers: {
             // For any node of type wordpress__POST, list how to resolve the fields' values
-            wordpress__rmh_posts: {
-              data: node => node,
-              post_tags: node => node.post_tags,
-              title: node => node.title,
-              path: node => node.path,
-              author_name: node => node.author_name,
-              category_name: node => node.category_name,
-              category_path: node => node.category_path,
-              featured_image: node => node.featured
-              // featured_media: (node, getNodes) => 
-              //   getNodes(node.featured_media___NODE)
-                
-              // category_name: node => node.category_name,
-              // category_path: node => node.category_path,
-              // date: node => node.date,
-              // author: node => node.author_name,
-              // img: node => node.featured_image,
-              }
+            wordpress__POST: {
+              title: node => node.title, 
+              path: node => node.path, 
+              category_name: (node, getNodes) => {
+                if(getNodes(node && node.categories___NODE && node.categories___NODE[0])) {
+                  return getNodes(node && node.categories___NODE && node.categories___NODE[0]).name
+                }
+              },
+              category: (node, getNodes) => 
+                getNodes(node.categories___NODE && node.categories___NODE[0]),
+              featured_media: (node, getNodes) =>
+                getNodes(node.featured_media___NODE),
+              author_name: (node, getNodes) => {
+                if(getNodes(node && node.author___NODE)){
+                  return getNodes(node && node.author___NODE).name
+                }
+              },
+              post_tags: (node, getNodes) => 
+                getNodes(node.tags___NODE && node.tags___NODE[0]),
+              date: node => node.date
+              },
           }
       }
     },
@@ -122,9 +125,9 @@ module.exports = {
         cookies: {},
         // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
         // It can help you debug specific API Endpoints problems.
-        verboseOutput: false,
+        verboseOutput: true,
         // Set how many pages are retrieved per API request.
-        perPage: 100,
+        perPage: 10,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
           sourceUrl: "https://"+process.env.GATSBY_WP_URL,
