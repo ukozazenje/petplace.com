@@ -7,7 +7,7 @@ import TabletHeroImg from "../static/images/tabletHomeHeroImg"
 import Pagination from "./search/pagination"
 import {Formik, Form, Field} from "formik"
 import {formatDate, categoryColor} from '../components/functions'
-import NoImg from "../static/images/noPostImg"
+import NoImg from "../static/images/noSearchPostImg"
 
 
 const limit = 16
@@ -188,17 +188,14 @@ export default class Search extends Component {
                           <Link to={post.path}>
                             {
                               post && 
-                              post.featured_media &&  
-                              post.featured_media.media_details &&
-                              post.featured_media.media_details.sizes &&
-                              post.featured_media.media_details.sizes.post_thumbnail && 
-                              post.featured_media.media_details.sizes.post_thumbnail.source_url ? 
-                              <img src={post.featured_media.media_details.sizes.post_thumbnail.source_url} alt="" /> :
+                              post.featured_image &&  
+                              post.featured_image ? 
+                              <img src={post.featured_image} alt="" /> :
                               <NoImg />
                             }
                           </Link>
                           <Link 
-                            to={post && post.category && post.category.path || '/'} 
+                            to={post && post.category_path || '/'} 
                             className={`card-category ${categoryColor(post && post.category_name || 'no category')}`} 
                             dangerouslySetInnerHTML={{
                               __html: post && post.category_name || 'no category'
@@ -212,7 +209,7 @@ export default class Search extends Component {
                             /> 
                           </Link>
                           <div className="meta">
-                            <span>{formatDate(post.date) || 'no date'}</span>&nbsp;·&nbsp;  
+                            <span>{post.date || 'no date'}</span>&nbsp;·&nbsp;  
                             <span dangerouslySetInnerHTML={{ __html: post.author_name || 'Petplace.com'}} />
                           </div>
                         </div>
