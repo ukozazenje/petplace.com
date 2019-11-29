@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Form, Formik, Field} from 'formik'
 import {navigate} from 'gatsby'
+
 const SearchHero = () => {
+  const [ loader, setLoaderState ] = useState(false);
   return (
     <section className="container is-fullhd search-hero-section-flex">
       <div className="form-container">
@@ -12,6 +14,7 @@ const SearchHero = () => {
           <Formik
             initialValues={{ title: '' }}
             onSubmit={(values, actions) => {
+              setLoaderState((loader) => !loader)
               navigate(
                 '/search',
                 {
@@ -25,7 +28,7 @@ const SearchHero = () => {
             {(props) => (
               <Form>
                 <Field type="text" name="title" placeholder="Search for Posts..." className="search-input" />
-                <button type="submit" className="search-button">Search</button>
+                <button type="submit" className="search-button">{loader ? 'Searching...' : 'Search'}</button>
               </Form>
             )}
           </Formik>
