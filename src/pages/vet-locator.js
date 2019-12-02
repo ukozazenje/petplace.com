@@ -10,11 +10,11 @@ import "mapbox-gl/dist/mapbox-gl.css"
 import 'react-input-range/lib/css/index.css';
 import InputRange from 'react-input-range';
 import pointer from '../images/pin-location.svg'
-import vetlocator from '../vet_locator';
 
 import Layout from "../components/layout"
 import ContactUsSection from "../components/homepage/contact-us"
 import SEO from "../components/seo"
+import axios from "axios"
 
 const token=process.env.GATSBY_MAPBOX;
 
@@ -39,10 +39,15 @@ class VetLocator extends Component{
       search: '',
       nearestStores: [],
       address: '',
+      allStores: {
+        "name": "stores",
+        "version": "1.0.0",
+      },
     }
   }
 
   componentDidMount() {
+    this.getStores();
     if (navigator.geolocation) {
       this.setUserLocation()
     }else{
@@ -108,12 +113,12 @@ class VetLocator extends Component{
   };
 
   toRadians(lat){
-    return lat * Math.PI / 180; ;
+    return lat * Math.PI / 180;
   }
 
   handleSubmit(){
     const radius = this.state.radius;
-    const allStores = vetlocator.vets || [];
+    const allStores = this.state.allStores.vets || [];
     const lat1 = this.state.viewport.latitude;
     const lon1 = this.state.viewport.longitude;
     const R1 = 3959; //miles
@@ -152,6 +157,18 @@ class VetLocator extends Component{
     setFieldValue("limit", value)
   }
 
+  getStores(){
+    axios.get(process.env.GATSBY_STORES_URL)
+      .then((response) => {
+        this.setState(prevState => ({
+          allStores: {
+            ...prevState.allStores,
+            vets: response.data
+          }
+        }))
+      });
+  }
+
   render() {
     let { viewport} = this.state
     const styleMap = {
@@ -164,12 +181,12 @@ class VetLocator extends Component{
           <div className="vet-locator-page">
           <section className="section vet-locator-wrapper category-posts">
           <div className="container is-full-hd">
-            <div className="header-text column  is-half">
+            <div className="header-text column is-half">
               <h1>Vet Locator</h1>
               <p>Find A Veterinarian Near You!</p>
             </div>
             <div className="columns fullhd map-container">
-              <div className="test column is-two-thirds is-mobile">
+              <div className="vet-locator-map column is-two-thirds is-mobile">
                 <MapGL
                   { ...viewport }
                   mapboxApiAccessToken={token}
@@ -181,8 +198,8 @@ class VetLocator extends Component{
                   {this.state.nearestStores.map((store, key)=>
                     (
                       <Marker key={key}
-                              longitude={parseFloat(store.lng)}
-                              latitude={parseFloat(store.lat)}
+                        longitude={parseFloat(store.lng)}
+                        latitude={parseFloat(store.lat)}
                       >
                         <button type="button" className="marker-button" onClick={(ev) => {
                           ev.preventDefault();
@@ -213,7 +230,8 @@ class VetLocator extends Component{
                     : null}
                 </MapGL>
               </div>
-              <div className="map-side-bar column is-one-third is-mobile ">
+              <div className="vet-locator-form column is-one-third is-mobile">
+                <div className="map-side-bar">
                   <Formik
                     enableReinitialize={true}
                     initialValues={{...this.state.formik}}
@@ -336,6 +354,7 @@ class VetLocator extends Component{
                         </Form>
                       )}}
                   </Formik>
+                </div>
               </div>
             </div>
           </div>
