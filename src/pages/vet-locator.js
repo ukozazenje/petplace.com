@@ -158,7 +158,7 @@ class VetLocator extends Component{
   }
 
   getStores(){
-    axios.get('http://staging.ppl.torchte.ch/wp-json/ttg/v2/vetlocator')
+    axios.get(process.env.GATSBY_STORES_URL)
       .then((response) => {
         this.setState(prevState => ({
           allStores: {
