@@ -39,29 +39,49 @@ module.exports = {
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
-          // Fields to index
-          fields: ['title', 'category_name', 'author_name', 'post_tags'],
-          // How to resolve each field's value for a supported node type
-          resolvers: {
-            // For any node of type wordpress__POST, list how to resolve the fields' values
-            wordpress__rmh_posts: {
-              post_tags: node => node.post_tags,
-              title: node => node.title,
-              path: node => node.path,
-              author_name: node => node.author_name,
-              category_name: node => node.category_name,
-              category_path: node => node.category_path,
-              featured_image: node => node.featured
-              // featured_media: (node, getNodes) => 
-              //   getNodes(node.featured_media___NODE)
-                
-              // category_name: node => node.category_name,
-              // category_path: node => node.category_path,
-              // date: node => node.date,
-              // author: node => node.author_name,
-              // img: node => node.featured_image,
-              }
-          }
+        // Fields to index
+        fields: ['title', 'category_name', 'author_name', 'post_tags'],
+        // How to resolve each field's value for a supported node type
+        resolvers: {
+          // For any node of type wordpress__POST, list how to resolve the fields' values
+          wordpress__rmh_posts: {
+            post_tags: node => node.post_tags,
+            title: node => node.title,
+            path: node => node.path,
+            author_name: node => node.author_name,
+            category_name: node => node.category_name,
+            category_path: node => node.category_path,
+            featured_image: node => node.featured
+            // featured_media: (node, getNodes) => 
+            //   getNodes(node.featured_media___NODE)
+              
+            // category_name: node => node.category_name,
+            // category_path: node => node.category_path,
+            // date: node => node.date,
+            // author: node => node.author_name,
+            // img: node => node.featured_image,
+            }
+        }
+      }
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-5V3N739",
+
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: true,
+
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        // Defaults to null
+        defaultDataLayer: { platform: "gatsby" },
+
+        // Specify optional GTM environment details.
+        // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
+        // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
+        // dataLayerName: "YOUR_DATA_LAYER_NAME",
       }
     },
     {
@@ -162,7 +182,7 @@ module.exports = {
         },
       },
     },
-    // { 
+    // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
     //     printRejected: true, // Print removed selectors and processed file names
