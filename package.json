@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "@material-ui/core": "^4.5.2",
     "@material-ui/icons": "^4.5.1",
     "axios": "^0.19.0",
@@ -56,8 +57,8 @@
   "scripts": {
     "start": "npm run develop",
     "clean": "rimraf .cache public",
-    "build": "npm run clean && gatsby build",
-    "develop": "npm run clean && gatsby develop",
+    "build": "npm run clean && node --max-old-space-size=16384 ./node_modules/.bin/gatsby build",
+    "develop": "npm run clean && node --max-old-space-size=16384 ./node_modules/.bin/gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
