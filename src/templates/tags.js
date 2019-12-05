@@ -43,7 +43,7 @@ class Tags extends Component  {
     const total = posts.length
     return (
       <Layout>
-        <Seo title={this.props.data.wordpressTtgTags.name} />
+        <Seo title={`${this.props.data.wordpressTtgTags.name } | Petplace`} />
         <HeroSection title={this.props.data.wordpressTtgTags.name} />
         <section className="section category-posts">
           <div className="container is-fullhd">
