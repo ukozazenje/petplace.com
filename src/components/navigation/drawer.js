@@ -3,8 +3,42 @@ import Drawer from '@material-ui/core/Drawer'
 import Button from '@material-ui/core/Button'
 import MenuBar from './menu-bar'
 import MenuIcon from '../../images/menu.svg'
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
 export default function TemporaryDrawer() {
+  const disableRipple = createMuiTheme({
+    props: {
+      MuiButtonBase: {
+        disableRipple: true,
+      },
+    },
+  });
+
+  const navbarButton = createMuiTheme({
+    props: {
+      MuiButton: {
+        disableRipple: true,
+      },
+      MuiButtonBase: {
+        disableRipple: true,
+      },
+    },
+    overrides: {
+      // Style sheet name ⚛️
+      MuiButton: {
+        // Name of the rule
+        text: {
+          background: 'transparent',
+          border: 0,
+        },
+        root: {
+          background: 'transparent',
+          border: 0,
+        },
+      },
+    },
+  });
+
   const [state, setState] = React.useState({
     top: false
   });
@@ -25,9 +59,13 @@ export default function TemporaryDrawer() {
 
   return (
   	<>
-      <Button onClick={toggleDrawer('left', true)} className="menu-open"><img src={ MenuIcon } className="menu-icon" alt="menu icon" /></Button>
+      <ThemeProvider theme={navbarButton}>
+        <Button onClick={toggleDrawer('left', true)} className="menu-open"><img src={ MenuIcon } className="menu-icon" alt="menu icon" /></Button>
+      </ThemeProvider>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)} className="drawer">
-        <Button onClick={toggleDrawer('left', false)} className="menu-close">&#215;</Button>
+        <ThemeProvider theme={disableRipple}>
+          <Button onClick={toggleDrawer('left', false)} className="menu-close">&#215;</Button>
+        </ThemeProvider>
         {sideList('left')}
       </Drawer>
     </>
