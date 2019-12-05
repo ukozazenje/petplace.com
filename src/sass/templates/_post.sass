@@ -8,7 +8,7 @@
     justify-content: center
     align-items: center
     margin-bottom: 3rem
-    padding: 0 1.5rem
+    padding: 0
   .main-content .container
     margin: 0 1rem
     max-width: 1044px !important
@@ -19,16 +19,22 @@
   .post-hero-img
     display: block
     margin-bottom: 2rem
+    +desktop
+      margin-bottom: 3rem
   h1 
     margin-bottom: 1rem
   h2
-    margin-top: 1rem
     margin-bottom: 1rem
   h3
     @include font-size(22px)
     margin-bottom: 1rem
   p 
     margin-bottom: .75rem
+    + h2
+      margin-top: 1.5rem
+  ul,
+  ol
+    margin-bottom: 1.5rem
   li
     margin-bottom: .25rem
   .main-section
@@ -143,6 +149,7 @@
     .author-img
       width: 60px
     .post-date
+      font-size: .8rem
       color: $blue-light
       margin-bottom: .5rem
     .share-icons-vertical
