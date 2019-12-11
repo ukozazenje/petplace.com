@@ -10,7 +10,7 @@ import PopularPosts from '../components/categories/PopularPosts'
 import Img from 'gatsby-image'
 import Seo from '../components/seo'
 
-class newCategory extends Component  {
+class category extends Component  {
   state = {
     posts: this.props.data.wordpressTtgCategories.posts,
     currentPosts: [],
@@ -101,7 +101,7 @@ class newCategory extends Component  {
   }
 }
 
-export default newCategory
+export default category
 
 export const pageQuery = graphql`
   query CategoryPage($id: String!){
