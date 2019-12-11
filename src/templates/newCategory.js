@@ -43,7 +43,7 @@ class newCategory extends Component  {
     const total = posts.length
     return (
       <Layout>
-        <Seo title={`${this.props.data.wordpressTtgCategories.name} | Petplace`} />
+        <Seo title={`${this.props.data.wordpressTtgCategories.name} | Petplace`} description="PetPlace is the most comprehensive resource for pet information available on the web"/>
         <HeroSection title={this.props.data.wordpressTtgCategories.name} />
         <section className="section category-posts">
           <div className="container is-fullhd">
