@@ -86,7 +86,7 @@ const IndexPage = () => {
     // const allCategories  = allWordpressCategory.edges
   return (
     <Layout noSearch={true}>
-      <SEO title="Home" />
+      <SEO title="PetPlace: The Web's #1 Source of Pet Information" />
       <div className="flex-container">
         <div className="search-wrapper">
           <SearchHero />
