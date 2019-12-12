@@ -7,8 +7,10 @@ import Pagination from '../components/search/pagination'
 import HeroSection from '../components/categories/categoryHero'
 import SideBar from '../components/categories/sideBar'
 import PopularPosts from '../components/categories/PopularPosts'
+import DefaultImg from '../images/defaultImg.jpg'
 import Img from 'gatsby-image'
-import Seo from '../components/seo'
+import Helmet from "react-helmet"
+
 
 class Tags extends Component  {
   state = {
@@ -43,7 +45,21 @@ class Tags extends Component  {
     const total = posts.length
     return (
       <Layout>
-        <Seo title={this.props.data.wordpressTtgTags.name} />
+       <Helmet>
+          <title>{`${this.props.data.wordpressTtgTags.name} | Petplace`}</title>
+          <meta name="description" content="PetPlace is the most comprehensive resource for pet information available on the web." />
+          <meta name="robots" content="noindex" />
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={`${this.props.data.wordpressTtgTags.name} | Petplace`} />
+          <meta property="og:description" content="PetPlace is the most comprehensive resource for pet information available on the web." />
+          <meta property="og:image" content={DefaultImg} />
+          <meta property="og:url" content="PERMALINK" />
+          <meta property="og:site_name" content="Petplace" />
+          <meta name="twitter:title" content={`${this.props.data.wordpressTtgTags.name} | Petplace`} />
+          <meta name="twitter:description" content="PetPlace is the most comprehensive resource for pet information available on the web." />
+          <meta name="twitter:image" content={DefaultImg} />
+          <meta name="twitter:creator" content="@PetPlaceFans" />
+       </Helmet>
         <HeroSection title={this.props.data.wordpressTtgTags.name} />
         <section className="section category-posts">
           <div className="container is-fullhd">

@@ -14,6 +14,7 @@ import Seo from '../components/seo'
 import Sticky from 'react-stickynode'
 import Breadcrumbs from '../components/Breadcrumbs';
 import AdSet from '../components/AdSet'
+import { decode } from 'punycode'
 
 class Post extends Component  {
 
@@ -32,12 +33,12 @@ class Post extends Component  {
     console.log(this.props.data)
     return (
       <Layout noFooter>
-        <Seo title={post.title} image={
-          (post.featured_media &&
-          post.featured_media.localFile &&
-          post.featured_media.localFile.childImageSharp &&
-          post.featured_media.localFile.childImageSharp.fluid &&
-          post.featured_media.localFile.childImageSharp.fluid.src) ||
+        <Seo title={`${post.yoast_meta.yoast_wpseo_title} | Petplace`} description={post.yoast_meta.yoast_wpseo_metadesc} image={
+          (post.featured_media && 
+          post.featured_media.localFile && 
+          post.featured_media.localFile.childImageSharp && 
+          post.featured_media.localFile.childImageSharp.fluid && 
+          post.featured_media.localFile.childImageSharp.fluid.src) || 
           this.props.data.postHeroImg.childImageSharp.fluid.src
           }/>
         <div className="single-post">
@@ -143,6 +144,11 @@ export const pageQuery = graphql`
         id
         path
         name
+      }
+      yoast_meta {
+        yoast_wpseo_canonical
+        yoast_wpseo_metadesc
+        yoast_wpseo_title
       }
       featured_media {
         source_url
