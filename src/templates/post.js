@@ -34,11 +34,11 @@ class Post extends Component  {
     return (
       <Layout noFooter>
         <Seo title={`${post.yoast_meta.yoast_wpseo_title} | Petplace`} description={post.yoast_meta.yoast_wpseo_metadesc} image={
-          (post.featured_media && 
-          post.featured_media.localFile && 
-          post.featured_media.localFile.childImageSharp && 
-          post.featured_media.localFile.childImageSharp.fluid && 
-          post.featured_media.localFile.childImageSharp.fluid.src) || 
+          (post.featured_media &&
+          post.featured_media.localFile &&
+          post.featured_media.localFile.childImageSharp &&
+          post.featured_media.localFile.childImageSharp.fluid &&
+          post.featured_media.localFile.childImageSharp.fluid.src) ||
           this.props.data.postHeroImg.childImageSharp.fluid.src
           }/>
         <div className="single-post">
