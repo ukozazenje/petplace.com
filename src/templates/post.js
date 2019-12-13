@@ -17,7 +17,7 @@ import AdSet from '../components/AdSet'
 import { decode } from 'punycode'
 
 class Post extends Component  {
-    
+
   render(){
     const nextPost = this.props.data.wordpressTtgPosts
     const post = this.props.data.wordpressPost
@@ -67,7 +67,7 @@ class Post extends Component  {
           <div className="container is-fullhd">
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
-                <div className="post-info"> 
+                <div className="post-info">
                   <img className="author-img" src={avatarImg} alt="avatar" />
                   <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
                   <p className="post-date">{post.date}</p>
