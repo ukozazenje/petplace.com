@@ -19,14 +19,14 @@ class Post extends Component  {
 
   componentDidMount() {
     // find iframe and wrap it in div
-    const iFrame = document.getElementsByTagName('iframe')[0]
+    const iFrames = [...document.getElementsByTagName('iframe')]
     const wrap = function (toWrap, wrapper) {
       wrapper = wrapper || document.createElement('div')
       wrapper.classList.add('video-wrapper')
       toWrap.parentNode.appendChild(wrapper)
       return wrapper.appendChild(toWrap)
     }
-    iFrame && wrap(iFrame)
+    iFrames.length && iFrames.map(iFrame => wrap(iFrame))
   }
 
   render(){
