@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import exitIntent from 'exit-intent'
 import Dialog from '@material-ui/core/Dialog'
 import ContactUsSection from "../components/homepage/contact-us"
 
 export default function EmailDialog() {
+    const [count, setCount] = useState(0);
     const [open, setOpen] = React.useState(false);
 
     const handleClose = () => {
       setOpen(false);
+      setCount(count + 1);
     };
     
     const {removeExitIntent} = exitIntent({
@@ -18,13 +20,17 @@ export default function EmailDialog() {
         setOpen(true);
       }    
     })
-
+        
     return (
         <div>
             {removeExitIntent}
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                 <ContactUsSection />
-            </Dialog>
+            {
+                (count <= 0) ? (
+                    <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                        <ContactUsSection />
+                    </Dialog>
+                ) : null 
+            }  
         </div>
     )
 }
