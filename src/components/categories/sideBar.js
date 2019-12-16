@@ -16,7 +16,7 @@ const SideBar = ({subcategories, noSubcategory}) => {
             <h3>Sub categories</h3>
             <div className="subcategories-wrapper">
               {subcategories.map((category, i) => (
-                <button className="subcategories-btn" key={i}>
+                <button className={`subcategories-btn ${category.name.replace(/ .*/,'').toLowerCase()}`} key={i}>
                   <Link to={`${category.path}`} >
                     {category.name.replace(/&amp;/g, '&')}
                   </Link>

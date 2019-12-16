@@ -4,8 +4,6 @@ import { Link } from 'gatsby'
 import noImg from '../../image'
 
 const categoryRow = ({category, categories}) => {
-  // console.log(categories[0].node.parent_element)
-  // const categoryImg = category[0].node.featured_media.localFile.childImageSharp.fluid
   return (
     <div className="featured-categories">
       <h2>{category && category[0] && category[0].node.categories[0].name.replace(/&amp;/g, '&')}</h2>
