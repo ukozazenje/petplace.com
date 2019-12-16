@@ -22,9 +22,9 @@ const Layout = ({ children, noFooter, noSearch }) => {
 }
   
   const {removeExitIntent} = exitIntent({
-    threshold: 1,
+    threshold: 5,
     maxDisplays: 1,
-    eventThrottle: 100,
+    eventThrottle: 20,
     onExitIntent: () => {  
       setOpen(true);
     }    
