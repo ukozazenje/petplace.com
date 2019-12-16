@@ -35,7 +35,7 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const categoriesTemplate = path.resolve(`./src/templates/newCategory.js`)
+      const categoriesTemplate = path.resolve(`./src/templates/category.js`)
       const categoriesVideoTemplate = path.resolve(`./src/templates/videoCategory.js`)
       _.each(result.data.allWordpressTtgCategories.edges, ({ node: cat }) => {
         if(cat.slug !== 'videos') {

@@ -14,7 +14,7 @@ export default ({ category }) => {
       <Link to="/" className="home"><img src={homeIcon} alt="home" /></Link>
       {
         categories.map(((cat, i) => {
-          const categoryPath = path.split(cat)[0] + `${cat}/`;
+          const categoryPath = path.split(`${cat}/`)[0] + `${cat}/`;
           return (
             <Fragment key={i}>
               <Link to={categoryPath} className={`category-link ${categoryColor(name)}`}>{cat.replace(/-/g, ' ')}</Link>
