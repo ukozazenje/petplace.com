@@ -4,13 +4,9 @@ import Header from "./header"
 import Footer from './footer'
 import exitIntent from 'exit-intent'
 import "../sass/main.sass"
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import ContactUsSection from "../components/homepage/contact-us"
+
 
 const Layout = ({ children, noFooter, noSearch }) => {
   const [open, setOpen] = React.useState(false);
@@ -19,12 +15,18 @@ const Layout = ({ children, noFooter, noSearch }) => {
     setOpen(false);
   };
   
+  const _onEvent = () => {
+    this.setState({
+        hasTriggered: true
+    })
+}
+  
   const {removeExitIntent} = exitIntent({
-    threshold: 5,
+    threshold: 1,
     maxDisplays: 1,
     eventThrottle: 100,
     onExitIntent: () => {  
-      console.log('1');
+      setOpen(true);
     }    
   })
 
@@ -34,29 +36,7 @@ const Layout = ({ children, noFooter, noSearch }) => {
       {removeExitIntent}
       {children}
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates
-            occasionally.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Subscribe
-          </Button>
-        </DialogActions>
+        <ContactUsSection />
       </Dialog>
       {
         noFooter
