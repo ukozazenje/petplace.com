@@ -23,7 +23,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        exclude: [`/search`],
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -167,7 +173,8 @@ module.exports = {
           "**/tags",
           "**/users",
           "**/media",
-          "**/most-used-tags"
+          "**/most-used-tags",
+          "**/yoast"
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: ["**/posts/1456"],

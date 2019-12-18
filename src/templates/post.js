@@ -12,11 +12,23 @@ import NoMobileHeroPostImg from "../static/images/noPostHeroMobileImg"
 import NextPost from "../components/post/NextPost"
 import Seo from '../components/seo'
 import Sticky from 'react-stickynode'
-import Breadcrumbs from '../components/Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs'
 import AdSet from '../components/AdSet'
 
 class Post extends Component  {
-  
+
+  componentDidMount() {
+    // find iframe and wrap it in div
+    const iFrames = [...document.getElementsByTagName('iframe')]
+    const wrap = function (toWrap, wrapper) {
+      wrapper = wrapper || document.createElement('div')
+      wrapper.classList.add('video-wrapper')
+      toWrap.parentNode.appendChild(wrapper)
+      return wrapper.appendChild(toWrap)
+    }
+    iFrames.length && iFrames.map(iFrame => wrap(iFrame))
+  }
+
   render(){
     const nextPost = this.props.data.wordpressTtgPosts
     const post = this.props.data.wordpressPost
@@ -32,12 +44,12 @@ class Post extends Component  {
     console.log(this.props.data)
     return (
       <Layout noFooter>
-        <Seo title={post.title} image={
-          post.featured_media && 
-          post.featured_media.localFile && 
-          post.featured_media.localFile.childImageSharp && 
-          post.featured_media.localFile.childImageSharp.fluid && 
-          post.featured_media.localFile.childImageSharp.fluid.src || 
+        <Seo title={`${post.yoast_meta.yoast_wpseo_title}`} description={post.yoast_meta.yoast_wpseo_metadesc} image={
+          (post.featured_media &&
+          post.featured_media.localFile &&
+          post.featured_media.localFile.childImageSharp &&
+          post.featured_media.localFile.childImageSharp.fluid &&
+          post.featured_media.localFile.childImageSharp.fluid.src) ||
           this.props.data.postHeroImg.childImageSharp.fluid.src
           }/>
         <div className="single-post">
@@ -66,7 +78,7 @@ class Post extends Component  {
           <div className="container is-fullhd">
             <div className="columns">
               <div className="column is-one-quarter single-post-sidebar">
-                <div className="post-info"> 
+                <div className="post-info">
                   <img className="author-img" src={avatarImg} alt="avatar" />
                   <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
                   <p className="post-date">{post.date}</p>
@@ -143,6 +155,11 @@ export const pageQuery = graphql`
         id
         path
         name
+      }
+      yoast_meta {
+        yoast_wpseo_canonical
+        yoast_wpseo_metadesc
+        yoast_wpseo_title
       }
       featured_media {
         source_url

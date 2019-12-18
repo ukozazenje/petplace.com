@@ -8,7 +8,7 @@
     justify-content: center
     align-items: center
     margin-bottom: 3rem
-    padding: 0 1.5rem
+    padding: 0
   .main-content .container
     margin: 0 1rem
     max-width: 1044px !important
@@ -19,16 +19,22 @@
   .post-hero-img
     display: block
     margin-bottom: 2rem
-  h1 
+    +desktop
+      margin-bottom: 3rem
+  h1
     margin-bottom: 1rem
   h2
-    margin-top: 1rem
     margin-bottom: 1rem
   h3
     @include font-size(22px)
     margin-bottom: 1rem
-  p 
+  p
     margin-bottom: .75rem
+    + h2
+      margin-top: 1.5rem
+  ul,
+  ol
+    margin-bottom: 1.5rem
   li
     margin-bottom: .25rem
   .main-section
@@ -91,6 +97,15 @@
       margin-top: 20px
       list-style-type: circle
       padding-left: 20px
+    .video-wrapper
+      width: 100%
+      position: relative
+      padding-bottom: 56.25%
+      iframe
+        border: none
+        position: absolute
+        width: 100%
+        height: 100%
   .share-icons-horizontal
     padding-left: 1.5rem
     line-height: 1
@@ -124,7 +139,7 @@
       flex-basis: auto
       width: 100%
       @media screen and (min-width: 450px)
-        align-self: flex-end  
+        align-self: flex-end
       +tablet
         align-self: flex-self
       .share-icons-horizontal
@@ -143,6 +158,7 @@
     .author-img
       width: 60px
     .post-date
+      font-size: .8rem
       color: $blue-light
       margin-bottom: .5rem
     .share-icons-vertical
@@ -207,8 +223,8 @@
     margin-bottom: 40px
   h4
     margin-bottom: 40px
-  .next-img 
+  .next-img
     border-radius: 6px
 .post-hero-section
-  padding-top: 1rem 
+  padding-top: 1rem
   padding-bottom: 1rem

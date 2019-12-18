@@ -6,7 +6,7 @@ import MobileHeroImg from "../static/images/mobileHomeHeroImg"
 import TabletHeroImg from "../static/images/tabletHomeHeroImg"
 import Pagination from "./search/pagination"
 import {Formik, Form, Field} from "formik"
-import {formatDate, categoryColor} from '../components/functions'
+import { categoryColor } from '../components/functions'
 import NoImg from "../static/images/noSearchPostImg"
 
 
@@ -66,16 +66,16 @@ export default class Search extends Component {
 
   compareValues = (key, order='asc') => {
     return function(a, b) {
-      if(!a.hasOwnProperty(key) || 
+      if(!a.hasOwnProperty(key) ||
          !b.hasOwnProperty(key)) {
-        return 0; 
+        return 0;
       }
-      
-      const varA = (typeof a[key] === 'string') ? 
+
+      const varA = (typeof a[key] === 'string') ?
         a[key].toUpperCase() : a[key];
-      const varB = (typeof b[key] === 'string') ? 
+      const varB = (typeof b[key] === 'string') ?
         b[key].toUpperCase() : b[key];
-        
+
       let comparison = 0;
       if (varA > varB) {
         comparison = 1;
@@ -83,12 +83,12 @@ export default class Search extends Component {
         comparison = -1;
       }
       return (
-        (order == 'desc') ? 
+        (order === 'desc') ?
         (comparison * -1) : comparison
       );
     };
   }
-  
+
   sortBy = (value) => {
     const values = value.split('-')
     const orderBy = values[0]
@@ -118,7 +118,7 @@ export default class Search extends Component {
   }
 
   render() {
-    const total = this.state.posts.length 
+    const total = this.state.posts.length
     console.log(this.state.posts)
     return (
     <>
@@ -158,7 +158,7 @@ export default class Search extends Component {
         </div>
       </div>
       <section className={`section order-section`} id="search-results">
-        <div className="container search-results is-fullhd">  
+        <div className="container search-results is-fullhd">
           <div className="columns">
             <div className="column">
               <h2>Search Results</h2>
@@ -180,25 +180,25 @@ export default class Search extends Component {
           <div className="columns search-page-columns">
             <div className="column">
               <div className="columns"style={{flexWrap: 'wrap'}}>
-                { 
+                {
                   this.state.currentPosts.map((post) => (
                     <div key={post.id} className="column is-half-tablet is-one-quarter-desktop">
                       <div className="category-post-card">
                         <div className="card-img">
                           <Link to={post.path}>
                             {
-                              post && 
-                              post.featured_image &&  
-                              post.featured_image ? 
+                              post &&
+                              post.featured_image &&
+                              post.featured_image ?
                               <img src={post.featured_image.replace(process.env.GATSBY_PP_URL, process.env.GATSBY_WP_URL)} alt="" /> :
                               <NoImg />
                             }
                           </Link>
-                          <Link 
-                            to={post && post.category_path || '/'} 
-                            className={`card-category ${categoryColor(post && post.category_name || 'no category')}`} 
+                          <Link
+                            to={(post && post.category_path) || '/'}
+                            className={`card-category ${categoryColor((post && post.category_name) || 'no category')}`}
                             dangerouslySetInnerHTML={{
-                              __html: post && post.category_name || 'no category'
+                              __html: (post && post.category_name) || 'no category'
                             }} />
                         </div>
                         <div className="card-content">
@@ -206,10 +206,10 @@ export default class Search extends Component {
                             <h3 dangerouslySetInnerHTML={{
                                 __html: post.title
                               }}
-                            /> 
+                            />
                           </Link>
                           <div className="meta">
-                            <span>{post.date || 'no date'}</span>&nbsp;·&nbsp;  
+                            <span>{post.date || 'no date'}</span>&nbsp;·&nbsp;
                             <span dangerouslySetInnerHTML={{ __html: post.author_name || 'Petplace.com'}} />
                           </div>
                         </div>
@@ -217,7 +217,7 @@ export default class Search extends Component {
                     </div>
                   ))
                 }
-                
+
               </div>
               <div className="pagination">
                 <Pagination limit={limit} total={total} currentPage={this.state.currentPage} onPageChange={this.handlePageChange} />
@@ -236,5 +236,5 @@ export default class Search extends Component {
       : // Create an elastic lunr index and hydrate with graphql query posts
         Index.load(this.props.searchIndex)
 
-  
+
 }

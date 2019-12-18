@@ -80,12 +80,13 @@ class MenuBar extends Component {
   render() {
     return (
       <div className="navigation-1 list-container">
-        <Drawer
-          variant="persistent"
-          anchor="left"
-          open
-        >
-          <ThemeProvider theme={navTheme}>
+        <ThemeProvider theme={navTheme}>
+          <Drawer
+            variant="persistent"
+            anchor="left"
+            open
+          >
+            
             <List>
               <ListItem key="menuHeading" divider disableGutters>
                 <Link className="navbar-item" to="/" >
@@ -94,21 +95,21 @@ class MenuBar extends Component {
               </ListItem>
               {this.handler(menuItems.data)}
             </List>
-          </ThemeProvider>
 
-          <div className="navigation-2">
-            <NavigationSearch />
-            <ul className="misc-nav">
-              <li><Link to="/article/category/drug-library/library/">Drug Library</Link></li>
-              <li><Link to="/article/category/vet-qa-parent/vet-qa/">Vet Q&amp;A</Link> </li>
-              <li><Link to="/vet-locator/">Vet Locator</Link></li>
-              <li><Link to="/article/category/just-for-fun/">Just For Fun</Link></li>
-              <li><Link to="/article/category/just-for-fun/surveys-polls/">Surveys &amp; Polls</Link></li>
-              <li><Link to="/article/category/just-for-fun/reader-stories/">Reader Stories</Link></li>
-            </ul>
-            <SocialLinks />
-          </div>
-        </Drawer>
+            <div className="navigation-2">
+              <NavigationSearch />
+              <ul className="misc-nav">
+                <li><Link to="/article/category/drug-library/library/">Drug Library</Link></li>
+                <li><Link to="/article/category/vet-qa-parent/vet-qa/">Vet Q&amp;A</Link> </li>
+                <li><Link to="/vet-locator/">Vet Locator</Link></li>
+                <li><Link to="/article/category/just-for-fun/">Just For Fun</Link></li>
+                <li><Link to="/article/category/just-for-fun/surveys-polls/">Surveys &amp; Polls</Link></li>
+                <li><Link to="/article/category/just-for-fun/reader-stories/">Reader Stories</Link></li>
+              </ul>
+              <SocialLinks />
+            </div>
+          </Drawer>
+        </ThemeProvider>
       </div>
     );
   }
