@@ -8,4 +8,4 @@ phases:
     commands:
        - npm install
        - npm run build
-       - aws s3 sync public s3://$S3_BUCKET --quiet
+       - aws s3 sync public s3://$S3_BUCKET --quiet --delete --exclude "robots.txt"
