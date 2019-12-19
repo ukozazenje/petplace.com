@@ -31,7 +31,9 @@ class  NextPost extends Component {
               null
             }
             <Link to={post.path}>
-              <h4>{post.title}</h4>
+              <h4 dangerouslySetInnerHTML={{
+                __html: post.title
+              }} /> 
             </Link>
             <Link to={post.path} state={{ lastLocation: this.props.location }}>
               <img src={NextPostImg} alt="Next post" />
