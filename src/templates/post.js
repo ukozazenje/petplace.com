@@ -26,7 +26,7 @@ class Post extends Component  {
       toWrap.parentNode.appendChild(wrapper)
       return wrapper.appendChild(toWrap)
     }
-    iFrames.length && iFrames.map(iFrame => wrap(iFrame))
+    iFrames.length && iFrames.map(iFrame => !iFrame.src.includes('instagram.com') && wrap(iFrame))
   }
 
   render(){
