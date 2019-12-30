@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'
-import exitIntent from 'exit-intent'
+import ExitIntent from '../components/homepage/ExitIntent'
 import Dialog from '@material-ui/core/Dialog'
 import ContactUsSection from "../components/homepage/contact-us"
 
@@ -13,7 +13,7 @@ export default function EmailDialog() {
       localStorage.setItem('closed', (count + 1));  
     };
     
-    const {removeExitIntent} = exitIntent({
+    const {removeExitIntent} = ExitIntent({
       threshold: 5,
       maxDisplays: 1,
       eventThrottle: 20,
