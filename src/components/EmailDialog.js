@@ -10,6 +10,7 @@ export default function EmailDialog() {
     const handleClose = () => {
       setOpen(false);
       setCount(count + 1);
+      localStorage.setItem('closed', (count + 1));  
     };
     
     const {removeExitIntent} = exitIntent({
@@ -25,7 +26,7 @@ export default function EmailDialog() {
         <div>
             {removeExitIntent}
             {
-                (count <= 0) ? (
+                ((localStorage.getItem('closed')) <= 0) ? (
                     <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                         <ContactUsSection />
                     </Dialog>
