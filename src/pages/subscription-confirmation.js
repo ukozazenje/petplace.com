@@ -12,8 +12,8 @@ const SubscriptionConfirmationPage = () => {
     <Layout>
       <SEO title="Home" />
       <div className="container">
-        <div class="section">
-          <h3 class="highlight">Your newsletter preferences have been saved. Thanks for subscribing!</h3>
+        <div className="section">
+          <h3 className="highlight">Your newsletter preferences have been saved. Thanks for subscribing!</h3>
         </div>
       </div>
       <CategoryListSection />
