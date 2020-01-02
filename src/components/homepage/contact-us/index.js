@@ -1,9 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import { Form, Formik, Field } from "formik"
 import axios from "axios"
 import { Link } from 'gatsby'
 
 const ContactUs = () => {
+  const count = useState(0);
+
+  const handleClose = () => {
+    localStorage.setItem('closed', (count + 1));  
+  };
+
   return (
     <section className="section contact-us-form">
       <div className="container is-fullhd">
@@ -68,7 +74,7 @@ const ContactUs = () => {
               />
               <Field type="text" name="name" placeholder="Enter your name" className={ errors.name && touched.name ? "field-error" : "" } />
               {/* <ErrorMessage name="email" component="div" /> */}
-              <button type="submit">Sign Up Now</button>
+              <button type="submit" onClick={handleClose} >Sign Up Now</button>
               <p>By signing up, you agree to our <Link to="/terms-of-use">Terms of Use</Link> and <Link to='/privacy-policy'>Privacy Policy</Link>.</p>
             </Form>
           )}
