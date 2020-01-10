@@ -48,7 +48,7 @@ class Store extends Component{
         <div className="vet-locator-page">
           <section className="section vet-locator-wrapper category-posts">
             <div className="container is-full-hd">
-              <div className="header-text column is-half">
+              <div className="header-text header-text-store column">
                 <h1>{this.props.pageContext.post_title}</h1>
               </div>
               <div className="columns fullhd map-container">
@@ -61,17 +61,17 @@ class Store extends Component{
                     height = {styleMap.height}
                     onViewportChange={this.handleViewportChange}
                   >
-                        <Marker
-                                longitude={parseFloat(this.props.pageContext.lng)}
-                                latitude={parseFloat(this.props.pageContext.lat)}
-                        >
-                          <button type="button" className="marker-button" onClick={(ev) => {
-                            ev.preventDefault();
-                            this.setSelectedStore(this.props.pageContext)
-                          }}>
-                            <img src={pointer} alt="Store" className="poointer"/>
-                          </button>
-                        </Marker>
+                    <Marker
+                      longitude={parseFloat(this.props.pageContext.lng)}
+                      latitude={parseFloat(this.props.pageContext.lat)}
+                    >
+                      <button type="button" className="marker-button" onClick={(ev) => {
+                        ev.preventDefault();
+                        this.setSelectedStore(this.props.pageContext)
+                      }}>
+                        <img src={pointer} alt="Store" className="poointer"/>
+                      </button>
+                    </Marker>
                     {this.state.selectedStore &&
                       (
                         <Popup
@@ -101,7 +101,7 @@ class Store extends Component{
                         <p className="form-text"><span>City: </span>{this.props.pageContext.city}</p>
                         <p className="form-text"><span>State: </span>{this.props.pageContext.state}</p>
                         <p className="form-text"><span>Zip: </span>{this.props.pageContext.zip}</p>
-                        <p className="form-text"><span>Phone: </span>{this.props.pageContext.phone}</p>
+                        <p className="form-text"><span>Phone: </span><a href={`tel:${this.props.pageContext.phone}`}>{this.props.pageContext.phone}</a></p>
                         <p className="form-text"><span>Country: </span>{this.props.pageContext.country}</p>
                         <p className="form-text"><span>Iso: </span>{this.props.pageContext.country_iso}</p>
                         <p className="form-text"><span>Email: </span>{this.props.pageContext.email}</p>

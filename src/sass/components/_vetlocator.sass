@@ -11,6 +11,11 @@
   .header-text
     padding-bottom: 40px
 
+  .header-text-store
+    padding-top: 30px
+    +widescreen
+      padding-top: 0
+
   .header-text > h1
     font-family: $family-secondary
     font-style: normal
@@ -22,6 +27,16 @@
     color: #353534
     +tablet
       font-weight: 800
+      font-size: 50px
+      line-height: 64px
+
+  .header-text-store > h1
+    font-size: 24px
+    line-height: 30px
+    +tablet
+      font-size: 30px
+      line-height: 40px
+    +desktop
       font-size: 50px
       line-height: 64px
 
