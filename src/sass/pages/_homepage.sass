@@ -152,6 +152,17 @@
       margin-top: 8px
       margin-bottom: -8px
       max-width: 200px    
+  .category-link-btn
+    display: inline-block
+    border-radius: 15px
+    font-family: $family-secondary
+    font-weight: $family-secondary-weight
+    font-size: 0.875rem
+    color: #fff
+    line-height: 30px
+    height: 30px
+    padding-left: 14px
+    padding-right: 14px
   .main-box
     position: relative
     img 
@@ -159,25 +170,64 @@
     .main-img 
       height: 100%
       width: 100%
-    .main-box-mobile-img 
-      display: block 
+    .main-box-mobile-img
+      display: block
+      .hide-desktop
+        position: absolute
+        top: 1rem
+        z-index: 9999
+        left: 2rem
+        +tablet 
+          display: none
       +tablet 
-        display: none 
+        display: none
     .main-box-desktop-img 
       display: none 
       +tablet 
         display: block
+    .category-link-btn
+      display: inline
+      top: 0
+      position: absolute
+      left: 2rem
+      top: -15px
+      box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2)
+      &.hide-mobile
+        display: none
+        +tablet 
+          display: block
+      &.blue-dark, &.mauve, &.magenta, &.green, &.gold, &.red, &.purple-light, &.purple, &.orange, &.blue 
+        color: #fff
+      &.orange
+        background: $orange 
+      &.blue
+        background: $blue 
+      &.purple
+        background: $purple 
+      &.purple-light
+        background: $purple-light 
+      &.red
+        background: $red 
+      &.gold
+        background: $gold 
+      &.green
+        background: $green 
+      &.magenta
+        background: $magenta 
+      &.mauve
+        background: $mauve
+      &.blue-dark
+        background: $blue-dark 
     .main-content
       color: #fff
       border-bottom-left-radius: 6px
       border-bottom-right-radius: 6px
       position: absolute
-      padding: 1rem 2rem
+      padding: 1.5rem 2rem 1rem 2rem
       display: flex
       justify-content: center
       flex-direction: column
       width: 100%
-      background: 
       bottom: 0
       p.date
         @extends small
@@ -217,10 +267,77 @@
     .sub-content
       width: 100%
       padding-left: 1.5rem
-      height: 100%
-      display: flex
-      flex-direction: column
-      justify-content: center
+      // height: 100%
+      // display: flex
+      // flex-direction: column
+      // justify-content: center
+      .category-link-btn
+        margin-top: 5px
+        margin-bottom: 10px
+        padding-left: 0
+        padding-right: 0
+        +desktop
+          padding-left: 14px
+          padding-right: 14px
+        // &.blue-dark, &.mauve, &.magenta, &.green, &.gold, &.red, &.purple-light, &.purple, &.orange, &.blue 
+        &.orange
+          border: none
+          color: $orange 
+          +desktop
+            color: #fff
+            background: $orange 
+        &.blue
+          border: none
+          color: $blue
+          background: $blue 
+        &.purple
+          border: none
+          color: $purple
+          +desktop 
+            color: #fff
+            background: $purple 
+        &.purple-light
+          border: none
+          color: $purple-light
+          +desktop
+            color: #fff
+            background: $purple-light 
+        &.red
+          border: none
+          color: $red
+          +desktop
+            color: #fff
+            background: $red 
+        &.gold
+          border: none
+          color: $gold
+          +desktop
+            color: #fff
+            background: $gold 
+        &.green
+          border: none
+          color: $green
+          +desktop
+            color: #fff
+            background: $green 
+        &.magenta
+          border: none
+          color: $magenta 
+          +desktop
+            color: #fff
+            background: $magenta 
+        &.mauve
+          border: none
+          color: $mauve
+          +desktop
+            color: #fff
+            background: $mauve
+        &.blue-dark
+          border: none
+          color: $blue-dark 
+          +desktop
+            color: #fff
+            background: $blue-dark 
       p.date
         @extend small
       h3
