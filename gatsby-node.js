@@ -192,4 +192,38 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
     })
+    .then(() => {
+      return axios.get('http://staging.ppl.torchte.ch/wp-json/ttg/v2/vetlocator').then( res => res.data)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+      const storesTemplate = path.resolve(`./src/templates/store.js`)
+      _.each(result, ( pet_store , key) => {
+        // Create the Gatsby page for this WordPress post
+        createPage({
+          path: `/pet-stores/${pet_store.post_name}`,
+          component: storesTemplate,
+          context: {
+            id: pet_store.id || 'no-id',
+            post_title: pet_store.post_title || 'no-title',
+            post_name: pet_store.post_name || 'no-post-name',
+            address: pet_store.address || 'no-address',
+            city: pet_store.city || 'no-city',
+            state: pet_store.state || 'no-state',
+            zip: pet_store.zip || 'no-zip',
+            phone: pet_store.phone || 'no-phone',
+            lat: pet_store.lat || 'no-lat',
+            lng: pet_store.lng || 'no-lng',
+            country: pet_store.country || 'no-country',
+            country_iso: pet_store.country_iso || 'no-country-iso',
+            email: pet_store.email || 'no-email',
+            url: pet_store.url || 'no-url',
+            post_views_count: pet_store.post_views_count || 'no-post-views-count'
+          },
+        })
+      })
+    })
 }

@@ -7,8 +7,14 @@
     line-height: 34px
     color: #FFFFFF
 
+
   .header-text
     padding-bottom: 40px
+
+  .header-text-store
+    padding-top: 30px
+    +widescreen
+      padding-top: 0
 
   .header-text > h1
     font-family: $family-secondary
@@ -21,6 +27,16 @@
     color: #353534
     +tablet
       font-weight: 800
+      font-size: 50px
+      line-height: 64px
+
+  .header-text-store > h1
+    font-size: 24px
+    line-height: 30px
+    +tablet
+      font-size: 30px
+      line-height: 40px
+    +desktop
       font-size: 50px
       line-height: 64px
 
@@ -186,6 +202,9 @@
     font-weight: 800
     font-size: 20px
     line-height: 34px
+    color: $purple-dark
+    &:hover
+      color: $mauve!important
 
   .stores-p > p
     font-family: $family-sans-serif
@@ -216,3 +235,6 @@
   .marker-button
     background: none
     border: none
+
+  .mapboxgl-popup-anchor-bottom-left
+    transform: translate(-50%, -100%) translate(142.5px, 225px)!important

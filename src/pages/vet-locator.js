@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 import MapGL, { Marker, Popup } from "react-map-gl"
 import { GoogleApiWrapper } from "google-maps-react"
 import { ErrorMessage, Form, Formik } from "formik"
@@ -15,6 +15,7 @@ import Layout from "../components/layout"
 import ContactUsSection from "../components/homepage/contact-us"
 import SEO from "../components/seo"
 import axios from "axios"
+import { Link } from "gatsby"
 
 const token=process.env.GATSBY_MAPBOX;
 
@@ -368,7 +369,9 @@ class VetLocator extends Component{
                 return (
                   <div className="columns hr" key={key}>
                     <div className="column is-5 stores-p">
-                      <h3 className="stores-h1">{store.post_title}</h3>
+                      <Link to={`/pet-stores/${store.post_name}`} className="stores-h1">
+                        {store.post_title}
+                      </Link>
                       <p>{store.address}</p>
                       <p>{store.city}, {store.state}, {store.country} </p>
                     </div>
