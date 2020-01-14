@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'gatsby'
-import BottomScrollListener from 'react-bottom-scroll-listener'
+// import BottomScrollListener from 'react-bottom-scroll-listener'
 import NextPostImg from "../../images/next-post.png"
 import NoImg from '../../static/images/noNextPost'
 import Img from 'gatsby-image'
@@ -38,7 +38,7 @@ class  NextPost extends Component {
             <Link to={post.path} state={{ lastLocation: this.props.location }}>
               <img src={NextPostImg} alt="Next post" />
             </Link>
-            <BottomScrollListener debounce={300} onBottom={ () => window.location.href = `${post.path}`} />
+            {/* <BottomScrollListener debounce={300} onBottom={ () => window.location.href = `${post.path}`} /> */}
           </div>
         </div>
       </section>
