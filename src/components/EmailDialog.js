@@ -6,6 +6,8 @@ import ContactUsSection from "../components/homepage/contact-us"
 export default function EmailDialog() {
   const [count, setCount] = useState(0);
   const [open, setOpen] = React.useState(false);
+  let oldY = 0;
+  let directionY = '';
 
   if (typeof window !== 'undefined') {
     const handleClose = () => {
@@ -14,20 +16,32 @@ export default function EmailDialog() {
       localStorage.setItem('closed', (count + 1));  
     };
     
-    const {removeExitIntent} = exitIntent({
+    exitIntent({
       threshold: 5,
       maxDisplays: 1,
-      eventThrottle: 20,
+      eventThrottle: 200,
       onExitIntent: () => {  
         setOpen(true);
       }    
     })
-        
+
+    function captureMouseMove($event){
+      if ($event.pageY < oldY) {
+          directionY = "top"
+          return directionY;
+      } else if ($event.pageY > oldY) {
+          directionY = "bottom";
+          return directionY;
+      }
+      oldY = $event.pageY;
+    }
+
+    window.addEventListener('mousemove', captureMouseMove);
+   
     return (
         <div>
-            {removeExitIntent}
             {
-                ((localStorage.getItem('closed')) <= 0) ? (
+                ((localStorage.getItem('closed')) <= 0 || (directionY === 'bottom')) ? (
                     <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                         <ContactUsSection />
                     </Dialog>
