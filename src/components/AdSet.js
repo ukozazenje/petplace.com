@@ -1,9 +1,9 @@
 import React from 'react';
-import tallPPIImg from '../images/ads/PPI-160x600-11152019.jpg';
-import smallPPIImg from '../images/ads/PPI-250x250-11152019.jpg';
+import tallPPIImg from '../images/ads/MPI-160x600-011620.jpg';
+import smallPPIImg from '../images/ads/MPI-250x250-011620.jpg';
 
 const AdSet = (props) => (
-    <a href={`https://www.petpartners.com/pet-insurance?cs=PETPLACE&csd=${props.title}`} 
+    <a href={`https://mypetinsurance.com/`} 
         target="_blank" rel="noopener noreferrer" className="ppiimg-wrapper">
         <picture>
             <source srcSet={smallPPIImg} media="(max-width: 768px)"></source>
