@@ -4,7 +4,7 @@ import smallPPIImg from '../images/ads/MPI-250x250-011620.jpg';
 
 const AdSet = (props) => (
     <a href={`https://mypetinsurance.com/`} 
-        target="_blank" rel="noopener noreferrer" className="ppiimg-wrapper">
+        target="_blank" rel="noopener nofollow" className="ppiimg-wrapper">
         <picture>
             <source srcSet={smallPPIImg} media="(max-width: 768px)"></source>
             <source srcSet={tallPPIImg} media="(min-width: 769px)"></source>
