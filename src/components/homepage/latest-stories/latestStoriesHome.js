@@ -15,6 +15,8 @@ const PopularPosts = (props) => {
               path
               posts {
                 author_name
+                category_name
+                category_path
                 link
                 path
                 post_date
@@ -83,12 +85,18 @@ const PopularPosts = (props) => {
         <div className="tile is-parent">
           <div className="tile is-child main-box">
             <div className="main-box-mobile-img">
+              <Link className={`category-link-btn ${categoryColor(mainPost.category_name)} hide-desktop`} to={mainPost.category_path} dangerouslySetInnerHTML={{
+                __html: mainPost.category_name
+              }} />
               <Img sizes={{ ...mainPost.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(mainPost.featured_image.full.alt_text || 'post')} />
             </div>
             <div className="main-box-desktop-img">
               <Img sizes={{ ...mainPost.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_image.full.alt_text || 'post')} />
             </div>
-            <div className={`main-content ${categoryColor(category)}-transparent`}>
+            <div className={`main-content ${categoryColor(mainPost.category_name)}-transparent`}>
+              <Link className={`category-link-btn ${categoryColor(mainPost.category_name)}  hide-mobile`} to={mainPost.category_path} dangerouslySetInnerHTML={{
+                __html: mainPost.category_name
+              }} />
               <Link to={mainPost.path}>
                 <h3 dangerouslySetInnerHTML={{
                   __html: mainPost.post_title
@@ -105,6 +113,9 @@ const PopularPosts = (props) => {
   objectPosition="50% 50%" />
             </Link>
             <div className="sub-content">
+            <Link className={`category-link-btn ${categoryColor(firstPost.category_name)}`} to={firstPost.category_path} dangerouslySetInnerHTML={{
+                __html: firstPost.category_name
+              }} />
               <Link to={firstPost.path}>
                 <h3 dangerouslySetInnerHTML={{
                   __html: firstPost.post_title 
@@ -119,6 +130,9 @@ const PopularPosts = (props) => {
     objectPosition="50% 50%" />
             </Link>
             <div className="sub-content align-slef-start">
+              <Link className={`category-link-btn ${categoryColor(secondPost.category_name)}`} to={secondPost.category_path} dangerouslySetInnerHTML={{
+                __html: secondPost.category_name
+              }} />
               <Link to={secondPost.path} >
                 <h3 dangerouslySetInnerHTML={{
                 __html: secondPost.post_title 
