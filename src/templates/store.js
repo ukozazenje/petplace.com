@@ -95,15 +95,12 @@ class Store extends Component{
                 <div className="vet-locator-form column is-one-third is-mobile">
                   <div className="map-side-bar">
                       <div className="field section section-mobile">
-                        <p className="form-text"><span>Id: </span>{this.props.pageContext.id}</p>
                         <p className="form-text"><span>Name: </span>{this.props.pageContext.post_title}</p>
                         <p className="form-text"><span>Address: </span>{this.props.pageContext.address}</p>
                         <p className="form-text"><span>City: </span>{this.props.pageContext.city}</p>
                         <p className="form-text"><span>State: </span>{this.props.pageContext.state}</p>
                         <p className="form-text"><span>Zip: </span>{this.props.pageContext.zip}</p>
                         <p className="form-text"><span>Phone: </span><a href={`tel:${this.props.pageContext.phone}`}>{this.props.pageContext.phone}</a></p>
-                        <p className="form-text"><span>Country: </span>{this.props.pageContext.country}</p>
-                        <p className="form-text"><span>Iso: </span>{this.props.pageContext.country_iso}</p>
                         <p className="form-text"><span>Email: </span>{this.props.pageContext.email}</p>
                       </div>
                   </div>
