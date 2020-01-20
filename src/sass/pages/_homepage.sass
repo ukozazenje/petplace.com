@@ -131,8 +131,9 @@
 
 .latest-stories-section
   background: $blue-lightest
-  h1   
+  h2
     text-align: center
+    @include font-size(58px)
   .featured-categories
     margin-top: 60px 
     .is-ancestor
@@ -141,7 +142,8 @@
     .tile.is-5.is-vertical.is-parent 
       +touch 
         width: 100%
-  h2 
+  h3
+    @include font-size(40px)
     border-bottom: 2px solid #8F8F8F      
     margin-bottom: 2rem
     padding-bottom: 6px
@@ -233,7 +235,8 @@
         @extends small
         color: $white
         text-shadow: $text-shadow-small
-      h3
+      h4
+        @include font-size(32px)
         color: #ffffff    
         padding-bottom: 10px
         text-shadow: $text-shadow
@@ -340,7 +343,7 @@
             background: $blue-dark 
       p.date
         @extend small
-      h3
+      h4
         @extend .h6
         margin-bottom: .5rem
         @media screen and (min-width: 461px)
