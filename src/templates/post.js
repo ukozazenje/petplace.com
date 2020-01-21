@@ -14,7 +14,8 @@ import Seo from '../components/seo'
 import Sticky from 'react-stickynode'
 import Breadcrumbs from '../components/Breadcrumbs'
 import AdSet from '../components/AdSet'
-
+import {Link} from 'gatsby'
+import { filterAuthorsLink } from '../components/functions'
 class Post extends Component  {
 
   componentDidMount() {
@@ -80,7 +81,13 @@ class Post extends Component  {
               <div className="column is-one-quarter single-post-sidebar">
                 <div className="post-info">
                   <img className="author-img" src={avatarImg} alt="avatar" />
-                  <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
+                  <p  className="author-name">
+                    {
+                      filterAuthorsLink(post.author.name) ? 
+                      <Link to={`/authors/${filterAuthorsLink(post.author.name)}`}>{post.author.name}</Link> :
+                      post.author.name
+                    }
+                  </p>
                   <p className="post-date">{post.date}</p>
                   <div className="share-icons-horizontal">
                     <p>Share:</p>

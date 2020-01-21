@@ -71,6 +71,57 @@ export const categoryImage = ( category ) => {
   
 }
 
+export const filterAuthors = (author) => {
+  console.log(author.slug)
+  switch (author.slug) {
+    case 'stephanie-silberstang-dvm-cva':
+      return author.display_name
+    case 'alett-mekler':
+      return author.display_name
+    case 'dr-debra-primovic-dvm':
+      return author.display_name
+    case 'carey-hemmelgarn':
+      return author.display_name
+    case 'kimmi-whitehead-vmd-dacvecc':
+      return author.display_name
+    case 'rebecca-mount-dvm-dacvd':
+      return author.display_name
+    case 'danika-sorensen-vmd':
+      return author.display_name
+    case 'lori-savka':
+      return author.display_name
+    case 'melissa-evans-lvt-vts-ecc':
+      return author.display_name
+    default:
+      return false
+  }
+}
+
+export const filterAuthorsLink = (author) => {
+  console.log(author)
+  switch (author) {
+    case 'Stephanie Silberstang, DVM CVA':
+      return 'stephanie-silberstang-dvm-cva'
+    case 'Alett Mekler':
+      return 'alett-mekler'
+    case 'Dr. Debra Primovic - DVM':
+      return 'dr-debra-primovic-dvm'
+    case 'Carey Hemmelgarn':
+      return 'carey-hemmelgarn'
+    case 'KimMi Whitehead, VMD, DACVECC':
+      return 'kimmi-whitehead-vmd-dacvecc'
+    case 'Rebecca Mount, DVM DACVD':
+      return 'rebecca-mount-dvm-dacvd'
+    case 'Danika Sorensen, VMD':
+      return 'danika-sorensen-vmd'
+    case 'Lori Savka':
+      return 'lori-savka'
+    case 'Melissa Evans, LVT, VTS (ECC)': 
+      return 'melissa-evans-lvt-vts-ecc'
+    default:
+      return false
+  }
+}
 
 export const formatDate = (date) => {
   const months = [
