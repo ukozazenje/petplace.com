@@ -251,69 +251,13 @@ exports.createPages = ({ actions, graphql }) => {
         // Create the Gatsby page for this WordPress post
         switch (author.slug) {
           case 'stephanie-silberstang-dvm-cva':
-            createPage({
-              path: `/authors/${author.slug}`,
-              component: authorsTemplate,
-              context: {
-                id: author.id,
-              },
-            })
           case 'alett-mekler':
-            createPage({
-              path: `/authors/${author.slug}`,
-              component: authorsTemplate,
-              context: {
-                id: author.id,
-              },
-            });
           case 'dr-debra-primovic-dvm':
-            createPage({
-              path: `/authors/${author.slug}`,
-              component: authorsTemplate,
-              context: {
-                id: author.id,
-              },
-            });
           case 'carey-hemmelgarn':
-            createPage({
-              path: `/authors/${author.slug}`,
-              component: authorsTemplate,
-              context: {
-                id: author.id,
-              },
-            });  
           case 'kimmi-whitehead-vmd-dacvecc':
-            createPage({
-              path: `/authors/${author.slug}`,
-              component: authorsTemplate,
-              context: {
-                id: author.id,
-              },
-            });
           case 'rebecca-mount-dvm-dacvd':
-            createPage({
-              path: `/authors/${author.slug}`,
-              component: authorsTemplate,
-              context: {
-                id: author.id,
-              },
-            });   
           case 'danika-sorensen-vmd':
-            createPage({
-              path: `/authors/${author.slug}`,
-              component: authorsTemplate,
-              context: {
-                id: author.id,
-              },
-            });
           case 'lori-savka':
-            createPage({
-              path: `/authors/${author.slug}`,
-              component: authorsTemplate,
-              context: {
-                id: author.id,
-              },
-            }); 
           case 'melissa-evans-lvt-vts-ecc':
             createPage({
               path: `/authors/${author.slug}`,

@@ -41,8 +41,8 @@ class Post extends Component  {
         ))}
       </div>
     )
-    console.log(this.props.pageContext)
-    console.log(this.props.data)
+    // console.log(this.props.pageContext)
+    // console.log(this.props.data)
     return (
       <Layout noFooter>
         <Seo title={`${post.yoast_meta.yoast_wpseo_title}`} description={post.yoast_meta.yoast_wpseo_metadesc} image={

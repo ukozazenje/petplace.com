@@ -42,7 +42,7 @@ export const categoryColor = ( category ) => {
 
 export const categoryImage = ( category ) => {
   let filteredCategory = terms.filter((term) => category.toLowerCase().indexOf(term) >= 0 )
-  console.log(filteredCategory)
+  // console.log(filteredCategory)
   if (filteredCategory.length > 0) {
     switch (filteredCategory[0]) {
       case 'dog care':
@@ -71,25 +71,18 @@ export const categoryImage = ( category ) => {
   
 }
 
+// returns author name
 export const filterAuthors = (author) => {
-  console.log(author.slug)
+  // console.log(author.slug)
   switch (author.slug) {
     case 'stephanie-silberstang-dvm-cva':
-      return author.display_name
     case 'alett-mekler':
-      return author.display_name
     case 'dr-debra-primovic-dvm':
-      return author.display_name
     case 'carey-hemmelgarn':
-      return author.display_name
     case 'kimmi-whitehead-vmd-dacvecc':
-      return author.display_name
     case 'rebecca-mount-dvm-dacvd':
-      return author.display_name
     case 'danika-sorensen-vmd':
-      return author.display_name
     case 'lori-savka':
-      return author.display_name
     case 'melissa-evans-lvt-vts-ecc':
       return author.display_name
     default:
@@ -97,8 +90,9 @@ export const filterAuthors = (author) => {
   }
 }
 
+// returns slug for selected authors
 export const filterAuthorsLink = (author) => {
-  console.log(author)
+  // console.log(author)
   switch (author) {
     case 'Stephanie Silberstang, DVM CVA':
       return 'stephanie-silberstang-dvm-cva'
@@ -140,7 +134,7 @@ export const formatDate = (date) => {
     ];
   const year = date.substring(0,4)
   const month = months[parseInt( date.substring(5,7))-1]
-  console.log(month)
+  // console.log(month)
   const day = date.substring(8,10)
 
   return `${month} ${day}, ${year}`
