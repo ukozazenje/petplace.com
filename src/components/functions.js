@@ -42,7 +42,7 @@ export const categoryColor = ( category ) => {
 
 export const categoryImage = ( category ) => {
   let filteredCategory = terms.filter((term) => category.toLowerCase().indexOf(term) >= 0 )
-  console.log(filteredCategory)
+  // console.log(filteredCategory)
   if (filteredCategory.length > 0) {
     switch (filteredCategory[0]) {
       case 'dog care':
@@ -71,6 +71,51 @@ export const categoryImage = ( category ) => {
   
 }
 
+// returns author name
+export const filterAuthors = (author) => {
+  // console.log(author.slug)
+  switch (author.slug) {
+    case 'stephanie-silberstang-dvm-cva':
+    case 'alett-mekler':
+    case 'dr-debra-primovic-dvm':
+    case 'carey-hemmelgarn':
+    case 'kimmi-whitehead-vmd-dacvecc':
+    case 'rebecca-mount-dvm-dacvd':
+    case 'danika-sorensen-vmd':
+    case 'lori-savka':
+    case 'melissa-evans-lvt-vts-ecc':
+      return author.display_name
+    default:
+      return false
+  }
+}
+
+// returns slug for selected authors
+export const filterAuthorsLink = (author) => {
+  // console.log(author)
+  switch (author) {
+    case 'Stephanie Silberstang, DVM CVA':
+      return 'stephanie-silberstang-dvm-cva'
+    case 'Alett Mekler':
+      return 'alett-mekler'
+    case 'Dr. Debra Primovic - DVM':
+      return 'dr-debra-primovic-dvm'
+    case 'Carey Hemmelgarn':
+      return 'carey-hemmelgarn'
+    case 'KimMi Whitehead, VMD, DACVECC':
+      return 'kimmi-whitehead-vmd-dacvecc'
+    case 'Rebecca Mount, DVM DACVD':
+      return 'rebecca-mount-dvm-dacvd'
+    case 'Danika Sorensen, VMD':
+      return 'danika-sorensen-vmd'
+    case 'Lori Savka':
+      return 'lori-savka'
+    case 'Melissa Evans, LVT, VTS (ECC)': 
+      return 'melissa-evans-lvt-vts-ecc'
+    default:
+      return false
+  }
+}
 
 export const formatDate = (date) => {
   const months = [
@@ -89,7 +134,7 @@ export const formatDate = (date) => {
     ];
   const year = date.substring(0,4)
   const month = months[parseInt( date.substring(5,7))-1]
-  console.log(month)
+  // console.log(month)
   const day = date.substring(8,10)
 
   return `${month} ${day}, ${year}`

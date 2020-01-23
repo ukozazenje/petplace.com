@@ -32,7 +32,7 @@ const MostPopularTags = () => {
     
   const { edges: tags } = data.allWordpressTtgTags 
 
-  console.log(tags)
+  // console.log(tags)
 
   return (
     <div className="tags">

@@ -98,7 +98,7 @@ const PopularPosts = (props) => {
                 __html: mainPost.category_name
               }} />
               <Link to={mainPost.path}>
-                <h3 dangerouslySetInnerHTML={{
+                <h4 dangerouslySetInnerHTML={{
                   __html: mainPost.post_title
                 }} />
               </Link>
@@ -117,7 +117,7 @@ const PopularPosts = (props) => {
                 __html: firstPost.category_name
               }} />
               <Link to={firstPost.path}>
-                <h3 dangerouslySetInnerHTML={{
+                <h4 dangerouslySetInnerHTML={{
                   __html: firstPost.post_title 
                 }} />
               </Link>
@@ -134,7 +134,7 @@ const PopularPosts = (props) => {
                 __html: secondPost.category_name
               }} />
               <Link to={secondPost.path} >
-                <h3 dangerouslySetInnerHTML={{
+                <h4 dangerouslySetInnerHTML={{
                 __html: secondPost.post_title 
                 }} />
               </Link>
@@ -148,11 +148,11 @@ const PopularPosts = (props) => {
   return (
     <section className="section latest-stories-section">
       <div className="container is-fullhd">
-        <h1>Latest Stories</h1>
+        <h2>Latest Stories</h2>
           {wordpressTtgPages.acf.category_rows.map((category_row, i) => {
             return (
               <div className="featured-categories" key={i}>
-                <h2 dangerouslySetInnerHTML={{
+                <h3 dangerouslySetInnerHTML={{
                   __html: category_row.category_name
                 }} />
                 {tills(category_row.posts, category_row.category_name)}

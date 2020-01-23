@@ -8,7 +8,7 @@ class  NextPost extends Component {
   render(){
     const post = this.props.post
     const nextPostImg = this.props.nextPostImg
-    console.log(nextPostImg)
+    // console.log(nextPostImg)
     return (
       <section className="section next-post-section">
         <div className="container is-fullhd">

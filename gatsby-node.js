@@ -223,4 +223,52 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
     })
+    .then(() => {
+      return graphql(`
+        {
+          allWordpressTtgUsers {
+            edges {
+              node {
+                id
+                img
+                slug
+                display_name
+              }
+            }
+          }
+        }
+      `)
+    }).then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const authorsTemplate = path.resolve(`./src/templates/author.js`)
+      const allAuthors = result.data.allWordpressTtgUsers.edges
+
+      _.each(allAuthors, ({ node: author }, key) => {
+        // Create the Gatsby page for this WordPress post
+        switch (author.slug) {
+          case 'stephanie-silberstang-dvm-cva':
+          case 'alett-mekler':
+          case 'dr-debra-primovic-dvm':
+          case 'carey-hemmelgarn':
+          case 'kimmi-whitehead-vmd-dacvecc':
+          case 'rebecca-mount-dvm-dacvd':
+          case 'danika-sorensen-vmd':
+          case 'lori-savka':
+          case 'melissa-evans-lvt-vts-ecc':
+            createPage({
+              path: `/authors/${author.slug}`,
+              component: authorsTemplate,
+              context: {
+                id: author.id,
+              },
+            });      
+          default:
+            null
+        }
+      })
+    })
 }
