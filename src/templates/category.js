@@ -9,7 +9,8 @@ import SideBar from '../components/categories/sideBar'
 import PopularPosts from '../components/categories/PopularPosts'
 import Img from 'gatsby-image'
 import Seo from '../components/seo'
-
+import logo from "../images/PPlogo.jpg"
+import Helmet from 'react-helmet'
 class category extends Component  {
   state = {
     posts: this.props.data.wordpressTtgCategories.posts,
@@ -44,6 +45,35 @@ class category extends Component  {
     return (
       <Layout>
         <Seo title={`${this.props.data.wordpressTtgCategories.name} | Petplace`} description="PetPlace is the most comprehensive resource for pet information available on the web"/>
+        <Helmet>
+          {/* inline script elements */}
+          <script type="application/ld+json">{`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "headline": "PetPlace: The Web's #1 Source of Pet Information",
+              "description": "PetPlace is the most comprehensive resource for pet information available on the web",
+              "author": {
+                "@type": "Organization",
+                "name": "PetPlace Staff"
+              },pa
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://${process.env.GATSBY_WEB_SITE_URL}${this.props.data.wordpressTtgCategories.path}"
+              },  
+              "publisher": {
+                "@type": "Organization",
+                "name": "PetPlace",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "width": 236,
+                  "height": 45
+                }
+              }
+            }
+          `}</script>
+        </Helmet>
         <HeroSection title={this.props.data.wordpressTtgCategories.name} />
         <section className="section category-posts">
           <div className="container is-fullhd">
