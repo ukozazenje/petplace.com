@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import OrderBy from './orderBy'
 const SideBar = ({days, onChange, setOrderBy}) => {
   const [ menu, setMenuState ] = useState(false);
-  console.log(menu)
+  // console.log(menu)
   return (
     <div className="column is-one-quarter-widescreen side-bar">
       <div className="filter-btn" onClick={() => setMenuState((menu) => !menu)}>

@@ -119,7 +119,7 @@ export default class Search extends Component {
 
   render() {
     const total = this.state.posts.length
-    console.log(this.state.posts)
+    // console.log(this.state.posts)
     return (
     <>
       <div className="flex-container">
