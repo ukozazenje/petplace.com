@@ -52,6 +52,7 @@ class Post extends Component  {
       post.featured_media.localFile.childImageSharp.fluid.src) ||
       this.props.data.postHeroImg.childImageSharp.fluid.src
     
+      const author = (post.author && post.author.name ) || "PetPlace Staff"
     // console.log(this.props.pageContext)
     // console.log(this.props.data)
     return (
@@ -76,7 +77,7 @@ class Post extends Component  {
               "image": "https://${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
-                "name": "${post.author.name}"
+                "name": "${author}"
               },
               "mainEntityOfPage": {
                 "@type": "WebPage",
@@ -127,9 +128,9 @@ class Post extends Component  {
                   <img className="author-img" src={avatarImg} alt="avatar" />
                   <p  className="author-name">
                     {
-                      filterAuthorsLink(post.author.name) ? 
-                      <Link to={`/authors/${filterAuthorsLink(post.author.name)}`}>{post.author.name}</Link> :
-                      post.author.name
+                      filterAuthorsLink(author) ? 
+                      <Link to={`/authors/${filterAuthorsLink(author)}`}>{author}</Link> :
+                      author
                     }
                   </p>
                   <p className="post-date">{post.date}</p>
