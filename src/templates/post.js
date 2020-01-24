@@ -17,7 +17,7 @@ import AdSet from '../components/AdSet'
 import logo from '../images/PPlogo.jpg'
 import Helmet from "react-helmet"
 import {Link} from 'gatsby'
-import { filterAuthorsLink } from '../components/functions'
+import { filterAuthorsLink, filterFaqPosts } from '../components/functions'
 
 class Post extends Component  {
 
@@ -52,6 +52,7 @@ class Post extends Component  {
       post.featured_media.localFile.childImageSharp.fluid.src) ||
       this.props.data.postHeroImg.childImageSharp.fluid.src
     
+      const author = (post.author && post.author.name ) || "PetPlace Staff"
     // console.log(this.props.pageContext)
     // console.log(this.props.data)
     return (
@@ -64,39 +65,8 @@ class Post extends Component  {
           post.featured_media.localFile.childImageSharp.fluid.src) ||
           this.props.data.postHeroImg.childImageSharp.fluid.src
           }/>
+        {filterFaqPosts(post, author, imgUrl)}
         
-        <Helmet>
-        {/* inline script elements */}
-          <script type="application/ld+json">{`
-            {
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              "headline": "${post.yoast_meta.yoast_wpseo_title}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
-              "image": "https://${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
-              "author": {
-                "@type": "Person",
-                "name": "${post.author.name}"
-              },
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://${process.env.GATSBY_WEB_SITE_URL}${post.path}"
-             },  
-              "publisher": {
-                "@type": "Organization",
-                "name": "PetPlace",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
-                  "width": 236,
-                  "height": 45
-                }
-              },
-              "datePublished": "${post.date}",
-              "dateModified" : "${post.date}"
-            }
-          `}</script>
-        </Helmet>
         <div className="single-post">
         <section className="section post-hero-section">
           <div className="container is-fullhd">
@@ -127,9 +97,9 @@ class Post extends Component  {
                   <img className="author-img" src={avatarImg} alt="avatar" />
                   <p  className="author-name">
                     {
-                      filterAuthorsLink(post.author.name) ? 
-                      <Link to={`/authors/${filterAuthorsLink(post.author.name)}`}>{post.author.name}</Link> :
-                      post.author.name
+                      filterAuthorsLink(author) ? 
+                      <Link to={`/authors/${filterAuthorsLink(author)}`}>{author}</Link> :
+                      author
                     }
                   </p>
                   <p className="post-date">{post.date}</p>
