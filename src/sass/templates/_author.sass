@@ -1,0 +1,76 @@
+.author-cover 
+  position: relative
+  .author-avatar
+    position: absolute
+    bottom: -70px
+    height: 140px
+    width: 140px
+    border: 10px solid #fff
+    border-radius: 50%
+    @include until-fullhd 
+      left: 20px
+.author-content
+  padding-top: 6rem
+  h1 
+    font-size: 2rem
+    @include desktop
+      font-size: 2.875rem
+  .author-description
+    padding-top: 2rem
+  p 
+    margin-bottom: 1rem
+.author-social-icons
+  display: flex
+  p 
+    margin-bottom: 0
+.authors-section
+  background: $blue-lightest
+  .authors-columns
+    flex-wrap: wrap
+  .author-card-wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    .author-card
+      border: 1px solid #DBE4EE
+      border-radius: 6px
+      margin-bottom: 2rem
+      width: 100%
+      +tablet
+        min-height: 450px
+      &:hover 
+        cursor: pointer
+        box-shadow: 5px 5px 50px 0px rgba(0,0,0,0.1)
+        background: #fff
+      img 
+        width: 100%
+        display: block 
+      .author-card-content
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        padding: 2rem 1rem
+        +tablet
+          height: 180px
+        h3
+          margin-bottom: 1rem 
+          font-size: 1.375rem
+          line-height: 32px
+        span 
+          position: relative
+          padding-left: 30px
+          font-size: 1rem
+          font-weight: 600
+          color: $orange
+          line-height: 30px
+          &:before 
+            position: absolute
+            content: ""
+            left: 0
+            top: 9px
+            background: url('../images/arrow.png')
+            background-position: center
+            background-size: contain
+            background-repeat: no-repeat
+            width: 20px
+            height: 10px
