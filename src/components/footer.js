@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 import SocialLinks from "./categories/socialLinks.js"
 import logo from "../images/logo.svg"
-const footer = () => {
+const footer = () => { 
+  const dt = new Date()
+  const year = dt.getFullYear()
   return (
     <footer>
       <section className="footer-nav section">
@@ -71,7 +73,7 @@ const footer = () => {
               </ul>
             </div>
             <div className="column is-7">
-              <p>&copy;Copyright 1999 - 2019. The IHC Group. All Rights Reserved</p>
+              <p>&copy;Copyright 1999 - {year}. The IHC Group. All Rights Reserved</p>
            </div>
           </div>
         </div>
