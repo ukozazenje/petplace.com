@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import ContactUs from '../components/homepage/contact-us'
 import Helmet from "react-helmet"
 import logo from "../images/PPlogo.jpg"
-const Page = ({data}) => {
+const Page = ({location, data}) => {
   const page = data.wordpressPage
   return (
     <Layout>
@@ -38,7 +38,7 @@ const Page = ({data}) => {
           }
         `}</script>
       </Helmet>
-      <section className="section page-content">
+      <section className={(`section page-content ` + `${location.pathname.replace(/\//g, "")}`)}>
         <div className="container is-fullhd">
           <div className="single-post-content" 
               dangerouslySetInnerHTML={{
