@@ -56,7 +56,7 @@ class category extends Component  {
               "author": {
                 "@type": "Organization",
                 "name": "PetPlace Staff"
-              },pa
+              },
               "mainEntityOfPage": {
                 "@type": "WebPage",
                 "@id": "https://${process.env.GATSBY_WEB_SITE_URL}${this.props.data.wordpressTtgCategories.path}"
