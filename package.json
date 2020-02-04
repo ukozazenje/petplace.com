@@ -45,6 +45,7 @@
     "react-paginating": "^1.3.1",
     "react-places-autocomplete": "^7.2.1",
     "react-stickynode": "^2.1.1",
+    "react-structured-data": "0.0.14",
     "rfs": "^9.0.2",
     "svg-loaders-react": "^2.1.0"
   },

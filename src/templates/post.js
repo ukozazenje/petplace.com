@@ -14,6 +14,10 @@ import Seo from '../components/seo'
 import Sticky from 'react-stickynode'
 import Breadcrumbs from '../components/Breadcrumbs'
 import AdSet from '../components/AdSet'
+import logo from '../images/PPlogo.jpg'
+import Helmet from "react-helmet"
+import {Link} from 'gatsby'
+import { filterAuthorsLink, filterFaqPosts } from '../components/functions'
 
 class Post extends Component  {
 
@@ -40,8 +44,17 @@ class Post extends Component  {
         ))}
       </div>
     )
-    console.log(this.props.pageContext)
-    console.log(this.props.data)
+    
+    const imgUrl = (post.featured_media &&
+      post.featured_media.localFile &&
+      post.featured_media.localFile.childImageSharp &&
+      post.featured_media.localFile.childImageSharp.fluid &&
+      post.featured_media.localFile.childImageSharp.fluid.src) ||
+      this.props.data.postHeroImg.childImageSharp.fluid.src
+    
+      const author = (post.author && post.author.name ) || "PetPlace Staff"
+    // console.log(this.props.pageContext)
+    // console.log(this.props.data)
     return (
       <Layout noFooter>
         <Seo title={`${post.yoast_meta.yoast_wpseo_title}`} description={post.yoast_meta.yoast_wpseo_metadesc} image={
@@ -52,6 +65,8 @@ class Post extends Component  {
           post.featured_media.localFile.childImageSharp.fluid.src) ||
           this.props.data.postHeroImg.childImageSharp.fluid.src
           }/>
+        {filterFaqPosts(post, author, imgUrl)}
+        
         <div className="single-post">
         <section className="section post-hero-section">
           <div className="container is-fullhd">
@@ -80,7 +95,13 @@ class Post extends Component  {
               <div className="column is-one-quarter single-post-sidebar">
                 <div className="post-info">
                   <img className="author-img" src={avatarImg} alt="avatar" />
-                  <p className="author-name">{post.author ? post.author.name : 'author name'}</p>
+                  <p  className="author-name">
+                    {
+                      filterAuthorsLink(author) ? 
+                      <Link to={`/authors/${filterAuthorsLink(author)}`}>{author}</Link> :
+                      author
+                    }
+                  </p>
                   <p className="post-date">{post.date}</p>
                   <div className="share-icons-horizontal">
                     <p>Share:</p>
