@@ -175,7 +175,7 @@ export const filterAuthors = (author) => {
   // console.log(author.slug)
   switch (author.slug) {
     case 'stephanie-silberstang-dvm-cva':
-    case 'alett-mekler':
+    case 'alett-mekler-ma-econ-dvm-ccrp-cvma':
     case 'dr-debra-primovic-dvm':
     case 'carey-hemmelgarn':
     case 'kimmi-whitehead-vmd-dacvecc':
@@ -196,8 +196,8 @@ export const filterAuthorsLink = (author) => {
   switch (author) {
     case 'Stephanie Silberstang, DVM CVA':
       return 'stephanie-silberstang-dvm-cva'
-    case 'Alett Mekler':
-      return 'alett-mekler'
+    case 'Alett Mekler MA (Econ), DVM, CCRP, CVMA':
+      return 'alett-mekler-ma-econ-dvm-ccrp-cvma'
     case 'Dr. Debra Primovic - DVM':
       return 'dr-debra-primovic-dvm'
     case 'Carey Hemmelgarn':

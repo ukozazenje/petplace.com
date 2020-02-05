@@ -221,5 +221,15 @@ export const pageQuery = graphql`
         }
       }
     }
+    allWordpressPost {
+      edges {
+        node {
+          id
+          categories {
+            name
+          }
+        }
+      }
+    }
   }
 `
