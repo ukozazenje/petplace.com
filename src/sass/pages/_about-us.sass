@@ -1,6 +1,11 @@
 section.about-us
   background-color: $blue-lightest
   padding: 0
+  .single-post-content
+    display: flex
+    flex-direction: column-reverse
+    +tablet
+      flex-direction: column
   .about-us-section,
   .join-community-section
     img
@@ -52,8 +57,10 @@ section.about-us
       top: 0
       left: 0
       font-weight: bold
-      transform: translate(30px, 220px) rotate(-10deg)
+      transform: translate(30px, 290px) rotate(-5deg)
       font-family: $family-secondary
+      @media screen and ( min-width: 450px )
+        transform: translate(30px, 270px) rotate(-10deg)
       +tablet
         transform: translate(30px, 30px) rotate(-20deg)
         font-size: 3rem
@@ -66,6 +73,13 @@ section.about-us
         width: 4000px
         left: -2000px
         z-index: 0
+    .icons-wrapper
+      width: 175px
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      img
+        padding: 0
     +tablet
       padding: 3rem
     +desktop
