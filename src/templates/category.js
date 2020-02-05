@@ -59,14 +59,14 @@ class category extends Component  {
               },
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://${process.env.GATSBY_WEB_SITE_URL}${this.props.data.wordpressTtgCategories.path}"
+                "@id": "${process.env.GATSBY_WEB_SITE_URL}${this.props.data.wordpressTtgCategories.path}"
               },  
               "publisher": {
                 "@type": "Organization",
                 "name": "PetPlace",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
                   "width": 236,
                   "height": 45
                 }
