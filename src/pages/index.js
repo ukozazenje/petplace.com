@@ -25,7 +25,7 @@ const IndexPage = () => {
             "@type": "WebPage",
             "headline": "PetPlace: The Web's #1 Source of Pet Information",
             "description": "Read veterinarian approved pet care articles on PetPlace.com. Find pet health information about your dog, cat and many other animals from our pet experts.",
-            "image": "https://${process.env.GATSBY_WEB_SITE_URL}${homeImage}",  
+            "image": "${process.env.GATSBY_WEB_SITE_URL}${homeImage}",  
             "author": {
               "@type": "Organization",
               "name": "PetPlace Staff"
@@ -39,7 +39,7 @@ const IndexPage = () => {
               "name": "PetPlace",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
                 "width": 236,
                 "height": 45
               }

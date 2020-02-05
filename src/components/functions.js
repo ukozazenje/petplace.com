@@ -175,7 +175,7 @@ export const filterAuthors = (author) => {
   // console.log(author.slug)
   switch (author.slug) {
     case 'stephanie-silberstang-dvm-cva':
-    case 'alett-mekler':
+    case 'alett-mekler-ma-econ-dvm-ccrp-cvma':
     case 'dr-debra-primovic-dvm':
     case 'carey-hemmelgarn':
     case 'kimmi-whitehead-vmd-dacvecc':
@@ -196,8 +196,8 @@ export const filterAuthorsLink = (author) => {
   switch (author) {
     case 'Stephanie Silberstang, DVM CVA':
       return 'stephanie-silberstang-dvm-cva'
-    case 'Alett Mekler':
-      return 'alett-mekler'
+    case 'Alett Mekler MA (Econ), DVM, CCRP, CVMA':
+      return 'alett-mekler-ma-econ-dvm-ccrp-cvma'
     case 'Dr. Debra Primovic - DVM':
       return 'dr-debra-primovic-dvm'
     case 'Carey Hemmelgarn':
@@ -254,7 +254,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "FAQPage",
               "headline": "${post.yoast_meta.yoast_wpseo_title}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
-              "image": "https://${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
                 "name": "${author}"
@@ -264,7 +264,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 "name": "PetPlace",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
                   "width": 236,
                   "height": 45
                 }
@@ -364,7 +364,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "FAQPage",
               "headline": "${post.yoast_meta.yoast_wpseo_title}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
-              "image": "https://${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
                 "name": "${author}"
@@ -374,7 +374,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 "name": "PetPlace",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
                   "width": 236,
                   "height": 45
                 }
@@ -490,7 +490,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "FAQPage",
               "headline": "${post.yoast_meta.yoast_wpseo_title}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
-              "image": "https://${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
                 "name": "${author}"
@@ -500,7 +500,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 "name": "PetPlace",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
                   "width": 236,
                   "height": 45
                 }
@@ -594,7 +594,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "FAQPage",
               "headline": "${post.yoast_meta.yoast_wpseo_title}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
-              "image": "https://${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
                 "name": "${author}"
@@ -604,7 +604,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 "name": "PetPlace",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
                   "width": 236,
                   "height": 45
                 }
@@ -682,7 +682,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "FAQPage",
               "headline": "${post.yoast_meta.yoast_wpseo_title}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
-              "image": "https://${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
                 "name": "${author}"
@@ -692,7 +692,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 "name": "PetPlace",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
                   "width": 236,
                   "height": 45
                 }
@@ -831,21 +831,21 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "BlogPosting",
               "headline": "${post.yoast_meta.yoast_wpseo_title}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
-              "image": "https://${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
                 "name": "${author}"
               },
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://${process.env.GATSBY_WEB_SITE_URL}${post.path}"
+                "@id": "${process.env.GATSBY_WEB_SITE_URL}${post.path}"
              },  
               "publisher": {
                 "@type": "Organization",
                 "name": "PetPlace",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
                   "width": 236,
                   "height": 45
                 }
@@ -897,21 +897,21 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "BlogPosting",
               "headline": "${post.yoast_meta.yoast_wpseo_title}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
-              "image": "https://${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
                 "name": "${author}"
               },
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://${process.env.GATSBY_WEB_SITE_URL}${post.path}"
+                "@id": "${process.env.GATSBY_WEB_SITE_URL}${post.path}"
              },  
               "publisher": {
                 "@type": "Organization",
                 "name": "PetPlace",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
                   "width": 236,
                   "height": 45
                 }

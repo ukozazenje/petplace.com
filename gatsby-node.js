@@ -251,7 +251,7 @@ exports.createPages = ({ actions, graphql }) => {
         // Create the Gatsby page for this WordPress post
         switch (author.slug) {
           case 'stephanie-silberstang-dvm-cva':
-          case 'alett-mekler':
+          case 'alett-mekler-ma-econ-dvm-ccrp-cvma':
           case 'dr-debra-primovic-dvm':
           case 'carey-hemmelgarn':
           case 'kimmi-whitehead-vmd-dacvecc':
