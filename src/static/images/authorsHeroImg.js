@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 const AuthorsHeroImage = ({authorImg}) => {
   const data = useStaticQuery(graphql`
     query {
-      AuthorHeroImage: file(relativePath: { eq: "authors-cover.png" }) {
+      AuthorHeroImage: file(relativePath: { eq: "authors_directory_img.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid
@@ -17,21 +17,15 @@ const AuthorsHeroImage = ({authorImg}) => {
 
   return (
     <>
-      <div className="post-hero-img">
-        <div className="is-hidden-touch">
-          <Img fluid={data.AuthorHeroImage.childImageSharp.fluid} />
-        </div>
-        <div className="is-hidden-desktop">
-          <Img sizes={{ ...data.AuthorHeroImage.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt="author" />
-        </div>
+      <div className="desktop-img">
+        <Img fluid={data.AuthorHeroImage.childImageSharp.fluid} />
       </div>
-      <section className="section authors-list-wrapper">
-        <div className="container is-fullhd">
-          <div className="columns">
-            <div className="column"></div>
-          </div>
-        </div>
-      </section>
+      <div className="tablet-img">
+        <Img sizes={{...data.AuthorHeroImage.childImageSharp.fluid, aspectRatio: 16 / 8}} alt="pet care" />
+      </div>
+      <div className="mobile-img">
+        <Img sizes={{...data.AuthorHeroImage.childImageSharp.fluid, aspectRatio: 16 / 10}} alt="pet care" />
+      </div>
     </>
   )
 }

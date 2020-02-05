@@ -25,9 +25,19 @@ export default class Search extends Component {
     }
   }
 
+  getUrlParams = (search) => {
+    let hashes = search.slice(search.indexOf('?') + 1).split('&')
+    return hashes.reduce((params, hash) => {
+      let [key, val] = hash.split('=')
+      return {
+        ...params, [key]: decodeURIComponent(val)
+      }
+    }, {})
+  }
+
   search = title => {
     // const query = title.target.value
-    const query = title
+    const query = title || 'pet'
     this.index = this.getOrCreateIndex()
     this.setState({
       query,
@@ -114,7 +124,9 @@ export default class Search extends Component {
   }
 
   componentDidMount(){
-    this.props.location.state && this.props.location.state.title ? this.search(this.props.location.state.title) : this.search('pet')
+    this.props.location.state && this.props.location.state.title ? 
+    this.search(this.props.location.state.title) : 
+    this.search(this.getUrlParams(this.props.location.search).q)
   }
 
   render() {

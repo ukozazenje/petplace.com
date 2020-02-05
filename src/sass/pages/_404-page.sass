@@ -1,0 +1,69 @@
+.page-404
+  .hero
+    position: relative
+    max-width: 1600px
+    margin: 0 auto
+    max-height: 1000px
+    +widescreen
+      max-width: 1920px  
+  .hero .image
+    margin-bottom: 1rem
+    min-height: 350px
+    height: 100%
+    background: url('../images/pug-hero-mobile.jpg')
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: top right
+    +tablet
+      margin-bottom: 0
+      min-height: 450px
+      background: url('../images/pug-hero-tablet.jpg')
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: top right
+    +desktop
+      height: 80vh
+      min-height: 600px
+      max-height: 1000px
+      background: url('../images/pug-hero.jpg')
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: top right
+    +widescreen
+      height: 90vh
+  .hero .copy
+    padding-left: .5rem
+    padding-right: .5rem
+    +tablet
+      position: absolute
+      height: 100%
+      width: 60%
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+    +desktop
+      justify-content: flex-end
+      align-items: center
+  .hero .copy h1
+    color: $purple
+    margin-bottom: 1rem
+    +tablet
+      text-shadow: 0 0 3px $white, 0 0 1px $white, 0 0 1px $white
+    +desktop
+      width: 70%
+    +widescreen
+      align-self: flex-end
+  .hero .copy p
+    font-size: 1.3rem
+    margin-bottom: 1rem
+    +tablet
+      text-shadow: 0 0 3px $white, 0 0 1px $white, 0 0 1px $white
+      margin-bottom: 3rem
+    +desktop
+      width: 70%
+    +widescreen
+      align-self: flex-end
+      text-shadow: 0 0 3px $white, 0 0 1px $white, 0 0 1px $white
+      
+  section.popular-post-section
+    background: $blue-lightest
