@@ -91,6 +91,61 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allWordpressPost } }) => {
+              return allWordpressPost.edges.map(edge => {
+                return Object.assign({}, edge.node.allWordpressPost, {
+                  description: edge.node.excerpt,
+                  date: edge.node.date,
+                  title: edge.node.title,
+                  url: site.siteMetadata.siteUrl + edge.node.path,
+                  guid: site.siteMetadata.siteUrl + edge.node.path,
+                  custom_elements: [{ 'content:encoded': edge.node.content }],
+                });
+              });
+            },
+            query: `
+              {
+                allWordpressPost {
+                  edges {
+                    node {
+                      excerpt
+                      title
+                      path
+                      date(formatString: "MMMM DD, YYYY")
+                      content
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'RSS Feed of Pet Place',
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: '^/post/',
+          },
+        ],
+      },
+    },
+    {
       resolve: "gatsby-source-wordpress",
       options: {
         /*
