@@ -38,7 +38,7 @@ const Page = ({data}) => {
           }
         `}</script>
       </Helmet>
-      <section className="section page-content">
+      <section className={(`section page-content ${page.slug}`)}>
         <div className="container is-fullhd">
           <div className="single-post-content" 
               dangerouslySetInnerHTML={{
@@ -61,6 +61,7 @@ export const pageQuery = graphql`
       content
       title
       path
+      slug
       yoast_meta {
         yoast_wpseo_metadesc
         yoast_wpseo_canonical
