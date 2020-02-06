@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import ContactUs from '../components/homepage/contact-us'
 import Helmet from "react-helmet"
 import logo from "../images/PPlogo.jpg"
-const Page = ({location, data}) => {
+const Page = ({data}) => {
   const page = data.wordpressPage
   return (
     <Layout>
@@ -38,7 +38,7 @@ const Page = ({location, data}) => {
           }
         `}</script>
       </Helmet>
-      <section className={(`section page-content ` + `${location.pathname.replace(/\//g, "")}`)}>
+      <section className={(`section page-content ${page.slug}`)}>
         <div className="container is-fullhd">
           <div className="single-post-content" 
               dangerouslySetInnerHTML={{
@@ -61,6 +61,7 @@ export const pageQuery = graphql`
       content
       title
       path
+      slug
       yoast_meta {
         yoast_wpseo_metadesc
         yoast_wpseo_canonical
