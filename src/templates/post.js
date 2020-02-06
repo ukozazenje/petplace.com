@@ -34,7 +34,7 @@ class Post extends Component  {
   }
 
   render(){
-    const nextPost = this.props.data.wordpressTtgPosts
+    // const nextPost = this.props.data.wordpressTtgPosts
     const post = this.props.data.wordpressPost
     const tagList = (tags) => (
       <div className="post-tags">
@@ -52,9 +52,7 @@ class Post extends Component  {
       post.featured_media.localFile.childImageSharp.fluid.src) ||
       this.props.data.postHeroImg.childImageSharp.fluid.src
     
-      const author = (post.author && post.author.name ) || "PetPlace Staff"
-    // console.log(this.props.pageContext)
-    // console.log(this.props.data)
+    const author = (post.author && post.author.name ) || "PetPlace Staff"
     return (
       <Layout noFooter>
         <Seo title={`${post.yoast_meta.yoast_wpseo_title}`} description={post.yoast_meta.yoast_wpseo_metadesc} image={
@@ -146,7 +144,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        <NextPost post={this.props.pageContext.nextPost} location={{...this.props.location}} nextPostImg={nextPost}/>
+        <NextPost post={this.props.pageContext.randomPost} location={{...this.props.location}} nextPostImg={this.props.data.wordpressWpMedia}/>
         </div>
       </Layout>
     )
@@ -158,7 +156,7 @@ export default Post
 
 
 export const pageQuery = graphql`
-  query PostPage($id: String!, $nextPostSlug: String!){
+  query PostPage($id: String!, $randomPostImg: String!){
     wordpressPost(id: { eq: $id }) {
       id
       title
@@ -176,6 +174,7 @@ export const pageQuery = graphql`
         id
         path
         name
+        slug
       }
       yoast_meta {
         yoast_wpseo_canonical
@@ -194,30 +193,19 @@ export const pageQuery = graphql`
         }
       }
     }
-    wordpressTtgPosts(slug: {eq: $nextPostSlug}) {
-      category_path
-      slug
-      title
-      category {
-        cat_name
-      }
-      path
-      featured_image {
-        full {
-          localFile {
-            childImageSharp {
-              fixed(width: 164, height: 164) {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-        }
-      }
-    }
     postHeroImg: file(relativePath: { eq: "defaultImg.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 100) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    wordpressWpMedia(slug: {eq: $randomPostImg}) {
+      localFile {
+        childImageSharp {
+          fixed(width: 164, height: 164) {
+            ...GatsbyImageSharpFixed
+          }
         }
       }
     }

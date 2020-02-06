@@ -79,6 +79,7 @@ exports.createPages = ({ actions, graphql }) => {
                 }
                 featured_media {
                   source_url
+                  slug
                 }
               }
             }
@@ -96,18 +97,27 @@ exports.createPages = ({ actions, graphql }) => {
 
       // In production builds, filter for only published posts.
       const allPublishPosts = result.data.allWordpressPost.edges
+      // Find all posts with the same category as current post and choose a random one that's not current post 
+      const filterPosts = (post) => {  
+        const sameCategory = allPublishPosts.filter(( {node:nextPost} ) => (nextPost.categories[0].slug === post.categories[0].slug && nextPost.slug !== post.slug))
+        const randomPost = sameCategory[Math.floor(Math.random()*sameCategory.length)];
+        return randomPost
+      }
       const postsPublished =getOnlyPublished(allPublishPosts)
-
       // Iterate over the array of posts
       _.each(postsPublished, ({ node: post }, key) => {
-        // Create the Gatsby page for this WordPress post
+        let randomPost = filterPosts(post)
+        let randomPostImg = randomPost &&
+        randomPost.node && 
+        randomPost.node.featured_media &&
+        randomPost.node.featured_media.slug || 'no-next-post'
         createPage({
           path: `${post.path}`,
           component: postTemplate,
           context: {
             id: post.id,
-            nextPostSlug: postsPublished[key + 1] ? postsPublished[key + 1].node.slug : postsPublished[0].node.slug,
-            nextPost: postsPublished[key + 1] ? postsPublished[key + 1].node : postsPublished[0].node
+            randomPost: randomPost,
+            randomPostImg: randomPostImg,
           },
         })
       })
