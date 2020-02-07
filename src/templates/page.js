@@ -13,8 +13,8 @@ const Page = ({data}) => {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "headline": "${page.title}",
-            "description": "${page.yoast_meta.yoast_wpseo_metadesc}",
+            "headline": "${page.title.replace(/[^a-zA-Z ]/g, "")}",
+            "description": "${page.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
             "author": {
               "@type": "Organization",
               "name": "PetPlace Staff"
@@ -38,7 +38,7 @@ const Page = ({data}) => {
           }
         `}</script>
       </Helmet>
-      <section className="section page-content">
+      <section className={(`section page-content ${page.slug}`)}>
         <div className="container is-fullhd">
           <div className="single-post-content" 
               dangerouslySetInnerHTML={{
@@ -61,6 +61,7 @@ export const pageQuery = graphql`
       content
       title
       path
+      slug
       yoast_meta {
         yoast_wpseo_metadesc
         yoast_wpseo_canonical

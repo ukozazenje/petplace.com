@@ -1,0 +1,87 @@
+section.about-us
+  background-color: $blue-lightest
+  padding: 0
+  .single-post-content
+    display: flex
+    flex-direction: column-reverse
+    +tablet
+      flex-direction: column
+  .about-us-section,
+  .join-community-section
+    img
+      width: 100%
+    .copy
+      +tablet
+        width: 50%
+      p.p1
+        +tablet
+          font-size: 1rem
+    +tablet
+      display: flex
+      align-items: center
+      flex-direction: row-reverse
+      padding: 0 2rem 3rem
+  .about-us-section
+    padding: 1rem 1rem 2rem
+    img
+      +tablet
+        margin-left: 2rem
+        width: 50%
+    +tablet
+      padding: 2rem
+    +desktop
+      padding: 4rem
+  .join-community-section
+    background-color: $white
+    position: relative
+    padding: 2rem 1rem 1rem
+    .copy
+      margin-bottom: 4rem
+      +tablet
+        z-index: 2
+        margin-bottom: 0
+    p
+      +tablet
+        z-index: 2
+    img
+      +tablet
+        padding-right: 2rem
+        z-index: 2
+    p.hashtag
+      background: -webkit-linear-gradient($orange, $red, $purple)
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+      position: absolute
+      z-index: 3
+      font-size: 2.5rem
+      top: 0
+      left: 0
+      font-weight: bold
+      transform: translate(30px, 290px) rotate(-5deg)
+      font-family: $family-secondary
+      @media screen and ( min-width: 450px )
+        transform: translate(30px, 270px) rotate(-10deg)
+      +tablet
+        transform: translate(30px, 30px) rotate(-20deg)
+        font-size: 3rem
+    &::before
+      +tablet
+        content: ''
+        background-color: $white
+        position: absolute
+        height: 100%
+        width: 4000px
+        left: -2000px
+        z-index: 0
+    .icons-wrapper
+      width: 175px
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      img
+        padding: 0
+    +tablet
+      padding: 3rem
+    +desktop
+      padding: 5rem
+      
