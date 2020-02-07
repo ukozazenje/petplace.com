@@ -252,8 +252,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -362,8 +362,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -488,8 +488,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -592,8 +592,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -680,8 +680,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -829,8 +829,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
             {
               "@context": "https://schema.org",
               "@type": "BlogPosting",
-              "headline": "${post.yoast_meta.yoast_wpseo_title}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -895,8 +895,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
             {
               "@context": "https://schema.org",
               "@type": "BlogPosting",
-              "headline": "${post.yoast_meta.yoast_wpseo_title}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",

@@ -13,8 +13,8 @@ const Page = ({data}) => {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "headline": "${page.title}",
-            "description": "${page.yoast_meta.yoast_wpseo_metadesc}",
+            "headline": "${page.title.replace(/[^a-zA-Z ]/g, "")}",
+            "description": "${page.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
             "author": {
               "@type": "Organization",
               "name": "PetPlace Staff"
