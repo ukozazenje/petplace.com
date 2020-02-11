@@ -142,6 +142,176 @@ module.exports = {
             // if not provided or `undefined`, all pages will have feed reference inserted
             // match: '^/post/',
           },
+          {
+            serialize: ({ query: { site, wordpressTtgCategories } }) => {
+              return wordpressTtgCategories.posts.map(post => {
+                return Object.assign({}, post, {
+                  description: post.excerpt,
+                  date: post.date,
+                  title: post.title,
+                  url: site.siteMetadata.siteUrl + post.path,
+                  guid: site.siteMetadata.siteUrl + post.path,
+                  custom_elements: [{ 'content:encoded': post.content }],
+                });
+              });
+            },
+            query: `
+              {
+                wordpressTtgCategories(slug: {eq: "pet-health"}) {
+                  id
+                  posts {
+                    title
+                    path
+                    date
+                    content
+                  }
+                }
+              }
+            `,
+            output: '/article/category/pet-health/rss.xml',
+            title: 'RSS Feed for Pet Health category',
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: '^/post/',
+          },
+          {
+            serialize: ({ query: { site, wordpressTtgCategories } }) => {
+              return wordpressTtgCategories.posts.map(post => {
+                return Object.assign({}, post, {
+                  description: post.excerpt,
+                  date: post.date,
+                  title: post.title,
+                  url: site.siteMetadata.siteUrl + post.path,
+                  guid: site.siteMetadata.siteUrl + post.path,
+                  custom_elements: [{ 'content:encoded': post.content }],
+                });
+              });
+            },
+            query: `
+              {
+                wordpressTtgCategories(slug: {eq: "pet-care"}) {
+                  id
+                  posts {
+                    title
+                    path
+                    date
+                    content
+                  }
+                }
+              }
+            `,
+            output: '/article/category/pet-care/rss.xml',
+            title: 'RSS Feed for Pet Health category',
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: '^/post/',
+          },
+          {
+            serialize: ({ query: { site, wordpressTtgCategories } }) => {
+              return wordpressTtgCategories.posts.map(post => {
+                return Object.assign({}, post, {
+                  description: post.excerpt,
+                  date: post.date,
+                  title: post.title,
+                  url: site.siteMetadata.siteUrl + post.path,
+                  guid: site.siteMetadata.siteUrl + post.path,
+                  custom_elements: [{ 'content:encoded': post.content }],
+                });
+              });
+            },
+            query: `
+              {
+                wordpressTtgCategories(slug: {eq: "pet-behavior-training"}) {
+                  id
+                  posts {
+                    title
+                    path
+                    date
+                    content
+                  }
+                }
+              }
+            `,
+            output: '/article/category/pet-behavior-training/rss.xml',
+            title: 'RSS Feed for Pet Health category',
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: '^/post/',
+          },
+          {
+            serialize: ({ query: { site, wordpressTtgCategories } }) => {
+              return wordpressTtgCategories.posts.map(post => {
+                return Object.assign({}, post, {
+                  description: post.excerpt,
+                  date: post.date,
+                  title: post.title,
+                  url: site.siteMetadata.siteUrl + post.path,
+                  guid: site.siteMetadata.siteUrl + post.path,
+                  custom_elements: [{ 'content:encoded': post.content }],
+                });
+              });
+            },
+            query: `
+              {
+                wordpressTtgCategories(slug: {eq: "breeds"}) {
+                  id
+                  posts {
+                    title
+                    path
+                    date
+                    content
+                  }
+                }
+              }
+            `,
+            output: '/article/category/breeds/rss.xml',
+            title: 'RSS Feed for Pet Health category',
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: '^/post/',
+          },
+          {
+            serialize: ({ query: { site, wordpressTtgCategories } }) => {
+              return wordpressTtgCategories.posts.map(post => {
+                return Object.assign({}, post, {
+                  description: post.excerpt,
+                  date: post.date,
+                  title: post.title,
+                  url: site.siteMetadata.siteUrl + post.path,
+                  guid: site.siteMetadata.siteUrl + post.path,
+                  custom_elements: [{ 'content:encoded': post.content }],
+                });
+              });
+            },
+            query: `
+              {
+                wordpressTtgCategories(slug: {eq: "pet-insurance"}) {
+                  id
+                  posts {
+                    title
+                    path
+                    date
+                    content
+                  }
+                }
+              }
+            `,
+            output: '/article/category/pet-insurance/rss.xml',
+            title: 'RSS Feed for Pet Health category',
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: '^/post/',
+          },
         ],
       },
     },
