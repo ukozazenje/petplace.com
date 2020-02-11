@@ -13,6 +13,18 @@ const getOnlyPublished = edges =>
 const getCategoryPosts = (edges, id) =>
   _.filter(edges, ({ node }) => node.categories && _.find(node.categories, ['id', id] ) )
 
+const getNextPost = (post, allPosts) => {
+  const postPetType = post.path.split("/")[2]
+  const filteredPetType = allPosts.filter(({node: singlePost}) => postPetType === singlePost.path.split("/")[2] && post.slug !== singlePost.slug)
+  const filteredCategories = filteredPetType.filter(({node: singlePost}) => singlePost.categories[0].name === post.categories[0].name) 
+  if(filteredCategories && filteredCategories.length > 0) {
+    return filteredCategories[Math.floor(Math.random()*filteredCategories.length)]
+  } else if(filteredPetType && filteredPetType.length > 0) {
+    return filteredPetType[Math.floor(Math.random()*filteredPetType.length)]
+  } else {
+    return false
+  }
+} 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -96,17 +108,17 @@ exports.createPages = ({ actions, graphql }) => {
       const postTemplate = path.resolve(`./src/templates/post.js`)
 
       // In production builds, filter for only published posts.
-      const allPublishPosts = result.data.allWordpressPost.edges
-      // Find all posts with the same category as current post and choose a random one that's not current post 
-      const filterPosts = (post) => {  
-        const sameCategory = allPublishPosts.filter(( {node:nextPost} ) => (nextPost.categories[0].slug === post.categories[0].slug && nextPost.slug !== post.slug))
-        const randomPost = sameCategory[Math.floor(Math.random()*sameCategory.length)];
-        return randomPost
-      }
-      const postsPublished =getOnlyPublished(allPublishPosts)
+      // const allPublishPosts = result.data.allWordpressPost.edges.filter(( {node:nextPost} ) => (nextPost.slug !== post.slug))
+      // // Find all posts with the same category as current post and choose a random one that's not current post 
+      // const filterPosts = (post) => {  
+      //   const sameCategory = allPublishPosts.filter(( {node:nextPost} ) => (nextPost.slug !== post.slug))
+      //   const randomPost = sameCategory[Math.floor(Math.random()*sameCategory.length)];
+      //   return randomPost
+      // }
+      const postsPublished = getOnlyPublished(result.data.allWordpressPost.edges)
       // Iterate over the array of posts
       _.each(postsPublished, ({ node: post }, key) => {
-        let randomPost = filterPosts(post)
+        let randomPost = getNextPost(post, postsPublished )
         let randomPostImg = randomPost &&
         randomPost.node && 
         randomPost.node.featured_media &&
