@@ -9,4 +9,4 @@ phases:
        - npm install
        - npm run build
        - aws s3 sync public s3://$S3_BUCKET --quiet --delete --exclude "robots.txt" --exclude "google8cf57491ab487f5f.html"
-       - aws cloudfront create-invalidation --distribution-id E6NQF3Q3893UY --paths '/*'
+       - aws cloudfront create-invalidation --distribution-id $CLOUD_FRONT_ID --paths '/*'
