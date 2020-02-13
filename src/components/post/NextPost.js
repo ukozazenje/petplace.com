@@ -6,14 +6,14 @@ import NoImg from '../../static/images/noNextPost'
 import Img from 'gatsby-image'
 class  NextPost extends Component {
   render(){
-    const post = this.props.post.node
+    const post = this.props.post && this.props.post.node
     const nextPostImg = this.props.nextPostImg
     return (
       <section className="section next-post-section">
         <div className="container is-fullhd">
           <div className="nex-post">
             <h3>Next Article</h3>
-            <Link to={post.path}>
+            <Link to={post && post.path || "/"}>
               {
                 nextPostImg &&
                 nextPostImg.localFile && 
@@ -30,12 +30,12 @@ class  NextPost extends Component {
               </Link> :
               null
             }
-            <Link to={post.path}>
+            <Link to={post && post.path || "/"}>
               <h4 dangerouslySetInnerHTML={{
-                __html: post.title
+                __html: post && post.title || 'no title'
               }} /> 
             </Link>
-            <Link to={post.path}>
+            <Link to={post && post.path || "/"}>
               <img src={NextPostImg} alt="Next post" />
             </Link>
             {/* <BottomScrollListener debounce={300} onBottom={ () => window.location.href = `${post.path}`} /> */}
