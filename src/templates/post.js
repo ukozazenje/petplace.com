@@ -54,7 +54,7 @@ class Post extends Component  {
     
     const author = (post.author && post.author.name ) || "PetPlace Staff"
     return (
-      <Layout noFooter>
+      <Layout hideFooterNavigation>
         <Seo title={`${post.yoast_meta.yoast_wpseo_title}`} description={post.yoast_meta.yoast_wpseo_metadesc} image={
           (post.featured_media &&
           post.featured_media.localFile &&
@@ -144,7 +144,7 @@ class Post extends Component  {
           </div>
         </section>
         <SimilarPosts />
-        <NextPost post={this.props.pageContext.randomPost} location={{...this.props.location}} nextPostImg={this.props.data.wordpressWpMedia}/>
+        <NextPost post={this.props.pageContext.randomPost} location={{...this.props.location}} nextPostImg={this.props.data.wordpressWpMedia} />
         </div>
       </Layout>
     )
