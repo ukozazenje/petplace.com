@@ -75,28 +75,40 @@ export default class Search extends Component {
   };
 
   compareValues = (key, order='asc') => {
-    return function(a, b) {
-      if(!a.hasOwnProperty(key) ||
-         !b.hasOwnProperty(key)) {
-        return 0;
+    if( key === 'date') {
+      return (a, b) => {
+        const dateA = new Date(a.date).getTime(); 
+        const dateB = new Date(b.date).getTime(); 
+        if(order !== 'asc') {
+          return dateB > dateA ? 1 : -1; 
+        } else {
+          return dateA > dateB ? 1 : -1; 
+        }
       }
-
-      const varA = (typeof a[key] === 'string') ?
-        a[key].toUpperCase() : a[key];
-      const varB = (typeof b[key] === 'string') ?
-        b[key].toUpperCase() : b[key];
-
-      let comparison = 0;
-      if (varA > varB) {
-        comparison = 1;
-      } else if (varA < varB) {
-        comparison = -1;
-      }
-      return (
-        (order === 'desc') ?
-        (comparison * -1) : comparison
-      );
-    };
+    } else {
+      return function(a, b) {
+        if(!a.hasOwnProperty(key) ||
+           !b.hasOwnProperty(key)) {
+          return 0;
+        }
+  
+        const varA = (typeof a[key] === 'string') ?
+          a[key].toUpperCase() : a[key];
+        const varB = (typeof b[key] === 'string') ?
+          b[key].toUpperCase() : b[key];
+  
+        let comparison = 0;
+        if (varA > varB) {
+          comparison = 1;
+        } else if (varA < varB) {
+          comparison = -1;
+        }
+        return (
+          (order === 'desc') ?
+          (comparison * -1) : comparison
+        );
+      };
+    }
   }
 
   sortBy = (value) => {
@@ -104,7 +116,6 @@ export default class Search extends Component {
     const orderBy = values[0]
     const order = values[1]
     const posts = [...this.state.posts]
-
     let sorted = [...posts.sort(this.compareValues(orderBy, order))]
     this.setState({
       posts: [...sorted],
@@ -247,6 +258,5 @@ export default class Search extends Component {
       ? this.index
       : // Create an elastic lunr index and hydrate with graphql query posts
         Index.load(this.props.searchIndex)
-
 
 }
