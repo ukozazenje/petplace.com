@@ -2,12 +2,10 @@ import React from 'react'
 import { Link } from 'gatsby'
 import SocialLinks from "./categories/socialLinks.js"
 import logo from "../images/logo.svg"
-const footer = () => { 
-  const dt = new Date()
-  const year = dt.getFullYear()
-  return (
-    <footer>
-      <section className="footer-nav section">
+
+const fullFooter = () => (
+  <footer>
+    <section className="footer-nav section">
       <div className="container is-fullhd">
         <div className="columns">
           <div className="column is-one-quarter">
@@ -61,7 +59,16 @@ const footer = () => {
           </div>
         </div>
       </div>
-      </section>
+    </section>
+    {copyrightFooter()}
+  </footer>
+)
+
+const copyrightFooter = () => {
+  const dt = new Date()
+  const year = dt.getFullYear()
+  return (
+    <footer>
       <section className="footer-container section">
         <div className="container is-fullhd">
           <div className="columns">
@@ -74,11 +81,16 @@ const footer = () => {
             </div>
             <div className="column is-7">
               <p>&copy;Copyright 1999 - {year}. The IHC Group. All Rights Reserved</p>
-           </div>
+            </div>
           </div>
         </div>
       </section>
     </footer>
+  )
+}
+const footer = ({hideFooterNavigation}) => { 
+  return (
+    hideFooterNavigation ? copyrightFooter() : fullFooter()
   )
 }
 
