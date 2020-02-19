@@ -32,7 +32,11 @@ class category extends Component  {
     const { posts, limit } = this.state;
     const offset = (page - 1) * limit;
     const currentPosts = posts.slice(offset, offset + limit);
-
+    window.scrollTo({
+      top: 100,
+      left: 0,
+      behavior: 'smooth'
+    });
     this.setState({
       currentPage: page,
       currentPosts,
