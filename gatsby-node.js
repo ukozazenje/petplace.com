@@ -13,6 +13,7 @@ const getOnlyPublished = edges =>
 const getCategoryPosts = (edges, id) =>
   _.filter(edges, ({ node }) => node.categories && _.find(node.categories, ['id', id] ) )
 
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -79,6 +80,7 @@ exports.createPages = ({ actions, graphql }) => {
                 }
                 featured_media {
                   source_url
+                  slug
                 }
               }
             }
@@ -93,21 +95,36 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const postTemplate = path.resolve(`./src/templates/post.js`)
+      const postsPublished = getOnlyPublished(result.data.allWordpressPost.edges)
 
-      // In production builds, filter for only published posts.
-      const allPublishPosts = result.data.allWordpressPost.edges
-      const postsPublished =getOnlyPublished(allPublishPosts)
-
+      const getNextPost = (post) => {
+        const allPosts = result.data.allWordpressPost.edges
+        const postPetType = post.path.split("/")[2]
+        const filteredPetType = allPosts.filter(({node: singlePost}) => postPetType === singlePost.path.split("/")[2] && post.slug !== singlePost.slug)
+        const filteredCategories = filteredPetType.filter(({node: singlePost}) => singlePost.categories[0].name === post.categories[0].name) 
+        const sameCategory = allPosts.filter(({node: currentPost}) => currentPost.slug != post.slug && currentPost.categories[0].name === post.categories[0].name )
+        if(filteredCategories && filteredCategories.length > 0) {
+          return filteredCategories[Math.floor(Math.random()*filteredCategories.length)]
+        } else if(filteredPetType && filteredPetType.type > 0) {
+          return filteredPetType[Math.floor(Math.random()*filteredPetType.length)]
+        } else {
+          return sameCategory[Math.floor(Math.random()*sameCategory.length)]
+        }
+      } 
       // Iterate over the array of posts
       _.each(postsPublished, ({ node: post }, key) => {
-        // Create the Gatsby page for this WordPress post
+        let randomPost = getNextPost(post )
+        let randomPostImg = randomPost &&
+        randomPost.node && 
+        randomPost.node.featured_media &&
+        randomPost.node.featured_media.slug || 'no-next-post'
         createPage({
           path: `${post.path}`,
           component: postTemplate,
           context: {
             id: post.id,
-            nextPostSlug: postsPublished[key + 1] ? postsPublished[key + 1].node.slug : postsPublished[0].node.slug,
-            nextPost: postsPublished[key + 1] ? postsPublished[key + 1].node : postsPublished[0].node
+            randomPost: randomPost,
+            randomPostImg: randomPostImg,
           },
         })
       })
