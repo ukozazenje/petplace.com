@@ -79,7 +79,7 @@ const copyrightFooter = () => {
                 <li><Link to="/about-us">About Us</Link></li>
               </ul>
             </div>
-            <div className="column is-7">
+            <div className="column is-7 copyright">
               <p>&copy;Copyright 1999 - {year}. The IHC Group. All Rights Reserved</p>
             </div>
           </div>

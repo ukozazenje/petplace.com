@@ -43,7 +43,13 @@ footer
         color: $white
         @include font-size(13px)
     p
+      text-align: center
       color: $white
-      text-align: right
       @include font-size(13px)
+      +tablet 
+        text-align: right
+    .copyright
+      display: flex
+      justify-content: flex-end
+      align-items: center
 
