@@ -9,7 +9,9 @@ const fullFooter = () => (
       <div className="container is-fullhd">
         <div className="columns">
           <div className="column is-one-quarter">
-            <img src={logo} className="footer-logo" alt="logo" />
+            <Link to="/" >
+              <img src={logo} className="footer-logo" alt="logo" />
+            </Link>
             <p className="tagline">By Vets. For Pets.</p>
             <SocialLinks/>
           </div>
