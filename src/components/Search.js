@@ -21,7 +21,8 @@ export default class Search extends Component {
       currentPosts: [],
       currentPage: 1,
       order: 'desc',
-      orderby: 'date'
+      orderby: 'date',
+      selectValue: ''
     }
   }
 
@@ -50,7 +51,8 @@ export default class Search extends Component {
       const posts = [...this.state.posts]
       this.setState({
         currentPosts: posts.slice(0, limit),
-        currentPage: 1
+        currentPage: 1,
+        selectValue: ""
       })
       document.getElementById('search-results').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
     })
@@ -120,7 +122,8 @@ export default class Search extends Component {
     this.setState({
       posts: [...sorted],
       currentPosts: posts.slice(0, limit),
-      currentPage: 1
+      currentPage: 1,
+      selectValue: value
     })
   }
 
@@ -187,7 +190,7 @@ export default class Search extends Component {
               <h2>Search Results</h2>
             </div>
             <div className="column is-3">
-              <select className="search-select" name="orderby" onChange={(e)=>this.sortBy(e.target.value) } >
+              <select value={this.state.selectValue} className="search-select" name="orderby" onChange={(e)=>this.sortBy(e.target.value) } >
                 <option value="">Sort by</option>
                 <option value="title-asc">title A-Z</option>
                 <option value="title-desc">title Z-A</option>
