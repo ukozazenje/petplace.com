@@ -97,7 +97,7 @@ class MenuBar extends Component {
             </List>
 
             <div className="navigation-2">
-              <NavigationSearch />
+              {!this.props.hideSearch && <NavigationSearch />}
               <ul className="misc-nav">
                 <li><Link to="/article/category/drug-library/library/">Drug Library</Link></li>
                 <li><Link to="/article/category/vet-qa-parent/vet-qa/">Vet Q&amp;A</Link> </li>

@@ -4,12 +4,12 @@ import Drawer from './navigation/drawer'
 import logoImg from "../images/logo.svg"
 import NavigationSearch from './NavigationSearch';
 
-const Header = ({ siteTitle, noSearch }) => (
+const Header = ({ siteTitle, noSearch, hideSearch }) => (
   <header>
     <div className="container is-fullhd">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <Drawer />
+          <Drawer hideSearch={hideSearch}/>
           <Link className="navbar-item" to="/" >
             <img src={logoImg} width="112" height="28" alt="logo" />
           </Link>
