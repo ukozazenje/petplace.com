@@ -320,28 +320,38 @@ class VetLocator extends Component{
                               <ErrorMessage name='limit' render={msg => <div style={{ color: '#ED0037' }} >{msg}</div>} />
                               <div className="columns is-mobile is-gapless">
                                 <div className="column " >
-                                  <button className={`container-radio  button ${values.limit === 5 || this.state.limit === 5 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(5, setFieldValue)}>5
-                                    <input type="radio" value='5' name="limit" onChange={() => {setFieldValue("limit", 5)}}  className="input-radio"/>
+                                  <button className={`container-radio  button ${values.limit === 5 || this.state.limit === 5 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(5, setFieldValue)}>
+                                    <span>5
+                                        <input type="radio" value='5' name="limit" onChange={() => {setFieldValue("limit", 5)}}  className="input-radio"/>
+                                    </span>
                                   </button>
                                 </div>
                                 <div className="column" >
-                                  <button className={`container-radio button ${values.limit === 10 || this.state.limit === 10 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(10, setFieldValue)}>10
-                                    <input type="radio" value='10' name="limit" onChange={() => setFieldValue("limit", 10)} className="input-radio" />
+                                  <button className={`container-radio button ${values.limit === 10 || this.state.limit === 10 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(10, setFieldValue)}>
+                                    <span>10
+                                        <input type="radio" value='10' name="limit" onChange={() => setFieldValue("limit", 10)} className="input-radio" />
+                                     </span>
                                   </button>
                                 </div>
                                 <div className="column" >
-                                  <button className={`container-radio button ${values.limit === 15 || this.state.limit === 15 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(15, setFieldValue)}>15
-                                    <input type="radio" value='15' name="limit" onChange={() => setFieldValue("limit", 15)} className="input-radio" />
+                                  <button className={`container-radio button ${values.limit === 15 || this.state.limit === 15 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(15, setFieldValue)}>
+                                    <span>15
+                                        <input type="radio" value='15' name="limit" onChange={() => setFieldValue("limit", 15)} className="input-radio" />
+                                    </span>
                                   </button>
                                 </div>
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === 20 || this.state.limit === 20 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(20, setFieldValue)}>20
-                                    <input type="radio" value='20' name="limit" onChange={() => setFieldValue("limit", 20)} className="input-radio" />
+                                  <button className={`container-radio button ${values.limit === 20 || this.state.limit === 20 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(20, setFieldValue)}>
+                                    <span>20
+                                        <input type="radio" value='20' name="limit" onChange={() => setFieldValue("limit", 20)} className="input-radio" />
+                                    </span>
                                   </button>
                                 </div>
                                 <div className="column " >
-                                  <button className={`container-radio button ${values.limit === 25 || this.state.limit === 25 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(25, setFieldValue)}>25
-                                    <input type="radio" value='25'  name="limit" onChange={() => setFieldValue("limit", 25)} className="input-radio" />
+                                  <button className={`container-radio button ${values.limit === 25 || this.state.limit === 25 ? 'active' : ''}`} type="button" onClick={() => this.setChekboxState(25, setFieldValue)}>
+                                    <span>25
+                                      <input type="radio" value='25'  name="limit" onChange={() => setFieldValue("limit", 25)} className="input-radio" />
+                                    </span>
                                   </button>
                                 </div>
                               </div>
