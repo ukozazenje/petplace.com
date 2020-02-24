@@ -53,9 +53,16 @@
       &:first-child
         margin-top: 0
   .category-post-card
+    +tablet
+      min-height: 590px
+    +desktop
+      min-height: 500px
+    +widescreen
+      min-height: 530px
     .card-content
       min-height: 200px
     .card-img
+      min-height: 320px
       img 
         display: block
         width: 100%
@@ -99,7 +106,6 @@
 //     .search-card-content
 //       cursor: pointer
 //       background: #fff
-      
 .order-section 
   background: $blue-lightest
   .container
