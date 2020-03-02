@@ -5,7 +5,7 @@ import MenuBar from './menu-bar'
 import MenuIcon from '../../images/menu.svg'
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer({hideSearch}) {
   const disableRipple = createMuiTheme({
     props: {
       MuiButtonBase: {
@@ -53,7 +53,7 @@ export default function TemporaryDrawer() {
 
   const sideList = side => (
     <div role="presentation">
-    	<MenuBar />
+    	<MenuBar hideSearch={hideSearch}/>
     </div>
   );
 

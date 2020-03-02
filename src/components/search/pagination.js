@@ -31,7 +31,7 @@ const pagination = ({limit, total, currentPage, onPageChange}) => {
               {""}
             </button>
           )}
-            Page: {currentPage} of {totalPages}
+          { total === 0 ? "No Posts" :  `Page: ${currentPage} of ${totalPages}` }
           {hasNextPage && (
             <button className="next"
               {...getPageItemProps({

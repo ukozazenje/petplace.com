@@ -5,10 +5,10 @@ import Footer from './footer'
 import "../sass/main.sass"
 import EmailDialog from "../components/EmailDialog"
 
-const Layout = ({ children, hideFooterNavigation, noSearch }) => {
+const Layout = ({ children, hideFooterNavigation, noSearch, hideSearch }) => {
   return (
     <>
-      <Header noSearch={noSearch} />
+      <Header noSearch={noSearch} hideSearch={hideSearch}/>
       {children}
       <EmailDialog />
       <Footer hideFooterNavigation={hideFooterNavigation} />

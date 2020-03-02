@@ -20,8 +20,9 @@ export default class Search extends Component {
       posts: [],
       currentPosts: [],
       currentPage: 1,
-      order: 'desc',
-      orderby: 'date'
+      order: '',
+      orderby: '',
+      selectValue: ''
     }
   }
 
@@ -35,7 +36,7 @@ export default class Search extends Component {
     }, {})
   }
 
-  search = title => {
+  search = (title, selectValue) => {
     // const query = title.target.value
     const query = title || 'pet'
     this.index = this.getOrCreateIndex()
@@ -50,14 +51,14 @@ export default class Search extends Component {
       const posts = [...this.state.posts]
       this.setState({
         currentPosts: posts.slice(0, limit),
-        currentPage: 1
-      })
+        currentPage: 1,
+        selectValue: selectValue || ""
+      }, () => this.sortBy(this.state.selectValue))
       document.getElementById('search-results').scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
     })
   }
 
   handlePageChange = (page) => {
-    // console.log(page)
     window.scrollTo({
       top: 100,
       left: 0,
@@ -113,14 +114,19 @@ export default class Search extends Component {
 
   sortBy = (value) => {
     const values = value.split('-')
-    const orderBy = values[0]
-    const order = values[1]
+    const orderby = values[0] || this.state.orderby
+    const order = values[1] || this.state.order
     const posts = [...this.state.posts]
-    let sorted = [...posts.sort(this.compareValues(orderBy, order))]
+    let sorted = [...posts.sort(this.compareValues(orderby, order))]
     this.setState({
       posts: [...sorted],
       currentPosts: posts.slice(0, limit),
-      currentPage: 1
+      currentPage: 1,
+      selectValue: value,
+      orderby: orderby,
+      order: order
+    }, () => {
+      sessionStorage.setItem('selectValue', this.state.selectValue)
     })
   }
 
@@ -135,14 +141,20 @@ export default class Search extends Component {
   }
 
   componentDidMount(){
-    this.props.location.state && this.props.location.state.title ? 
-    this.search(this.props.location.state.title) : 
-    this.search(this.getUrlParams(this.props.location.search).q)
+
+    // Checking to see if we have set session storage for sorting posts
+    const selectValue = sessionStorage.getItem('selectValue') || this.state.selectValue
+    
+    this.setState({ selectValue }, () => {
+      this.props.location.state && this.props.location.state.title ? 
+      this.search(this.props.location.state.title, selectValue) : 
+      this.search(this.getUrlParams(this.props.location.search).q, selectValue)
+    })
   }
 
   render() {
     const total = this.state.posts.length
-    // console.log(this.state.posts)
+    
     return (
     <>
       <div className="flex-container">
@@ -187,7 +199,7 @@ export default class Search extends Component {
               <h2>Search Results</h2>
             </div>
             <div className="column is-3">
-              <select className="search-select" name="orderby" onChange={(e)=>this.sortBy(e.target.value) } >
+              <select value={this.state.selectValue} className="search-select" name="orderby" onChange={(e)=>this.sortBy(e.target.value) } >
                 <option value="">Sort by</option>
                 <option value="title-asc">title A-Z</option>
                 <option value="title-desc">title Z-A</option>
