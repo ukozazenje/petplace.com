@@ -1,0 +1,41 @@
+.newsletter-signup
+  background-color: $blue-lightest
+  padding: 1rem
+  +tablet
+    padding: 2rem 4rem
+  h1
+    @include font-size(36px)
+    color: $purple
+  h3
+    color: $mauve
+  img
+    display: none
+    +tablet
+      display: block
+  .single-post-content
+    display: flex
+    flex-direction: column
+    +tablet
+      flex-direction: row-reverse
+    .copy
+      +tablet
+        margin-left: 2rem
+        display: flex
+        flex-direction: column
+        justify-content: center
+.newsletter-signup + .contact-us-form
+  padding: 2rem 1rem
+  background-color: $white
+  h3 
+    color: $red
+  label
+    color: $purple-dark
+  p
+    color: $purple
+  button
+    background-color: $red
+  label
+    margin-right: 0
+  input[type="checkbox"]
+    +tablet
+      margin-left: 1rem

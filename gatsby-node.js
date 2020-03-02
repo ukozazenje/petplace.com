@@ -159,7 +159,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Iterate over the array of posts
       _.each(allPages, ({ node: page }, key) => {
         // Create the Gatsby page for this WordPress post
-        if(page.slug === 'privacy-policy' || page.slug === 'about-us' || page.slug === 'prnews' || page.slug === 'terms-of-use' || page.slug === 'submit-your-stories-and-feedback') {
+        if(page.slug === 'privacy-policy' || page.slug === 'about-us' || page.slug === 'newsletter-signup' || page.slug === 'prnews' || page.slug === 'terms-of-use' || page.slug === 'submit-your-stories-and-feedback') {
           createPage({
             path: `${page.path}`,
             component: pageTemplate,
