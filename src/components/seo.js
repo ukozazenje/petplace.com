@@ -66,7 +66,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `twitter:image`,
-          content: metaImage
+          content: `${process.env.GATSBY_WEB_SITE_URL}${metaImage}`
         },
         {
           name: `twitter:description`,
