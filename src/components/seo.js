@@ -54,11 +54,15 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: `@PetPlaceFans`,
+        },
+        {
+          name: `twitter:site`,
+          content: `@PetPlaceFans`,
         },
         {
           name: `twitter:title`,
@@ -66,7 +70,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `twitter:image`,
-          content: metaImage
+          content: `${process.env.GATSBY_WEB_SITE_URL}${metaImage}`
         },
         {
           name: `twitter:description`,
