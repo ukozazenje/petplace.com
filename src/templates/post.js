@@ -18,7 +18,6 @@ import logo from '../images/PPlogo.jpg'
 import Helmet from "react-helmet"
 import {Link} from 'gatsby'
 import { filterAuthorsLink, filterFaqPosts } from '../components/functions'
-
 class Post extends Component  {
 
   componentDidMount() {
