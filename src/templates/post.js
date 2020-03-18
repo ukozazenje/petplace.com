@@ -14,10 +14,14 @@ import Seo from '../components/seo'
 import Sticky from 'react-stickynode'
 import Breadcrumbs from '../components/Breadcrumbs'
 import AdSet from '../components/AdSet'
+import AdMobile from '../components/AdMobile'
 import logo from '../images/PPlogo.jpg'
 import Helmet from "react-helmet"
 import {Link} from 'gatsby'
 import { filterAuthorsLink, filterFaqPosts } from '../components/functions'
+import {
+  isMobile
+} from "react-device-detect";
 class Post extends Component  {
 
   componentDidMount() {
@@ -108,7 +112,7 @@ class Post extends Component  {
                     <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
                   </div>
                 </div>
-                <AdSet title={post.title}/>
+                {isMobile ? <AdMobile /> : <AdSet /> }
                 <Sticky enabled={true} top={20} bottomBoundary='.single-post-sidebar'>
                     <div className="share-icons-vertical">
                       <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
