@@ -1,16 +1,19 @@
 import React from 'react';
-import tallPPIImg from '../images/ads/MPI-160x600-011620.jpg';
-import smallPPIImg from '../images/ads/MPI-250x250-011620.jpg';
+import useDfpSlot from './useDfpSlot';
 
-const AdSet = (props) => (
-    <a href={`https://mypetinsurance.com/`} 
-        target="_blank" rel="noopener nofollow" className="ppiimg-wrapper">
-        <picture>
-            <source srcSet={smallPPIImg} media="(max-width: 768px)"></source>
-            <source srcSet={tallPPIImg} media="(min-width: 769px)"></source>
-            <img src={smallPPIImg} alt="Pet Partners Insurance" />
-        </picture>
-    </a>
-);
+const AdSet = () => {
+  useDfpSlot({
+    path: '/1004510/ttg_left_160_600',
+    size: [160, 600],
+    id: 'div-gpt-ad-1579271824039-0',
+  });
+
+  return (
+    <div
+      id="div-gpt-ad-1579271824039-0"
+      // style={{width: '160px', height: '600px'}}
+    />
+  );
+};
 
 export default AdSet;
