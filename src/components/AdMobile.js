@@ -11,7 +11,8 @@ const AdMobile = () => {
   return (
       <div
       id="div-gpt-ad-1579271824039-0"
-      style={{width: '120px', height: '120px'}} />
+      // style={{width: '120px', height: '120px'}} 
+      />
   )
 };
 

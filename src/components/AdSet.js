@@ -11,7 +11,7 @@ const AdSet = () => {
   return (
     <div
       id="div-gpt-ad-1579271824039-0"
-      style={{width: '160px', height: '600px'}}
+      // style={{width: '160px', height: '600px'}}
     />
   );
 };
