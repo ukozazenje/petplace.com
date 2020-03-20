@@ -2,11 +2,24 @@ version: 0.2
 
 phases:
   install:
+    commands:
+      - echo update npm...
+      - npm install -g n
+      - n latest
+      - npm update -g npm
+      - echo node -v
+      - node -v
+      - echo npm -v
+      - npm -v
+      - echo install yarn...
+      - npm install -g yarn
+      - echo yarn -v
+      - yarn -v
     runtime-versions:
       nodejs: 10
   build:
     commands:
-       - npm install
-       - npm run build
+       - yarn install
+       - yarn build
        - aws s3 sync public s3://$S3_BUCKET --quiet --delete --exclude "robots.txt" --exclude "google8cf57491ab487f5f.html"
        - aws cloudfront create-invalidation --distribution-id $CLOUD_FRONT_ID --paths '/*'
