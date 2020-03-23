@@ -886,7 +886,161 @@ export const filterFaqPosts = (post, author, imgUrl) => {
           `}</script>
         </Helmet>
       )
-     
+    case 'can-dogs-get-coronavirus':
+      return (
+        <Helmet>
+        {/* inline script elements */}
+          <script type="application/ld+json">{`
+            {
+              "@context": "https://schema.org",
+              "@type": "SpecialAnnouncement",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "author": {
+                "@type": "Person",
+                "name": "${author}"
+              },  
+              "publisher": {
+                "@type": "Organization",
+                "name": "PetPlace",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "width": 236,
+                  "height": 45
+                }
+              },
+              "datePublished": "${post.date}",
+              "dateModified" : "${post.date}"
+            }
+          `}</script>
+        </Helmet>
+      )
+    case 'can-pet-get-coronavirus-covid-19':
+      return (
+        <Helmet>
+        {/* inline script elements */}
+          <script type="application/ld+json">{`
+            {
+              "@context": "https://schema.org",
+              "@type": "SpecialAnnouncement",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "author": {
+                "@type": "Person",
+                "name": "${author}"
+              },  
+              "publisher": {
+                "@type": "Organization",
+                "name": "PetPlace",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "width": 236,
+                  "height": 45
+                }
+              },
+              "datePublished": "${post.date}",
+              "dateModified" : "${post.date}"
+            }
+          `}</script>
+        </Helmet>
+      )
+    case 'can-my-cat-get-coronavirus':
+      return (
+        <Helmet>
+        {/* inline script elements */}
+          <script type="application/ld+json">{`
+            {
+              "@context": "https://schema.org",
+              "@type": "SpecialAnnouncement",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "author": {
+                "@type": "Person",
+                "name": "${author}"
+              },  
+              "publisher": {
+                "@type": "Organization",
+                "name": "PetPlace",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "width": 236,
+                  "height": 45
+                }
+              },
+              "datePublished": "${post.date}",
+              "dateModified" : "${post.date}"
+            }
+          `}</script>
+        </Helmet>
+      )
+    case 'pet-lovers-quarantine-movie-guide':
+      return (
+        <Helmet>
+        {/* inline script elements */}
+          <script type="application/ld+json">{`
+            {
+              "@context": "https://schema.org",
+              "@type": "SpecialAnnouncement",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "author": {
+                "@type": "Person",
+                "name": "${author}"
+              },  
+              "publisher": {
+                "@type": "Organization",
+                "name": "PetPlace",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "width": 236,
+                  "height": 45
+                }
+              },
+              "datePublished": "${post.date}",
+              "dateModified" : "${post.date}"
+            }
+          `}</script>
+        </Helmet>
+      )
+    case 'emergency-dog-food':
+      return (
+        <Helmet>
+        {/* inline script elements */}
+          <script type="application/ld+json">{`
+            {
+              "@context": "https://schema.org",
+              "@type": "SpecialAnnouncement",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "author": {
+                "@type": "Person",
+                "name": "${author}"
+              },  
+              "publisher": {
+                "@type": "Organization",
+                "name": "PetPlace",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "width": 236,
+                  "height": 45
+                }
+              },
+              "datePublished": "${post.date}",
+              "dateModified" : "${post.date}"
+            }
+          `}</script>
+        </Helmet>
+      )
     default:
       return (
         <Helmet>
@@ -906,6 +1060,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 "@type": "WebPage",
                 "@id": "${process.env.GATSBY_WEB_SITE_URL}${post.path}"
              },  
+             "category": "https://www.wikidata.org/wiki/Q81068910",
               "publisher": {
                 "@type": "Organization",
                 "name": "PetPlace",
