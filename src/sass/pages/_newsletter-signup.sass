@@ -1,6 +1,7 @@
 .newsletter-signup
   background-color: $blue-lightest
   padding: 1rem
+  order: 2
   +tablet
     padding: 2rem 4rem
   h1
@@ -24,18 +25,19 @@
         flex-direction: column
         justify-content: center
 .newsletter-signup + .contact-us-form
-  padding: 2rem 1rem
-  background-color: $white
-  h3 
-    color: $red
-  label
-    color: $purple-dark
-  p
-    color: $purple
-  button
-    background-color: $red
+  padding: 3rem 1rem
+  order: 1
   label
     margin-right: 0
   input[type="checkbox"]
     +tablet
       margin-left: 1rem
+  button 
+    width: 100%
+    max-width: 350px
+    margin-left: 0
+  +tablet
+    padding-top: 7rem
+    padding-bottom: 7rem
+.newsletter-signup ~ footer
+  order: 3
