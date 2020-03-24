@@ -897,6 +897,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
+              "diseasePreventionInfo": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "category": "https://www.wikidata.org/wiki/Q81068910",
               "author": {
                 "@type": "Person",
                 "name": "${author}"
@@ -927,6 +929,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "SpecialAnnouncement",
               "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "newsUpdatesAndGuidelines": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "category": "https://www.wikidata.org/wiki/Q81068910",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -958,6 +962,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "SpecialAnnouncement",
               "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "diseasePreventionInfo": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "category": "https://www.wikidata.org/wiki/Q81068910",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -989,6 +995,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "SpecialAnnouncement",
               "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "newsUpdatesAndGuidelines": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "category": "https://www.wikidata.org/wiki/Q81068910",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -1020,6 +1028,8 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "@type": "SpecialAnnouncement",
               "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
               "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "quarantineGuidelines": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "category": "https://www.wikidata.org/wiki/Q81068910",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
