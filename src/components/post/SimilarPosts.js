@@ -47,7 +47,7 @@ const PopularPosts = (props) => {
           { featuredPost.map((post) => (
             <div key={post.wordpress_id} className="column">
               <Link to={post.path} className="similar-post-card" >
-                { (post.featured_image && post.featured_image.full.localFile.childImageSharp.fluid) ?
+                { (post.featured_image && post.featured_image.full && post.featured_image.full.localFile && post.featured_image.full.localFile.childImageSharp.fluid) ?
                 <Img className="similar-post-card-image" sizes={{ ...post.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> :
                 <Img className="similar-post-card-image" sizes={{ ...props.data.placeholderImage.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> }
               </Link>
