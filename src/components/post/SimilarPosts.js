@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 
 const PopularPosts = (props) => {
 
-  const {wordpressTtgPages} = useStaticQuery(
+  const {wordpressTtgPages, placeholderImage} = useStaticQuery(
     graphql`
       query {
         wordpressTtgPages(wordpress_id: {eq: 6}) {
@@ -33,12 +33,18 @@ const PopularPosts = (props) => {
             }
           }
         }
+        placeholderImage: file(relativePath: { eq: "no-next-post.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 300) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `
   )
-
+  
   const featuredPost = wordpressTtgPages.acf.featured_posts
-
   return (
     <section className="section similar-post-section">
       <div className="container is-fullhd">
@@ -47,9 +53,9 @@ const PopularPosts = (props) => {
           { featuredPost.map((post) => (
             <div key={post.wordpress_id} className="column">
               <Link to={post.path} className="similar-post-card" >
-                { (post.featured_image && post.featured_image.full.localFile.childImageSharp.fluid) ?
+                { (post.featured_image && post.featured_image.full && post.featured_image.full.localFile && post.featured_image.full.localFile.childImageSharp.fluid) ?
                 <Img className="similar-post-card-image" sizes={{ ...post.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> :
-                <Img className="similar-post-card-image" sizes={{ ...props.data.placeholderImage.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> }
+                <Img className="similar-post-card-image" sizes={{ ...placeholderImage.childImageSharp.fluid, aspectRatio: 1 / 1 }} alt={(post.featured_image && post.featured_image.alt_text) || 'post image'}  /> }
               </Link>
 
                 <div className="similar-post-card-content">
