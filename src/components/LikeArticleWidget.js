@@ -1,9 +1,19 @@
 import React, { useState } from 'react'
 import pawImg from "../images/paw_no.png"
-import {Formik, Form, Field} from 'formik'
+import {Formik, Form, Field, ErrorMessage} from 'formik'
 import axios from 'axios'
 import Dialog from '@material-ui/core/Dialog'
 import ContactUsSection from "./homepage/contact-us"
+
+const validate = (values) => {
+  const errors = {};
+
+  if (!values.feedback) {
+    errors.feedback = 'Required';
+  }
+
+  return errors;
+};
 
 const ThankYouMsg = () => <span>Thank you so much for making petplace.com even better web destination for us and our furry friends!</span>
 
@@ -36,6 +46,7 @@ const FormContent = (successMsg, setSuccessMsg, url, wordpress_id) => {
     ThankYouMsg() :
     <Formik
       initialValues={{ feedback: '' }} 
+      validate={validate}
       onSubmit={({feedback}, actions) => {
         const helpful = 'no'
         HandleSubmit(setSuccessMsg, url, wordpress_id, helpful, feedback)
@@ -46,6 +57,7 @@ const FormContent = (successMsg, setSuccessMsg, url, wordpress_id) => {
           <span>How can we improve this article?</span>
           <Form>
             <Field name="feedback" component="textarea" placeholder="Type your comment" />
+            <ErrorMessage component="div" className="error" name="feedback" />
             <button type="submit">SEND</button>
           </Form>
         </div>
