@@ -11,8 +11,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <script async="async" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-        <script async="async" src="https://cdn.p-n.io/pushly-sdk.min.js?domain_key=cfOCEQj2H76JJXktWCy3uK0OZCb1DMbfNUnq"></script>
+        <script src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" async></script>
+        <script src="https://cdn.p-n.io/pushly-sdk.min.js?domain_key=cfOCEQj2H76JJXktWCy3uK0OZCb1DMbfNUnq" async></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
