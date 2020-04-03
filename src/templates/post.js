@@ -20,8 +20,9 @@ import Helmet from "react-helmet"
 import {Link} from 'gatsby'
 import { filterAuthorsLink, filterFaqPosts } from '../components/functions'
 import {
-  isMobile
+  isMobile, isMobileOnly
 } from "react-device-detect";
+import LikeArticleWidget from '../components/LikeArticleWidget'
 class Post extends Component  {
 
   componentDidMount() {
@@ -113,6 +114,7 @@ class Post extends Component  {
                   </div>
                 </div>
                 {isMobile ? <AdMobile /> : <AdSet /> }
+                {isMobileOnly ? null : <LikeArticleWidget url={post.path} wordpress_id={post.wordpress_id} />}
                 <Sticky enabled={true} top={20} bottomBoundary='.single-post-sidebar'>
                     <div className="share-icons-vertical">
                       <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
@@ -127,6 +129,7 @@ class Post extends Component  {
                     __html: post.content
                   }}
                 />
+                { isMobileOnly ? <LikeArticleWidget url={post.path} wordpress_id={post.wordpress_id} /> : null }
                 <hr />
                 <div className="share-icons-horizontal">
                   <p>Share:</p>
