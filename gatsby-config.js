@@ -1,6 +1,10 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
+const d = new Date();
+const pastYear = d.getFullYear() - 1;
+d.setFullYear(pastYear);
+const lastYear = d.toISOString()
 
 module.exports = {
   siteMetadata: {
@@ -121,7 +125,7 @@ module.exports = {
             },
             query: `
               {
-                allWordpressPost {
+                allWordpressPost(filter: {date: {gt: "${lastYear}"}}) {
                   edges {
                     node {
                       excerpt
