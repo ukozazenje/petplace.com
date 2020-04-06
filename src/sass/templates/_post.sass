@@ -91,6 +91,8 @@
   .single-post-content
     padding-left: 1.5rem
     padding-right: 1.5rem
+    img, figure 
+      max-width: 100%
     a
       color: $orange
     ul
@@ -211,6 +213,17 @@
     .similar-post-card-image
       border-radius: 6px
       min-width: 120px
+
+  .hide-mobile
+    display: none
+    +tablet 
+      display: block
+
+  .hide-desktop
+    display: block
+    +tablet 
+      display: none
+
 .next-post-section
   text-align: center
   padding-top: 90px
