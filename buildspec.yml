@@ -4,19 +4,27 @@ phases:
   install:
     commands:
       - npm update -g npm
-      - echo node -v
-      - node -v
-      - echo npm -v
-      - npm -v
-      - echo install yarn...
       - npm install -g yarn
-      - echo yarn -v
+      - node -v
+      - npm -v
       - yarn -v
     runtime-versions:
       nodejs: 10
   build:
     commands:
-       - yarn install
-       - yarn build
-       - aws s3 sync public s3://$S3_BUCKET --quiet --delete --exclude "robots.txt" --exclude "google8cf57491ab487f5f.html"
-       - aws cloudfront create-invalidation --distribution-id $CLOUD_FRONT_ID --paths '/*'
+      - yarn install
+      - yarn build
+
+      # the name of the folder based on the timestamp
+      - export CF_DATE=$( date '+/%Y%m%d%H%M%S' )
+      - aws s3 sync public s3://$S3_BUCKET$CF_DATE --quiet
+      - aws s3 cp s3://$S3_BUCKET/robots.txt s3://$S3_BUCKET$CF_DATE/
+      - aws s3 cp s3://$S3_BUCKET/google8cf57491ab487f5f.html s3://$S3_BUCKET$CF_DATE/
+
+      # get the current distribution, modify it and send the update
+      - aws cloudfront get-distribution-config --id $CLOUD_FRONT_ID > cf_config.json
+      - export IF_MATCH=`jq -r '.ETag' cf_config.json`
+      - jq '.DistributionConfig' cf_config.json > updated_cf_0.json
+      - jq --arg path "$CF_DATE" '.Origins.Items[0].OriginPath=$path' updated_cf_0.json > updated_cf_1.json
+      - cat updated_cf_1.json
+      - aws cloudfront update-distribution --distribution-config file://updated_cf_1.json --id $CLOUD_FRONT_ID --if-match "$IF_MATCH"
