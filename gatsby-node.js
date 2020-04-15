@@ -210,6 +210,43 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
     .then(() => {
+      return graphql(`
+        {
+          allWordpressBreedPosts {
+            edges {
+              node {
+                id
+                slug
+              }
+            }
+          }
+        }
+      `)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const breedTemplate = path.resolve(`./src/templates/breed.js`)
+
+      // In production builds, filter for only published posts.
+      const allBreeds = result.data.allWordpressBreedPosts.edges
+
+      // Iterate over the array of posts
+      _.each(allBreeds, ({ node: breed }, key) => {
+        // Create the Gatsby page for this WordPress post
+        createPage({
+          path: `/breed/${breed.slug}`,
+          component: breedTemplate,
+          context: {
+            id: breed.id,
+          },
+        })
+      })
+    })
+    .then(() => {
       return axios.get('http://staging.ppl.torchte.ch/wp-json/ttg/v2/vetlocator').then( res => res.data)
     })
     .then(result => {

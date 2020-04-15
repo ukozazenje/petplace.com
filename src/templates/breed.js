@@ -16,6 +16,8 @@ import trainingImg from '../images/training.png'
 import MobileSlider from "../components/breed/mobileSlider"
 import { isMobile } from "react-device-detect";
 import Img from 'gatsby-image'
+import { setBreedColor } from "../components/functions"
+import ContactUsSection from "../components/homepage/contact-us"
 
 const settings = {
   dots: false,
@@ -59,7 +61,7 @@ const factsSettings = {
       },
     },
     {
-      breakpoint: 1020,
+      breakpoint: 1023,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -88,7 +90,9 @@ const attributeLevel = (level) => {
 
 const Breed = ({data}) => {
 
-  const facts = data.allWordpressBreedPosts.edges[0].node.acf.facts
+  const facts = data.wordpressBreedPosts.acf.facts
+  const breeds_to_explore = data.wordpressBreedPosts.breeds_to_explore
+  console.log(breeds_to_explore)
   const { 
     height,
     weight,
@@ -123,10 +127,10 @@ const Breed = ({data}) => {
     about_image,
     history_image,
 
-   } = data.allWordpressBreedPosts.edges[0].node.acf
-  const title = data.allWordpressBreedPosts.edges[0].node.title
-  const content = data.allWordpressBreedPosts.edges[0].node.content
-  const featured = data.allWordpressBreedPosts.edges[0].node.featured
+   } = data.wordpressBreedPosts.acf
+  const title = data.wordpressBreedPosts.title
+  const content = data.wordpressBreedPosts.content
+  const featured = data.wordpressBreedPosts.featured
   console.log(nutrition)
   const [care, setCare] = useState({
     nutrition: true
@@ -159,8 +163,12 @@ const Breed = ({data}) => {
   return (
     <Layout>
       <section className="hero-section">
-        {/* <Img sizes={{...childImageSharp.fluid, aspectRatio: 16 / 8}} alt="pet care" /> */}
-        <Img sizes={{ ...featured.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }}  />
+        <div className="is-hidden-touch">
+          <Img sizes={{ ...featured.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt='breed' />
+        </div>
+        <div className="is-hidden-desktop">
+          <Img sizes={{ ...featured.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt='breed' />
+        </div>
       </section>
       <div className="breed-generals">
         <div className="container is-fullhd">
@@ -174,23 +182,33 @@ const Breed = ({data}) => {
             <div className="breed-generals-column general-attributes-wrapper">
               <div className="general-attributes">
                 <span>Height</span>
-                <span>23-28"</span>
+                <span dangerouslySetInnerHTML={{
+                  __html: height
+                }} />
               </div>
               <div className="general-attributes">
                 <span>Weight</span>
-                <span>65-115 Ib</span>
+                <span dangerouslySetInnerHTML={{
+                  __html: weight
+                }} />
               </div>
               <div className="general-attributes">
                 <span>Type</span>
-                <span>Working</span>
+                <span dangerouslySetInnerHTML={{
+                  __html: type
+                }} />
               </div>
               <div className="general-attributes">
                 <span>Life Expectancy</span>
-                <span>10-13 years</span>
+                <span dangerouslySetInnerHTML={{
+                  __html: life_expectancy
+                }} />
               </div>
               <div className="general-attributes">
                 <span>Area of Origin</span>
-                <span>Japan</span>
+                <span dangerouslySetInnerHTML={{
+                  __html: area_of_origin
+                }} />
               </div>
             </div>
           </div>
@@ -259,18 +277,18 @@ const Breed = ({data}) => {
             </div>
           </div>
           <div className="history-wrapper">
-            <h3 dangerouslySetInnerHTML={{
-              __html: title
-            }} />
-            <h4>History</h4>
             <div className="columns">
-              <div className="column">
-                <div className="history-content" dangerouslySetInnerHTML={{
-                  __html: history
-                }} />
-              </div>
               <div className="column history-image-wrapper">
                 <Img fluid={history_image.localFile.childImageSharp.fluid} />
+              </div>
+              <div className="column history-content">
+                <h3 dangerouslySetInnerHTML={{
+                  __html: title
+                }} />
+                <h4>History</h4>
+                <div dangerouslySetInnerHTML={{
+                  __html: history
+                }} />
               </div>
             </div>
           </div>
@@ -399,6 +417,15 @@ const Breed = ({data}) => {
             <div className="column">
               <div className="breed-standards-list">
                 <h3>Breed Standard</h3>
+                <select className="search-select" onChange={ (e) => setBreedStandard({ [e.target.value]: true })}>
+                  <option value="general_appearance">General Appearance</option>
+                  <option value="head">Head</option>
+                  <option value="body">Body</option>
+                  <option value="tail">Tail</option>
+                  <option value="forequarters">Forequarters</option>
+                  <option value="coat">Coat</option>
+                  <option value="hindquarters">Hindquarters</option>
+                </select>
                 <ul>
                   <li onClick={ () => setBreedStandard({general_appearance: true})}>General Appearance</li>
                   <li onClick={ () => setBreedStandard({head: true})}>Head</li>
@@ -475,7 +502,7 @@ const Breed = ({data}) => {
                 {facts.map( (fact , index) => (
                   <div className="fact-slide">
                     <div className="fact-slide-content">
-                      <h4>{index + 1}</h4>
+                      <h4 className={`${setBreedColor(index)}`}>{index + 1}</h4>
                       <p dangerouslySetInnerHTML={{
                         __html: fact.post_content
                       }} />
@@ -487,83 +514,112 @@ const Breed = ({data}) => {
           </div>
         </div>
       </section>
+      <section className="section breeds-to-explore-section">
+        <div className="container is-fullhd">
+          <h3>Other Breeds to Explore</h3>
+          <Slider {...factsSettings}>
+            {breeds_to_explore.map( (breed, index) => (
+              <div className={`breeds_to_explore-slide`}>
+                <div className="breeds_to_explore-content">
+                  <Img sizes={{...breed.featured_img.localFile.childImageSharp.fluid, aspectRatio: 1/1}} />
+                  <div className={`breeds_to_explore-title ${setBreedColor(index)}`} dangerouslySetInnerHTML={{
+                    __html: breed.post_title
+                  }} />
+                </div>
+              </div>
+            ) )}
+          </Slider>
+        </div>
+      </section>
+      <ContactUsSection />
     </Layout>
   )
   
 }
-export const query = graphql`
-  {
-    allWordpressBreedPosts {
-      edges {
-        node {
-          title
-          content
-          featured {
-            source_url
-            alt_text
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1920, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
+
+export const pageQuery = graphql`
+  query BreedPage($id: String!){
+    wordpressBreedPosts(id: { eq: $id }) {
+      title
+      content
+      featured {
+        source_url
+        alt_text
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1920, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      acf {
+        height
+        weight
+        type
+        life_expectancy
+        area_of_origin
+        energy_level
+        playfulness
+        friendliness_to_dogs
+        friendliness_to_strangers
+        exercise_requirements
+        affection_level
+        friendliness_to_other_pets
+        watchfulness
+        grooming_requirements
+        vocality
+        history
+        nutrition
+        grooming
+        health
+        training
+        exercise
+        puppy_image
+        puppy
+        general_appearance
+        head
+        body
+        tail
+        forequarters
+        coat
+        hindquarters
+        facts {
+          wordpress_id
+          post_content 
+        }
+        history_image {
+          source_url
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920, quality: 100) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
-          acf {
-            height
-            weight
-            type
-            life_expectancy
-            area_of_origin
-            energy_level
-            playfulness
-            friendliness_to_dogs
-            friendliness_to_strangers
-            exercise_requirements
-            affection_level
-            friendliness_to_other_pets
-            watchfulness
-            grooming_requirements
-            vocality
-            history
-            nutrition
-            grooming
-            health
-            training
-            exercise
-            puppy_image
-            puppy
-            general_appearance
-            head
-            body
-            tail
-            forequarters
-            coat
-            hindquarters
-            facts {
-              wordpress_id
-              post_content 
-            }
-            history_image {
-              source_url
-              alt_text
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1920, quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
+        }
+        about_image {
+          source_url
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920, quality: 100) {
+                ...GatsbyImageSharpFluid
               }
             }
-            about_image {
-              source_url
-              alt_text
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1920, quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
+          }
+        }
+      }
+      breeds_to_explore {
+        post_title
+        featured_img {
+          source_url
+          alt_text
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920, quality: 100) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
