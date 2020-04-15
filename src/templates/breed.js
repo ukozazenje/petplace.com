@@ -115,8 +115,6 @@ const Breed = ({data}) => {
     health,
     training,
     exercise,
-    puppy_image,
-    puppy,
     general_appearance,
     head,
     body,
@@ -575,8 +573,6 @@ export const pageQuery = graphql`
         health
         training
         exercise
-        puppy_image
-        puppy
         general_appearance
         head
         body
