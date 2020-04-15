@@ -134,7 +134,7 @@ const Breeds = ({ data }) => {
                       ))
                     }
                   <div className="pagination">
-                    <Pagination limit={1} total={displayBreeds.length} currentPage={currentPage} onPageChange={(page) => handlePageChange(page)} />
+                    <Pagination limit={6} total={displayBreeds.length} currentPage={currentPage} onPageChange={(page) => handlePageChange(page)} />
                   </div>
                 </div>
               </div>
