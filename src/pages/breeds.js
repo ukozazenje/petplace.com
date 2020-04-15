@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import {Formik, Field, Form} from 'formik'
 import { Link, navigate } from 'gatsby'
 import Img from 'gatsby-image'
@@ -13,112 +13,64 @@ import AutoSuggest from 'react-autosuggest';
 import Autocomplete from '../components/Autocomplete'
 import AutsideAlert from '../components/autsideAlert'
 import Pagination from '../components/search/pagination'
-
-// const getSuggestionValue = suggestion => suggestion.name;
- 
-// // Use your imagination to render suggestions.
-// const renderSuggestion = suggestion => (
-//   <div>
-//     {suggestion.name}
-//   </div>
-// );
+import FilterCheckBox from '../components/breed/filterCheckBox'
+import useFilterBreeds from '../components/breed/useFilterBreeds'
 
 const Breeds = ({ data }) => {
+
+  const isInitialMount = useRef(true);
   const breeds = data.allWordpressBreedPosts.edges
-  // const [totalPages, setTotalPages] = useState(0)
-  // const [currentPage, setCurrentPage] = useState(1)
-  // const [currentPosts, setCurrentPosts] = useState([])
-  const limit = 2
-
-
-  // useEffect(() => {
-  //   setCurrentPosts(data.allWordpressBreedPosts.edges.slice(0, limit))
-  //   setCurrentPage(1)
-  // }, )
-
-  // const handlePageChange = (page) => {
-  
-  //   const offset = (page - 1) * limit;
-  //   const currentBreeds= breeds.slice(offset, offset + limit);
-  //   window.scrollTo({
-  //     top: 100,
-  //     left: 0,
-  //     behavior: 'smooth'
-  //   });
-  //   setCurrentPage(page)
-  //   setCurrentPosts(currentBreeds)
-  //   // this.setState({
-  //   //   currentPage: page,
-  //   //   currentPosts,
-  //   // });
-  // };
+  const limit = 1
 
   const [filterType, setFilterType] = useState(true)
   const [menu, setMenu] = useState(false)
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  
   const breedsCopy = [...breeds.map(({node:breed}) =>   {
     return  {
       title: breed.title,
       slug: breed.slug
     }
   })];
-  console.log(breedsCopy)
-  // console.log(lowerCasedCompanies)
-  // const getSuggestions = (value ) => {
-  //   return lowerCasedCompanies.filter(language =>
-  //     language.startsWith(value.trim().toLowerCase())
-  //   );
-  // }
+  const [displayBreeds, setDisplayBreeds] = useState([...breeds])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [currentBreeds, setCurrentBreeds] = useState(displayBreeds.slice(0, limit))
+  const [types, setTypes] = useState([])
+  
+  const handleChange = (value) => {
+    types.includes(value) ? setTypes(types.filter( type => type !== value)) : setTypes( [...types, value] )
+  }
+
+  const handlePageChange = (page) => {
+    console.log(page)
+    const offset = (page - 1) * limit;
+    setCurrentBreeds(displayBreeds.slice(offset, offset + limit))
+    setCurrentPage(page)
+
+  }
+
+  useFilterBreeds(isInitialMount, breeds, setDisplayBreeds, setCurrentPage, handlePageChange, types)
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+   } else { 
+     handlePageChange(1)
+   }
+  }, [displayBreeds])
+
   return (
     <Layout>
       <div className="flex-container search-breed-container">
         <section className="container is-fullhd search-hero-section-flex">
           <div className="container is-fullhd form-container">
-            
-
-              <div className="form-wrapper">
-                <h1>Find Your<br />
-                Perfect Dog Breed</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                {/* <Formik
-                  initialValues={{title: ""}}
-                  // onSubmit={(values, actions) => {
-                  //   this.search(values.title)
-                  // }}
-                >
-                  {(props) => (
-                    <Form>
-                      <Field type="text" name="title" placeholder="Search...." className="search-input" />
-                      <button type="submit" className="search-button" >Search</button>
-                      {props.errors.title && props.touched.title ? <div className="form-error ">{props.errors.title}</div> : null}
-                    </Form>
-                  )}
-                </Formik> */}
-                {/* <AutoSuggest
-                    suggestions={suggestions}
-                    onSuggestionsClearRequested={() => setSuggestions([])}
-                    onSuggestionsFetchRequested={({ value }) => {
-                      setValue(value);
-                      console.log(value)
-                      setSuggestions(getSuggestions(value));
-                    }}
-                    onSuggestionSelected= {console.log('zeko')}
-                    getSuggestionValue={suggestion => suggestion}
-                    renderSuggestion={suggestion => <span onClick={ () => navigate(`/breed/${suggestion}`)} >{suggestion}</span>}
-                    inputProps={{
-                      placeholder: "Type 'c'",
-                      value: value,
-                      className: "search-input",
-                      onChange: (e) => setValue(e.target.value)
-                    }}
-                    highlightFirstSuggestion={true}
-                  /> */}
-                  <Autocomplete
-                    suggestions={[...breedsCopy]}
-                  />
-              </div>
-            
+            <div className="form-wrapper">
+              <h1>Find Your<br />
+              Perfect Dog Breed</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <Autocomplete suggestions={[...breedsCopy]} />
+            </div> 
           </div>
         </section>
         <div className="desktop-img">
@@ -141,37 +93,19 @@ const Breeds = ({ data }) => {
             <div className={`category-filters search-filters ${menu ? 'is-active' : ''}`}>
               <h3 onClick={ () => setFilterType(filterType => !filterType) }>Type <span className="filter-type-icon"><img src={ filterType ? upArrow : downArrow } /></span></h3>
               <div className={`filter-type ${ filterType ? "is-active" : ""} `}>
-                <div className="checkbox-wrapper">
-                  <input type="checkbox" checked={true} name="Sporting" />
-                  <span>Sporting</span>
-                </div>
-                <div className="checkbox-wrapper">
-                  <input type="checkbox" checked={true} name="Hound" />
-                  <span>Hound</span>
-                </div>
-                <div className="checkbox-wrapper">
-                  <input type="checkbox" checked={true} name="Terrier" />
-                  <span>Terrier</span>
-                </div>
-                <div className="checkbox-wrapper">
-                  <input type="checkbox" checked={true} name="Toy" />
-                  <span>Toy</span>
-                </div>
-                <div className="checkbox-wrapper">
-                  <input type="checkbox" checked={true} name="Non-Sporting" />
-                  <span>Non-Sporting</span>
-                </div>
-                <div className="checkbox-wrapper">
-                  <input type="checkbox" checked={true} name="Herding" />
-                  <span>Herding</span>
-                </div>
+                <FilterCheckBox checkBoxName="Sporting" handleChange={handleChange} types={types}/>
+                <FilterCheckBox checkBoxName="Hound" handleChange={handleChange} types={types}/>
+                <FilterCheckBox checkBoxName="Terrier" handleChange={handleChange} types={types}/>
+                <FilterCheckBox checkBoxName="Non-Sporting" handleChange={handleChange} types={types}/>
+                <FilterCheckBox checkBoxName="Toy" handleChange={handleChange} types={types}/>
+                <FilterCheckBox checkBoxName="Herding" handleChange={handleChange} types={types}/>
               </div>
             </div>
             </div>
               <div className="column">
                   <div className="columns posts-list-container">
                     {
-                      breeds.map(({node:breed}) => (
+                      currentBreeds.map(({node:breed}) => (
                         <div
                           className="column is-one-third"
                           key={breed.id}
@@ -189,7 +123,7 @@ const Breeds = ({ data }) => {
                             <div className="card-content">
                               <div className="card-title">
                                 <h3>
-                                  <Link to={`${breed.slug}`}>
+                                  <Link to={`/breed/${breed.slug}`}>
                                     {breed.title.replace(/&amp;/g, '&') || 'title'}
                                   </Link>
                                 </h3>
@@ -199,15 +133,14 @@ const Breeds = ({ data }) => {
                         </div>
                       ))
                     }
-                    {/* <div className="pagination">
-                    <Pagination limit={limit} total={total} currentPage={currentPage} onPageChange={this.handlePageChange} />
-                  </div> */}
+                  <div className="pagination">
+                    <Pagination limit={1} total={displayBreeds.length} currentPage={currentPage} onPageChange={(page) => handlePageChange(page)} />
+                  </div>
                 </div>
               </div>
           </div>
         </div>
       </section>
-      {/* <Pagination limit={limit} total={breeds.length} currentPage={currentPage} onPageChange={handlePageChange} /> */}
     </Layout>
   )
 }
