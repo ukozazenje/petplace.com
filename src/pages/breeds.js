@@ -20,7 +20,7 @@ const Breeds = ({ data }) => {
 
   const isInitialMount = useRef(true);
   const breeds = data.allWordpressBreedPosts.edges
-  const limit = 1
+  const limit = 6
 
   const [filterType, setFilterType] = useState(true)
   const [menu, setMenu] = useState(false)
@@ -60,6 +60,7 @@ const Breeds = ({ data }) => {
    }
   }, [displayBreeds])
 
+  console.log(displayBreeds)
   return (
     <Layout>
       <div className="flex-container search-breed-container">
@@ -134,7 +135,7 @@ const Breeds = ({ data }) => {
                       ))
                     }
                   <div className="pagination">
-                    <Pagination limit={6} total={displayBreeds.length} currentPage={currentPage} onPageChange={(page) => handlePageChange(page)} />
+                    <Pagination limit={limit} total={displayBreeds.length} currentPage={currentPage} onPageChange={(page) => handlePageChange(page)} />
                   </div>
                 </div>
               </div>
