@@ -1,12 +1,10 @@
 import React, {useState} from 'react'
 import Layout from '../components/layout'
-import AkitaImg from '../static/images/akita'
-import akita from '../images/akita-breed.png'
-import one from '../images/1.svg'
-import two from '../images/2.svg'
-import three from '../images/3.svg'
-import four from '../images/4.svg'
-import five from '../images/5.svg'
+// import one from '../images/1.svg'
+// import two from '../images/2.svg'
+// import three from '../images/3.svg'
+// import four from '../images/4.svg'
+// import five from '../images/5.svg'
 import Slider from "react-slick";
 import exerciseImg from '../images/exercise.png'
 import groomingImg from '../images/grooming.png'
@@ -18,6 +16,8 @@ import { isMobile } from "react-device-detect";
 import Img from 'gatsby-image'
 import { setBreedColor } from "../components/functions"
 import ContactUsSection from "../components/homepage/contact-us"
+import BreedsToExplore from "../components/breed/breedsToExplore"
+import AttributesAndHistory from '../components/breed/attributesAndHistory'
 
 const settings = {
   dots: false,
@@ -53,7 +53,7 @@ const factsSettings = {
   slidesToScroll: 1,
   responsive: [
     {
-      breakpoint: 1300,
+      breakpoint: 1200,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
@@ -71,22 +71,22 @@ const factsSettings = {
   ]
 }
 
-const attributeLevel = (level) => {
-  switch (level) {
-    case "1":
-      return <img src={one} />
-    case "2":
-      return <img src={two} />
-    case "3":
-      return <img src={three} />
-    case "4":
-      return <img src={four} />
-    case "5":
-      return <img src={five} />
-    default:
-      break;
-  }
-}
+// const attributeLevel = (level) => {
+//   switch (level) {
+//     case "1":
+//       return <img src={one} />
+//     case "2":
+//       return <img src={two} />
+//     case "3":
+//       return <img src={three} />
+//     case "4":
+//       return <img src={four} />
+//     case "5":
+//       return <img src={five} />
+//     default:
+//       break;
+//   }
+// }
 
 const Breed = ({data}) => {
 
@@ -131,7 +131,7 @@ const Breed = ({data}) => {
   const title = data.wordpressBreedPosts.title
   const content = data.wordpressBreedPosts.content
   const featured = data.wordpressBreedPosts.featured
-  console.log(nutrition)
+
   const [care, setCare] = useState({
     nutrition: true
   })
@@ -147,7 +147,7 @@ const Breed = ({data}) => {
           __html: heading
         }} />
         {/* <h3>{heading}</h3> */}
-        <p dangerouslySetInnerHTML={{
+        <div dangerouslySetInnerHTML={{
           __html: content
         }} />
       </div>
@@ -167,7 +167,7 @@ const Breed = ({data}) => {
           <Img sizes={{ ...featured.localFile.childImageSharp.fluid, aspectRatio: 22 / 7 }} alt='breed' />
         </div>
         <div className="is-hidden-desktop">
-          <Img sizes={{ ...featured.localFile.childImageSharp.fluid, aspectRatio: 16 / 8 }} alt='breed' />
+          <Img sizes={{ ...featured.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt='breed' />
         </div>
       </section>
       <div className="breed-generals">
@@ -214,6 +214,24 @@ const Breed = ({data}) => {
           </div>
         </div>
       </div>
+      <div className="is-hidden-desktop">
+        <AttributesAndHistory 
+          hideHistory={true}
+          energy_level={energy_level} 
+          playfulness={playfulness} 
+          friendliness_to_dogs={friendliness_to_dogs} 
+          friendliness_to_other_pets={friendliness_to_other_pets} 
+          friendliness_to_strangers={friendliness_to_strangers} 
+          exercise_requirements={exercise_requirements} 
+          affection_level={affection_level} 
+          watchfulness={watchfulness} 
+          vocality={vocality} 
+          grooming_requirements={grooming_requirements} 
+          history={history} 
+          history_image={history_image}
+          title={title}
+        />
+      </div>
       <section className="section breed-main-section">
         <div className="container is-fullhd">
           <div className="columns">
@@ -226,7 +244,42 @@ const Breed = ({data}) => {
           </div>
         </div>
       </section>
-      <section className="section attributes-section">
+      <div className="is-hidden-touch">
+        <AttributesAndHistory 
+          energy_level={energy_level} 
+          playfulness={playfulness} 
+          friendliness_to_dogs={friendliness_to_dogs} 
+          friendliness_to_other_pets={friendliness_to_other_pets} 
+          friendliness_to_strangers={friendliness_to_strangers} 
+          exercise_requirements={exercise_requirements} 
+          affection_level={affection_level} 
+          watchfulness={watchfulness} 
+          vocality={vocality} 
+          grooming_requirements={grooming_requirements} 
+          history={history} 
+          history_image={history_image}
+          title={title}
+        />
+      </div>
+      <div className="is-hidden-desktop">
+        <AttributesAndHistory 
+          hideAttributes={true}
+          energy_level={energy_level} 
+          playfulness={playfulness} 
+          friendliness_to_dogs={friendliness_to_dogs} 
+          friendliness_to_other_pets={friendliness_to_other_pets} 
+          friendliness_to_strangers={friendliness_to_strangers} 
+          exercise_requirements={exercise_requirements} 
+          affection_level={affection_level} 
+          watchfulness={watchfulness} 
+          vocality={vocality} 
+          grooming_requirements={grooming_requirements} 
+          history={history} 
+          history_image={history_image}
+          title={title}
+        />
+      </div>
+      {/* <section className="section attributes-section">
         <div className="container is-fullhd">
           <div className="columns">
             <div className="column columns attributes-wrapper">
@@ -292,125 +345,130 @@ const Breed = ({data}) => {
               </div>
             </div>
           </div>
-          </div>
-      </section>
-      { isMobile ? <MobileSlider /> : <section className="section care-section">
-        <div className="container is-fullhd">
-          <h3 dangerouslySetInnerHTML={{
-            __html: `${title} Care`
-          }} />
-          <div className="columns care-columns">
-            <div className="column">
-              <div onClick={ () => setCare({nutrition: true})} className={`care-card ${ care && care.nutrition ? "active" : ""}`}>
-                <div className="image-wrapper">
-                  <img src={nutritionImg} />
-                </div>
-                <p>Nutrition</p>
-              </div>
-            </div>
-            <div className="column">
-              <div onClick={ () => setCare({grooming: true})} className={`care-card ${ care && care.grooming ? "active" : ""}`}>
-                <div className="image-wrapper">
-                  <img src={groomingImg} />
-                </div>
-                <p>Grooming</p>
-              </div>
-            </div>
-            <div className="column">
-              <div onClick={ () => setCare({health: true})} className={`care-card ${ care && care.health ? "active" : ""}`}>
-                <div className="image-wrapper">
-                  <img src={healthImg} />
-                </div>
-                <p>Health</p>
-              </div>
-            </div>
-            <div className="column">
-              <div onClick={ () => setCare({training: true})} className={`care-card ${ care && care.training ? "active" : ""}`}>
-                <div className="image-wrapper">
-                  <img src={trainingImg} />
-                </div>
-                <p>Training</p>
-              </div>
-            </div>
-            <div className="column">
-              <div onClick={ () => setCare({exercise: true})} className={`care-card ${ care && care.exercise ? "active" : ""}`}>
-                <div className="image-wrapper">
-                  <img src={exerciseImg} />
-                </div>
-                <p>Exercise</p>
-              </div>
-            </div>
-          </div>
-          {care && care.nutrition ? nutritionContent : null }
-          {care && care.grooming ? groomingContent : null }
-          {care && care.health ? healthContent : null }
-          {care && care.training ? trainingContent : null }
-          {care && care.exercise ? exerciseContent : null }
-          {/* <Slider {...settings}>
-            <div className="care-slider">
-              <div className="care-card">
-                <div className="image-wrapper">
-                  <img src={nutritionImg} />
-                </div>
-                <p>Nutrition</p>
-              </div>
-            </div>
-            <div className="care-slider">
-              <div onClick={ () => setNutrition({...isNutrition, nutrition: true})} className={`care-card ${isNutrition && isNutrition.grooming ? 'active' : ""}`}>
-                <div className="image-wrapper">
-                  <img src={groomingImg} />
-                </div>
-                <p>Grooming</p>
-              </div>
-            </div>
-            <div className="care-slider">
-              <div className="care-card">
-                <div className="image-wrapper">
-                  <img src={healthImg} />
-                </div>
-                <p>Health</p>
-              </div>
-            </div>
-            <div className="care-slider">
-              <div className="care-card">
-                <div className="image-wrapper">
-                  <img src={trainingImg} />
-                </div>
-                <p>Training</p>
-              </div>
-            </div>
-            <div className="care-slider">
-              <div className="care-card">
-                <div className="image-wrapper">
-                  <img src={exerciseImg} />
-                </div>
-                <p>Exercise</p>
-              </div>
-            </div>
-          </Slider> */}
-          {/* {
-            isNutrition && isNutrition.nutrition ? nutrition : null
-          } */}
-          {/* {
-            isNutrition && isNutrition.grooming ? grooming : null
-          }
-          {
-            isNutrition && isNutrition.health ? health : null
-          }
-          {
-            isNutrition && isNutrition.training ? training : null
-          }
-          {
-            isNutrition && isNutrition.exercise ? exercise : null
-          } */}
-          {/* <div className="columns care-content">
-            <div className="column">
-              <h3>Nutrition</h3>
-              <p>The Shiba Inu has a compact build. The standard Shiba should look like a small Akita. They stand 13.5-15.5 inches tall and weigh 20-30 pounds.</p>
-            </div>
-          </div> */}
         </div>
-        </section> }
+      </section> */}
+      <div className="is-hidden-desktop">
+        <MobileSlider nutrition={nutrition} grooming={grooming} health={health} training={training} exercise={exercise} />
+      </div>
+      <div className="is-hidden-touch">
+        <section className="section care-section">
+          <div className="container is-fullhd">
+            <h3 dangerouslySetInnerHTML={{
+              __html: `${title} Care`
+            }} />
+            <div className="columns care-columns">
+              <div className="column">
+                <div onClick={ () => setCare({nutrition: true})} className={`care-card ${ care && care.nutrition ? "active" : ""}`}>
+                  <div className="image-wrapper">
+                    <img src={nutritionImg} />
+                  </div>
+                  <p>Nutrition</p>
+                </div>
+              </div>
+              <div className="column">
+                <div onClick={ () => setCare({grooming: true})} className={`care-card ${ care && care.grooming ? "active" : ""}`}>
+                  <div className="image-wrapper">
+                    <img src={groomingImg} />
+                  </div>
+                  <p>Grooming</p>
+                </div>
+              </div>
+              <div className="column">
+                <div onClick={ () => setCare({health: true})} className={`care-card ${ care && care.health ? "active" : ""}`}>
+                  <div className="image-wrapper">
+                    <img src={healthImg} />
+                  </div>
+                  <p>Health</p>
+                </div>
+              </div>
+              <div className="column">
+                <div onClick={ () => setCare({training: true})} className={`care-card ${ care && care.training ? "active" : ""}`}>
+                  <div className="image-wrapper">
+                    <img src={trainingImg} />
+                  </div>
+                  <p>Training</p>
+                </div>
+              </div>
+              <div className="column">
+                <div onClick={ () => setCare({exercise: true})} className={`care-card ${ care && care.exercise ? "active" : ""}`}>
+                  <div className="image-wrapper">
+                    <img src={exerciseImg} />
+                  </div>
+                  <p>Exercise</p>
+                </div>
+              </div>
+            </div>
+            {care && care.nutrition ? nutritionContent : null }
+            {care && care.grooming ? groomingContent : null }
+            {care && care.health ? healthContent : null }
+            {care && care.training ? trainingContent : null }
+            {care && care.exercise ? exerciseContent : null }
+            {/* <Slider {...settings}>
+              <div className="care-slider">
+                <div className="care-card">
+                  <div className="image-wrapper">
+                    <img src={nutritionImg} />
+                  </div>
+                  <p>Nutrition</p>
+                </div>
+              </div>
+              <div className="care-slider">
+                <div onClick={ () => setNutrition({...isNutrition, nutrition: true})} className={`care-card ${isNutrition && isNutrition.grooming ? 'active' : ""}`}>
+                  <div className="image-wrapper">
+                    <img src={groomingImg} />
+                  </div>
+                  <p>Grooming</p>
+                </div>
+              </div>
+              <div className="care-slider">
+                <div className="care-card">
+                  <div className="image-wrapper">
+                    <img src={healthImg} />
+                  </div>
+                  <p>Health</p>
+                </div>
+              </div>
+              <div className="care-slider">
+                <div className="care-card">
+                  <div className="image-wrapper">
+                    <img src={trainingImg} />
+                  </div>
+                  <p>Training</p>
+                </div>
+              </div>
+              <div className="care-slider">
+                <div className="care-card">
+                  <div className="image-wrapper">
+                    <img src={exerciseImg} />
+                  </div>
+                  <p>Exercise</p>
+                </div>
+              </div>
+            </Slider> */}
+            {/* {
+              isNutrition && isNutrition.nutrition ? nutrition : null
+            } */}
+            {/* {
+              isNutrition && isNutrition.grooming ? grooming : null
+            }
+            {
+              isNutrition && isNutrition.health ? health : null
+            }
+            {
+              isNutrition && isNutrition.training ? training : null
+            }
+            {
+              isNutrition && isNutrition.exercise ? exercise : null
+            } */}
+            {/* <div className="columns care-content">
+              <div className="column">
+                <h3>Nutrition</h3>
+                <p>The Shiba Inu has a compact build. The standard Shiba should look like a small Akita. They stand 13.5-15.5 inches tall and weigh 20-30 pounds.</p>
+              </div>
+            </div> */}
+          </div>
+        </section> 
+      </div>
       <section className="section breed-standards-section">
         <div className="container is-fullhd">
           <div className="columns">
@@ -442,49 +500,49 @@ const Breed = ({data}) => {
             <div className="column">
               {
                 breedStandard && breedStandard.general_appearance ? 
-                <p dangerouslySetInnerHTML={{
+                <div dangerouslySetInnerHTML={{
                   __html: general_appearance
                 }} /> :
                 null 
               }
               {
                 breedStandard && breedStandard.head ? 
-                <p dangerouslySetInnerHTML={{
+                <div dangerouslySetInnerHTML={{
                   __html: head
                 }} /> :
                 null 
               }
               {
                 breedStandard && breedStandard.body ? 
-                <p dangerouslySetInnerHTML={{
+                <div dangerouslySetInnerHTML={{
                   __html: body
                 }} /> :
                 null 
               }
               {
                 breedStandard && breedStandard.tail ? 
-                <p dangerouslySetInnerHTML={{
+                <div dangerouslySetInnerHTML={{
                   __html: tail
                 }} /> :
                 null 
               }
               {
                 breedStandard && breedStandard.forequarters ? 
-                <p dangerouslySetInnerHTML={{
+                <div dangerouslySetInnerHTML={{
                   __html: forequarters
                 }} /> :
                 null 
               }
               {
                 breedStandard && breedStandard.coat ? 
-                <p dangerouslySetInnerHTML={{
+                <div dangerouslySetInnerHTML={{
                   __html: coat
                 }} /> :                
                 null 
               }
               {
                 breedStandard && breedStandard.hindquarters ? 
-                <p dangerouslySetInnerHTML={{
+                <div dangerouslySetInnerHTML={{
                   __html: hindquarters
                 }} /> :
                 null 
@@ -514,23 +572,7 @@ const Breed = ({data}) => {
           </div>
         </div>
       </section>
-      <section className="section breeds-to-explore-section">
-        <div className="container is-fullhd">
-          <h3>Other Breeds to Explore</h3>
-          <Slider {...factsSettings}>
-            {breeds_to_explore.map( (breed, index) => (
-              <div className={`breeds_to_explore-slide`}>
-                <div className="breeds_to_explore-content">
-                  <Img sizes={{...breed.featured_img.localFile.childImageSharp.fluid, aspectRatio: 1/1}} />
-                  <div className={`breeds_to_explore-title ${setBreedColor(index)}`} dangerouslySetInnerHTML={{
-                    __html: breed.post_title
-                  }} />
-                </div>
-              </div>
-            ) )}
-          </Slider>
-        </div>
-      </section>
+      <BreedsToExplore breeds_to_explore={breeds_to_explore} />
       <ContactUsSection />
     </Layout>
   )
@@ -611,6 +653,7 @@ export const pageQuery = graphql`
       }
       breeds_to_explore {
         post_title
+        slug
         featured_img {
           source_url
           alt_text

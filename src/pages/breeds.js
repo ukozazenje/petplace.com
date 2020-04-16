@@ -4,8 +4,8 @@ import { Link, navigate } from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import HomeHeroImg from "../static/images/breedHomeImage"
-import MobileHeroImg from "../static/images/mobileHomeHeroImg"
-import TabletHeroImg from "../static/images/tabletHomeHeroImg"
+import MobileHeroImg from "../static/images/mobileBreedHomeHeroImage"
+import TabletHeroImg from "../static/images/tabletBreedHomeHeroImage"
 import NoImg from '../static/images/noPostImg'
 import downArrow from '../images/down-arrow.png'
 import upArrow from '../images/up-arrow.png'
@@ -15,7 +15,7 @@ import AutsideAlert from '../components/autsideAlert'
 import Pagination from '../components/search/pagination'
 import FilterCheckBox from '../components/breed/filterCheckBox'
 import useFilterBreeds from '../components/breed/useFilterBreeds'
-
+import BreedsToExplore from '../components/breed/otherBreedsToExplore'
 const Breeds = ({ data }) => {
 
   const isInitialMount = useRef(true);
@@ -142,6 +142,7 @@ const Breeds = ({ data }) => {
           </div>
         </div>
       </section>
+      <BreedsToExplore />
     </Layout>
   )
 }

@@ -16,11 +16,11 @@ const mobile_settings = {
 };
 
 
-const MobileSlider = () => {
+const MobileSlider = ({nutrition, grooming, health, training, exercise}) => {
   return (
     <section className="section care-section mobile-care-section">
       <div className="container is-fullhd">
-        <h3>Akita Inu Care</h3>
+        <h3>Care</h3>
         <Slider {...mobile_settings}>
           <div className="care-slider">
             <div className="care-card">
@@ -29,9 +29,10 @@ const MobileSlider = () => {
               </div>
               <p>Nutrition</p>
             </div>
-            <div className="mobile-slider-content">
-              <p>The Shiba Inu has a compact build. The standard Shiba should look like a small Akita. They stand 13.5-15.5 inches tall and weigh 20-30 pounds.</p>
-            </div>
+            <div className="mobile-slider-content" dangerouslySetInnerHTML={{
+              __html: nutrition
+            }}
+             />
           </div>
           <div className="care-slider">
             <div className={`care-card `}>
@@ -40,9 +41,10 @@ const MobileSlider = () => {
               </div>
               <p>Grooming</p>
             </div>
-            <div className="mobile-slider-content">
-              <p>The Shiba Inu has a compact build. The standard Shiba should look like a small Akita. They stand 13.5-15.5 inches tall and weigh 20-30 pounds.</p>
-            </div>
+            <div className="mobile-slider-content" dangerouslySetInnerHTML={{
+              __html: grooming
+            }}
+             />
           </div>
           <div className="care-slider">
             <div className="care-card">
@@ -51,9 +53,10 @@ const MobileSlider = () => {
               </div>
               <p>Health</p>
             </div>
-            <div className="mobile-slider-content">
-              <p>The Shiba Inu has a compact build. The standard Shiba should look like a small Akita. They stand 13.5-15.5 inches tall and weigh 20-30 pounds.</p>
-            </div>
+            <div className="mobile-slider-content" dangerouslySetInnerHTML={{
+              __html: health
+            }}
+             />
           </div>
           <div className="care-slider">
             <div className="care-card">
@@ -62,9 +65,10 @@ const MobileSlider = () => {
               </div>
               <p>Training</p>
             </div>
-            <div className="mobile-slider-content">
-              <p>The Shiba Inu has a compact build. The standard Shiba should look like a small Akita. They stand 13.5-15.5 inches tall and weigh 20-30 pounds.</p>
-            </div>
+            <div className="mobile-slider-content" dangerouslySetInnerHTML={{
+              __html: training
+            }}
+             />
           </div>
           <div className="care-slider">
             <div className="care-card">
@@ -73,9 +77,10 @@ const MobileSlider = () => {
               </div>
               <p>Exercise</p>
             </div>
-            <div className="mobile-slider-content">
-              <p>The Shiba Inu has a compact build. The standard Shiba should look like a small Akita. They stand 13.5-15.5 inches tall and weigh 20-30 pounds.</p>
-            </div>
+            <div className="mobile-slider-content" dangerouslySetInnerHTML={{
+              __html: exercise
+            }}
+             />
           </div>
         </Slider>
       </div>
