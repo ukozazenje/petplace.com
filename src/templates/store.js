@@ -44,7 +44,7 @@ class Store extends Component{
     }
     return (
       <Layout noSearch={false}>
-        <SEO title={`Store | ${this.props.pageContext.post_title}`} />
+        <SEO title={`Store | ${this.props.pageContext.post_title}`} description={`PetPlace’s Vet Locator provides operating hours & services offered by local clinics. Here’s info for ${this.props.pageContext.post_title} in ${this.props.pageContext.city}, ${this.props.pageContext.state}.`}/>
         <div className="vet-locator-page">
           <section className="section vet-locator-wrapper category-posts">
             <div className="container is-full-hd">
