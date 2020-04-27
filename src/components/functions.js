@@ -212,7 +212,7 @@ export const filterAuthorsLink = (author) => {
       return 'lori-savka'
     case 'Melissa Evans, LVT, VTS (ECC)': 
       return 'melissa-evans-lvt-vts-ecc'
-    case 'Carey Hemmelgarn, DVM. DACVECC':
+    case 'Carey Hemmelgarn, DVM DACVECC':
       return 'carey-hemmelgarn-dvm-dacvecc'
     default:
       return false

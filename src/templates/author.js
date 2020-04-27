@@ -9,13 +9,16 @@ import PopularPosts from '../components/categories/PopularPosts'
 import AuthorHeroImg from "../static/images/authorHeroImg"
 import rightArrow from '../images/right-arrow-bc.svg';
 import homeIcon from '../images/home_bread_crumb.svg';
+import SEO from '../components/seo'
 
+const regex = /(<([^>]+)>)/ig;
 class Author extends Component  {
 
   render(){
     const author = this.props.data.wordpressTtgUsers
     return (
       <Layout>
+        <SEO title={`${author.display_name} - Petplace `} description={author.meta_description || author.description.replace(regex, '')} />
         <section className="section single-post post-hero-section">
           <div className="container is-fullhd">
             <div className="breadcrumbs">
@@ -65,6 +68,7 @@ export const pageQuery = graphql`
       id
       img
       display_name
+      meta_description
       description
       slug
     }
