@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import ContactUs from '../components/homepage/contact-us'
 import Helmet from "react-helmet"
 import logo from "../images/PPlogo.jpg"
+import SEO from "../components/seo"
 const Page = ({data}) => {
   const page = data.wordpressPage
   return (
@@ -38,13 +39,14 @@ const Page = ({data}) => {
           }
         `}</script>
       </Helmet>
+      <SEO title={page.yoast_meta.yoast_wpseo_title} description={page.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}/>
       <section className={(`section page-content ${page.slug}`)}>
         <div className="container is-fullhd">
           <div className="single-post-content" 
               dangerouslySetInnerHTML={{
                 __html: page.content
               }}
-            />
+          />
         </div>
       </section>
       <ContactUs />
