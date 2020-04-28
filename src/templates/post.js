@@ -26,7 +26,7 @@ import LikeArticleWidget from '../components/LikeArticleWidget'
 import axios from 'axios'
 import CounterImg from '../images/footer-counter.svg'
 class Post extends Component  {
-
+  
   state = {
     likes: 0,
     likedPosts: [],
@@ -53,7 +53,7 @@ class Post extends Component  {
         liked: liked
       })
     }
-    axios.get(`https://hmq88fdojc.execute-api.us-east-1.amazonaws.com/default/prod?post_id=${this.props.data.wordpressPost.wordpress_id}`)
+    axios.get(`${process.env.GATSBY_GET_LIKED_POSTS_API}=${this.props.data.wordpressPost.wordpress_id}`)
     .then(res => 
       this.setState({
         likes: res.data.likes
@@ -72,7 +72,6 @@ class Post extends Component  {
     const minutes = d.getMinutes()
     const seconds = d.getSeconds()
     const timestamp = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`
-  
     const data = {
       post_id: wordpress_id,
       helpful,
@@ -80,11 +79,11 @@ class Post extends Component  {
       feedback: feedback || "none",
       timestamp,
     }
-    axios.post('https://mkhl1ii6eb.execute-api.us-east-1.amazonaws.com/prod', data
+    axios.post(`${process.env.GATSBY_POST_LIKED_POSTS_API}`, data
     ).then(res =>  
       {
         setSuccessMsg(true);
-        axios.get(`https://hmq88fdojc.execute-api.us-east-1.amazonaws.com/default/prod?post_id=${wordpress_id}`)
+        axios.get(`${process.env.GATSBY_GET_LIKED_POSTS_API}=${wordpress_id}`)
         .then(res => {
           this.setState({
             likes: res.data.likes,
