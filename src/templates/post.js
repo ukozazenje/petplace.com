@@ -44,7 +44,7 @@ class Post extends Component  {
     }
     iFrames.length && iFrames.map(iFrame => !iFrame.src.includes('instagram.com') && wrap(iFrame))
     if (localStorage.getItem("likedPosts") === null) {
-      localStorage.setItem('likedPosts', '')
+      localStorage.setItem('likedPosts', '[]')
     } else {
       const likedPosts = JSON.parse(localStorage.getItem("likedPosts"))
       const liked = likedPosts.filter( post => post ===  this.props.data.wordpressPost.wordpress_id) > 0 ? true : false      
