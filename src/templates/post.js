@@ -24,7 +24,7 @@ import {
 } from "react-device-detect";
 import LikeArticleWidget from '../components/LikeArticleWidget'
 import axios from 'axios'
-import CounterImg from '../images/footer-counter.svg'
+import CounterImg from '../images/footer-counter.png'
 class Post extends Component  {
   
   state = {
