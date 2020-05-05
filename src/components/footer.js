@@ -26,7 +26,7 @@ const fullFooter = () => (
           <div className="column">
             <h6>Pet Health</h6>
             <div className="footer-menu-wrapper">
-              <Link to="/article/category/pet-health/dog-health">Dog Health</Link>
+              <Link to="/article/category/pet-health/dog-health/">Dog Health</Link>
               <Link to="/article/category/pet-health/cat-health/">Cat Health</Link>
               <Link to="/article/category/pet-health/small-pet-health/">Small Pet Health</Link>
             </div>
@@ -42,7 +42,7 @@ const fullFooter = () => (
           <div className="column">
             <h6>Breeds</h6>
             <div className="footer-menu-wrapper">
-              <Link to="/article/category/breeds/dog-breeds">Dog Breeds</Link>
+              <Link to="/article/category/breeds/dog-breeds/">Dog Breeds</Link>
               <Link to="/article/category/breeds/cat-breeds/">Cat Breeds</Link>
               <Link to="/article/category/breeds/small-pet-breeds/">Small Pet Breeds</Link>
             </div>
@@ -76,9 +76,9 @@ const copyrightFooter = () => {
           <div className="columns">
             <div className="column is-5">
               <ul>
-                <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-                <li><Link to="/terms-of-use">Terms of Use</Link></li>
-                <li><Link to="/about-us">About Us</Link></li>
+                <li><Link to="/privacy-policy/">Privacy Policy</Link></li>
+                <li><Link to="/terms-of-use/">Terms of Use</Link></li>
+                <li><Link to="/about-us/">About Us</Link></li>
               </ul>
             </div>
             <div className="column is-7 copyright">
