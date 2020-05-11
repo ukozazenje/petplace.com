@@ -914,7 +914,9 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 }
               },
               "datePublished": "${post.date}",
-              "dateModified" : "${post.date}"
+              "dateModified" : "${post.date}",
+              "datePosted"   : "${post.date}",
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
             }
           `}</script>
         </Helmet>
