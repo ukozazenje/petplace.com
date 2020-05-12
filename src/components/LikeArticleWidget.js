@@ -15,7 +15,8 @@ const validate = (values) => {
   return errors;
 };
 
-const ThankYouMsg = () => <span className="thank-you-msg">Thank you so much for making petplace.com an even better web destination for us and our furry friends!</span>
+const ThankYouMsg = () => <span className="thank-you-msg">Thank you so much for making petplace.com an even better web destination for us and our furry friends!" with
+"Thanks for helping us make PetPlace the ultimate destination for pet enthusiasts!</span>
 
 const FormContent = (successMsg, setSuccessMsg, url, wordpress_id, HandleSubmit) => {
   return (
