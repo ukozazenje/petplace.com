@@ -30,6 +30,8 @@ p
       z-index: 1000
       min-height: 380px
       +desktop
+        background-color: rgba(59, 8, 43, 0.8)
+        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2)
         position: absolute
         top: 0
         width: 50%
@@ -56,12 +58,15 @@ p
           margin-top: 30px
       p
         color: $white
-        margin-top: 20px
         font-size: 14px
         font-weight: 600
         line-height: 25px
         padding: 0 18px 27px 18px
         font-family: $family-secondary
+        margin-top: 0
+        &:first-of-type 
+          margin-top: 20px
+
         +desktop
           margin-top: 10px
           padding: 0 50px 0 50px

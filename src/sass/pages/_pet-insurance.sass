@@ -20,7 +20,7 @@
       line-height: 50px
     span
       color: $orange
-      display: block
+      // display: block
       +tablet
         display: inline-block
   h3
@@ -29,7 +29,7 @@
     font-weight: 600
     font-family: $family-sans-serif
     +tablet
-      font-size: 32px
+      font-size: 30px
       line-height: 32px
   h4
     font-size: 22px
@@ -84,6 +84,8 @@
     .advantages
       background-color: $blue-lightest
       padding: 43px 15px
+      p 
+        margin-bottom: 20px
       +tablet
         padding: 57px 15px
       h2
@@ -94,20 +96,24 @@
         margin: 31px 15px
         border-radius: 5px
         color: $white
+        .columns 
+          margin: 0
         +tablet
           margin-top: 59px
         .container
           padding: 17px 8px
           +tablet
-            padding: 30px 50px
+            padding: 30px 30px
             text-align: left
           .column
           text-align: center
           background-color: $white
           h3
             padding: 13px 0 0 0
+            margin: 0
+            color: #353534
             +tablet
-              padding: 20px 0 35px 0
+              padding: 0 0 35px 0
               text-align: left
           .line-block
             font-size: 16px
@@ -187,7 +193,3 @@
         margin: 10px 0
         +tablet
           margin: 0 20px
-
-
-
-
