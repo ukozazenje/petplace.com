@@ -156,8 +156,8 @@ const PetInsurance = () => {
                 }} />
                 <h3>Here are 3 factors that may increase pet insurance costs:</h3>
                 <ImageCard
-                  imageMain={ twoDogsDesktop }
-                  image={ twoDogs }
+                  imageMain={ dogBlanketDesktop }
+                  image={ dogBlanket }
                   title="Age"
                   data={ data.pet_insurance_age }
                 />
@@ -169,8 +169,8 @@ const PetInsurance = () => {
                   position="right"
                 />
                 <ImageCard
-                  imageMain={ dogBlanketDesktop }
-                  image={ dogBlanket }
+                  imageMain={ twoDogsDesktop }
+                  image={ twoDogs }
                   title="Pre-existing conditions"
                   data={ data.pet_insurance_pre_existing_conditions }
                 />
