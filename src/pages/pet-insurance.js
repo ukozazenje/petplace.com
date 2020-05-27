@@ -180,7 +180,7 @@ const PetInsurance = () => {
           <section className="things">
             <div className="columns">
             <div className="column container">
-              <h2>Things to Consider When <span>Selecting a Deductible</span></h2>
+              <h2>Things to Consider When <span>Selecting a Deductible</span></h2>
               <div className="unlike-health" dangerouslySetInnerHTML={{
                 __html: data.things_to_consider_when_selecting_a_deductible
               }} />
