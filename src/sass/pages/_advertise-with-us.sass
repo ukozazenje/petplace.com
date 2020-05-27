@@ -60,6 +60,9 @@
     color: 0.875rem 
 
 .advertise-boxes-desktop
+  display: none 
+  +tablet 
+    display: block
   .advertise-box-wrapper 
     background-image: url('../images/Img_Content Publishing.png')
     background-size: cover
@@ -68,9 +71,14 @@
     background-position: right top
     display: flex
     align-items: center
-    justify-content: flex-end
-    padding: 0 20px
+    justify-content: flex-start
+    padding: 0 20px 
+    margin-bottom: 50px
+    margin-left: 20px
+    margin-right: 20px
 
+    &:nth-of-type(even)
+      justify-content: flex-end
 
   .advertise-box
     max-width: 510px
@@ -78,3 +86,23 @@
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2)
     border-radius: 6px
     height: 270px
+    padding: 30px
+
+    h3 
+      color: #FFFFFF 
+      font-size: 2rem 
+      line-height: 57px
+      position: relative 
+      &:before 
+        content: ""
+        position: absolute
+        width: 14px
+        height: 57px
+        left: -30px
+        background: #FF7D5A 
+    p 
+      color: #FFFFFF 
+      font-size: 1rem 
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      line-height: 28px
