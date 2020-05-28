@@ -11,7 +11,7 @@ import dogs from "../images/pet-insurance/Mobile/02_mob.png"
 import dogBlanket from "../images/pet-insurance/Mobile/03_mob.png"
 import dogBlanketDesktop from "../images/pet-insurance/Desktop/age-desktop.png"
 import dogsDesktop from "../images/pet-insurance/Desktop/breed-desktop.png"
-import twoDogsDesktop from "../images/pet-insurance/Desktop/pre-exisiting-conditions-desktop.png"
+import twoDogsDesktop from "../images/pet-insurance/desktop_puppy.png"
 import moneyDog from "../images/pet-insurance/money-dog.png"
 import eyeglassDog from "../images/pet-insurance/eyeglass-dog.png"
 import blanketDog from "../images/pet-insurance/blanket-dog.png"
@@ -157,7 +157,7 @@ const PetInsurance = () => {
                 <h3>Here are 3 factors that may increase pet insurance costs:</h3>
                 <ImageCard
                   imageMain={ dogBlanketDesktop }
-                  image={ dogBlanket }
+                  image={ twoDogs }
                   title="Age"
                   data={ data.pet_insurance_age }
                 />
@@ -170,7 +170,7 @@ const PetInsurance = () => {
                 />
                 <ImageCard
                   imageMain={ twoDogsDesktop }
-                  image={ twoDogs }
+                  image={ dogBlanket }
                   title="Pre-existing conditions"
                   data={ data.pet_insurance_pre_existing_conditions }
                 />
@@ -187,7 +187,7 @@ const PetInsurance = () => {
               <p className="p-things">
                 Here are facts and tips on selecting a deductible, which can help you determine what is best for your wallet and the health of your cat or dog:
               </p>
-                <div className="columns">
+                {/* <div className="columns">
                   <div className="column">
                     <div className="columns">
                       <FactsAndTips
@@ -206,7 +206,53 @@ const PetInsurance = () => {
                         data={ data.fact_four }/>
                     </div>
                   </div>
+                </div> */}
+                <div className="columns fact-wrapper">
+                  <div className="column">
+                    <div className="fact-content" dangerouslySetInnerHTML={{
+                      __html: data.fact_one
+                    }} />
+                    <div className="fact-content is-hidden-tablet" dangerouslySetInnerHTML={{
+                      __html: data.fact_two
+                    }} />
+                    <div className="fact-content is-hidden-mobile" dangerouslySetInnerHTML={{
+                      __html: data.fact_three
+                    }} />
+                  </div>
+                  <div className="column">
+                    <div className="fact-content is-hidden-mobile" dangerouslySetInnerHTML={{
+                      __html: data.fact_two
+                    }} />
+                    <div className="fact-content is-hidden-tablet" dangerouslySetInnerHTML={{
+                      __html: data.fact_three
+                    }} />
+                    <div className="fact-content" dangerouslySetInnerHTML={{
+                      __html: data.fact_four
+                    }} />
+                  </div>
                 </div>
+                {/* <div className="fact-wrapper">
+                  <img src={eyeglassDog} />
+                  
+                </div>
+                <div className="fact-wrapper">
+                  <img src={moneyDog} />
+                  <div dangerouslySetInnerHTML={{
+                    __html: data.fact_two
+                  }} />
+                </div>
+                <div className="fact-wrapper">
+                  <img src={blanketDog} />
+                  <div dangerouslySetInnerHTML={{
+                    __html: data.fact_three
+                  }} />
+                </div>
+                <div className="fact-wrapper">
+                  <img src={plateDog} />
+                  <div dangerouslySetInnerHTML={{
+                    __html: data.fact_four
+                  }} />
+                </div> */}
               </div>
             </div>
           </section>
