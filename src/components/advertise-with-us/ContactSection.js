@@ -45,13 +45,13 @@ const ContactSection = () => {
         <h4>Contact Us</h4>
         <p>Fill out the form below if you’re interested in becoming a sponsor or advertiser with PetPlace.</p>
         <Formik
-          initialValues={{ email: '', name: '', company: '', serviceOfInterest: 'social_media' }} 
+          initialValues={{ email: '', name: '', company: '', serviceOfInterest: 'Social Media' }} 
           validate={validate}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               setSubmitting(false);
               setThankYouMsg(true)
-              const test = JSON.stringify({"text": `Name: ${values.name}. \n Email: ${values.email} \n Company: ${values.company} \n Service Of Interest: ${values.serviceOfInterest}`,  })
+              const test = JSON.stringify({"text": `Name: ${values.name} \n Email: ${values.email} \n Company: ${values.company} \n Service Of Interest: ${values.serviceOfInterest}`,  })
               axios.post(`https://hooks.slack.com/services/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`, test,  {
                 withCredentials: false,
                 transformRequest: [(data, headers) => {
