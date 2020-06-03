@@ -1,0 +1,270 @@
+.advertise-hero-image
+  .hero-image-container 
+    position: relative
+
+  h1
+    display: none 
+    +tablet 
+      display: block
+      position: absolute
+      font-size: 4.125rem
+      top: 80px
+      left: 0
+      color: #FFF 
+      line-height: 70px
+      margin: 0 auto
+      width: 100%
+      text-align: left 
+      z-index: 99 
+      padding-left: 20px
+      font-size: 3rem
+    // +desktop
+    //   top: 140px 
+    //   font-size: 4.125rem
+    +widescreen 
+      top: 100px 
+      font-size: 3.75rem 
+    +fullhd 
+      top: 140px 
+      font-size: 4.125rem 
+
+.advertise-boxes-mobile 
+  display: block
+  margin: 0 20px
+  .online-advertise-img 
+    background-image: url('../images/Img_Online Advertising.png')
+
+  .social-media-img
+    background-image: url('../images/Img_Social Media.png')
+
+  .advertise-box-wrapper
+    margin-bottom: 30px
+  +tablet 
+    display: none
+  img 
+    width: 100%
+    display: block
+  .advertise-box
+    padding: 30px 20px
+    background: rgba(59, 8, 43, 0.9) 
+    border-bottom-left-radius: 6px
+    border-bottom-right-radius: 6px
+  h3 
+    position: relative
+    font-size: 1.375rem
+    line-height: 40px
+    color: #FFFFFF
+    margin: 0
+    padding: 0
+    &:before 
+      content: ""
+      position: absolute
+      width: 10px
+      height: 40px
+      left: -20px
+      background: #FF7D5A 
+  p 
+    color: #FFFFFF
+    color: 0.875rem 
+
+.advertise-boxes-desktop
+  display: none 
+  +tablet 
+    display: block
+  .advertise-box-wrapper 
+    background-image: url('../images/Img_Content Publishing.png')
+    background-size: cover
+    background-repeat: no-repeat 
+    height: 350px
+    background-position: right top
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    padding: 0 20px 
+    margin-bottom: 50px
+    margin-left: 20px
+    margin-right: 20px
+
+    &:nth-of-type(even)
+      justify-content: flex-end
+  .online-advertise-img 
+    background-image: url('../images/Img_Online Advertising.png')
+
+  .social-media-img
+    background-image: url('../images/Img_Social Media.png')
+
+  .advertise-box
+    max-width: 510px
+    background: rgba(59, 8, 43, 0.8)
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2)
+    border-radius: 6px
+    height: 270px
+    padding: 30px
+
+    h3 
+      color: #FFFFFF 
+      font-size: 2rem 
+      line-height: 57px
+      position: relative 
+      &:before 
+        content: ""
+        position: absolute
+        width: 14px
+        height: 57px
+        left: -30px
+        background: #FF7D5A 
+    p 
+      color: #FFFFFF 
+      font-size: 1rem 
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      line-height: 28px 
+
+.advertise-contact
+  background: #F2F5FC
+  padding: 35px 0 
+  +desktop 
+    padding: 70px 0
+  .is-fullhd 
+    background: #FBFBFB
+    box-shadow: 5px 5px 50px #E0E5EC
+    border-radius: 6px
+    padding-bottom: 30px 
+    padding-top: 30px  
+    margin-right: 20px 
+    margin-left: 20px 
+    +desktop
+      padding-bottom: 50px 
+      padding-top: 50px
+      margin-left: auto 
+      margin-right: auto  
+  h4, p 
+    max-width: 830px
+    margin: 0 15px
+    text-align: center
+    +desktop 
+      margin: 0 auto
+  h4 
+    margin-bottom: 20px
+    margin-top: 0
+    font-size: 1.75rem
+    +desktop 
+      font-size: 2.875rem
+  .field-wrapper 
+    margin-top: 20px
+    margin-left: 15px
+    margin-right: 15px
+    width: 100%
+    display: flex 
+    flex-direction: column
+    +desktop 
+      margin: 0
+      width: 400px
+      margin-top: 35px 
+    label  
+      margin-left: 26px
+      font-size: 1.25rem
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      +desktop 
+        font-size: 1.5rem
+  input, select 
+    padding-left: 26px
+    font-size: 1rem
+    background: #FFFFFF 
+    border: 1px solid #829CA9
+    border-radius: 60px 
+    height: 60px
+    margin: 0 
+    width: 100% 
+  select 
+    background: url('../images/arrow-down.svg') 96%/18px no-repeat #fff
+    -webkit-appearance: none
+    -moz-appearance: none
+    text-indent: 1px
+    text-overflow: ''
+  button 
+    width: 100% 
+    margin: 30px 10px 20px 15px
+    background: #EF8363
+    color: #FFFFFF
+    font-size: 1.5rem
+    font-family: $family-secondary
+    font-weight: $family-secondary-weight
+    border: none 
+    border-radius: 60px
+    height: 60px
+    +tablet 
+      margin: 20px auto
+      margin-top: 50px
+      width: 400px
+      font-size: 1.625rem
+  .advertise-with-us-form 
+    margin: 0 auto
+    max-width: 830px
+    display: flex 
+    flex-direction: row 
+    justify-content: center
+    flex-wrap: wrap 
+    +desktop 
+      justify-content: space-between 
+  .icons-wrapper 
+    width: 200px
+    margin: 20px auto
+.advertise-content-paragraph 
+  margin: 15px 20px
+  font-size: 1.125rem
+  line-height: 28px
+  font-weight: 600
+  text-align: center
+  +desktop 
+    margin-top: 50px
+    margin-bottom: 50px
+    line-height: 44px 
+    font-size: 1.5rem
+.icons-wrapper 
+  width: 100px
+  display: flex 
+  justify-content: space-between
+  align-items: center
+  margin-top: 20px 
+
+.mobile-heading 
+  text-align: center
+  color: #353534
+  margin-top: 36px
+  font-size: 1.75rem
+  line-height: 40px
+  font-family: $family-secondary
+  font-weight: $family-secondary-weight
+  margin-bottom: 20px
+  span 
+    color: #EF8363
+  +tablet 
+    display: none
+
+.has-error 
+  border: 1px solid #D73535 !important 
+  background: rgba(215, 53, 53, 0.1) !important 
+.thank-you-msg 
+  margin: 0 20px
+  h1 
+    font-size: 1.75rem
+    line-height: 60px 
+    color: #EF8363
+    text-align: center
+    margin-top: 10px
+    margin-bottom: 20px
+    +tablet 
+      font-size: 2.875rem
+      margin-top: 20px
+  p 
+    font-size: 1.25rem  
+    line-height: 32px
+    text-align: center
+    color: #000000
+    max-width: 470px
+    margin: 0 auto
+    margin-bottom: 20px
+    +tablet
+      font-size: 1.375rem
