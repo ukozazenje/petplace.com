@@ -3,20 +3,21 @@
     position: relative
 
   h1
-    display: none 
+    display: block
+    font-size: 1.75rem
+    display: block
+    position: absolute
+    color: #FFF 
+    margin: 0 auto
+    left: 0
+    text-align: left 
+    z-index: 99 
+    padding-left: 20px
+    top: 80px
     +tablet 
-      display: block
-      position: absolute
-      font-size: 4.125rem
-      top: 80px
-      left: 0
-      color: #FFF 
       line-height: 70px
-      margin: 0 auto
+      font-size: 4.125rem
       width: 100%
-      text-align: left 
-      z-index: 99 
-      padding-left: 20px
       font-size: 3rem
     // +desktop
     //   top: 140px 
@@ -210,7 +211,17 @@
       justify-content: space-between 
   .icons-wrapper 
     width: 200px
-    margin: 20px auto
+    margin: 20px auto 
+.advertise-heading 
+  padding: 0 20px
+  margin-top: 30px
+  font-size: 1.75rem
+  text-align: center 
+  +tablet 
+    margin-top: 38px
+    font-size: 2.875rem
+  span
+    color: #FF7D5A
 .advertise-content-paragraph 
   margin: 15px 20px
   font-size: 1.125rem
@@ -218,7 +229,7 @@
   font-weight: 600
   text-align: center
   +desktop 
-    margin-top: 50px
+    margin-top: 25px
     margin-bottom: 50px
     line-height: 44px 
     font-size: 1.5rem
