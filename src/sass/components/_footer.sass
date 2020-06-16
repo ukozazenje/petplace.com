@@ -36,8 +36,14 @@ footer
     ul
       display: flex
       flex-direction: row 
-      justify-content: space-between
+      justify-content: space-around
+      flex-wrap: wrap 
+      +tablet 
+        justify-content: space-between
       li
+        margin-left: 5px
+        margin-right: 5px
+        margin-top: 5px
         list-style: none
       li a
         color: $white
