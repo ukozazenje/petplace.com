@@ -166,10 +166,10 @@ class Post extends Component  {
                   <p className="post-date">{post.date}</p>
                   <div className="share-icons-horizontal">
                     <p>Share:</p>
-                    <a className={`facebook-${post.path}`} href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
-                    <a className={`twitter-${post.path}`} href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
-                    <a className={`pinterest-${post.path}`} href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
-                    <a className={`mail-${post.path}`} href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                    <a className={`facebook-${post.path}`} href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`facebook-${post.path}`} src={facebook}  alt="facebook" /></a>
+                    <a className={`twitter-${post.path}`} href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`twitter-${post.path}`} src={twitter}  alt="twitter" /></a>
+                    <a className={`pinterest-${post.path}`} href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img className={`pinterest-${post.path}`} src={pintrest}  alt="pinterest" /></a>
+                    <a className={`mail-${post.path}`} href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`mail-${post.path}`} src={emailIcon}  alt="email" /></a>
                   </div>
                 </div>
                 {isMobile ? <AdMobile /> : <AdSet /> }
@@ -178,10 +178,10 @@ class Post extends Component  {
                 </div>
                 <Sticky enabled={true} top={20} bottomBoundary='.single-post-sidebar'>
                     <div className="share-icons-vertical">
-                      <a className={`facebook-${post.path}`} href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
-                      <a className={`twitter-${post.path}`} href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
-                      <a className={`pinterest-${post.path}`} href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
-                      <a className={`mail-${post.path}`} href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                      <a className={`facebook-${post.path}`} href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`facebook-${post.path}`}   src={facebook}  alt="facebook" /></a>
+                      <a className={`twitter-${post.path}`} href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`twitter-${post.path}`}   src={twitter}  alt="twitter" /></a>
+                      <a className={`pinterest-${post.path}`} href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img className={`pintrest-${post.path}`}   src={pintrest}  alt="pinterest" /></a>
+                      <a className={`mail-${post.path}`} href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`mail-${post.path}`}   src={emailIcon}  alt="email" /></a>
                     </div>
                 </Sticky>
               </div>
@@ -200,10 +200,10 @@ class Post extends Component  {
                 <hr />
                 <div className="share-icons-horizontal">
                   <p>Share:</p>
-                  <a className={`facebook-${post.path}`} href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
-                  <a className={`twitter-${post.path}`} href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
-                  <a className={`pinterest-${post.path}`} href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
-                  <a className={`mail-${post.path}`} href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                  <a className={`facebook-${post.path}`} href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`facebook-${post.path}`}  src={facebook}  alt="facebook" /></a>
+                  <a className={`twitter-${post.path}`} href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`twitter-${post.path}`}  src={twitter}  alt="twitter" /></a>
+                  <a className={`pinterest-${post.path}`} href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img className={`pinterest-${post.path}`}  src={pintrest}  alt="pinterest" /></a>
+                  <a className={`mail-${post.path}`} href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`mail-${post.path}`}  src={emailIcon}  alt="email" /></a>
                 </div>
                 <div className="container is-fullhd">
                   <div className="columns">
