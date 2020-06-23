@@ -34,7 +34,7 @@ const breedsToExplore = ({breeds_to_explore}) => {
   return (
     <section className="section breeds-to-explore-section">
       <div className="container is-fullhd">
-        <h3>Other Breeds to Explore</h3>
+        <h3>Related Breeds</h3>
         <Slider {...factsSettings}>
           {breeds_to_explore.map( (breed, index) => (
             <div className={`breeds_to_explore-slide`}>

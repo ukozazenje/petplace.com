@@ -89,10 +89,10 @@ const factsSettings = {
 // }
 
 const Breed = ({data}) => {
-
+  // console.log(data.wordpressBreedPosts.acf)
+  // console.log(breeds_to_explore)
   const facts = data.wordpressBreedPosts.acf.facts
   const breeds_to_explore = data.wordpressBreedPosts.breeds_to_explore
-  console.log(breeds_to_explore)
   const { 
     height,
     weight,
@@ -126,6 +126,20 @@ const Breed = ({data}) => {
     hindquarters,
     about_image,
     history_image,
+    forequarters_title,
+    general_appearance_title,
+    grooming_title,
+    head_title,
+    health_title,
+    hindquarters_title,
+    history_title,
+    nutrition_title,
+    tail_title,
+    training_title,
+    exercise_title,
+    coat_title,
+    body_title,
+    interesting_facts_title
 
    } = data.wordpressBreedPosts.acf
   const title = data.wordpressBreedPosts.title
@@ -153,13 +167,12 @@ const Breed = ({data}) => {
       </div>
     </div> 
   )
-  const nutritionContent = careContent('Nutrition', nutrition)
-  const groomingContent = careContent('Grooming', grooming)
-  const healthContent = careContent('Health', health)
-  const trainingContent = careContent('Training', training)
-  const exerciseContent = careContent('Exercise', exercise)
+  const nutritionContent = careContent(`${nutrition_title || 'Nutrition'}`, nutrition)
+  const groomingContent = careContent(`${grooming_title || 'Grooming'}`, grooming)
+  const healthContent = careContent(`${health_title || 'Health'}`, health)
+  const trainingContent = careContent(`${training_title || 'Training'}`, training)
+  const exerciseContent = careContent(`${exercise_title || 'Exercise'}`, exercise)
 
-  console.log(featured)
   return (
     <Layout>
       <section className="hero-section">
@@ -230,7 +243,8 @@ const Breed = ({data}) => {
           history={history} 
           history_image={history_image}
           title={title}
-        />
+          history_title={history_title}
+          />
       </div>
       <section className="section breed-main-section">
         <div className="container is-fullhd">
@@ -259,6 +273,7 @@ const Breed = ({data}) => {
           history={history} 
           history_image={history_image}
           title={title}
+          history_title={history_title}
         />
       </div>
       <div className="is-hidden-desktop">
@@ -277,6 +292,7 @@ const Breed = ({data}) => {
           history={history} 
           history_image={history_image}
           title={title}
+          history_title={history_title}
         />
       </div>
       {/* <section className="section attributes-section">
@@ -348,7 +364,7 @@ const Breed = ({data}) => {
         </div>
       </section> */}
       <div className="is-hidden-desktop">
-        <MobileSlider nutrition={nutrition} grooming={grooming} health={health} training={training} exercise={exercise} />
+        <MobileSlider nutrition={nutrition} nutrition_title={nutrition_title} grooming={grooming} grooming_title={grooming_title} health={health} health_title={health_title} training={training} training_title={training_title} exercise={exercise} exercise_title={exercise_title} />
       </div>
       <div className="is-hidden-touch">
         <section className="section care-section">
@@ -362,7 +378,7 @@ const Breed = ({data}) => {
                   <div className="image-wrapper">
                     <img src={nutritionImg} />
                   </div>
-                  <p>Nutrition</p>
+                  <p>{`${nutrition_title || 'Nutrition'}`}</p>
                 </div>
               </div>
               <div className="column">
@@ -370,7 +386,7 @@ const Breed = ({data}) => {
                   <div className="image-wrapper">
                     <img src={groomingImg} />
                   </div>
-                  <p>Grooming</p>
+                  <p>{`${grooming_title || 'Grooming'}`}</p>
                 </div>
               </div>
               <div className="column">
@@ -378,7 +394,7 @@ const Breed = ({data}) => {
                   <div className="image-wrapper">
                     <img src={healthImg} />
                   </div>
-                  <p>Health</p>
+                  <p>{`${ head_title || 'Health'}`}</p>
                 </div>
               </div>
               <div className="column">
@@ -386,7 +402,7 @@ const Breed = ({data}) => {
                   <div className="image-wrapper">
                     <img src={trainingImg} />
                   </div>
-                  <p>Training</p>
+                  <p>{`${training_title || 'Training'}`}</p>
                 </div>
               </div>
               <div className="column">
@@ -394,7 +410,7 @@ const Breed = ({data}) => {
                   <div className="image-wrapper">
                     <img src={exerciseImg} />
                   </div>
-                  <p>Exercise</p>
+                  <p>{`${exercise_title || 'Exercise'}`}</p>
                 </div>
               </div>
             </div>
@@ -443,7 +459,7 @@ const Breed = ({data}) => {
                   </div>
                   <p>Exercise</p>
                 </div>
-              </div>
+              </div>  
             </Slider> */}
             {/* {
               isNutrition && isNutrition.nutrition ? nutrition : null
@@ -476,22 +492,22 @@ const Breed = ({data}) => {
               <div className="breed-standards-list">
                 <h3>Breed Standard</h3>
                 <select className="search-select" onChange={ (e) => setBreedStandard({ [e.target.value]: true })}>
-                  <option value="general_appearance">General Appearance</option>
-                  <option value="head">Head</option>
-                  <option value="body">Body</option>
-                  <option value="tail">Tail</option>
-                  <option value="forequarters">Forequarters</option>
-                  <option value="coat">Coat</option>
-                  <option value="hindquarters">Hindquarters</option>
+                  <option value="general_appearance">{`${ general_appearance_title || 'General Appearance'}`}</option>
+                  <option value="head">{`${ head_title || 'Head'}`}</option>
+                  <option value="body">{`${ body_title || 'Body'}`}</option>
+                  <option value="tail">{`${ tail_title || 'Tail'}`}</option>
+                  <option value="forequarters">{`${ forequarters_title || 'Forequarters'}`}</option>
+                  <option value="coat">{`${ coat_title || 'Coat'}`}</option>
+                  <option value="hindquarters">{`${ hindquarters_title || 'Hindquarters'}`}</option>
                 </select>
                 <ul>
-                  <li onClick={ () => setBreedStandard({general_appearance: true})}>General Appearance</li>
-                  <li onClick={ () => setBreedStandard({head: true})}>Head</li>
-                  <li onClick={ () => setBreedStandard({body: true})}>Body</li>
-                  <li onClick={ () => setBreedStandard({tail: true})}>Tail</li>
-                  <li onClick={ () => setBreedStandard({forequarters: true})}>Forequarters</li>
-                  <li onClick={ () => setBreedStandard({coat: true})}>Coat</li>
-                  <li onClick={ () => setBreedStandard({hindquarters: true})}>Hindquarters</li>
+                  <li onClick={ () => setBreedStandard({general_appearance: true})}>{`${ general_appearance_title || 'General Appearance'}`}</li>
+                  <li onClick={ () => setBreedStandard({head: true})}>{`${ head_title || 'Head'}`}</li>
+                  <li onClick={ () => setBreedStandard({body: true})}>{`${ body_title || 'Body'}`}</li>
+                  <li onClick={ () => setBreedStandard({tail: true})}>{`${ tail_title || 'Tail'}`}</li>
+                  <li onClick={ () => setBreedStandard({forequarters: true})}>{`${ forequarters_title || 'Forequarters'}`}</li>
+                  <li onClick={ () => setBreedStandard({coat: true})}>{`${ coat_title || 'Coat'}`}</li>
+                  <li onClick={ () => setBreedStandard({hindquarters: true})}>{`${ hindquarters_title || 'Hindquarters'}`}</li>
                 </ul>
               </div>
             </div>
@@ -555,7 +571,7 @@ const Breed = ({data}) => {
         <div className="container is-fullhd">
           <div className="">
             <div className="">
-              <h3>Interesting Facts</h3>
+              <h3>{`${interesting_facts_title || 'Interesting Facts'}`}</h3>
               <Slider {...factsSettings}>
                 {facts.map( (fact , index) => (
                   <div className="fact-slide">
@@ -624,6 +640,20 @@ export const pageQuery = graphql`
         forequarters
         coat
         hindquarters
+        forequarters_title
+        general_appearance_title
+        grooming_title
+        head_title
+        health_title
+        hindquarters_title
+        history_title
+        nutrition_title
+        tail_title
+        training_title
+        exercise_title
+        coat_title
+        body_title
+        interesting_facts_title
         facts {
           wordpress_id
           post_content 

@@ -23,7 +23,7 @@ const attributeLevel = (level) => {
   }
 }
 
-const attributesAndHistory = ({hideAttributes ,hideHistory, energy_level, playfulness, friendliness_to_dogs, friendliness_to_other_pets, friendliness_to_strangers, exercise_requirements, affection_level, watchfulness, vocality, grooming_requirements, history, history_image, title}) => {
+const attributesAndHistory = ({hideAttributes ,hideHistory, energy_level, playfulness, friendliness_to_dogs, friendliness_to_other_pets, friendliness_to_strangers, exercise_requirements, affection_level, watchfulness, vocality, grooming_requirements, history, history_image, title, history_title}) => {
   return (
     <section className="section attributes-section">
       <div className="container is-fullhd">
@@ -85,7 +85,7 @@ const attributesAndHistory = ({hideAttributes ,hideHistory, energy_level, playfu
               <h3 dangerouslySetInnerHTML={{
                 __html: title
               }} />
-              <h4>History</h4>
+              <h4>{`${history_title || 'History'}`}</h4>
               <div dangerouslySetInnerHTML={{
                 __html: history
               }} />

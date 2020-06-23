@@ -16,7 +16,7 @@ const mobile_settings = {
 };
 
 
-const MobileSlider = ({nutrition, grooming, health, training, exercise}) => {
+const MobileSlider = ({nutrition, grooming, health, training, exercise, nutrition_title, grooming_title, health_title, training_title, exercise_title}) => {
   return (
     <section className="section care-section mobile-care-section">
       <div className="container is-fullhd">
@@ -27,7 +27,7 @@ const MobileSlider = ({nutrition, grooming, health, training, exercise}) => {
               <div className="image-wrapper">
                 <img src={nutritionImg} />
               </div>
-              <p>Nutrition</p>
+              <p>{`${nutrition_title || 'Nutrition'}`}</p>
             </div>
             <div className="mobile-slider-content" dangerouslySetInnerHTML={{
               __html: nutrition
@@ -39,7 +39,7 @@ const MobileSlider = ({nutrition, grooming, health, training, exercise}) => {
               <div className="image-wrapper">
                 <img src={groomingImg} />
               </div>
-              <p>Grooming</p>
+              <p>{`${grooming_title || 'Grooming'}`}</p>
             </div>
             <div className="mobile-slider-content" dangerouslySetInnerHTML={{
               __html: grooming
@@ -51,7 +51,7 @@ const MobileSlider = ({nutrition, grooming, health, training, exercise}) => {
               <div className="image-wrapper">
                 <img src={healthImg} />
               </div>
-              <p>Health</p>
+              <p>{`${health_title || 'Health'}`}</p>
             </div>
             <div className="mobile-slider-content" dangerouslySetInnerHTML={{
               __html: health
@@ -63,7 +63,7 @@ const MobileSlider = ({nutrition, grooming, health, training, exercise}) => {
               <div className="image-wrapper">
                 <img src={trainingImg} />
               </div>
-              <p>Training</p>
+              <p>{`${training_title || 'Training'}`}</p>
             </div>
             <div className="mobile-slider-content" dangerouslySetInnerHTML={{
               __html: training
@@ -75,7 +75,7 @@ const MobileSlider = ({nutrition, grooming, health, training, exercise}) => {
               <div className="image-wrapper">
                 <img src={exerciseImg} />
               </div>
-              <p>Exercise</p>
+              <p>{`${exercise_title || 'Exercise'}`}</p>
             </div>
             <div className="mobile-slider-content" dangerouslySetInnerHTML={{
               __html: exercise
