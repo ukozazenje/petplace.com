@@ -106,6 +106,9 @@
       width: 100% 
       min-width: 220px
       max-width: 250px 
+    p 
+      padding: 0 10px
+      text-align: center
 
   .care-content 
     // min-height: 280px
@@ -136,6 +139,8 @@
       font-family: $family-secondary
       font-weight: $family-secondary-weight
       position: relative
+      margin: 0 10px
+      text-align: center
       &:after 
         content: ""
         position: absolute
@@ -203,7 +208,7 @@
     justify-content: space-between
     +desktop 
       flex-direction: row
-      border-bottom: 1px solid #8F8F8F 
+      // border-bottom: 1px solid #8F8F8F 
     .search-select
       +desktop 
         display: none
@@ -225,18 +230,20 @@
       text-align: center
       position: relative
       padding-bottom: 0
+      font-size: 1.875rem
       +desktop
+        font-size: 2.5rem
         text-align: left
         padding-bottom: 10px
-      &:after 
-        +desktop
-          content: ""
-          height: 3px
-          width: 150px
-          background: $mauve
-          position: absolute
-          bottom: -3px
-          left: 0
+      // &:after 
+      //   +desktop
+      //     content: ""
+      //     height: 3px
+      //     width: 150px
+      //     background: $mauve
+      //     position: absolute
+      //     bottom: -3px
+      //     left: 0
   .breed-standards-content 
     p 
       width: 100% 
@@ -425,6 +432,9 @@
   .columns:first-of-type 
     justify-content: space-between 
   .breed-main-content
+    display: flex 
+    flex-direction: column
+    justify-content: space-between
     max-width: 100% 
       /* These are technically the same, but use both */
     overflow-wrap: break-word
@@ -445,7 +455,10 @@
       max-width: 840px
   .breed-main-image 
     max-width: 400px 
-
+  .references 
+    p 
+      margin-top: 20px
+      font-size: 0.75rem
 .search-breed-container 
   .form-wrapper 
     padding-top: 50px 
@@ -506,3 +519,93 @@
 .no-suggestions 
   li 
     color: $gray-light      
+
+.breed-standard-accordion
+  // padding: 30px 20px
+  // text-align: center
+  // +tablet
+  //   padding: 40px 20px
+  // +desktop
+  //   padding: 50px 20px
+  // +widescreen
+  //   padding: 70px 20px
+  // h3
+  //   padding: 0 10px
+  //   color: #FFFFFF
+  //   background-color: #67A300
+  //   display: inline
+  //   font-size: 2.5rem
+  //   line-height: 107%
+  //   +desktop
+  //     font-size: 3.5rem
+   
+  .accordion__content
+    background-color: white
+    overflow: hidden
+    transition: max-height 0.6s ease
+    text-align: left
+
+  .accordion__title 
+    width: 100%
+    text-align: left
+    font-size: 1.125rem
+    color: #FFFFFF
+    background: url('../images/plus.svg') no-repeat center right
+    padding-left: 20px
+    font-family: $family-secondary
+    font-weight: $family-secondary-weight
+    +desktop
+      font-size: 2rem
+
+  .accordion__text 
+    margin-top: -8px 
+    padding: 40px 20px
+    display: flex
+    align-items: center
+    background: #8E8199
+    color: #ffffff
+    font-family: $family-sans-serif
+    p 
+      color: #ffffff
+      font-weight: 600
+      font-size: 1rem
+      +desktop 
+        font-size: 1.125rem
+  
+    img
+      margin-right: 30px
+      display: none
+      +desktop
+        display: block
+      
+    
+  
+
+  .accordion
+    width: 100%
+    min-height: 100px
+    display: flex
+    align-items: center
+    border: none
+    outline: none
+    transition: all 0.6s ease
+    border-radius: 5px
+    margin-top: 30px
+    padding: 10px 20px
+    cursor: pointer
+    background-color: #5D3450
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1)
+    border-radius: 8px
+    &.minus
+      background-color: #EF8363
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0
+      .accordion__title 
+        background: url('../images/minus.svg') no-repeat center right
+    // &:first-of-type
+    //   margin-top: 40px
+    //   +desktop
+    //     margin-top: 50px
+    // +desktop
+    //   margin-top: 40px
+    

@@ -82,9 +82,9 @@ const attributesAndHistory = ({hideAttributes ,hideHistory, energy_level, playfu
               <Img fluid={history_image.localFile.childImageSharp.fluid} />
             </div>
             <div className="column history-content">
-              <h3 dangerouslySetInnerHTML={{
+              {/* <h3 dangerouslySetInnerHTML={{
                 __html: title
-              }} />
+              }} /> */}
               <h4>{`${history_title || 'History'}`}</h4>
               <div dangerouslySetInnerHTML={{
                 __html: history

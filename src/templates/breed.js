@@ -18,7 +18,7 @@ import { setBreedColor } from "../components/functions"
 import ContactUsSection from "../components/homepage/contact-us"
 import BreedsToExplore from "../components/breed/breedsToExplore"
 import AttributesAndHistory from '../components/breed/attributesAndHistory'
-
+import Accordion from '../components/breed/Accordion'
 const settings = {
   dots: false,
   infinite: false,
@@ -139,7 +139,10 @@ const Breed = ({data}) => {
     exercise_title,
     coat_title,
     body_title,
-    interesting_facts_title
+    interesting_facts_title,
+    breed_standard_main_title,
+    care_main_title,
+    references
 
    } = data.wordpressBreedPosts.acf
   const title = data.wordpressBreedPosts.title
@@ -190,7 +193,7 @@ const Breed = ({data}) => {
               <h1 dangerouslySetInnerHTML={{
                 __html: title
               }} />
-              <h2>Dog</h2>
+              {/* <h2>Dog</h2> */}
             </div>
             <div className="breed-generals-column general-attributes-wrapper">
               <div className="general-attributes">
@@ -249,9 +252,16 @@ const Breed = ({data}) => {
       <section className="section breed-main-section">
         <div className="container is-fullhd">
           <div className="columns">
-            <div className="column breed-main-content" dangerouslySetInnerHTML={{
+            <div className="column breed-main-content" >
+              <div dangerouslySetInnerHTML={{
               __html: content
-            }} />
+              }} />
+              <div className="references" 
+                dangerouslySetInnerHTML={{
+                  __html: references
+                }}
+              />
+            </div> 
             <div className="column breed-main-image">
               <Img fluid={about_image.localFile.childImageSharp.fluid} />
             </div>
@@ -370,7 +380,7 @@ const Breed = ({data}) => {
         <section className="section care-section">
           <div className="container is-fullhd">
             <h3 dangerouslySetInnerHTML={{
-              __html: `${title} Care`
+              __html: `${care_main_title}`
             }} />
             <div className="columns care-columns">
               <div className="column">
@@ -490,8 +500,8 @@ const Breed = ({data}) => {
           <div className="columns">
             <div className="column">
               <div className="breed-standards-list">
-                <h3>Breed Standard</h3>
-                <select className="search-select" onChange={ (e) => setBreedStandard({ [e.target.value]: true })}>
+                <h3>{breed_standard_main_title}</h3>
+                {/* <select className="search-select" onChange={ (e) => setBreedStandard({ [e.target.value]: true })}>
                   <option value="general_appearance">{`${ general_appearance_title || 'General Appearance'}`}</option>
                   <option value="head">{`${ head_title || 'Head'}`}</option>
                   <option value="body">{`${ body_title || 'Body'}`}</option>
@@ -508,11 +518,21 @@ const Breed = ({data}) => {
                   <li onClick={ () => setBreedStandard({forequarters: true})}>{`${ forequarters_title || 'Forequarters'}`}</li>
                   <li onClick={ () => setBreedStandard({coat: true})}>{`${ coat_title || 'Coat'}`}</li>
                   <li onClick={ () => setBreedStandard({hindquarters: true})}>{`${ hindquarters_title || 'Hindquarters'}`}</li>
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>
-          <div className="columns breed-standards-content">
+          <div className="breed-standard-accordion">
+            <Accordion title={general_appearance_title} content={general_appearance} />
+            <Accordion title={head_title} content={head} />
+            <Accordion title={body_title} content={body} />
+            <Accordion title={tail_title} content={tail} />
+            <Accordion title={forequarters_title} content={forequarters} />
+            <Accordion title={coat_title} content={coat} />
+            <Accordion title={hindquarters_title} content={hindquarters} />
+           
+          </div>
+          {/* <div className="columns breed-standards-content">
             <div className="column">
               {
                 breedStandard && breedStandard.general_appearance ? 
@@ -564,7 +584,7 @@ const Breed = ({data}) => {
                 null 
               }
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="section facts-section">
@@ -612,6 +632,7 @@ export const pageQuery = graphql`
         }
       }
       acf {
+        breed_type
         height
         weight
         type
@@ -637,23 +658,29 @@ export const pageQuery = graphql`
         head
         body
         tail
-        forequarters
         coat
         hindquarters
+        puppy
+        puppy_image
+        forequarters
         forequarters_title
-        general_appearance_title
         grooming_title
         head_title
-        health_title
-        hindquarters_title
         history_title
+        interesting_facts_title
         nutrition_title
+        references
         tail_title
         training_title
+        general_appearance_title
         exercise_title
         coat_title
+        care_main_title
+        breed_standard_main_title
+        breed_author_name
         body_title
-        interesting_facts_title
+        health_title
+        hindquarters_title
         facts {
           wordpress_id
           post_content 
