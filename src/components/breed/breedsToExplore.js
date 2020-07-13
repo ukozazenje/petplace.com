@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import Img from 'gatsby-image'
 import { setBreedColor } from '../functions'
 import {navigate} from 'gatsby'
+import NoImg from "../../static/images/noSearchPostImg"
 
 const factsSettings = {
   dots: false,
@@ -39,7 +40,7 @@ const breedsToExplore = ({breeds_to_explore}) => {
           {breeds_to_explore.map( (breed, index) => (
             <div className={`breeds_to_explore-slide`}>
               <div className="breeds_to_explore-content" onClick={ () => navigate(`/breed/${breed.slug}`)}>
-                <Img sizes={{...breed.featured_img.localFile.childImageSharp.fluid, aspectRatio: 1/1}} />
+                { breed && breed.featured_img && breed.featured_img.localFile && breed.featured_img.localFile.childImageSharp && breed.featured_img.localFile.childImageSharp.fluid ?  <Img sizes={{...breed.featured_img.localFile.childImageSharp.fluid, aspectRatio: 1/1}} /> : <NoImg />}
                 <div className={`breeds_to_explore-title ${setBreedColor(index)}`} dangerouslySetInnerHTML={{
                   __html: breed.post_title
                 }} />
