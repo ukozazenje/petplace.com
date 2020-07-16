@@ -104,6 +104,7 @@ module.exports = {
                 title
                 description
                 siteUrl
+                author
                 site_url: siteUrl
               }
             }
@@ -117,6 +118,7 @@ module.exports = {
                   description: edge.node.excerpt,
                   date: edge.node.date,
                   title: edge.node.title,
+                  author: edge.node.author.name,
                   url: site.siteMetadata.siteUrl + edge.node.path,
                   guid: site.siteMetadata.siteUrl + edge.node.path,
                   custom_elements: [{ 'content:encoded': edge.node.content }],
@@ -133,6 +135,9 @@ module.exports = {
                       path
                       date(formatString: "MMMM DD, YYYY")
                       content
+                      author {
+                        name
+                      }
                     }
                   }
                 }
@@ -153,9 +158,10 @@ module.exports = {
                   description: post.excerpt,
                   date: post.date,
                   title: post.title,
+                  author: post.author_name || "PetPlace Staff",
                   url: site.siteMetadata.siteUrl + post.path,
                   guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content }],
+                  custom_elements: [{ 'content:encoded': post.content }],                 
                 });
               });
             },
@@ -165,6 +171,7 @@ module.exports = {
                   id
                   posts {
                     title
+                    author_name
                     path
                     date
                     content
@@ -187,9 +194,10 @@ module.exports = {
                   description: post.excerpt,
                   date: post.date,
                   title: post.title,
+                  author: post.author_name || "PetPlace Staff",
                   url: site.siteMetadata.siteUrl + post.path,
                   guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content }],
+                  custom_elements: [{ 'content:encoded': post.content }],                
                 });
               });
             },
@@ -199,6 +207,7 @@ module.exports = {
                   id
                   posts {
                     title
+                    author_name
                     path
                     date
                     content
@@ -221,9 +230,10 @@ module.exports = {
                   description: post.excerpt,
                   date: post.date,
                   title: post.title,
+                  author: post.author_name || "PetPlace Staff",
                   url: site.siteMetadata.siteUrl + post.path,
                   guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content }],
+                  custom_elements: [{ 'content:encoded': post.content }],                
                 });
               });
             },
@@ -233,6 +243,7 @@ module.exports = {
                   id
                   posts {
                     title
+                    author_name
                     path
                     date
                     content
@@ -255,9 +266,10 @@ module.exports = {
                   description: post.excerpt,
                   date: post.date,
                   title: post.title,
+                  author: post.author_name || "PetPlace Staff",
                   url: site.siteMetadata.siteUrl + post.path,
                   guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content }],
+                  custom_elements: [{ 'content:encoded': post.content}],                
                 });
               });
             },
@@ -268,6 +280,7 @@ module.exports = {
                   posts {
                     title
                     path
+                    author_name
                     date
                     content
                   }
@@ -289,9 +302,10 @@ module.exports = {
                   description: post.excerpt,
                   date: post.date,
                   title: post.title,
+                  author: post.author_name || "PetPlace Staff",
                   url: site.siteMetadata.siteUrl + post.path,
                   guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content }],
+                  custom_elements: [{ 'content:encoded': post.content}],                 
                 });
               });
             },
@@ -301,6 +315,7 @@ module.exports = {
                   id
                   posts {
                     title
+                    author_name
                     path
                     date
                     content
@@ -323,6 +338,7 @@ module.exports = {
                   description: post.excerpt,
                   date: post.date,
                   title: post.title,
+                  author: post.author_name || "PetPlace Staff",
                   url: site.siteMetadata.siteUrl + post.path,
                   guid: site.siteMetadata.siteUrl + post.path,
                   custom_elements: [{ 'content:encoded': post.content }],
@@ -335,6 +351,7 @@ module.exports = {
                   id
                   posts {
                     title
+                    author_name
                     path
                     date
                     content
