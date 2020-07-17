@@ -64,7 +64,7 @@ const BreedsToExplore = props => {
   return (
     <section className="section breeds-to-explore-section">
       <div className="container is-fullhd">
-        <h3>Related Breeds</h3>
+        <h3>Latest Articles</h3>
         <Slider {...factsSettings}>
           {breedPosts.map(({ node: breed }, index) => (
             <div className={`breeds_to_explore-slide`}>
