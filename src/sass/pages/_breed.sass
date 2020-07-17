@@ -107,15 +107,13 @@
       min-width: 220px
       max-width: 250px 
     p 
+     
       padding: 0 10px
       text-align: center
 
   .care-content 
-    // min-height: 280px
-    +desktop 
-      p 
-        column-count: 2 
-        column-gap: 40px
+    p 
+      margin-bottom: 20px
 
   .care-card
     display: flex 
@@ -446,7 +444,7 @@
   .breed-main-content
     display: flex 
     flex-direction: column
-    justify-content: space-between
+    // justify-content: space-between
     max-width: 100% 
     width: 100%
       /* These are technically the same, but use both */
@@ -466,6 +464,8 @@
     hyphens: auto
     +desktop 
       max-width: 840px
+    p 
+      margin-bottom: 20px
   .breed-main-image 
     max-width: 470px 
     .gatsby-image-wrapper
