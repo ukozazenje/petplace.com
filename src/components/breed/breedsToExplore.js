@@ -1,9 +1,10 @@
-import React from 'react'
-import Slider from "react-slick";
-import Img from 'gatsby-image'
-import { setBreedColor } from '../functions'
-import {navigate} from 'gatsby'
+import React from "react"
+import Slider from "react-slick"
+import Img from "gatsby-image"
+import { setBreedColor } from "../functions"
+import { navigate } from "gatsby"
 import NoImg from "../../static/images/noSearchPostImg"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 const factsSettings = {
   dots: false,
@@ -17,7 +18,7 @@ const factsSettings = {
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
-        infinite: true
+        infinite: true,
       },
     },
     {
@@ -25,32 +26,79 @@ const factsSettings = {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        infinite: true
-      }
-    }
-  ]
+        infinite: true,
+      },
+    },
+  ],
 }
 
-const breedsToExplore = ({breeds_to_explore}) => {
+const BreedsToExplore = props => {
+  const { allWordpressBreedPosts } = useStaticQuery(
+    graphql`
+      {
+        allWordpressBreedPosts(sort: { fields: date, order: DESC }, limit: 3) {
+          edges {
+            node {
+              id
+              path
+              title
+              slug
+              featured {
+                source_url
+                alt_text
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1920, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+  const breedPosts = allWordpressBreedPosts.edges
   return (
     <section className="section breeds-to-explore-section">
       <div className="container is-fullhd">
         <h3>Related Breeds</h3>
         <Slider {...factsSettings}>
-          {breeds_to_explore.map( (breed, index) => (
+          {breedPosts.map(({ node: breed }, index) => (
             <div className={`breeds_to_explore-slide`}>
-              <div className="breeds_to_explore-content" onClick={ () => navigate(`/breed/${breed.slug}`)}>
-                { breed && breed.featured_img && breed.featured_img.localFile && breed.featured_img.localFile.childImageSharp && breed.featured_img.localFile.childImageSharp.fluid ?  <Img sizes={{...breed.featured_img.localFile.childImageSharp.fluid, aspectRatio: 1/1}} /> : <NoImg />}
-                <div className={`breeds_to_explore-title ${setBreedColor(index)}`} dangerouslySetInnerHTML={{
-                  __html: breed.post_title
-                }} />
+              <div
+                className="breeds_to_explore-content"
+                onClick={() => navigate(`/breed/${breed.slug}`)}
+              >
+                {breed &&
+                breed.featured &&
+                breed.featured.localFile &&
+                breed.featured.localFile.childImageSharp &&
+                breed.featured.localFile.childImageSharp.fluid ? (
+                  <Img
+                    sizes={{
+                      ...breed.featured.localFile.childImageSharp.fluid,
+                      aspectRatio: 1 / 1,
+                    }}
+                  />
+                ) : (
+                  <NoImg />
+                )}
+                <div
+                  className={`breeds_to_explore-title ${setBreedColor(index)}`}
+                  dangerouslySetInnerHTML={{
+                    __html: breed.title,
+                  }}
+                />
               </div>
             </div>
-          ) )}
+          ))}
         </Slider>
       </div>
     </section>
   )
 }
 
-export default breedsToExplore
+export default BreedsToExplore

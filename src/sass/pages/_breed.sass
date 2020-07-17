@@ -296,7 +296,10 @@
       padding: 0 30px
       background: #fff 
       min-height: 300px
-      padding-bottom: 10px
+      padding-bottom: 30px
+      +desktop 
+        // min-height: initial
+        padding-bottom: 36px
       h4 
         padding-top: 36px
         font-size: 80px
@@ -332,11 +335,11 @@
     flex-direction: column-reverse 
     +tablet 
       justify-content: space-between
-      align-items: center
+      align-items:  flex-start
       flex-direction: row
   h4 
     margin-bottom: 30px
-    color: $orange
+    color: #353534
 
   h3, h4 
     font-size: 1.75rem
@@ -347,13 +350,21 @@
   .history-image-wrapper
     max-width: 100%
     +desktop 
-      max-width: 400px 
+      max-width: 470px 
+    .gatsby-image-wrapper
+      border-radius: 10px
+    
+
   .history-content
     text-align: left
     max-width: 100%
+    width: 100%
+    p 
+      margin-bottom: 20px
     +desktop 
-      text-align: right
-      max-width: 800px
+      padding-left: 70px
+      text-align: left
+      max-width: 100%
 
 .breeds-to-explore-section
   padding-top: 45px
@@ -400,6 +411,7 @@
     +desktop 
       font-size: 2.875rem
   .breeds_to_explore-content 
+    cursor: pointer
     margin: 15px
   .breeds_to_explore-title
     height: 100px
@@ -436,6 +448,7 @@
     flex-direction: column
     justify-content: space-between
     max-width: 100% 
+    width: 100%
       /* These are technically the same, but use both */
     overflow-wrap: break-word
     word-wrap: break-word
@@ -454,7 +467,9 @@
     +desktop 
       max-width: 840px
   .breed-main-image 
-    max-width: 400px 
+    max-width: 470px 
+    .gatsby-image-wrapper
+      border-radius: 10px
   .references 
     p 
       margin-top: 20px
@@ -552,6 +567,7 @@
     color: #FFFFFF
     background: url('../images/plus.svg') no-repeat center right
     padding-left: 20px
+    padding-right: 40px
     font-family: $family-secondary
     font-weight: $family-secondary-weight
     +desktop
@@ -591,7 +607,7 @@
     transition: all 0.6s ease
     border-radius: 5px
     margin-top: 30px
-    padding: 10px 20px
+    padding: 10px 20px 
     cursor: pointer
     background-color: #5D3450
     box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1)
@@ -608,4 +624,62 @@
     //     margin-top: 50px
     // +desktop
     //   margin-top: 40px
+.references-section 
+  background: #F2F5FC
+  padding: 50px 20px
+  .references-wrapper
+    padding: 50px 20px
+    background: #FBFBFB
+    box-shadow: 5px 5px 50px #E0E5EC 
     
+    +desktop 
+      padding: 60px 20px 
+      
+    
+    h3
+      font-family: $family-secondary 
+      font-weight: 800 
+      font-size: 1.75rem 
+      text-align: center
+      margin-bottom: 20px
+      color: $orange 
+      +desktop 
+        font-size: 2.875rem
+
+    .references 
+      max-width: 1000px 
+      margin: 0 auto 
+    
+    ul 
+      li
+        list-style: none
+        font-family: $family-secondary 
+        font-weight: 700 
+        font-size: 1.125rem
+        line-height: 32px
+        margin-bottom: 15px
+        color: #353534
+        &::before
+          content: "\2022"
+          color: $orange
+          font-weight: 800
+          display: inline-block
+          width: 20px
+          margin-left: -1em
+          font-size: 1.125rem
+          line-height: 32px
+          +desktop 
+            font-size: 1.25rem
+            line-height: 34px
+        +desktop 
+          font-size: 1.25rem
+          line-height: 34px
+          margin-bottom: 20px 
+.cat-footer 
+  display: none 
+  +desktop 
+    padding-top: 50px
+    display: block
+  .cat-footer-img
+    max-width: 600px
+    margin: 0 auto
