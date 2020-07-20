@@ -67,7 +67,7 @@ const BreedsToExplore = props => {
         <h3>Latest Articles</h3>
         <Slider {...factsSettings}>
           {breedPosts.map(({ node: breed }, index) => (
-            <div className={`breeds_to_explore-slide`}>
+            <div key={index} className={`breeds_to_explore-slide`}>
               <div
                 className="breeds_to_explore-content"
                 onClick={() => navigate(`/breed/${breed.slug}`)}

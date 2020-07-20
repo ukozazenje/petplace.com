@@ -474,7 +474,7 @@ const Breed = ({ data }) => {
                   <div className="image-wrapper">
                     <img src={healthImg} />
                   </div>
-                  <p>{`${head_title || "Health"}`}</p>
+                  <p>{`${health_title || "Health"}`}</p>
                 </div>
               </div>
               <div className="column">

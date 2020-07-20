@@ -39,7 +39,14 @@ const Breeds = ({ data }) => {
   const [currentBreeds, setCurrentBreeds] = useState(
     displayBreeds.slice(0, limit)
   )
-  const [types, setTypes] = useState([])
+  const [types, setTypes] = useState([
+    "Sporting",
+    "Hound",
+    "Terrier",
+    "Non-Sporting",
+    "Toy",
+    "Herding",
+  ])
 
   const handleChange = value => {
     types.includes(value)
@@ -52,6 +59,11 @@ const Breeds = ({ data }) => {
     const offset = (page - 1) * limit
     setCurrentBreeds(displayBreeds.slice(offset, offset + limit))
     setCurrentPage(page)
+    window.scrollTo({
+      top: 100,
+      left: 0,
+      behavior: "smooth",
+    })
   }
 
   useFilterBreeds(
@@ -71,7 +83,7 @@ const Breeds = ({ data }) => {
     }
   }, [displayBreeds])
 
-  console.log(displayBreeds)
+  console.log(types)
   return (
     <Layout>
       <div className="flex-container search-breed-container">
@@ -85,7 +97,6 @@ const Breeds = ({ data }) => {
               </h1>
               <p>
                 Find the perfect companion for your lifestyle, living space, and
-                <br />
                 family dynamic.
               </p>
               {/* <Autocomplete suggestions={[...breedsCopy]} /> */}
