@@ -153,7 +153,7 @@ const Breed = ({ data }) => {
     nutrition: true,
   })
 
-  const [maxHeight, setMaxHeight] = useState(0)
+  const [maxHeight, setMaxHeight] = useState("auto")
 
   const [breedStandard, setBreedStandard] = useState({
     general_appearance: true,
@@ -676,11 +676,9 @@ const Breed = ({ data }) => {
               className=""
               ref={el => {
                 if (el) {
-                  setMaxHeight(
-                    maxHeight > el.getBoundingClientRect().height
-                      ? maxHeight
-                      : el.getBoundingClientRect().height
-                  )
+                  if (el.getBoundingClientRect().width > 1300) {
+                    setMaxHeight(`${el.getBoundingClientRect().height - 67}px`)
+                  }
                   console.log("maxHeight", maxHeight)
                   console.log(`${el.getBoundingClientRect().height}px`)
                 }
@@ -692,9 +690,7 @@ const Breed = ({ data }) => {
                   <div className="fact-slide">
                     <div
                       className="fact-slide-content"
-                      style={{
-                        minHeight: `${maxHeight - 80}px`,
-                      }}
+                      style={{ minHeight: maxHeight }}
                     >
                       <h4 className={`${setBreedColor(index)}`}>{index + 1}</h4>
                       <p
