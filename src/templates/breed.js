@@ -693,7 +693,7 @@ const Breed = ({ data }) => {
                     <div
                       className="fact-slide-content"
                       style={{
-                        minHeight: `${maxHeight - 70}px`,
+                        minHeight: `${maxHeight - 80}px`,
                       }}
                     >
                       <h4 className={`${setBreedColor(index)}`}>{index + 1}</h4>
