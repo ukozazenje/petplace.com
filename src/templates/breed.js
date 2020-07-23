@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 // import one from '../images/1.svg'
 // import two from '../images/2.svg'
 // import three from '../images/3.svg'
@@ -92,6 +93,7 @@ const factsSettings = {
 const Breed = ({ data }) => {
   // console.log(data.wordpressBreedPosts.acf)
   // console.log(breeds_to_explore)
+
   const facts = data.wordpressBreedPosts.acf.facts
   const breeds_to_explore = data.wordpressBreedPosts.breeds_to_explore
   const {
@@ -148,7 +150,8 @@ const Breed = ({ data }) => {
   const title = data.wordpressBreedPosts.title
   const content = data.wordpressBreedPosts.content
   const featured = data.wordpressBreedPosts.featured
-
+  const { yoast_meta, yoast_title } = data.wordpressBreedPosts
+  const defaultPostImgUrl = data.postHeroImg.childImageSharp.fluid.src
   const [care, setCare] = useState({
     nutrition: true,
   })
@@ -196,6 +199,17 @@ const Breed = ({ data }) => {
 
   return (
     <Layout>
+      <SEO
+        title={yoast_title}
+        image={
+          (featured &&
+            featured.localFile &&
+            featured.localFile.childImageSharp &&
+            featured.localFile.childImageSharp.fluid.src) ||
+          defaultPostImgUrl
+        }
+        description={yoast_meta}
+      />
       <section className="hero-section">
         <div className="is-hidden-touch">
           <Img
@@ -731,6 +745,9 @@ export const pageQuery = graphql`
     wordpressBreedPosts(id: { eq: $id }) {
       title
       content
+      yoast_canonical
+      yoast_meta
+      yoast_title
       featured {
         source_url
         alt_text
@@ -832,6 +849,14 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    postHeroImg: file(relativePath: { eq: "defaultImg.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 80) {
+          ...GatsbyImageSharpFluid_tracedSVG
+          ...GatsbyImageSharpFluid
         }
       }
     }
