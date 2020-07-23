@@ -19,7 +19,7 @@ import BreedsToExplore from "../components/breed/otherBreedsToExplore"
 const Breeds = ({ data }) => {
   const isInitialMount = useRef(true)
   const breeds = data.allWordpressBreedPosts.edges
-  const limit = 6
+  const limit = 3
 
   const [filterType, setFilterType] = useState(true)
   const [menu, setMenu] = useState(false)
@@ -60,11 +60,6 @@ const Breeds = ({ data }) => {
     const offset = (page - 1) * limit
     setCurrentBreeds(displayBreeds.slice(offset, offset + limit))
     setCurrentPage(page)
-    window.scrollTo({
-      top: 100,
-      left: 0,
-      behavior: "smooth",
-    })
   }
 
   useFilterBreeds(
@@ -83,6 +78,14 @@ const Breeds = ({ data }) => {
       handlePageChange(1)
     }
   }, [displayBreeds])
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 100,
+      left: 0,
+      behavior: "smooth",
+    })
+  }, [currentPage])
 
   console.log(types)
   return (
