@@ -19,7 +19,7 @@ import BreedsToExplore from "../components/breed/otherBreedsToExplore"
 const Breeds = ({ data }) => {
   const isInitialMount = useRef(true)
   const breeds = data.allWordpressBreedPosts.edges
-  const limit = 3
+  const limit = 6
 
   const [filterType, setFilterType] = useState(true)
   const [menu, setMenu] = useState(false)
