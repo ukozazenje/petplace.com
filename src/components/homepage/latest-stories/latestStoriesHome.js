@@ -27,7 +27,7 @@ const PopularPosts = props => {
                     localFile {
                       childImageSharp {
                         fluid(maxHeight: 600, quality: 60) {
-                          ...GatsbyImageSharpFluid_withWebp_noBase64
+                          ...GatsbyImageSharpFluid
                         }
                       }
                     }
@@ -41,7 +41,7 @@ const PopularPosts = props => {
         placeholderImage: file(relativePath: { eq: "no-img.jpeg" }) {
           childImageSharp {
             fluid(maxWidth: 300, quality: 60) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
+              ...GatsbyImageSharpFluid
             }
           }
         }
