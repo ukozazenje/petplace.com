@@ -1099,3 +1099,23 @@ export const filterFaqPosts = (post, author, imgUrl) => {
       )
   }
 }
+
+export const setBreedColor = (breed) => {
+  switch (breed) {
+    case 0:
+    case 3:
+    case 6:
+    case 9:
+    case 12:
+      return "breed-purple"
+    case 1:
+    case 4:
+    case 7:
+    case 10:
+    case 13:
+    return "breed-red"
+  
+    default:
+      return "breed-blue"
+  }
+} 

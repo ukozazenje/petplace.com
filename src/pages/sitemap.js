@@ -1,71 +1,71 @@
-import React from 'react'
-import Layout from '../components/layout'
-import {useStaticQuery, Link} from "gatsby"
+import React from "react"
+import Layout from "../components/layout"
+import { useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
-import PetCare from '../static/images/category-images/pet'
+import PetCare from "../static/images/category-images/pet"
 import ContactUsSection from "../components/homepage/contact-us"
 const Sitemap = () => {
   // in case we want images for categories
   const data = useStaticQuery(graphql`
-      query {
-        petCareImg: file(relativePath: { eq: "pet-care.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        petHealthImg: file(relativePath: { eq: "pet-care.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        petBehaviorImg: file(relativePath: { eq: "pet-care.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        breedsImg: file(relativePath: { eq: "pet-care.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        petInsuranceImg: file(relativePath: { eq: "pet-care.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        justForFunImg: file(relativePath: { eq: "pet-care.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        pagesImg: file(relativePath: { eq: "pet-care.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              ...GatsbyImageSharpFluid
-            }
+    query {
+      petCareImg: file(relativePath: { eq: "pet-care.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
-    `)
-  
+      petHealthImg: file(relativePath: { eq: "pet-care.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      petBehaviorImg: file(relativePath: { eq: "pet-care.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      breedsImg: file(relativePath: { eq: "pet-care.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      petInsuranceImg: file(relativePath: { eq: "pet-care.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      justForFunImg: file(relativePath: { eq: "pet-care.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      pagesImg: file(relativePath: { eq: "pet-care.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Layout>
       <section className="hero-section">
         <PetCare />
         <div className={`hero-title purple-transparent`}>
-          <div className="container is-fullhd category-title"> 
+          <div className="container is-fullhd category-title">
             <h1>Sitemap</h1>
           </div>
         </div>
@@ -78,7 +78,7 @@ const Sitemap = () => {
           <div className="columns">
             <div className="column">
               <div className="sitemap-list">
-               {/* <Img sizes={{...data.petCareImg.childImageSharp.fluid, aspectRatio: 18 / 5}} /> */}
+                {/* <Img sizes={{...data.petCareImg.childImageSharp.fluid, aspectRatio: 18 / 5}} /> */}
                 <Link to="/article/category/pet-care/">
                   <h3>Pet Care</h3>
                 </Link>
@@ -95,27 +95,27 @@ const Sitemap = () => {
                       </li>
                       <li>
                         <Link to="/article/category/pet-care/cat-care/cat-exercises-play/">
-                        Cat Exercises & Play
+                          Cat Exercises & Play
                         </Link>
                       </li>
                       <li>
                         <Link to="/article/category/pet-care/cat-care/grooming-your-cat/">
-                        Grooming Your Cat
+                          Grooming Your Cat
                         </Link>
                       </li>
                       <li>
                         <Link to="/article/category/pet-care/cat-care/kitten-care/">
-                        Kitten Care
+                          Kitten Care
                         </Link>
                       </li>
                       <li>
                         <Link to="/article/category/pet-care/cat-care/litter-box-training-cat-care/">
-                        Litter Box Training
+                          Litter Box Training
                         </Link>
                       </li>
                       <li>
                         <Link to="/article/category/pet-care/cat-care/senior-cat-care/">
-                        Senior Cat Care
+                          Senior Cat Care
                         </Link>
                       </li>
                     </ul>
@@ -127,34 +127,34 @@ const Sitemap = () => {
                     <ul>
                       <li>
                         <Link to="/article/category/pet-care/dog-care/dog-adoption/">
-                        Dog Adoption
+                          Dog Adoption
                         </Link>
                       </li>
                       <li>
                         <Link to="/article/category/pet-care/dog-care/dog-exercises-play/">
-                        Dog Exercises & Play
+                          Dog Exercises & Play
                         </Link>
                       </li>
                       <li>
                         <Link to="/article/category/pet-care/dog-care/grooming-your-dog/">
-                        Grooming Your Dog
+                          Grooming Your Dog
                         </Link>
                       </li>
                       <li to="/article/category/pet-care/dog-care/puppy-care/">
                         <Link>
-                        <strong>Puppy Care</strong>
+                          <strong>Puppy Care</strong>
                         </Link>
                         <ul>
                           <li>
                             <Link to="/article/category/pet-care/dog-care/puppy-care/puppy-diaries/">
-                            Puppy Diaries
+                              Puppy Diaries
                             </Link>
                           </li>
                         </ul>
                       </li>
                       <li>
                         <Link to="/article/category/pet-care/dog-care/senior-dog-care/">
-                        Senior Dog Care
+                          Senior Dog Care
                         </Link>
                       </li>
                     </ul>
@@ -165,22 +165,22 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/pet-care/small-pet-care/birds/">
-                          Bird Pet Care
+                            Bird Pet Care
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-care/small-pet-care/fish/">
-                          Fish Pet Care
+                            Fish Pet Care
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-care/small-pet-care/reptile/">
-                          Reptile Pet Care
+                            Reptile Pet Care
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-care/small-pet-care/small-mammals/">
-                          Small Mammals Pet Care
+                            Small Mammals Pet Care
                           </Link>
                         </li>
                       </ul>
@@ -202,22 +202,22 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/pet-health/cat-health/cat-diet-nutrition/">
-                          Cat Diet & Nutrition
+                            Cat Diet & Nutrition
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/cat-health/cat-diseases-symptoms/">
-                          Cat Diseases & Symptoms
+                            Cat Diseases & Symptoms
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/cat-health/cat-injuries-safety/">
-                          Cat Injuries & Safety
+                            Cat Injuries & Safety
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/cat-health/cat-medications-vaccinations/">
-                          Cat Medications & Vaccinations
+                            Cat Medications & Vaccinations
                           </Link>
                         </li>
                       </ul>
@@ -229,27 +229,27 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/pet-health/dog-health/dog-dental-care/">
-                          Dog Dental Care
+                            Dog Dental Care
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/dog-health/dog-diet-nutrition/">
-                          Dog Diet & Nutrition
+                            Dog Diet & Nutrition
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/dog-health/dog-diseases-symptoms/">
-                          Dog Diseases & Symptoms
+                            Dog Diseases & Symptoms
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/dog-health/dog-injuries-safety/">
-                          Dog Injuries & Safety
+                            Dog Injuries & Safety
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/dog-health/dog-medications-vaccinations/">
-                          Dog Medications & Vaccinations
+                            Dog Medications & Vaccinations
                           </Link>
                         </li>
                       </ul>
@@ -261,22 +261,22 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/pet-health/small-pet-health/birds-small-pet-health/">
-                          Bird Health
+                            Bird Health
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/small-pet-health/fish-small-pet-health/">
-                          Fish Health
+                            Fish Health
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/small-pet-health/reptile-small-pet-health/">
-                          Reptile Health
+                            Reptile Health
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-health/small-pet-health/small-mammals-small-pet-health/">
-                          Small Mammal Health
+                            Small Mammal Health
                           </Link>
                         </li>
                       </ul>
@@ -298,27 +298,27 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/pet-behavior-training/cat-behavior-training/bonding-with-your-cat/">
-                          Bonding With Your Cat
+                            Bonding With Your Cat
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/cat-behavior-training/cat-behavior-problems/">
-                          Cat Behavior Problems
+                            Cat Behavior Problems
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/cat-behavior-training/litter-box-training/">
-                          Litter Box Training
+                            Litter Box Training
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/cat-behavior-training/loss-mourning-a-cat/">
-                          Loss & Mourning A Cat
+                            Loss & Mourning A Cat
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/cat-behavior-training/normal-cat-behavior/">
-                          Normal Cat Behavior
+                            Normal Cat Behavior
                           </Link>
                         </li>
                       </ul>
@@ -330,27 +330,27 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/pet-behavior-training/dog-behavior-training/bonding-with-your-dog/">
-                          Bonding With Your Dog
+                            Bonding With Your Dog
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/dog-behavior-training/dog-behavior-problems/">
-                          Dog Behavior Problems
+                            Dog Behavior Problems
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/dog-behavior-training/loss-mourning-a-dog/">
-                          Loss & Mourning A Dog
+                            Loss & Mourning A Dog
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/dog-behavior-training/normal-dog-behavior/">
-                          Normal Dog Behavior
+                            Normal Dog Behavior
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/dog-behavior-training/training-your-dog/">
-                          Training Your Dog
+                            Training Your Dog
                           </Link>
                         </li>
                       </ul>
@@ -362,22 +362,22 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/pet-behavior-training/small-pet-behavior-training/birds-small-pet-behavior-training/">
-                          Bird Behavior & Training
+                            Bird Behavior & Training
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/small-pet-behavior-training/fish-small-pet-behavior-training/">
-                          Fish Behavior & Training
+                            Fish Behavior & Training
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/small-pet-behavior-training/reptile-small-pet-behavior-training/">
-                          Reptile Behavior & Training
+                            Reptile Behavior & Training
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/pet-behavior-training/small-pet-behavior-training/small-mammals-small-pet-behavior-training/">
-                          Small Mammals Behavior & Training
+                            Small Mammals Behavior & Training
                           </Link>
                         </li>
                       </ul>
@@ -392,7 +392,7 @@ const Sitemap = () => {
             <div className="column">
               <div className="sitemap-list">
                 {/* <Img sizes={{...data.petCareImg.childImageSharp.fluid, aspectRatio: 18 / 5}} /> */}
-                <Link to="/article/category/breeds/">
+                <Link to="/breeds/">
                   <h3>Breeds</h3>
                 </Link>
                 <ul>
@@ -402,17 +402,17 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/breeds/cat-breeds/domestic-longhair/">
-                          Domestic Longhair
+                            Domestic Longhair
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/breeds/cat-breeds/maine-coon/">
-                          Maine Coon
+                            Maine Coon
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/breeds/cat-breeds/selecting-a-cat/">
-                          Selecting a Cat Breed
+                            Selecting a Cat Breed
                           </Link>
                         </li>
                       </ul>
@@ -424,22 +424,22 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/breeds/dog-breeds/best-breeds-for-kids/">
-                          Best Breeds for Kids
+                            Best Breeds for Kids
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/breeds/dog-breeds/popular-dog-breeds/">
-                          Popular Dog Breeds
+                            Popular Dog Breeds
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/breeds/dog-breeds/selecting-a-dog/">
-                          Selecting a Dog Breed
+                            Selecting a Dog Breed
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/breeds/dog-breeds/top-dog-breeds/">
-                          Top Dog Breeds
+                            Top Dog Breeds
                           </Link>
                         </li>
                       </ul>
@@ -451,22 +451,22 @@ const Sitemap = () => {
                       <ul>
                         <li>
                           <Link to="/article/category/breeds/small-pet-breeds/birds-small-pet-breeds/">
-                          Birds Pet Breeds
+                            Birds Pet Breeds
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/breeds/small-pet-breeds/fish-small-pet-breeds/">
-                          Fish Breeds
+                            Fish Breeds
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/breeds/small-pet-breeds/reptile-small-pet-breeds/">
-                          Reptiles Breeds
+                            Reptiles Breeds
                           </Link>
                         </li>
                         <li>
                           <Link to="/article/category/breeds/small-pet-breeds/small-mammals-small-pet-breeds/">
-                          Small Mammals Breeds
+                            Small Mammals Breeds
                           </Link>
                         </li>
                       </ul>
@@ -562,34 +562,22 @@ const Sitemap = () => {
                 </Link>
                 <ul>
                   <li>
-                    <Link to="/about-us/">
-                      About us
-                    </Link>
+                    <Link to="/about-us/">About us</Link>
                   </li>
                   <li>
-                    <Link to="/privacy-policy/">
-                      Privacy Policy
-                    </Link>
+                    <Link to="/privacy-policy/">Privacy Policy</Link>
                   </li>
                   <li>
-                    <Link to="/terms-of-use/">
-                      Terms of Use
-                    </Link>
+                    <Link to="/terms-of-use/">Terms of Use</Link>
                   </li>
                   <li>
-                    <Link to="/newsletter-signup/">
-                      News Letter Signup
-                    </Link>
+                    <Link to="/newsletter-signup/">News Letter Signup</Link>
                   </li>
                   <li>
-                    <Link to="/prnews/">
-                      PR News
-                    </Link>
+                    <Link to="/prnews/">PR News</Link>
                   </li>
                   <li>
-                    <Link to="/authors/">
-                      Authors
-                    </Link>
+                    <Link to="/authors/">Authors</Link>
                   </li>
                 </ul>
               </div>
