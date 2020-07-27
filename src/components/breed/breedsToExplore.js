@@ -70,7 +70,7 @@ const BreedsToExplore = props => {
             <div key={index} className={`breeds_to_explore-slide`}>
               <div
                 className="breeds_to_explore-content"
-                onClick={() => navigate(`/breed/${breed.slug}`)}
+                onClick={() => navigate(`${breed.path}`)}
               >
                 {breed &&
                 breed.featured &&

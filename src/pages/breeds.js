@@ -185,7 +185,7 @@ const Breeds = ({ data }) => {
                   <div className="column is-one-third" key={breed.id}>
                     <div className="category-post-card">
                       <div className="card-img">
-                        <Link to={`/breed/${breed.slug}`}>
+                        <Link to={`${breed.path}`}>
                           {breed.featured &&
                           breed.featured.localFile &&
                           breed.featured.localFile.childImageSharp &&
@@ -206,7 +206,7 @@ const Breeds = ({ data }) => {
                       <div className="card-content">
                         <div className="card-title">
                           <h3>
-                            <Link to={`/breed/${breed.slug}`}>
+                            <Link to={`${breed.path}`}>
                               {breed.title.replace(/&amp;/g, "&") || "title"}
                             </Link>
                           </h3>
@@ -242,6 +242,7 @@ export const pageQuery = graphql`
           title
           content
           slug
+          path
           featured {
             source_url
             alt_text
