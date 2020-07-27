@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import Img from 'gatsby-image'
-import {categoryColor} from '../../functions'
-const PopularPosts = (props) => {
-
-  const {wordpressTtgPages} = useStaticQuery(
+import Img from "gatsby-image"
+import { categoryColor } from "../../functions"
+const PopularPosts = props => {
+  const { wordpressTtgPages } = useStaticQuery(
     graphql`
       query {
-        wordpressTtgPages(wordpress_id: {eq: 6}) {
+        wordpressTtgPages(wordpress_id: { eq: 6 }) {
           acf {
             category_rows {
               category
@@ -27,7 +26,7 @@ const PopularPosts = (props) => {
                     alt_text
                     localFile {
                       childImageSharp {
-                        fluid(maxHeight: 600) {
+                        fluid(maxHeight: 600, quality: 60) {
                           ...GatsbyImageSharpFluid
                         }
                       }
@@ -41,7 +40,7 @@ const PopularPosts = (props) => {
         }
         placeholderImage: file(relativePath: { eq: "no-img.jpeg" }) {
           childImageSharp {
-            fluid(maxWidth: 300) {
+            fluid(maxWidth: 300, quality: 60) {
               ...GatsbyImageSharpFluid
             }
           }
@@ -85,60 +84,129 @@ const PopularPosts = (props) => {
         <div className="tile is-parent">
           <div className="tile is-child main-box">
             <div className="main-box-mobile-img">
-              <Link className={`category-link-btn ${categoryColor(mainPost.category_name)} hide-desktop`} to={mainPost.category_path} dangerouslySetInnerHTML={{
-                __html: mainPost.category_name
-              }} />
-              <Img sizes={{ ...mainPost.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 4 / 3 }} alt={(mainPost.featured_image.full.alt_text || 'post')} />
+              <Link
+                className={`category-link-btn ${categoryColor(
+                  mainPost.category_name
+                )} hide-desktop`}
+                to={mainPost.category_path}
+                dangerouslySetInnerHTML={{
+                  __html: mainPost.category_name,
+                }}
+              />
+              <Img
+                sizes={{
+                  ...mainPost.featured_image.full.localFile.childImageSharp
+                    .fluid,
+                  aspectRatio: 4 / 3,
+                }}
+                alt={mainPost.featured_image.full.alt_text || "post"}
+              />
             </div>
             <div className="main-box-desktop-img">
-              <Img sizes={{ ...mainPost.featured_image.full.localFile.childImageSharp.fluid, aspectRatio: 16 / 9 }} alt={(mainPost.featured_image.full.alt_text || 'post')} />
+              <Img
+                sizes={{
+                  ...mainPost.featured_image.full.localFile.childImageSharp
+                    .fluid,
+                  aspectRatio: 16 / 9,
+                }}
+                alt={mainPost.featured_image.full.alt_text || "post"}
+              />
             </div>
-            <div className={`main-content ${categoryColor(mainPost.category_name)}-transparent`}>
-              <Link className={`category-link-btn ${categoryColor(mainPost.category_name)}  hide-mobile`} to={mainPost.category_path} dangerouslySetInnerHTML={{
-                __html: mainPost.category_name
-              }} />
+            <div
+              className={`main-content ${categoryColor(
+                mainPost.category_name
+              )}-transparent`}
+            >
+              <Link
+                className={`category-link-btn ${categoryColor(
+                  mainPost.category_name
+                )}  hide-mobile`}
+                to={mainPost.category_path}
+                dangerouslySetInnerHTML={{
+                  __html: mainPost.category_name,
+                }}
+              />
               <Link to={mainPost.path}>
-                <h4 dangerouslySetInnerHTML={{
-                  __html: mainPost.post_title
-                }} />
+                <h4
+                  dangerouslySetInnerHTML={{
+                    __html: mainPost.post_title,
+                  }}
+                />
               </Link>
-              <p className="date">{mainPost.post_date || 'no date'} ·  {(mainPost.author_name) || 'PetPlace.com'}</p>
+              <p className="date">
+                {mainPost.post_date || "no date"} ·{" "}
+                {mainPost.author_name || "PetPlace.com"}
+              </p>
             </div>
           </div>
         </div>
         <div className="tile is-5 is-vertical is-parent">
           <div className="tile is-child thumbnail-box flex-start">
             <Link to={firstPost.path}>
-              <Img fluid={(firstPost.featured_image.full.localFile.childImageSharp.fluid)} alt={(firstPost.featured_image.full.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
-  objectPosition="50% 50%" />
+              <Img
+                fluid={
+                  firstPost.featured_image.full.localFile.childImageSharp.fluid
+                }
+                alt={firstPost.featured_image.full.alt_text || "post image"}
+                className="thumbnail-img"
+                objectFit="cover"
+                objectPosition="50% 50%"
+              />
             </Link>
             <div className="sub-content">
-            <Link className={`category-link-btn ${categoryColor(firstPost.category_name)}`} to={firstPost.category_path} dangerouslySetInnerHTML={{
-                __html: firstPost.category_name
-              }} />
+              <Link
+                className={`category-link-btn ${categoryColor(
+                  firstPost.category_name
+                )}`}
+                to={firstPost.category_path}
+                dangerouslySetInnerHTML={{
+                  __html: firstPost.category_name,
+                }}
+              />
               <Link to={firstPost.path}>
-                <h4 dangerouslySetInnerHTML={{
-                  __html: firstPost.post_title 
-                }} />
+                <h4
+                  dangerouslySetInnerHTML={{
+                    __html: firstPost.post_title,
+                  }}
+                />
               </Link>
-              <p className="date">{firstPost.post_date} ·  {firstPost.author_name}</p>
+              <p className="date">
+                {firstPost.post_date} · {firstPost.author_name}
+              </p>
             </div>
           </div>
           <div className="tile is-child thumbnail-box flex-end">
             <Link to={secondPost.path}>
-              <Img fluid={(secondPost.featured_image.full.localFile.childImageSharp.fluid)} alt={(secondPost.featured_image.alt_text) || 'post image'} className="thumbnail-img" objectFit="cover"
-    objectPosition="50% 50%" />
+              <Img
+                fluid={
+                  secondPost.featured_image.full.localFile.childImageSharp.fluid
+                }
+                alt={secondPost.featured_image.alt_text || "post image"}
+                className="thumbnail-img"
+                objectFit="cover"
+                objectPosition="50% 50%"
+              />
             </Link>
             <div className="sub-content align-slef-start">
-              <Link className={`category-link-btn ${categoryColor(secondPost.category_name)}`} to={secondPost.category_path} dangerouslySetInnerHTML={{
-                __html: secondPost.category_name
-              }} />
-              <Link to={secondPost.path} >
-                <h4 dangerouslySetInnerHTML={{
-                __html: secondPost.post_title 
-                }} />
+              <Link
+                className={`category-link-btn ${categoryColor(
+                  secondPost.category_name
+                )}`}
+                to={secondPost.category_path}
+                dangerouslySetInnerHTML={{
+                  __html: secondPost.category_name,
+                }}
+              />
+              <Link to={secondPost.path}>
+                <h4
+                  dangerouslySetInnerHTML={{
+                    __html: secondPost.post_title,
+                  }}
+                />
               </Link>
-              <p className="date">{secondPost.post_date} ·  {secondPost.author_name}</p>
+              <p className="date">
+                {secondPost.post_date} · {secondPost.author_name}
+              </p>
             </div>
           </div>
         </div>
@@ -149,17 +217,18 @@ const PopularPosts = (props) => {
     <section className="section latest-stories-section">
       <div className="container is-fullhd">
         <h2>Latest Stories</h2>
-          {wordpressTtgPages.acf.category_rows.map((category_row, i) => {
-            return (
-              <div className="featured-categories" key={i}>
-                <h3 dangerouslySetInnerHTML={{
-                  __html: category_row.category_name
-                }} />
-                {tills(category_row.posts, category_row.category_name)}
-              </div>
-            )
-          })}
-
+        {wordpressTtgPages.acf.category_rows.map((category_row, i) => {
+          return (
+            <div className="featured-categories" key={i}>
+              <h3
+                dangerouslySetInnerHTML={{
+                  __html: category_row.category_name,
+                }}
+              />
+              {tills(category_row.posts, category_row.category_name)}
+            </div>
+          )
+        })}
       </div>
     </section>
   )

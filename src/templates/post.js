@@ -259,7 +259,8 @@ export const pageQuery = graphql`
         alt_text
         localFile {
           childImageSharp {
-            fluid(maxWidth: 1920, quality: 100) {
+            fluid(maxWidth: 1920, quality: 80) {
+              ...GatsbyImageSharpFluid_tracedSVG
               ...GatsbyImageSharpFluid
             }
           }
@@ -268,7 +269,8 @@ export const pageQuery = graphql`
     }
     postHeroImg: file(relativePath: { eq: "defaultImg.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920, quality: 100) {
+        fluid(maxWidth: 1920, quality: 80) {
+          ...GatsbyImageSharpFluid_tracedSVG
           ...GatsbyImageSharpFluid
         }
       }
