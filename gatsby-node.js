@@ -291,7 +291,7 @@ exports.createPages = ({ actions, graphql }) => {
       _.each(result, (pet_store, key) => {
         // Create the Gatsby page for this WordPress post
         createPage({
-          path: `/pet-stores/${pet_store.post_name}`,
+          path: `/pet-stores/${pet_store.post_name}/`,
           component: storesTemplate,
           context: {
             post_title: pet_store.post_title || "no-title",

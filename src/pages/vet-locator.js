@@ -216,6 +216,7 @@ class VetLocator extends Component{
                       <Popup
                         latitude={parseFloat(this.state.selectedStore.lat)}
                         longitude={parseFloat(this.state.selectedStore.lng)}
+                        anchor="top"
                         onClose = {() => {
                           this.setSelectedStore(null)
                         }}
@@ -379,9 +380,9 @@ class VetLocator extends Component{
                 return (
                   <div className="columns hr" key={key}>
                     <div className="column is-5 stores-p">
-                      <Link to={`/pet-stores/${store.post_name}`} className="stores-h1">
+                      <a href={`/pet-stores/${store.post_name}`} className="stores-h1" target="_blank">
                         {store.post_title}
-                      </Link>
+                      </a>
                       <p>{store.address}</p>
                       <p>{store.city}, {store.state}, {store.country} </p>
                     </div>

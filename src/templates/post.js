@@ -23,7 +23,15 @@ import {
   isMobile, isMobileOnly
 } from "react-device-detect";
 import LikeArticleWidget from '../components/LikeArticleWidget'
+import axios from 'axios'
+import CounterImg from '../images/footer-counter.png'
 class Post extends Component  {
+  
+  state = {
+    likes: 0,
+    likedPosts: [],
+    liked: false
+  }
 
   componentDidMount() {
     // find iframe and wrap it in div
@@ -35,6 +43,57 @@ class Post extends Component  {
       return wrapper.appendChild(toWrap)
     }
     iFrames.length && iFrames.map(iFrame => !iFrame.src.includes('instagram.com') && wrap(iFrame))
+    if (localStorage.getItem("likedPosts") === null) {
+      localStorage.setItem('likedPosts', '[]')
+    } else {
+      const likedPosts = JSON.parse(localStorage.getItem("likedPosts"))
+      const liked = likedPosts.filter( post => post ===  this.props.data.wordpressPost.wordpress_id) > 0 ? true : false      
+      this.setState({ 
+        likedPosts: likedPosts,
+        liked: liked
+      })
+    }
+    axios.get(`${process.env.GATSBY_GET_LIKED_POSTS_API}=${this.props.data.wordpressPost.wordpress_id}`)
+    .then(res => 
+      this.setState({
+        likes: res.data.likes
+      })
+      )
+    .catch(err => console.log(err))
+  }
+
+  handleSubmit = (setSuccessMsg, url, wordpress_id, helpful, feedback) => {
+
+    const d = new Date()
+    const day = d.getDay()
+    const year = d.getFullYear() 
+    const month = d.getMonth()
+    const hour = d.getHours()
+    const minutes = d.getMinutes()
+    const seconds = d.getSeconds()
+    const timestamp = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`
+    const data = {
+      post_id: wordpress_id,
+      helpful,
+      url: process.env.GATSBY_WEB_SITE_URL + url,
+      feedback: feedback || "none",
+      timestamp,
+    }
+    axios.post(`${process.env.GATSBY_POST_LIKED_POSTS_API}`, data
+    ).then(res =>  
+      {
+        setSuccessMsg(true);
+        axios.get(`${process.env.GATSBY_GET_LIKED_POSTS_API}=${wordpress_id}`)
+        .then(res => {
+          this.setState({
+            likes: res.data.likes,
+            likedPosts: [...this.state.likedPosts, wordpress_id]
+          }, () => localStorage.setItem('likedPosts', JSON.stringify(this.state.likedPosts)))
+        })
+        .catch(err => console.log(err))
+      }
+    )
+    .catch( err => console.log(err))
   }
 
   render(){
@@ -107,22 +166,22 @@ class Post extends Component  {
                   <p className="post-date">{post.date}</p>
                   <div className="share-icons-horizontal">
                     <p>Share:</p>
-                    <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
-                    <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
-                    <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
-                    <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                    <a className={`facebook-${post.path}`} href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`facebook-${post.path}`} src={facebook}  alt="facebook" /></a>
+                    <a className={`twitter-${post.path}`} href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`twitter-${post.path}`} src={twitter}  alt="twitter" /></a>
+                    <a className={`pinterest-${post.path}`} href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img className={`pinterest-${post.path}`} src={pintrest}  alt="pinterest" /></a>
+                    <a className={`mail-${post.path}`} href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`mail-${post.path}`} src={emailIcon}  alt="email" /></a>
                   </div>
                 </div>
                 {isMobile ? <AdMobile /> : <AdSet /> }
                 <div className="hide-mobile">
-                  <LikeArticleWidget url={post.path} wordpress_id={post.wordpress_id} />
+                  <LikeArticleWidget url={post.path} wordpress_id={post.wordpress_id} likes={this.state.likes} HandleSubmit={this.handleSubmit} liked={this.state.liked}/>
                 </div>
                 <Sticky enabled={true} top={20} bottomBoundary='.single-post-sidebar'>
                     <div className="share-icons-vertical">
-                      <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
-                      <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
-                      <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
-                      <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                      <a className={`facebook-${post.path}`} href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`facebook-${post.path}`}   src={facebook}  alt="facebook" /></a>
+                      <a className={`twitter-${post.path}`} href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`twitter-${post.path}`}   src={twitter}  alt="twitter" /></a>
+                      <a className={`pinterest-${post.path}`} href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img className={`pintrest-${post.path}`}   src={pintrest}  alt="pinterest" /></a>
+                      <a className={`mail-${post.path}`} href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`mail-${post.path}`}   src={emailIcon}  alt="email" /></a>
                     </div>
                 </Sticky>
               </div>
@@ -131,16 +190,20 @@ class Post extends Component  {
                     __html: post.content
                   }}
                 />
+                <div className="counter-wrapper">
+                  <img src={CounterImg} alt="number-of-posts" />
+                  <span><strong>{this.state.likes}</strong> paws up</span>
+                </div>
                 <div className="hide-desktop">
-                  <LikeArticleWidget url={post.path} wordpress_id={post.wordpress_id} />
+                  <LikeArticleWidget url={post.path} wordpress_id={post.wordpress_id} likes={this.state.likes} HandleSubmit={this.handleSubmit} liked={this.state.liked}/>
                 </div>
                 <hr />
                 <div className="share-icons-horizontal">
                   <p>Share:</p>
-                  <a href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={facebook}  alt="facebook" /></a>
-                  <a href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={twitter}  alt="twitter" /></a>
-                  <a href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img src={pintrest}  alt="pinterest" /></a>
-                  <a href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img src={emailIcon}  alt="email" /></a>
+                  <a className={`facebook-${post.path}`} href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`facebook-${post.path}`}  src={facebook}  alt="facebook" /></a>
+                  <a className={`twitter-${post.path}`} href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`twitter-${post.path}`}  src={twitter}  alt="twitter" /></a>
+                  <a className={`pinterest-${post.path}`} href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`} target="_blank" rel="noopener noreferrer"> <img className={`pinterest-${post.path}`}  src={pintrest}  alt="pinterest" /></a>
+                  <a className={`mail-${post.path}`} href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`} target="_blank" rel="noopener noreferrer"><img className={`mail-${post.path}`}  src={emailIcon}  alt="email" /></a>
                 </div>
                 <div className="container is-fullhd">
                   <div className="columns">

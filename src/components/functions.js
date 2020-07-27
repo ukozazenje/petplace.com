@@ -212,7 +212,7 @@ export const filterAuthorsLink = (author) => {
       return 'lori-savka'
     case 'Melissa Evans, LVT, VTS (ECC)': 
       return 'melissa-evans-lvt-vts-ecc'
-    case 'Carey Hemmelgarn, DVM. DACVECC':
+    case 'Carey Hemmelgarn, DVM DACVECC':
       return 'carey-hemmelgarn-dvm-dacvecc'
     default:
       return false
@@ -914,7 +914,9 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 }
               },
               "datePublished": "${post.date}",
-              "dateModified" : "${post.date}"
+              "dateModified" : "${post.date}",
+              "datePosted"   : "${post.date}",
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
             }
           `}</script>
         </Helmet>
@@ -947,7 +949,9 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 }
               },
               "datePublished": "${post.date}",
-              "dateModified" : "${post.date}"
+              "dateModified" : "${post.date}",
+              "datePosted"   : "${post.date}",
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
             }
           `}</script>
         </Helmet>
@@ -980,7 +984,9 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 }
               },
               "datePublished": "${post.date}",
-              "dateModified" : "${post.date}"
+              "dateModified" : "${post.date}",
+              "datePosted"   : "${post.date}",
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
             }
           `}</script>
         </Helmet>
@@ -1013,7 +1019,9 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 }
               },
               "datePublished": "${post.date}",
-              "dateModified" : "${post.date}"
+              "dateModified" : "${post.date}",
+              "datePosted"   : "${post.date}",
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
             }
           `}</script>
         </Helmet>
@@ -1046,7 +1054,9 @@ export const filterFaqPosts = (post, author, imgUrl) => {
                 }
               },
               "datePublished": "${post.date}",
-              "dateModified" : "${post.date}"
+              "dateModified" : "${post.date}",
+              "datePosted"   : "${post.date}",
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
             }
           `}</script>
         </Helmet>

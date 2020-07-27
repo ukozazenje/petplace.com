@@ -4,43 +4,20 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import axios from 'axios'
 import Dialog from '@material-ui/core/Dialog'
 import ContactUsSection from "./homepage/contact-us"
+import EmailImg from '../images/widget-email-pets.png'
+import CounterPawImg from '../images/counterPaw.svg'
 
 const validate = (values) => {
   const errors = {};
-
   if (!values.feedback) {
     errors.feedback = 'Required';
   }
-
   return errors;
 };
 
-const ThankYouMsg = () => <span>Thank you so much for making petplace.com even better web destination for us and our furry friends!</span>
+const ThankYouMsg = () => <span className="thank-you-msg">Thanks for helping us make PetPlace the ultimate destination for pet enthusiasts!</span>
 
-const HandleSubmit = (setSuccessMsg, url, wordpress_id, helpful, feedback) => {
-
-  const d = new Date()
-  const day = d.getDay()
-  const year = d.getFullYear() 
-  const month = d.getMonth()
-  const hour = d.getHours()
-  const minutes = d.getMinutes()
-  const seconds = d.getSeconds()
-  const timestamp = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`
-
-  const data = {
-    post_id: wordpress_id,
-    helpful,
-    url: process.env.GATSBY_WEB_SITE_URL + url,
-    feedback: feedback || "none",
-    timestamp,
-  }
-  axios.post('https://mkhl1ii6eb.execute-api.us-east-1.amazonaws.com/prod', data
-  ).then(res => setSuccessMsg(true))
-  .catch( err => console.log(err))
-}
-
-const FormContent = (successMsg, setSuccessMsg, url, wordpress_id) => {
+const FormContent = (successMsg, setSuccessMsg, url, wordpress_id, HandleSubmit) => {
   return (
     successMsg ? 
     ThankYouMsg() :
@@ -66,7 +43,8 @@ const FormContent = (successMsg, setSuccessMsg, url, wordpress_id) => {
   )
 }
 
-const LikeArticleContent = (setFormState, setSuccessMsg, successMsg, url, wordpress_id) => {
+const LikeArticleContent = (setFormState, setSuccessMsg, successMsg, url, wordpress_id, HandleSubmit) => {
+  
   const helpful = "yes"
   return (
     successMsg ? 
@@ -74,27 +52,46 @@ const LikeArticleContent = (setFormState, setSuccessMsg, successMsg, url, wordpr
     <>
       <span>Was this article helpful?</span>
       <span className="yes-btn" onClick={() => HandleSubmit(setSuccessMsg, url, wordpress_id, helpful )} >Yes</span>
-      <img src={pawImg} onClick={() => setFormState(true)}/>
+      <span className="yes-btn" onClick={() => setFormState(true)}>No</span>
     </>
   )
 }
 
-const LikeArticleWidget = ({url, wordpress_id}) => {
+const LikeArticleWidget = ({url, wordpress_id, likes, HandleSubmit, liked}) => {
+  
   const [ formActive, setFormState ] = useState(false)
-  const [ successMsg, setSuccessMsg] = useState(false)
+  const [ successMsg, setSuccessMsg] = useState(liked)
   const [open, setOpen] = useState(false);
-  return (
-    <div className="like-post-container">
-      {formActive ? 
-        FormContent(successMsg, setSuccessMsg, url, wordpress_id) : 
-        LikeArticleContent(setFormState, setSuccessMsg, successMsg, url, wordpress_id)}
-      <button onClick={() => {setOpen(true)} }>Sign Up Now</button>
-      <p>By signing up, you agree to our Terms of Service and Privacy Policy.</p>
-      <Dialog open={open} onClose={() => setOpen(false)} aria-labelledby="form-dialog-title">
-          <ContactUsSection />
-      </Dialog>
-    </div>
-  )
+  if (typeof window !== 'undefined') {
+
+    return (
+      <div className="like-post-container">
+        <div className="counter">
+          <img src={CounterPawImg} alt="CounterPaw"/>
+          <p>{likes} paws up</p>
+        </div>
+        
+        {
+          liked ? ThankYouMsg() : (
+            formActive ? 
+            FormContent(successMsg, setSuccessMsg, url, wordpress_id, HandleSubmit) : 
+            LikeArticleContent(setFormState, setSuccessMsg, successMsg, url, wordpress_id, HandleSubmit))
+        }
+        
+        <img className="email-pets" src={EmailImg} alt="email" />
+        <div className="sign-up-wrapper">
+          <p>Get the best of PetPlace straight to your inbox.</p>
+          <button onClick={() => {setOpen(true)} }>Sign Up Now</button>
+          <p>By signing up, you agree to our Terms of Service and Privacy Policy.</p>
+        </div>
+        <Dialog open={open} onClose={() => setOpen(false)} aria-labelledby="form-dialog-title">
+            <ContactUsSection />
+        </Dialog>
+      </div>
+    )
+  } else {
+    return null
+  }
 }
 
 export default LikeArticleWidget
