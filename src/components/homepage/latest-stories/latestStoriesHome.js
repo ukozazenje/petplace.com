@@ -231,7 +231,7 @@ const PopularPosts = props => {
           )
         })}
         <div className="featured-categories">
-          <h3>Breeds</h3>
+          <h3>Breed Guide</h3>
           <BreedRow />
         </div>
       </div>
