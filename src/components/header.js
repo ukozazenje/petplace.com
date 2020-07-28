@@ -34,6 +34,12 @@ const Header = ({ siteTitle, noSearch, hideSearch }) => (
           <Link to="/article/category/pet-insurance/" className="navbar-item">
             Pet Insurance
           </Link>
+          <Link
+            to="/tags/ask-dr-debra-common-questions/"
+            className="navbar-item"
+          >
+            Ask Dr. Debra
+          </Link>
           {noSearch ? null : <NavigationSearch />}
         </div>
       </nav>
