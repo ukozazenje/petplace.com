@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { categoryColor } from "../../functions"
+import BreedRow from "./breedRow"
 const PopularPosts = props => {
   const { wordpressTtgPages } = useStaticQuery(
     graphql`
@@ -229,6 +230,10 @@ const PopularPosts = props => {
             </div>
           )
         })}
+        <div className="featured-categories">
+          <h3>Breed Guide</h3>
+          <BreedRow />
+        </div>
       </div>
     </section>
   )
