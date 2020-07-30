@@ -266,8 +266,8 @@
       ]
     },
     {
-      "name": "Pet Breeds",
-      "url": "/breeds/",
+      "name": "Breed Guide",
+      "url": "/article/breed/",
       "children": [
         {
           "url": "/article/category/breeds/dog-breeds",

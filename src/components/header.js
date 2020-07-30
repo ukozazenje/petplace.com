@@ -28,8 +28,8 @@ const Header = ({ siteTitle, noSearch, hideSearch }) => (
           >
             Pet Behavior & Training
           </Link>
-          <Link to="/breeds/" className="navbar-item">
-            Breeds
+          <Link to="/article/breed/" className="navbar-item">
+            Breed Guide
           </Link>
           <Link to="/article/category/pet-insurance/" className="navbar-item">
             Pet Insurance

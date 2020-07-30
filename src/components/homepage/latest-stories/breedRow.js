@@ -56,7 +56,7 @@ const BreedRow = props => {
               className={`category-link-btn ${categoryColor(
                 mainPost.category_name || "pet-care"
               )} hide-desktop`}
-              to={"/breeds/"}
+              to={"/article/breed/"}
               dangerouslySetInnerHTML={{
                 __html: "Breeds",
               }}
@@ -87,7 +87,7 @@ const BreedRow = props => {
               className={`category-link-btn ${categoryColor(
                 mainPost.category_name || "pet-care"
               )}  hide-mobile`}
-              to={"/breeds/"}
+              to={"/article/breed/"}
               dangerouslySetInnerHTML={{
                 __html: "Breeds",
               }}
@@ -122,7 +122,7 @@ const BreedRow = props => {
               className={`category-link-btn ${categoryColor(
                 firstPost.category_name || "pet-care"
               )}`}
-              to={"/breeds"}
+              to={"/article/breed"}
               dangerouslySetInnerHTML={{
                 __html: "Breeds",
               }}
@@ -154,7 +154,7 @@ const BreedRow = props => {
               className={`category-link-btn ${categoryColor(
                 secondPost.category_name || "pet-care"
               )}`}
-              to={"/breeds/"}
+              to={"/article/breed/"}
               dangerouslySetInnerHTML={{
                 __html: "Breeds",
               }}

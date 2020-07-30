@@ -392,7 +392,7 @@ const Sitemap = () => {
             <div className="column">
               <div className="sitemap-list">
                 {/* <Img sizes={{...data.petCareImg.childImageSharp.fluid, aspectRatio: 18 / 5}} /> */}
-                <Link to="/breeds/">
+                <Link to="/article/breed/">
                   <h3>Breeds</h3>
                 </Link>
                 <ul>

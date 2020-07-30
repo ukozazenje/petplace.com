@@ -2,21 +2,24 @@ import React, { useState, useEffect, useCallback, useRef } from "react"
 import { Formik, Field, Form } from "formik"
 import { Link, navigate } from "gatsby"
 import Img from "gatsby-image"
-import Layout from "../components/layout"
-import HomeHeroImg from "../static/images/breedHomeImage"
-import MobileHeroImg from "../static/images/mobileBreedHomeHeroImage"
-import TabletHeroImg from "../static/images/tabletBreedHomeHeroImage"
-import NoImg from "../static/images/noPostImg"
-import downArrow from "../images/down-arrow.png"
-import upArrow from "../images/up-arrow.png"
+import Layout from "../../components/layout"
+import HomeHeroImg from "../../static/images/breedHomeImage"
+import MobileHeroImg from "../../static/images/mobileBreedHomeHeroImage"
+import TabletHeroImg from "../../static/images/tabletBreedHomeHeroImage"
+import NoImg from "../../static/images/noPostImg"
+import downArrow from "../../images/down-arrow.png"
+import upArrow from "../../images/up-arrow.png"
 import AutoSuggest from "react-autosuggest"
-import Autocomplete from "../components/Autocomplete"
-import AutsideAlert from "../components/autsideAlert"
-import Pagination from "../components/search/pagination"
-import FilterCheckBox from "../components/breed/filterCheckBox"
-import useFilterBreeds from "../components/breed/useFilterBreeds"
-import BreedsToExplore from "../components/breed/otherBreedsToExplore"
+import Autocomplete from "../../components/Autocomplete"
+import AutsideAlert from "../../components/autsideAlert"
+import Pagination from "../../components/search/pagination"
+import FilterCheckBox from "../../components/breed/filterCheckBox"
+import useFilterBreeds from "../../components/breed/useFilterBreeds"
+import BreedsToExplore from "../../components/breed/otherBreedsToExplore"
+import SEO from "../../components/seo"
+
 const Breeds = ({ data }) => {
+  const shareImage = data.BreedHomeHeroImage.childImageSharp.fluid.src
   const isInitialMount = useRef(true)
   const breeds = data.allWordpressBreedPosts.edges
   const limit = 6
@@ -90,6 +93,11 @@ const Breeds = ({ data }) => {
   console.log(types)
   return (
     <Layout>
+      <SEO
+        title="Breed Guide - PetPlace"
+        description="Find the perfect companion for your lifestyle, living space, and family dynamic."
+        // image={shareImage}
+      />
       <div className="flex-container search-breed-container">
         <section className="container is-fullhd search-hero-section-flex">
           <div className="container is-fullhd form-container">
@@ -286,6 +294,13 @@ export const pageQuery = graphql`
             coat
             hindquarters
           }
+        }
+      }
+    }
+    BreedHomeHeroImage: file(relativePath: { eq: "search-breed.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
