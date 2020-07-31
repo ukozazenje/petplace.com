@@ -149,15 +149,11 @@ const Breed = ({ data }) => {
     breed_standard_main_title,
     care_main_title,
     references,
+    breed_author_name,
   } = data.wordpressBreedPosts.acf
   const title = data.wordpressBreedPosts.title
   const content = data.wordpressBreedPosts.content
   const featured = data.wordpressBreedPosts.featured
-  const breed_author_name =
-    (data &&
-      data.wordpressBreedPosts &&
-      data.wordpressBreedPosts.breed_author_name) ||
-    "PetPlace Staff"
   const { yoast_meta, yoast_title } = data.wordpressBreedPosts
   const defaultPostImgUrl = data.postHeroImg.childImageSharp.fluid.src
   const [care, setCare] = useState({
@@ -253,15 +249,17 @@ const Breed = ({ data }) => {
                   <>
                     <img className="author-img" src={avatarImg} alt="avatar" />
                     <Link
-                      to={`/authors/${filterAuthorsLink(breed_author_name)}`}
+                      to={`/authors/${filterAuthorsLink(
+                        breed_author_name || "PetPlace Staff"
+                      )}`}
                     >
-                      {breed_author_name}
+                      {breed_author_name || "PetPlace Staff"}
                     </Link>
                   </>
                 ) : (
                   <>
                     <img className="author-img" src={avatarImg} alt="avatar" />
-                    {breed_author_name}
+                    {breed_author_name || "PetPlace Staff"}
                   </>
                 )}
               </p>
