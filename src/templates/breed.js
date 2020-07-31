@@ -154,7 +154,10 @@ const Breed = ({ data }) => {
   const content = data.wordpressBreedPosts.content
   const featured = data.wordpressBreedPosts.featured
   const breed_author_name =
-    data.wordpressBreedPosts.breed_author_name || "PetPlace Staff"
+    (data &&
+      data.wordpressBreedPosts &&
+      data.wordpressBreedPosts.breed_author_name) ||
+    "PetPlace Staff"
   const { yoast_meta, yoast_title } = data.wordpressBreedPosts
   const defaultPostImgUrl = data.postHeroImg.childImageSharp.fluid.src
   const [care, setCare] = useState({
