@@ -21,6 +21,9 @@ import BreedsToExplore from "../components/breed/breedsToExplore"
 import AttributesAndHistory from "../components/breed/attributesAndHistory"
 import Accordion from "../components/breed/Accordion"
 import CatFooterImg from "../static/images/CatFooterImage"
+import { filterAuthorsLink } from "../components/functions"
+import avatarImg from "../images/author.svg"
+import { Link } from "gatsby"
 const settings = {
   dots: false,
   infinite: false,
@@ -150,6 +153,8 @@ const Breed = ({ data }) => {
   const title = data.wordpressBreedPosts.title
   const content = data.wordpressBreedPosts.content
   const featured = data.wordpressBreedPosts.featured
+  const breed_author_name =
+    data.wordpressBreedPosts.breed_author_name || "PetPlace Staff"
   const { yoast_meta, yoast_title } = data.wordpressBreedPosts
   const defaultPostImgUrl = data.postHeroImg.childImageSharp.fluid.src
   const [care, setCare] = useState({
@@ -239,6 +244,24 @@ const Breed = ({ data }) => {
                   __html: title,
                 }}
               />
+
+              <p className="author-name">
+                {filterAuthorsLink(breed_author_name) ? (
+                  <>
+                    <img className="author-img" src={avatarImg} alt="avatar" />
+                    <Link
+                      to={`/authors/${filterAuthorsLink(breed_author_name)}`}
+                    >
+                      {breed_author_name}
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <img className="author-img" src={avatarImg} alt="avatar" />
+                    {breed_author_name}
+                  </>
+                )}
+              </p>
               {/* <h2>Dog</h2> */}
             </div>
             <div className="breed-generals-column general-attributes-wrapper">
@@ -693,15 +716,15 @@ const Breed = ({ data }) => {
                   if (el.getBoundingClientRect().width > 1300) {
                     setMaxHeight(`${el.getBoundingClientRect().height - 67}px`)
                   }
-                  console.log("maxHeight", maxHeight)
-                  console.log(`${el.getBoundingClientRect().height}px`)
+                  // console.log("maxHeight", maxHeight)
+                  // console.log(`${el.getBoundingClientRect().height}px`)
                 }
               }}
             >
               <h3>{`${interesting_facts_title || "Interesting Facts"}`}</h3>
               <Slider {...factsSettings}>
                 {facts.map((fact, index) => (
-                  <div className="fact-slide">
+                  <div key={`facts-${index}`} className="fact-slide">
                     <div
                       className="fact-slide-content"
                       style={{ minHeight: maxHeight }}
@@ -720,7 +743,10 @@ const Breed = ({ data }) => {
           </div>
         </div>
       </section>
-      <BreedsToExplore breeds_to_explore={breeds_to_explore} />
+      <BreedsToExplore
+        heading="Other Breeds to Explore"
+        breeds_to_explore={breeds_to_explore}
+      />
       <section className="references-section">
         <div className="container is-fullhd references-wrapper">
           <h3>References</h3>
@@ -748,6 +774,7 @@ export const pageQuery = graphql`
       yoast_canonical
       yoast_meta
       yoast_title
+      breed_author_name
       featured {
         source_url
         alt_text

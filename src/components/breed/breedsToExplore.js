@@ -32,7 +32,7 @@ const factsSettings = {
   ],
 }
 
-const BreedsToExplore = props => {
+const BreedsToExplore = ({ breeds_to_explore, heading }) => {
   const { allWordpressBreedPosts } = useStaticQuery(
     graphql`
       {
@@ -61,40 +61,77 @@ const BreedsToExplore = props => {
     `
   )
   const breedPosts = allWordpressBreedPosts.edges
+
+  const renderLatestPosts = () =>
+    breedPosts.map(({ node: breed }, index) => (
+      <div key={index} className={`breeds_to_explore-slide`}>
+        <div
+          className="breeds_to_explore-content"
+          onClick={() => navigate(`${breed.path}`)}
+        >
+          {breed &&
+          breed.featured &&
+          breed.featured.localFile &&
+          breed.featured.localFile.childImageSharp &&
+          breed.featured.localFile.childImageSharp.fluid ? (
+            <Img
+              sizes={{
+                ...breed.featured.localFile.childImageSharp.fluid,
+                aspectRatio: 1 / 1,
+              }}
+            />
+          ) : (
+            <NoImg />
+          )}
+          <div
+            className={`breeds_to_explore-title ${setBreedColor(index)}`}
+            dangerouslySetInnerHTML={{
+              __html: breed && breed.title,
+            }}
+          />
+        </div>
+      </div>
+    ))
+
+  const renderOtherBreedsToExplore = () =>
+    breeds_to_explore.map((breed, index) => (
+      <div key={index} className={`breeds_to_explore-slide`}>
+        <div
+          className="breeds_to_explore-content"
+          onClick={() => navigate(`/article/breed/${breed.slug}/`)}
+        >
+          {breed &&
+          breed.featured_img &&
+          breed.featured_img.localFile &&
+          breed.featured_img.localFile.childImageSharp &&
+          breed.featured_img.localFile.childImageSharp.fluid ? (
+            <Img
+              sizes={{
+                ...breed.featured_img.localFile.childImageSharp.fluid,
+                aspectRatio: 1 / 1,
+              }}
+            />
+          ) : (
+            <NoImg />
+          )}
+          <div
+            className={`breeds_to_explore-title ${setBreedColor(index)}`}
+            dangerouslySetInnerHTML={{
+              __html: breed && breed.post_title,
+            }}
+          />
+        </div>
+      </div>
+    ))
+
   return (
     <section className="section breeds-to-explore-section">
       <div className="container is-fullhd">
-        <h3>Latest Articles</h3>
+        <h3>{heading}</h3>
         <Slider {...factsSettings}>
-          {breedPosts.map(({ node: breed }, index) => (
-            <div key={index} className={`breeds_to_explore-slide`}>
-              <div
-                className="breeds_to_explore-content"
-                onClick={() => navigate(`${breed.path}`)}
-              >
-                {breed &&
-                breed.featured &&
-                breed.featured.localFile &&
-                breed.featured.localFile.childImageSharp &&
-                breed.featured.localFile.childImageSharp.fluid ? (
-                  <Img
-                    sizes={{
-                      ...breed.featured.localFile.childImageSharp.fluid,
-                      aspectRatio: 1 / 1,
-                    }}
-                  />
-                ) : (
-                  <NoImg />
-                )}
-                <div
-                  className={`breeds_to_explore-title ${setBreedColor(index)}`}
-                  dangerouslySetInnerHTML={{
-                    __html: breed.title,
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+          {breeds_to_explore
+            ? renderOtherBreedsToExplore()
+            : renderLatestPosts()}
         </Slider>
       </div>
     </section>

@@ -15,7 +15,7 @@ import AutsideAlert from "../../components/autsideAlert"
 import Pagination from "../../components/search/pagination"
 import FilterCheckBox from "../../components/breed/filterCheckBox"
 import useFilterBreeds from "../../components/breed/useFilterBreeds"
-import BreedsToExplore from "../../components/breed/otherBreedsToExplore"
+import BreedsToExplore from "../../components/breed/breedsToExplore"
 import SEO from "../../components/seo"
 
 const Breeds = ({ data }) => {
@@ -236,7 +236,7 @@ const Breeds = ({ data }) => {
           </div>
         </div>
       </section>
-      <BreedsToExplore />
+      <BreedsToExplore heading="Latest Articles" />
     </Layout>
   )
 }
