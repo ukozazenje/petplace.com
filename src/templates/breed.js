@@ -775,7 +775,6 @@ export const pageQuery = graphql`
       yoast_canonical
       yoast_meta
       yoast_title
-      breed_author_name
       featured {
         source_url
         alt_text
