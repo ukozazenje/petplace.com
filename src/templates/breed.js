@@ -165,6 +165,7 @@ const Breed = ({ data }) => {
   const [breedStandard, setBreedStandard] = useState({
     general_appearance: true,
   })
+  console.log("breeds_to_explore", breeds_to_explore)
 
   const careContent = (heading, content) => (
     <div className="columns care-content">
