@@ -867,7 +867,7 @@ export const pageQuery = graphql`
       breeds_to_explore {
         post_title
         slug
-        path
+        breed_path
         featured_img {
           source_url
           alt_text

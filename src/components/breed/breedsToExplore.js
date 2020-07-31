@@ -98,7 +98,7 @@ const BreedsToExplore = ({ breeds_to_explore, heading }) => {
       <div key={index} className={`breeds_to_explore-slide`}>
         <div
           className="breeds_to_explore-content"
-          onClick={() => navigate(`${breed.path}`)}
+          onClick={() => navigate(`${breed.breed_path}`)}
         >
           {breed &&
           breed.featured_img &&
