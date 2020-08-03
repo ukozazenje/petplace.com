@@ -1,14 +1,12 @@
-import React from 'react'
-import { useStaticQuery } from 'gatsby'
-import BreedsToExplore from './breedsToExplore'
-
-
+import React from "react"
+import { useStaticQuery } from "gatsby"
+import BreedsToExplore from "./breedsToExplore"
 
 const OtherBreedsToExplor = () => {
-  const {wordpressTtgPages} = useStaticQuery(
+  const { wordpressTtgPages } = useStaticQuery(
     graphql`
       query {
-        wordpressTtgPages(title: {eq: "Breeds"}) {
+        wordpressTtgPages(title: { eq: "Breeds" }) {
           title
           acf {
             other_breeds_to_explore {
@@ -33,9 +31,7 @@ const OtherBreedsToExplor = () => {
   )
   const other_breeds_to_explore = wordpressTtgPages.acf.other_breeds_to_explore
 
-  return (
-    <BreedsToExplore breeds_to_explore={other_breeds_to_explore} />
-  )
+  return <BreedsToExplore />
 }
 
 export default OtherBreedsToExplor

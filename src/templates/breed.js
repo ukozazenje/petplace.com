@@ -21,6 +21,9 @@ import BreedsToExplore from "../components/breed/breedsToExplore"
 import AttributesAndHistory from "../components/breed/attributesAndHistory"
 import Accordion from "../components/breed/Accordion"
 import CatFooterImg from "../static/images/CatFooterImage"
+import { filterAuthorsLink } from "../components/functions"
+import avatarImg from "../images/author.svg"
+import { Link } from "gatsby"
 const settings = {
   dots: false,
   infinite: false,
@@ -146,6 +149,7 @@ const Breed = ({ data }) => {
     breed_standard_main_title,
     care_main_title,
     references,
+    breed_author_name,
   } = data.wordpressBreedPosts.acf
   const title = data.wordpressBreedPosts.title
   const content = data.wordpressBreedPosts.content
@@ -161,6 +165,7 @@ const Breed = ({ data }) => {
   const [breedStandard, setBreedStandard] = useState({
     general_appearance: true,
   })
+  console.log("breeds_to_explore", breeds_to_explore)
 
   const careContent = (heading, content) => (
     <div className="columns care-content">
@@ -239,6 +244,26 @@ const Breed = ({ data }) => {
                   __html: title,
                 }}
               />
+
+              <p className="author-name">
+                {filterAuthorsLink(breed_author_name) ? (
+                  <>
+                    <img className="author-img" src={avatarImg} alt="avatar" />
+                    <Link
+                      to={`/authors/${filterAuthorsLink(
+                        breed_author_name || "PetPlace Staff"
+                      )}`}
+                    >
+                      {breed_author_name || "PetPlace Staff"}
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <img className="author-img" src={avatarImg} alt="avatar" />
+                    {breed_author_name || "PetPlace Staff"}
+                  </>
+                )}
+              </p>
               {/* <h2>Dog</h2> */}
             </div>
             <div className="breed-generals-column general-attributes-wrapper">
@@ -693,15 +718,15 @@ const Breed = ({ data }) => {
                   if (el.getBoundingClientRect().width > 1300) {
                     setMaxHeight(`${el.getBoundingClientRect().height - 67}px`)
                   }
-                  console.log("maxHeight", maxHeight)
-                  console.log(`${el.getBoundingClientRect().height}px`)
+                  // console.log("maxHeight", maxHeight)
+                  // console.log(`${el.getBoundingClientRect().height}px`)
                 }
               }}
             >
               <h3>{`${interesting_facts_title || "Interesting Facts"}`}</h3>
               <Slider {...factsSettings}>
                 {facts.map((fact, index) => (
-                  <div className="fact-slide">
+                  <div key={`facts-${index}`} className="fact-slide">
                     <div
                       className="fact-slide-content"
                       style={{ minHeight: maxHeight }}
@@ -720,7 +745,10 @@ const Breed = ({ data }) => {
           </div>
         </div>
       </section>
-      <BreedsToExplore breeds_to_explore={breeds_to_explore} />
+      <BreedsToExplore
+        heading="Other Breeds to Explore"
+        breeds_to_explore={breeds_to_explore}
+      />
       <section className="references-section">
         <div className="container is-fullhd references-wrapper">
           <h3>References</h3>
@@ -839,6 +867,7 @@ export const pageQuery = graphql`
       breeds_to_explore {
         post_title
         slug
+        breed_path
         featured_img {
           source_url
           alt_text
