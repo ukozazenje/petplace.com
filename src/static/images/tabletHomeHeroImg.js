@@ -18,16 +18,24 @@ const TabletHomeHero = () => {
     query {
       tabletHomeHeroImage: file(relativePath: { eq: "hero-bg.png" }) {
         childImageSharp {
-          fluid(maxWidth: 1024) {
+          fluid(maxWidth: 1024, quality: 80) {
             ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
     }
   `)
 
-  return  <Img sizes={{ ...data.tabletHomeHeroImage.childImageSharp.fluid, aspectRatio: 16 / 10 }} alt="hero"  /> 
-
+  return (
+    <Img
+      sizes={{
+        ...data.tabletHomeHeroImage.childImageSharp.fluid,
+        aspectRatio: 16 / 10,
+      }}
+      alt="hero"
+    />
+  )
 }
 
 export default TabletHomeHero
