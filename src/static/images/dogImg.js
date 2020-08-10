@@ -19,7 +19,6 @@ const DogImg = () => {
       homeHeroImage: file(relativePath: { eq: "dog.png" }) {
         childImageSharp {
           fluid(maxWidth: 299, quality: 80) {
-            ...GatsbyImageSharpFluid
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }

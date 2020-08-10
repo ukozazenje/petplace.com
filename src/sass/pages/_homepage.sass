@@ -153,7 +153,31 @@
       border-bottom: 2px solid $orange
       margin-top: 8px
       margin-bottom: -8px
-      max-width: 200px    
+      max-width: 200px   
+  .category-links-wrapper
+    display: flex
+    flex-direction: column
+
+    +desktop 
+      justify-content: space-between
+      flex-direction: row
+    .category-link-btn
+      line-height: 1 !important
+      height: auto !important
+      margin: 0 !important
+      margin-bottom: 5px !important
+      +tablet 
+        line-height: 30px !important
+        height: 30px !important
+      &.video-link 
+        color: #C04343
+        line-height: 1rem
+        margin: 0
+        +desktop 
+          background: #C04343
+          color: #ffffff 
+      &:last-of-type 
+        margin-bottom: 10px !important
   .category-link-btn
     display: inline-block
     border-radius: 15px
@@ -410,3 +434,9 @@
 //     grid-column-end: 2
 //     grid-row-start: 1
 //     grid-row-end: 2
+.play-btn 
+  position: absolute
+  right: 20px
+  top: -25px
+  z-index: 99
+  cursor: pointer

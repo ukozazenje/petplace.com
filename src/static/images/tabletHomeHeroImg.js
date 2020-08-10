@@ -19,7 +19,6 @@ const TabletHomeHero = () => {
       tabletHomeHeroImage: file(relativePath: { eq: "hero-bg.png" }) {
         childImageSharp {
           fluid(maxWidth: 1024, quality: 80) {
-            ...GatsbyImageSharpFluid
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
