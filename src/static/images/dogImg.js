@@ -18,15 +18,21 @@ const DogImg = () => {
     query {
       homeHeroImage: file(relativePath: { eq: "dog.png" }) {
         childImageSharp {
-          fluid(maxWidth: 299) {
+          fluid(maxWidth: 299, quality: 80) {
             ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
     }
   `)
 
-  return <Img fluid={data.homeHeroImage.childImageSharp.fluid} style={{maxWidth: '299px'  }}/>
+  return (
+    <Img
+      fluid={data.homeHeroImage.childImageSharp.fluid}
+      style={{ maxWidth: "299px" }}
+    />
+  )
 }
 
 export default DogImg

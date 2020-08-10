@@ -29,6 +29,7 @@ const PopularPosts = props => {
                       childImageSharp {
                         fluid(maxHeight: 600, quality: 60) {
                           ...GatsbyImageSharpFluid
+                          ...GatsbyImageSharpFluid_withWebp_noBase64
                         }
                       }
                     }
@@ -43,6 +44,7 @@ const PopularPosts = props => {
           childImageSharp {
             fluid(maxWidth: 300, quality: 60) {
               ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
