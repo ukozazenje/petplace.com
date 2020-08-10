@@ -19,7 +19,6 @@ const HomeHero = () => {
       homeHeroImage: file(relativePath: { eq: "hero-bg.png" }) {
         childImageSharp {
           fluid(maxWidth: 1920, quality: 80) {
-            ...GatsbyImageSharpFluid
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }

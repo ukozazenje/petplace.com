@@ -24,7 +24,6 @@ const BreedRow = props => {
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600, quality: 80) {
-                      ...GatsbyImageSharpFluid
                       ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                   }
@@ -36,7 +35,6 @@ const BreedRow = props => {
         placeholderImage: file(relativePath: { eq: "no-img.jpeg" }) {
           childImageSharp {
             fluid(maxWidth: 300, quality: 60) {
-              ...GatsbyImageSharpFluid
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }

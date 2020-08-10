@@ -19,7 +19,6 @@ const MobileHomeHero = () => {
       mobileHomeHeroImage: file(relativePath: { eq: "mobile-home-bg.png" }) {
         childImageSharp {
           fluid(maxWidth: 768, quality: 80) {
-            ...GatsbyImageSharpFluid
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
