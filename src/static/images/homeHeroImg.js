@@ -26,7 +26,13 @@ const HomeHero = () => {
     }
   `)
 
-  return <Img fluid={data.homeHeroImage.childImageSharp.fluid} />
+  return (
+    <Img
+      fluid={data.homeHeroImage.childImageSharp.fluid}
+      fadeIn={false}
+      loading="eager"
+    />
+  )
 }
 
 export default HomeHero
