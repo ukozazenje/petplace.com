@@ -18,7 +18,7 @@ const MobileHomeHero = () => {
     query {
       mobileHomeHeroImage: file(relativePath: { eq: "mobile-home-bg.png" }) {
         childImageSharp {
-          fluid(maxWidth: 768, quality: 80) {
+          fluid(maxWidth: 768, quality: 60) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -26,7 +26,13 @@ const MobileHomeHero = () => {
     }
   `)
 
-  return <Img fluid={data.mobileHomeHeroImage.childImageSharp.fluid} />
+  return (
+    <Img
+      fluid={data.mobileHomeHeroImage.childImageSharp.fluid}
+      fadeIn={false}
+      loading="eager"
+    />
+  )
 }
 
 export default MobileHomeHero
