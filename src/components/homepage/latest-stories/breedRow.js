@@ -4,21 +4,19 @@ import Img from "gatsby-image"
 import { categoryColor } from "../../functions"
 
 const BreedRow = props => {
-  const { allWordpressBreedPosts } = useStaticQuery(
+  const { allWordpressBreedPosts, wordpressTtgPages } = useStaticQuery(
     graphql`
       query {
-        allWordpressBreedPosts(sort: { fields: date, order: DESC }, limit: 3) {
-          edges {
-            node {
-              id
+        wordpressTtgPages(wordpress_id: { eq: 6 }) {
+          id
+          acf {
+            other_breeds_to_explore {
               path
-              title
+              post_title
+              author
               slug
               date
-              acf {
-                breed_author_name
-              }
-              featured {
+              featured_img {
                 source_url
                 alt_text
                 localFile {
@@ -42,10 +40,11 @@ const BreedRow = props => {
       }
     `
   )
-  const breedPosts = allWordpressBreedPosts.edges
-  const mainPost = breedPosts[0].node
-  const firstPost = breedPosts[1].node
-  const secondPost = breedPosts[2].node
+  // const breedPosts = allWordpressBreedPosts.edges
+  const breedPosts = wordpressTtgPages.acf.other_breeds_to_explore
+  const mainPost = breedPosts[0]
+  const firstPost = breedPosts[1]
+  const secondPost = breedPosts[2]
   console.log(mainPost)
   return (
     <div className="tile is-ancestor">
@@ -63,19 +62,19 @@ const BreedRow = props => {
             />
             <Img
               sizes={{
-                ...mainPost.featured.localFile.childImageSharp.fluid,
+                ...mainPost.featured_img.localFile.childImageSharp.fluid,
                 aspectRatio: 4 / 3,
               }}
-              alt={mainPost.featured.alt_text || "post"}
+              alt={mainPost.featured_img.alt_text || "post"}
             />
           </div>
           <div className="main-box-desktop-img">
             <Img
               sizes={{
-                ...mainPost.featured.localFile.childImageSharp.fluid,
+                ...mainPost.featured_img.localFile.childImageSharp.fluid,
                 aspectRatio: 16 / 9,
               }}
-              alt={mainPost.featured.alt_text || "post"}
+              alt={mainPost.featured_img.alt_text || "post"}
             />
           </div>
           <div
@@ -95,13 +94,12 @@ const BreedRow = props => {
             <Link to={mainPost.path}>
               <h4
                 dangerouslySetInnerHTML={{
-                  __html: mainPost.title,
+                  __html: mainPost.post_title,
                 }}
               />
             </Link>
             <p className="date">
-              {mainPost.date || "no date"} ·{" "}
-              {mainPost.acf.breed_author_name || "PetPlace.com"}
+              {mainPost.date || "no date"} · {mainPost.author || "PetPlace.com"}
             </p>
           </div>
         </div>
@@ -110,8 +108,8 @@ const BreedRow = props => {
         <div className="tile is-child thumbnail-box flex-start">
           <Link to={firstPost.path}>
             <Img
-              fluid={firstPost.featured.localFile.childImageSharp.fluid}
-              alt={firstPost.featured.alt_text || "post image"}
+              fluid={firstPost.featured_img.localFile.childImageSharp.fluid}
+              alt={firstPost.featured_img.alt_text || "post image"}
               className="thumbnail-img"
               objectFit="cover"
               objectPosition="50% 50%"
@@ -130,20 +128,20 @@ const BreedRow = props => {
             <Link to={firstPost.path}>
               <h4
                 dangerouslySetInnerHTML={{
-                  __html: firstPost.title,
+                  __html: firstPost.post_title,
                 }}
               />
             </Link>
             <p className="date">
-              {firstPost.date} · {firstPost.acf.breed_author_name}
+              {firstPost.date} · {firstPost.author}
             </p>
           </div>
         </div>
         <div className="tile is-child thumbnail-box flex-end">
           <Link to={secondPost.path}>
             <Img
-              fluid={secondPost.featured.localFile.childImageSharp.fluid}
-              alt={secondPost.featured.alt_text || "post image"}
+              fluid={secondPost.featured_img.localFile.childImageSharp.fluid}
+              alt={secondPost.featured_img.alt_text || "post image"}
               className="thumbnail-img"
               objectFit="cover"
               objectPosition="50% 50%"
@@ -162,12 +160,12 @@ const BreedRow = props => {
             <Link to={secondPost.path}>
               <h4
                 dangerouslySetInnerHTML={{
-                  __html: secondPost.title,
+                  __html: secondPost.post_title,
                 }}
               />
             </Link>
             <p className="date">
-              {secondPost.date} · {secondPost.acf.breed_author_name}
+              {secondPost.date} · {secondPost.author}
             </p>
           </div>
         </div>
