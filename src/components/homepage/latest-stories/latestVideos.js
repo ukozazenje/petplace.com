@@ -1,43 +1,15 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery, navigate } from "gatsby"
 import Img from "gatsby-image"
 import { categoryColor } from "../../functions"
-import BreedRow from "./breedRow"
-import LatestVideos from "./latestVideos"
-const PopularPosts = props => {
+import VideoBtn from "../../../images/playbtn.svg"
+const LatestVideos = props => {
   const { wordpressTtgPages } = useStaticQuery(
     graphql`
       query {
         wordpressTtgPages(wordpress_id: { eq: 6 }) {
+          id
           acf {
-            category_rows {
-              category
-              link
-              path
-              posts {
-                author_name
-                category_name
-                category_path
-                link
-                path
-                post_date
-                post_title
-                featured_image {
-                  full {
-                    source_url
-                    alt_text
-                    localFile {
-                      childImageSharp {
-                        fluid(maxHeight: 600, quality: 60) {
-                          ...GatsbyImageSharpFluid_withWebp_noBase64
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              category_name
-            }
             latest_videos {
               category_link
               category_name
@@ -69,38 +41,14 @@ const PopularPosts = props => {
       }
     `
   )
-  // const filterCategories = (id, categories) => {
-  //   const category = categories.edges.filter(({node:category}) => category.wordpress_id === id)
-  //   return {
-  //     name: category[0].node.name,
-  //     path: category[0].node.path
-  //   }
-  // }
-
-  // const filterPosts = (posts, allWordpressPost) => {
-  //   const postIds = posts.map(el => el.post.wordpress_id )
-  //   const filteredPosts = postIds.map((id) => {
-  //     return allWordpressPost.edges.filter(({node: post}) => post.wordpress_id === id)
-  //   })
-  //   return filteredPosts
-  // }
-  // const acfPosts = wordpressPage.acf.category_rows
-  // const posts = acfPosts.reduce((acc, acf) => {
-  //   acc.push(
-  //         {
-  //           category: filterCategories(acf.category, allWordpressCategory),
-  //           posts: filterPosts(acf.posts.filter((el, key) => { if(key < 3) { return el.post.wordpress_id}}), allWordpressPost)
-  //         }
-  //       )
-  //   return acc
-  // },[])
-
-  const tills = (posts, category) => {
-    const mainPost = posts[0]
-    const firstPost = posts[1]
-    const secondPost = posts[2]
-
-    return (
+  const latestVideosPosts = wordpressTtgPages.acf.latest_videos
+  const mainPost = latestVideosPosts[0]
+  const firstPost = latestVideosPosts[1]
+  const secondPost = latestVideosPosts[2]
+  console.log(mainPost)
+  return (
+    <div className="featured-categories">
+      <h3>Latest Videos</h3>
       <div className="tile is-ancestor">
         <div className="tile is-parent">
           <div className="tile is-child main-box">
@@ -116,21 +64,25 @@ const PopularPosts = props => {
               />
               <Img
                 sizes={{
-                  ...mainPost.featured_image.full.localFile.childImageSharp
-                    .fluid,
+                  ...mainPost.featured_img.localFile.childImageSharp.fluid,
                   aspectRatio: 4 / 3,
                 }}
-                alt={mainPost.featured_image.full.alt_text || "post"}
+                alt={
+                  (mainPost.featured_img && mainPost.featured_img.alt_text) ||
+                  "post"
+                }
               />
             </div>
             <div className="main-box-desktop-img">
               <Img
                 sizes={{
-                  ...mainPost.featured_image.full.localFile.childImageSharp
-                    .fluid,
+                  ...mainPost.featured_img.localFile.childImageSharp.fluid,
                   aspectRatio: 16 / 9,
                 }}
-                alt={mainPost.featured_image.full.alt_text || "post"}
+                alt={
+                  (mainPost.featured_img && mainPost.featured_img.alt_text) ||
+                  "post"
+                }
               />
             </div>
             <div
@@ -138,6 +90,11 @@ const PopularPosts = props => {
                 mainPost.category_name
               )}-transparent`}
             >
+              <img
+                onClick={() => navigate(mainPost.path)}
+                src={VideoBtn}
+                className="play-btn hide-btn-mobile"
+              />
               <Link
                 className={`category-link-btn ${categoryColor(
                   mainPost.category_name
@@ -165,25 +122,34 @@ const PopularPosts = props => {
           <div className="tile is-child thumbnail-box flex-start">
             <Link to={firstPost.path}>
               <Img
-                fluid={
-                  firstPost.featured_image.full.localFile.childImageSharp.fluid
+                fluid={firstPost.featured_img.localFile.childImageSharp.fluid}
+                alt={
+                  (firstPost.featured_img && firstPost.featured_img.alt_text) ||
+                  "post image"
                 }
-                alt={firstPost.featured_image.full.alt_text || "post image"}
                 className="thumbnail-img"
                 objectFit="cover"
                 objectPosition="50% 50%"
               />
             </Link>
             <div className="sub-content">
-              <Link
-                className={`category-link-btn ${categoryColor(
-                  firstPost.category_name
-                )}`}
-                to={firstPost.category_path}
-                dangerouslySetInnerHTML={{
-                  __html: firstPost.category_name,
-                }}
-              />
+              <div className="category-links-wrapper">
+                <Link
+                  className={`category-link-btn ${categoryColor(
+                    firstPost.category_name
+                  )}`}
+                  to={firstPost.category_path}
+                  dangerouslySetInnerHTML={{
+                    __html: firstPost.category_name,
+                  }}
+                />
+                <Link
+                  className={`category-link-btn video-link`}
+                  to={"/article/category/just-for-fun/videos/"}
+                >
+                  Video
+                </Link>
+              </div>
               <Link to={firstPost.path}>
                 <h4
                   dangerouslySetInnerHTML={{
@@ -199,25 +165,35 @@ const PopularPosts = props => {
           <div className="tile is-child thumbnail-box flex-end">
             <Link to={secondPost.path}>
               <Img
-                fluid={
-                  secondPost.featured_image.full.localFile.childImageSharp.fluid
+                fluid={secondPost.featured_img.localFile.childImageSharp.fluid}
+                alt={
+                  (secondPost.featured_image &&
+                    secondPost.featured_image.alt_text) ||
+                  "post image"
                 }
-                alt={secondPost.featured_image.alt_text || "post image"}
                 className="thumbnail-img"
                 objectFit="cover"
                 objectPosition="50% 50%"
               />
             </Link>
             <div className="sub-content align-slef-start">
-              <Link
-                className={`category-link-btn ${categoryColor(
-                  secondPost.category_name
-                )}`}
-                to={secondPost.category_path}
-                dangerouslySetInnerHTML={{
-                  __html: secondPost.category_name,
-                }}
-              />
+              <div className="category-links-wrapper">
+                <Link
+                  className={`category-link-btn ${categoryColor(
+                    secondPost.category_name
+                  )}`}
+                  to={secondPost.category_path}
+                  dangerouslySetInnerHTML={{
+                    __html: secondPost.category_name,
+                  }}
+                />
+                <Link
+                  className={`category-link-btn video-link`}
+                  to={"/article/category/just-for-fun/videos/"}
+                >
+                  Video
+                </Link>
+              </div>
               <Link to={secondPost.path}>
                 <h4
                   dangerouslySetInnerHTML={{
@@ -232,32 +208,8 @@ const PopularPosts = props => {
           </div>
         </div>
       </div>
-    )
-  }
-  return (
-    <section className="section latest-stories-section">
-      <div className="container is-fullhd">
-        <h2>Latest Stories</h2>
-        {wordpressTtgPages.acf.category_rows.map((category_row, i) => {
-          return (
-            <div className="featured-categories" key={i}>
-              <h3
-                dangerouslySetInnerHTML={{
-                  __html: category_row.category_name,
-                }}
-              />
-              {tills(category_row.posts, category_row.category_name)}
-            </div>
-          )
-        })}
-        <div className="featured-categories">
-          <h3>Breed Guide</h3>
-          <BreedRow />
-        </div>
-        <LatestVideos />
-      </div>
-    </section>
+    </div>
   )
 }
 
-export default PopularPosts
+export default LatestVideos

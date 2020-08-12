@@ -18,15 +18,21 @@ const HomeHero = () => {
     query {
       homeHeroImage: file(relativePath: { eq: "hero-bg.png" }) {
         childImageSharp {
-          fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid
+          fluid(maxWidth: 1920, quality: 80) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
     }
   `)
 
-  return <Img fluid={data.homeHeroImage.childImageSharp.fluid} />
+  return (
+    <Img
+      fluid={data.homeHeroImage.childImageSharp.fluid}
+      fadeIn={false}
+      loading="eager"
+    />
+  )
 }
 
 export default HomeHero
