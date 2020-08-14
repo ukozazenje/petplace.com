@@ -184,7 +184,7 @@ module.exports = {
             },
             query: `
               {
-                allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: "pet-care"}}}}) {
+                allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: "pet-care"}}}, date: {gt: "${lastYear}"}}) {
                   edges {
                     node {
                       id
