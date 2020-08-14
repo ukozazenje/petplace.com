@@ -1,9 +1,9 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
-const d = new Date();
-const pastYear = d.getFullYear() - 1;
-d.setFullYear(pastYear);
+})
+const d = new Date()
+const pastYear = d.getFullYear() - 1
+d.setFullYear(pastYear)
 const lastYear = d.toISOString()
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
     description: `Read veterinarian approved pet care articles on PetPlace.com. Find pet health information about your dog, cat and many other animals from our pet experts.`,
     author: `@PetPlaceFans`,
     google_site_verification: `6eUJTvmXxNEIIo_WFK3iWppRstR1aJrzuKaTtqlG4oc`,
-    image: "/images/hero-bg.png"
+    image: "/images/hero-bg.png",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -31,8 +31,8 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: `/sitemap.xml`,
-        exclude: [`/search`,`/tags/*`],
-      }
+        exclude: [`/search`, `/tags/*`],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -50,7 +50,7 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: ['title', 'category_name', 'author_name', 'post_tags'],
+        fields: ["title", "category_name", "author_name", "post_tags"],
         // How to resolve each field's value for a supported node type
         resolvers: {
           // For any node of type wordpress__POST, list how to resolve the fields' values
@@ -61,18 +61,18 @@ module.exports = {
             author_name: node => node.author_name,
             category_name: node => node.category_name,
             category_path: node => node.category_path,
-            featured_image: node => node.featured
-            // featured_media: (node, getNodes) => 
+            featured_image: node => node.featured,
+            // featured_media: (node, getNodes) =>
             //   getNodes(node.featured_media___NODE)
-              
+
             // category_name: node => node.category_name,
             // category_path: node => node.category_path,
             // date: node => node.date,
             // author: node => node.author_name,
             // img: node => node.featured_image,
-            }
-        }
-      }
+          },
+        },
+      },
     },
     {
       resolve: "gatsby-plugin-google-tagmanager",
@@ -92,7 +92,7 @@ module.exports = {
         // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
         // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
         // dataLayerName: "YOUR_DATA_LAYER_NAME",
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -104,7 +104,6 @@ module.exports = {
                 title
                 description
                 siteUrl
-                author
                 site_url: siteUrl
               }
             }
@@ -118,12 +117,12 @@ module.exports = {
                   description: edge.node.excerpt,
                   date: edge.node.date,
                   title: edge.node.title,
-                  author: edge.node.author.name,
+                  creator: edge.node.author.name,
                   url: site.siteMetadata.siteUrl + edge.node.path,
                   guid: site.siteMetadata.siteUrl + edge.node.path,
-                  custom_elements: [{ 'content:encoded': edge.node.content }],
-                });
-              });
+                  custom_elements: [{ "content:encoded": edge.node.content }],
+                })
+              })
             },
             query: `
               {
@@ -143,8 +142,8 @@ module.exports = {
                 }
               }
             `,
-            output: '/rss.xml',
-            title: 'RSS Feed of Pet Place',
+            output: "/rss.xml",
+            title: "RSS Feed of Pet Place",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
@@ -152,215 +151,64 @@ module.exports = {
             // match: '^/post/',
           },
           {
-            serialize: ({ query: { site, wordpressTtgCategories } }) => {
-              return wordpressTtgCategories.posts.map(post => {
-                return Object.assign({}, post, {
-                  description: post.excerpt,
-                  date: post.date,
-                  title: post.title,
-                  author: post.author_name || "PetPlace Staff",
-                  url: site.siteMetadata.siteUrl + post.path,
-                  guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content }],                 
-                });
-              });
+            serialize: ({ query: { site, allWordpressPost } }) => {
+              return allWordpressPost.edges.map(edge => {
+                let imgUrl =
+                  edge.node &&
+                  edge.node.featured_media &&
+                  edge.node.featured_media.source_url
+                    ? `${edge.node.featured_media.source_url}`
+                    : `https://${process.env.GATSBY_PP_URL}/images/pet-health.jpg`
+                let xmlContent = `<img src="${imgUrl}" alt="PetPlace post" />${edge.node.excerpt}`
+                return Object.assign({}, edge.node.allWordpressPost, {
+                  description: edge.node.yoast_meta.yoast_wpseo_metadesc,
+                  date: edge.node.date,
+                  title: edge.node.title,
+                  creator: edge.node.author.name,
+                  url: site.siteMetadata.siteUrl + edge.node.path,
+                  guid: site.siteMetadata.siteUrl + edge.node.path,
+                  enclosure: {
+                    url: imgUrl,
+                    type:
+                      edge.node &&
+                      edge.node.featured_media &&
+                      edge.node.featured_media.source_url
+                        ? `${edge.node.featured_media.mime_type}`
+                        : `image/png`,
+                  },
+                })
+              })
             },
             query: `
               {
-                wordpressTtgCategories(slug: {eq: "pet-health"}) {
-                  id
-                  posts {
-                    title
-                    author_name
-                    path
-                    date
-                    content
+                allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: "pet-care"}}}, date: {gt: "${lastYear}"}}) {
+                  edges {
+                    node {
+                      id
+                      path
+                      categories {
+                        name
+                      }
+                      excerpt
+                      title
+                      author {
+                        name
+                      }
+                      date(formatString: "MMMM DD, YYYY")
+                      yoast_meta {
+                        yoast_wpseo_metadesc
+                      }
+                      featured_media {
+                        source_url
+                        mime_type
+                      }
+                    }
                   }
                 }
               }
             `,
-            output: '/article/category/pet-health/rss.xml',
-            title: 'RSS Feed for Pet Health category',
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            // match: '^/post/',
-          },
-          {
-            serialize: ({ query: { site, wordpressTtgCategories } }) => {
-              return wordpressTtgCategories.posts.map(post => {
-                return Object.assign({}, post, {
-                  description: post.excerpt,
-                  date: post.date,
-                  title: post.title,
-                  author: post.author_name || "PetPlace Staff",
-                  url: site.siteMetadata.siteUrl + post.path,
-                  guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content }],                
-                });
-              });
-            },
-            query: `
-              {
-                wordpressTtgCategories(slug: {eq: "pet-care"}) {
-                  id
-                  posts {
-                    title
-                    author_name
-                    path
-                    date
-                    content
-                  }
-                }
-              }
-            `,
-            output: '/article/category/pet-care/rss.xml',
-            title: 'RSS Feed for Pet Health category',
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            // match: '^/post/',
-          },
-          {
-            serialize: ({ query: { site, wordpressTtgCategories } }) => {
-              return wordpressTtgCategories.posts.map(post => {
-                return Object.assign({}, post, {
-                  description: post.excerpt,
-                  date: post.date,
-                  title: post.title,
-                  author: post.author_name || "PetPlace Staff",
-                  url: site.siteMetadata.siteUrl + post.path,
-                  guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content }],                
-                });
-              });
-            },
-            query: `
-              {
-                wordpressTtgCategories(slug: {eq: "pet-behavior-training"}) {
-                  id
-                  posts {
-                    title
-                    author_name
-                    path
-                    date
-                    content
-                  }
-                }
-              }
-            `,
-            output: '/article/category/pet-behavior-training/rss.xml',
-            title: 'RSS Feed for Pet Health category',
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            // match: '^/post/',
-          },
-          {
-            serialize: ({ query: { site, wordpressTtgCategories } }) => {
-              return wordpressTtgCategories.posts.map(post => {
-                return Object.assign({}, post, {
-                  description: post.excerpt,
-                  date: post.date,
-                  title: post.title,
-                  author: post.author_name || "PetPlace Staff",
-                  url: site.siteMetadata.siteUrl + post.path,
-                  guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content}],                
-                });
-              });
-            },
-            query: `
-              {
-                wordpressTtgCategories(slug: {eq: "breeds"}) {
-                  id
-                  posts {
-                    title
-                    path
-                    author_name
-                    date
-                    content
-                  }
-                }
-              }
-            `,
-            output: '/article/category/breeds/rss.xml',
-            title: 'RSS Feed for Pet Health category',
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            // match: '^/post/',
-          },
-          {
-            serialize: ({ query: { site, wordpressTtgCategories } }) => {
-              return wordpressTtgCategories.posts.map(post => {
-                return Object.assign({}, post, {
-                  description: post.excerpt,
-                  date: post.date,
-                  title: post.title,
-                  author: post.author_name || "PetPlace Staff",
-                  url: site.siteMetadata.siteUrl + post.path,
-                  guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content}],                 
-                });
-              });
-            },
-            query: `
-              {
-                wordpressTtgCategories(slug: {eq: "pet-insurance"}) {
-                  id
-                  posts {
-                    title
-                    author_name
-                    path
-                    date
-                    content
-                  }
-                }
-              }
-            `,
-            output: '/article/category/pet-insurance/rss.xml',
-            title: 'RSS Feed for Pet Health category',
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            // match: '^/post/',
-          },
-          {
-            serialize: ({ query: { site, wordpressTtgCategories } }) => {
-              return wordpressTtgCategories.posts.map(post => {
-                return Object.assign({}, post, {
-                  description: post.excerpt,
-                  date: post.date,
-                  title: post.title,
-                  author: post.author_name || "PetPlace Staff",
-                  url: site.siteMetadata.siteUrl + post.path,
-                  guid: site.siteMetadata.siteUrl + post.path,
-                  custom_elements: [{ 'content:encoded': post.content }],
-                });
-              });
-            },
-            query: `
-              {
-                wordpressTtgCategories(slug: {eq: "just-for-fun"}) {
-                  id
-                  posts {
-                    title
-                    author_name
-                    path
-                    date
-                    content
-                  }
-                }
-              }
-            `,
-            output: '/article/category/just-for-fun/rss.xml',
-            title: 'RSS Feed for Fun Stuff category',
+            output: "/article/category/pet-health/rss.xml",
+            title: "RSS Feed for Pet Health category",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
@@ -432,8 +280,8 @@ module.exports = {
         perPage: 100,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://"+process.env.GATSBY_WP_URL,
-          replacementUrl: "https://"+process.env.GATSBY_PP_URL,
+          sourceUrl: "https://" + process.env.GATSBY_WP_URL,
+          replacementUrl: "https://" + process.env.GATSBY_PP_URL,
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,
@@ -454,7 +302,7 @@ module.exports = {
           "**/users",
           "**/media",
           "**/most-used-tags",
-          "**/yoast"
+          "**/yoast",
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: ["**/posts/1456"],
