@@ -210,7 +210,7 @@ module.exports = {
                 }
               }
             `,
-            output: "/article/category/pet-health/rss.xml",
+            output: "/feeds/pet-care.xml",
             title: "RSS Feed for Pet Health category",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
