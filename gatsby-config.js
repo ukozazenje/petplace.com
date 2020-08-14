@@ -157,14 +157,17 @@ module.exports = {
                   edge.node &&
                   edge.node.featured_media &&
                   edge.node.featured_media.source_url
-                    ? `${edge.node.featured_media.source_url}`
+                    ? `${edge.node.featured_media.source_url.replace(
+                        process.env.GATSBY_PP_URL,
+                        process.env.GATSBY_WP_URL
+                      )}`
                     : `https://${process.env.GATSBY_PP_URL}/images/pet-health.jpg`
                 let xmlContent = `<img src="${imgUrl}" alt="PetPlace post" />${edge.node.excerpt}`
                 return Object.assign({}, edge.node.allWordpressPost, {
                   description: edge.node.yoast_meta.yoast_wpseo_metadesc,
                   date: edge.node.date,
                   title: edge.node.title,
-                  creator: edge.node.author.name,
+                  author: edge.node.author.name,
                   url: site.siteMetadata.siteUrl + edge.node.path,
                   guid: site.siteMetadata.siteUrl + edge.node.path,
                   enclosure: {
