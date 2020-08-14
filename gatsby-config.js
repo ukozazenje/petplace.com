@@ -157,14 +157,17 @@ module.exports = {
                   edge.node &&
                   edge.node.featured_media &&
                   edge.node.featured_media.source_url
-                    ? `${edge.node.featured_media.source_url}`
+                    ? `${edge.node.featured_media.source_url.replace(
+                        process.env.GATSBY_PP_URL,
+                        process.env.GATSBY_WP_URL
+                      )}`
                     : `https://${process.env.GATSBY_PP_URL}/images/pet-health.jpg`
                 let xmlContent = `<img src="${imgUrl}" alt="PetPlace post" />${edge.node.excerpt}`
                 return Object.assign({}, edge.node.allWordpressPost, {
                   description: edge.node.yoast_meta.yoast_wpseo_metadesc,
                   date: edge.node.date,
                   title: edge.node.title,
-                  creator: edge.node.author.name,
+                  author: edge.node.author.name,
                   url: site.siteMetadata.siteUrl + edge.node.path,
                   guid: site.siteMetadata.siteUrl + edge.node.path,
                   enclosure: {
@@ -207,7 +210,7 @@ module.exports = {
                 }
               }
             `,
-            output: "/article/category/pet-health/rss.xml",
+            output: "/feeds/pet-care.xml",
             title: "RSS Feed for Pet Health category",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
