@@ -120,7 +120,6 @@ module.exports = {
                   creator: edge.node.author.name,
                   url: site.siteMetadata.siteUrl + edge.node.path,
                   guid: site.siteMetadata.siteUrl + edge.node.path,
-                  custom_elements: [{ "content:encoded": edge.node.content }],
                 })
               })
             },
@@ -172,6 +171,7 @@ module.exports = {
                   guid: site.siteMetadata.siteUrl + edge.node.path,
                   enclosure: {
                     url: imgUrl,
+                    length: "1000",
                     type:
                       edge.node &&
                       edge.node.featured_media &&
@@ -210,7 +210,7 @@ module.exports = {
                 }
               }
             `,
-            output: "/feeds/pet-care.xml",
+            output: "/feeds/categories/pet-care.xml",
             title: "RSS Feed for Pet Health category",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
