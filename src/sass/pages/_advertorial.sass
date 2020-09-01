@@ -1,0 +1,207 @@
+
+.advertorial-navigation-wrapper 
+  display: flex 
+  align-items: baseline
+  padding: 15px 20px
+  border-bottom: 1px solid #F9F9F9
+  +desktop 
+    padding: 40px 0 
+    border-bottom: none
+  .advertorial-logo
+    width: 180px 
+    +tablet 
+      width: 236px
+      margin-right: 100px
+    img 
+      display: block
+  .advertorial-navigation-headline 
+    display: none
+    +desktop
+      display: block
+      font-family: $family-secondary
+      font-weight: 800
+      font-size: 2.125rem
+      line-height: 45px
+      color: #FF7D5A
+
+.advertorial-hero-image 
+  position: relative
+  .hero-image-container 
+    position: relative
+    h1 
+      display: none
+      +desktop 
+        display: block
+        position: absolute 
+        top: 60px
+        color: $white
+        max-width: 690px 
+        font-family: $family-secondary
+        font-weight: 800
+        font-size: 3.625rem
+        line-height: 64px
+        z-index: 99
+      +widescreen 
+        top: 130px
+.advertorial-mobile-heading
+  padding: 20px
+  h1 
+    margin: 0
+    font-family: $family-secondary
+    font-weight: 800
+    font-size: 1.875rem
+    line-height: 40px
+    color: #24081D
+  h1:first-of-type 
+    color: #FF7D5A
+    margin-bottom: 10px
+
+.advertorial-main-content 
+  padding: 30px 20px
+  +desktop
+    padding: 50px 20px
+  .advertorial-sidebar 
+    .author-wrapper 
+      display: flex 
+      margin-bottom: 20px
+      flex-direction: row 
+      +tablet 
+        flex-direction: column
+      p 
+        margin: 0
+      .author-info 
+        margin-left: 20px 
+        +tablet 
+          margin-top: 10px
+          margin-left: 0
+        .author-name 
+          font-family: $family-secondary
+          font-weight: 800
+          font-size: 1rem
+          line-height: 32px
+          +tablet 
+            font-size: 1.125rem 
+        .post-date
+          font-family: $family-primary
+          font-weight: 400
+          font-size: 1rem
+          line-height: 24px
+          color: #8F8F8F
+    .author-img 
+      width: 60px
+      height: 60px
+  h3 
+    font-family: $family-secondary
+    font-style: normal
+    font-weight: 800
+    font-size: 1.375rem
+    line-height: 32px
+    color: #24081D
+    margin-top: 10px
+    margin-bottom: 25px
+    +desktop 
+      margin-bottom: 30px
+      font-size: 2.5rem
+      line-height: 52px 
+  p 
+    font-family: $family-primary
+    font-size: 1.125rem 
+    line-height: 28px
+    margin-top: 0
+    margin-bottom: 20px
+    color: #24081D
+    a 
+      color: #FF7D5A
+      text-decoration-line: underline
+    +desktop 
+      line-height: 32px
+      margin-bottom: 25px 
+  .advertorial-image-content 
+    display: flex
+    flex-direction: column 
+    align-items: center
+    +tablet 
+      margin-bottom: 30px
+      flex-direction: row
+    p:last-of-type 
+      +tablet
+        margin-bottom: 0
+    .advertorial-img 
+      min-width: 200px
+      display: flex
+      align-items: center
+      justify-content: center
+      margin-bottom: 25px
+      +tablet 
+        justify-content: flex-end 
+        margin-bottom: 0
+      +desktop
+        min-width: 260px
+    &.img-left 
+      .advertorial-img 
+        +tablet
+          justify-content: flex-start 
+    &.column-reverse 
+      flex-direction: column-reverse
+      +tablet 
+        margin-bottom: 25px
+        flex-direction: row 
+
+  .advertorial-free-quote-wrapper 
+    background: #3B092C
+    color: $white
+    margin: 0 -20px
+    margin-bottom: 30px
+    padding: 20px
+    height: 160px
+    display: flex 
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    +tablet 
+      margin: 0
+      margin-bottom: 30px
+      border-radius: 20px
+    +desktop 
+      flex-direction: row 
+      justify-content: space-between
+      padding: 20px 40px
+    +fullhd 
+      padding: 20px 60px
+    span 
+      font-family: $family-secondary
+      font-style: normal
+      font-weight: 800
+      font-size: 1.625rem
+      line-height: 34px
+      margin-bottom: 15px
+      +desktop 
+        margin-bottom: 0
+      +widescreen 
+        font-size: 2.5rem
+    a 
+      display: flex
+      align-items: center
+      justify-content: center
+      font-family: $family-secondary
+      font-style: normal
+      font-weight: 800
+      width: 280px
+      height: 58px
+      color: $white 
+      font-size: 1.375rem
+      line-height: 34px
+      background: #EF8363
+      border-radius: 50px
+      +widescreen 
+        height: 64px
+        width: 350px
+        font-size: 1.75rem
+    img 
+      display: none
+      +desktop 
+        display: inline-block
+  .bottom-line 
+    margin-top: 60px
+    height: 1px
+    background-color: #8F8F8F 
