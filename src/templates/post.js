@@ -136,27 +136,32 @@ class Post extends Component {
       this.props.data.postHeroImg.childImageSharp.fluid.src
 
     const author = (post.author && post.author.name) || "PetPlace Staff"
-    var modal = document.getElementById("myModal")
 
-    // // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg") || false
+    if (typeof document !== "undefined") {
+      var modal = document.getElementById("myModal")
 
-    var modalImg = document.getElementById("img01")
-    console.log(img)
+      // // Get the image and insert it inside the modal - use its "alt" text as a caption
+      var img = document.getElementById("myImg") || false
 
-    // var captionText = document.getElementById("caption")
-    if (img) {
-      img.onclick = function() {
-        modal.style.display = "block"
-        modalImg.src = this.src
-        // captionText.innerHTML = this.alt
+      var modalImg = document.getElementById("img01")
+      console.log(img)
+
+      // var captionText = document.getElementById("caption")
+      if (img) {
+        img.onclick = function() {
+          modal.style.display = "block"
+          modalImg.src = this.src
+          // captionText.innerHTML = this.alt
+        }
+        var span = document.getElementsByClassName("close")[0]
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none"
+        }
       }
-      var span = document.getElementsByClassName("close")[0]
-
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-        modal.style.display = "none"
-      }
+    } else {
+      return null
     }
 
     // // Get the <span> element that closes the modal
