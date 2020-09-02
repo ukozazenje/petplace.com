@@ -187,16 +187,16 @@ const getPetInsuranceNow = () => {
               <div className="advertorial-image-content img-right column-reverse">
                 <div className="advertorial-content">
                   <p>
-                    “Sydney, our Goldendoodle, ended up with Addison’s Disease,
+                    “Sydney, our Goldendoodle, ended up with Addison’s disease,
                     which can be extremely pricey. It cost us over $10,000 in
                     vet visits, emergency vet stays, and an ongoing
                     prescription,” says Price.{" "}
                   </p>
                   <p>
-                    Addison’s Disease is a rare condition that affects the
+                    Addison’s disease is a rare condition that affects the
                     adrenal glands. As part of the endocrine system, the adrenal
                     glands control hormones that impact appetite, metabolism,
-                    and blood pressure. When animals have Addison’s Disease,
+                    and blood pressure. When animals have Addison’s disease,
                     they are at risk of experiencing severe health crises,
                     including going into shock. The disease is very rare in dogs
                     and highly uncommon in cats, but you never know if your pet
