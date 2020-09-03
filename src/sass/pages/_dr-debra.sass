@@ -1,0 +1,172 @@
+.dr-debra-hero-section 
+  padding-top: 0
+  padding-bottom: 0
+  background: #F2F5FC
+  +tablet 
+    padding-top: 30px
+    padding-bottom: 30px
+  +widescreen 
+    padding-top: 60px
+    padding-bottom: 60px
+  .dr-debra-hero-columns 
+    display: flex 
+    flex-direction: column-reverse
+    +tablet 
+      flex-direction: row
+  .dr-debra-hero-content 
+    +tablet 
+      padding-right: 25px
+    +desktop 
+      max-width: 425px
+    h1 
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      font-size: 2rem 
+      line-height: 34px 
+      color: $orange 
+      margin-bottom: 20px
+      text-align: center
+      span 
+        color: #0E0F17
+      +tablet 
+        text-align: left
+      +widescreen 
+        margin-bottom: 30px
+        font-size: 3.5rem
+        line-height: 60px
+    p 
+      font-family: $family-sans-serif
+    p
+      font-size: 1.125rem 
+      line-height: 30px
+      text-align: center
+      +tablet 
+        text-align: left
+        font-size:  1.25rem 
+        line-height: 32px 
+      +widescreen 
+        font-size:  1.5rem 
+        line-height: 36px
+    .orange-btn 
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 177px
+      height: 50px
+      color: #ffffff
+      background: #FF7D5A
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2)
+      border-radius: 60px
+      border: none
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      font-size: 1.25rem
+      margin-top: 30px
+      margin-bottom: 20px
+      +desktop 
+        margin-top: 32px
+        margin-bottom: 24px
+        width: 227px
+        height: 60px
+      img 
+        margin-right: 10px
+    .dr-debra-disclaimer 
+      p 
+        text-align: left
+        font-family: $family-sans-serif
+        font-size: 0.75rem 
+        line-height: 14px 
+        margin-bottom: 12px 
+  .dr-debra-hero-image 
+    margin: 0 -24px
+    +tablet 
+      margin: 0
+      padding-left: 25px
+.dr-debra-posts 
+  background: #ffffff
+  .dr-debra-sidebar 
+    padding: 0 24px
+    display: block
+    background: #ffffff
+    .dr-debra-sidebar-profile 
+      margin-top: 30px
+      margin-bottom: 20px
+      display: flex 
+      align-items: center 
+      flex-wrap: wrap
+      +widescreen 
+        margin-top: 0
+        margin-bottom: 67px
+        align-items: flex-start
+        flex-direction: column
+      p 
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1rem
+        line-height: 32px  
+        +desktop 
+          font-size: 1.125rem 
+      img 
+        width: 62px
+        +widescreen
+          width: 200px 
+      p 
+        margin-left: 12px 
+        +widescreen 
+          margin-top: 18px 
+          margin-left: 0
+    .dr-debra-social-icons 
+      display: flex 
+      width: 100%
+      margin-top: 10px
+      img 
+        width: 35px 
+        margin-right: 10px
+    .category-filters 
+      padding: 0
+      // +tablet 
+      //   display: block
+      h3
+        color: #353534 
+  .dr-debra-main-content 
+    h2 
+      font-size: 1.625rem 
+      margin-bottom: 20px
+    p 
+      font-size: 1.125rem 
+      line-height: 32px
+      font-family: $family-sans-serif 
+      margin-bottom: 20px
+      a 
+        color: #EF8363
+  .dr-debra-most-popular-tags 
+    display: block 
+    +widescreen 
+      display: none
+    h3
+      @extend .h5 
+      display: block
+      width: 100%   
+      position: relative
+      margin-bottom: 1rem
+      padding-bottom: 6px
+      border-bottom: 2px solid #BBC2CB
+      color: $font-color
+      &:after 
+        content: ''
+        display: block
+        border-bottom: 2px solid $purple-light
+        margin-top: 8px
+        margin-bottom: -8px
+        width: 100px 
+    .tags
+      padding-bottom: 60px
+      a       
+        text-decoration: underline
+        margin-right: 1rem
+        font-weight: 800
+        line-height: 32px
+        color: #B9C2CC
+        transition: all 0.350s ease      
+        &:hover
+          color: $orange 

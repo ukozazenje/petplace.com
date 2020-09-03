@@ -223,7 +223,7 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const tagsTemplate = path.resolve(`./src/templates/tags.js`)
-
+      const drDebraTemplate = path.resolve(`./src/templates/drDebra.js`)
       // In production builds, filter for only published posts.
       const allTags = result.data.allWordpressTtgTags.edges
 
@@ -232,7 +232,10 @@ exports.createPages = ({ actions, graphql }) => {
         // Create the Gatsby page for this WordPress post
         createPage({
           path: `/tags/${tag.slug}`,
-          component: tagsTemplate,
+          component:
+            tag.slug === "ask-dr-debra-common-questions"
+              ? drDebraTemplate
+              : tagsTemplate,
           context: {
             id: tag.id,
           },
