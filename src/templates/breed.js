@@ -713,15 +713,15 @@ const Breed = ({ data }) => {
           <div className="">
             <div
               className=""
-              ref={el => {
-                if (el) {
-                  if (el.getBoundingClientRect().width > 1300) {
-                    setMaxHeight(`${el.getBoundingClientRect().height - 67}px`)
-                  }
-                  // console.log("maxHeight", maxHeight)
-                  // console.log(`${el.getBoundingClientRect().height}px`)
-                }
-              }}
+              // ref={el => {
+              //   if (el) {
+              //     if (el.getBoundingClientRect().width > 1300) {
+              //       setMaxHeight(`${el.getBoundingClientRect().height - 67}px`)
+              //     }
+              //     // console.log("maxHeight", maxHeight)
+              //     // console.log(`${el.getBoundingClientRect().height}px`)
+              //   }
+              // }}
             >
               <h3>{`${interesting_facts_title || "Interesting Facts"}`}</h3>
               <Slider {...factsSettings}>
@@ -729,7 +729,7 @@ const Breed = ({ data }) => {
                   <div key={`facts-${index}`} className="fact-slide">
                     <div
                       className="fact-slide-content"
-                      style={{ minHeight: maxHeight }}
+                      // style={{ minHeight: maxHeight }}
                     >
                       <h4 className={`${setBreedColor(index)}`}>{index + 1}</h4>
                       <p
