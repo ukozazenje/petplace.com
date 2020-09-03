@@ -141,13 +141,13 @@ class Post extends Component {
       var modal = document.getElementById("myModal")
 
       // // Get the image and insert it inside the modal - use its "alt" text as a caption
-      var img = document.getElementById("myImg") || false
+      var img = document.getElementById("myImg")
+      // img.src = "/images/ppinfographic4.png"
 
       var modalImg = document.getElementById("img01")
-      console.log(img)
-
       // var captionText = document.getElementById("caption")
       if (img) {
+        img.src = "/images/ppinfographic4.png"
         img.onclick = function() {
           modal.style.display = "block"
           modalImg.src = this.src
