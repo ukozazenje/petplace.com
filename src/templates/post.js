@@ -148,6 +148,8 @@ class Post extends Component {
       // var captionText = document.getElementById("caption")
       if (img) {
         img.src = "/images/ppinfographic4.png"
+        img.srcset = ""
+        img.sizes = ""
         img.onclick = function() {
           modal.style.display = "block"
           modalImg.src = this.src
