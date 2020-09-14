@@ -267,6 +267,7 @@ class Post extends Component {
               post.featured_media.localFile &&
               post.featured_media.localFile.childImageSharp ? (
                 <Img
+                  crossOrigin
                   sizes={{
                     ...post.featured_media.localFile.childImageSharp.fluid,
                     aspectRatio: 22 / 7,

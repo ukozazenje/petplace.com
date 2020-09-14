@@ -9,11 +9,21 @@ export default function HTML(props) {
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
         />
-        <script src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" async></script>
-        <script src="https://cdn.p-n.io/pushly-sdk.min.js?domain_key=cfOCEQj2H76JJXktWCy3uK0OZCb1DMbfNUnq" async></script>
-        <script data-ad-client="ca-pub-6577733472295351" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script
+          src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+          async
+        ></script>
+        <script
+          src="https://cdn.p-n.io/pushly-sdk.min.js?domain_key=cfOCEQj2H76JJXktWCy3uK0OZCb1DMbfNUnq"
+          async
+        ></script>
+        <script
+          data-ad-client="ca-pub-6577733472295351"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
