@@ -70,7 +70,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `twitter:image`,
-          content: `${process.env.GATSBY_WEB_SITE_URL}${metaImage}`
+          content: `${process.env.GATSBY_WEB_SITE_URL}${metaImage}`,
         },
         {
           name: `twitter:description`,
@@ -82,16 +82,16 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `ahrefs-site-verification`,
-          content: `a6e8156fc9290b83a34e9f0ebf56520df911c94e32b5d60baaf00457832ddb7e`
+          content: `a6e8156fc9290b83a34e9f0ebf56520df911c94e32b5d60baaf00457832ddb7e`,
         },
         {
           name: `p:domain_verify`,
-          content: `46f15ab5b9e6f45e4bd2461c880537a1`
+          content: `46f15ab5b9e6f45e4bd2461c880537a1`,
         },
         {
           name: `og:image`,
-          content: metaImage
-        }
+          content: `${process.env.GATSBY_WEB_SITE_URL}${metaImage}`,
+        },
       ].concat(meta)}
     />
   )

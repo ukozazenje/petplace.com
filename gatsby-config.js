@@ -114,13 +114,33 @@ module.exports = {
           {
             serialize: ({ query: { site, allWordpressPost } }) => {
               return allWordpressPost.edges.map(edge => {
+                let imgUrl =
+                  edge.node &&
+                  edge.node.featured_media &&
+                  edge.node.featured_media.source_url
+                    ? `${edge.node.featured_media.source_url.replace(
+                        process.env.GATSBY_PP_URL,
+                        process.env.GATSBY_WP_URL
+                      )}`
+                    : `https://${process.env.GATSBY_PP_URL}/images/pet-health.jpg`
+                let xmlContent = `<img src="${imgUrl}" alt="PetPlace post" />${edge.node.excerpt}`
                 return Object.assign({}, edge.node.allWordpressPost, {
-                  description: edge.node.excerpt,
+                  description: edge.node.yoast_meta.yoast_wpseo_metadesc,
                   date: edge.node.date,
                   title: edge.node.title,
-                  creator: edge.node.author.name,
+                  author: edge.node.author.name,
                   url: site.siteMetadata.siteUrl + edge.node.path,
                   guid: site.siteMetadata.siteUrl + edge.node.path,
+                  enclosure: {
+                    url: imgUrl,
+                    length: "1000",
+                    type:
+                      edge.node &&
+                      edge.node.featured_media &&
+                      edge.node.featured_media.source_url
+                        ? `${edge.node.featured_media.mime_type}`
+                        : `image/png`,
+                  },
                 })
               })
             },
@@ -129,21 +149,31 @@ module.exports = {
                 allWordpressPost(filter: {date: {gt: "${lastYear}"}}) {
                   edges {
                     node {
+                      id
+                      path
+                      categories {
+                        name
+                      }
                       excerpt
                       title
-                      path
-                      date(formatString: "MMMM DD, YYYY")
-                      content
                       author {
                         name
+                      }
+                      date(formatString: "MMMM DD, YYYY")
+                      yoast_meta {
+                        yoast_wpseo_metadesc
+                      }
+                      featured_media {
+                        source_url
+                        mime_type
                       }
                     }
                   }
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "RSS Feed of Pet Place",
+            output: "/feeds/all-posts.xml",
+            title: "RSS Feed for PetPlace",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
@@ -212,7 +242,7 @@ module.exports = {
               }
             `,
             output: "/feeds/categories/pet-care.xml",
-            title: "RSS Feed for Pet Health category",
+            title: "RSS Feed for Pet Care category",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
@@ -350,7 +380,7 @@ module.exports = {
               }
             `,
             output: "/feeds/categories/pet-behavior-training.xml",
-            title: "RSS Feed for Pet Health category",
+            title: "RSS Feed for Pet Behavior and Training category",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
@@ -419,7 +449,143 @@ module.exports = {
               }
             `,
             output: "/feeds/categories/just-for-fun.xml",
-            title: "RSS Feed for Pet Health category",
+            title: "RSS Feed for Just for Fun category",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: '^/post/',
+          },
+          {
+            serialize: ({ query: { site, allWordpressPost } }) => {
+              return allWordpressPost.edges.map(edge => {
+                let imgUrl =
+                  edge.node &&
+                  edge.node.featured_media &&
+                  edge.node.featured_media.source_url
+                    ? `${edge.node.featured_media.source_url.replace(
+                        process.env.GATSBY_PP_URL,
+                        process.env.GATSBY_WP_URL
+                      )}`
+                    : `https://${process.env.GATSBY_PP_URL}/images/pet-health.jpg`
+                let xmlContent = `<img src="${imgUrl}" alt="PetPlace post" />${edge.node.excerpt}`
+                return Object.assign({}, edge.node.allWordpressPost, {
+                  description: edge.node.yoast_meta.yoast_wpseo_metadesc,
+                  date: edge.node.date,
+                  title: edge.node.title,
+                  author: edge.node.author.name,
+                  url: site.siteMetadata.siteUrl + edge.node.path,
+                  guid: site.siteMetadata.siteUrl + edge.node.path,
+                  enclosure: {
+                    url: imgUrl,
+                    length: "1000",
+                    type:
+                      edge.node &&
+                      edge.node.featured_media &&
+                      edge.node.featured_media.source_url
+                        ? `${edge.node.featured_media.mime_type}`
+                        : `image/png`,
+                  },
+                })
+              })
+            },
+            query: `
+              {
+                allWordpressPost(filter: {categories: {elemMatch: {slug: {eq: "pet-insurance"}}}, date: {gt: "${lastYear}"}}) {
+                  edges {
+                    node {
+                      id
+                      path
+                      categories {
+                        name
+                      }
+                      excerpt
+                      title
+                      author {
+                        name
+                      }
+                      date(formatString: "MMMM DD, YYYY")
+                      yoast_meta {
+                        yoast_wpseo_metadesc
+                      }
+                      featured_media {
+                        source_url
+                        mime_type
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/feeds/categories/pet-insurance.xml",
+            title: "RSS Feed for Pet Insurance category",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: '^/post/',
+          },
+          {
+            serialize: ({ query: { site, allWordpressBreedPosts } }) => {
+              return allWordpressBreedPosts.edges.map(edge => {
+                let imgUrl =
+                  edge.node &&
+                  edge.node.featured &&
+                  edge.node.featured.source_url
+                    ? `${edge.node.featured.source_url.replace(
+                        process.env.GATSBY_PP_URL,
+                        process.env.GATSBY_WP_URL
+                      )}`
+                    : `https://${process.env.GATSBY_PP_URL}/images/pet-health.jpg`
+                let xmlContent = `<img src="${imgUrl}" alt="PetPlace post" />${edge.node.excerpt}`
+                return Object.assign({}, edge.node.allWordpressBreedPosts, {
+                  description: edge.node.yoast_meta,
+                  date: edge.node.date,
+                  title: edge.node.title,
+                  author:
+                    (edge &&
+                      edge.node &&
+                      edge.node.acf &&
+                      edge.node.acf.breed_author_name) ||
+                    "PetPlace Staff",
+                  url: site.siteMetadata.siteUrl + edge.node.path,
+                  guid: site.siteMetadata.siteUrl + edge.node.path,
+                  enclosure: {
+                    url: imgUrl,
+                    length: "1000",
+                    type:
+                      edge.node &&
+                      edge.node.featured &&
+                      edge.node.featured.source_url
+                        ? `${edge.node.featured.mime_type}`
+                        : `image/png`,
+                  },
+                })
+              })
+            },
+            query: `
+            {
+              allWordpressBreedPosts {
+                edges {
+                  node {
+                    acf {
+                      breed_author_name
+                    }
+                    date
+                    title
+                    yoast_meta
+                    path
+                    featured {
+                      source_url
+                      mime_type
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            output: "/feeds/categories/breeds.xml",
+            title: "RSS Feed for Breed Guide",
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
