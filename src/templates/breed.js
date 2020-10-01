@@ -217,22 +217,46 @@ const Breed = ({ data }) => {
       />
       <section className="hero-section">
         <div className="is-hidden-touch">
-          <Img
-            sizes={{
-              ...featured.localFile.childImageSharp.fluid,
-              aspectRatio: 22 / 7,
-            }}
-            alt="breed"
-          />
+          {featured &&
+          featured.localFile &&
+          featured.localFile.childImageSharp ? (
+            <Img
+              sizes={{
+                ...featured.localFile.childImageSharp.fluid,
+                aspectRatio: 22 / 7,
+              }}
+              alt="breed"
+            />
+          ) : (
+            <Img
+              sizes={{
+                ...data.postHeroImg.childImageSharp.fluid,
+                aspectRatio: 22 / 7,
+              }}
+              alt="breed"
+            />
+          )}
         </div>
         <div className="is-hidden-desktop">
-          <Img
-            sizes={{
-              ...featured.localFile.childImageSharp.fluid,
-              aspectRatio: 4 / 3,
-            }}
-            alt="breed"
-          />
+          {featured &&
+          featured.localFile &&
+          featured.localFile.childImageSharp ? (
+            <Img
+              sizes={{
+                ...featured.localFile.childImageSharp.fluid,
+                aspectRatio: 4 / 3,
+              }}
+              alt="breed"
+            />
+          ) : (
+            <Img
+              sizes={{
+                ...data.postHeroImg.childImageSharp.fluid,
+                aspectRatio: 4 / 3,
+              }}
+              alt="breed"
+            />
+          )}
         </div>
       </section>
       <div className="breed-generals">
