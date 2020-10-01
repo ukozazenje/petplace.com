@@ -543,7 +543,10 @@ module.exports = {
                   date: edge.node.date,
                   title: edge.node.title,
                   author:
-                    (edge && edge.node && edge.node.breed_author_name) ||
+                    (edge &&
+                      edge.node &&
+                      edge.node.acf &&
+                      edge.node.acf.breed_author_name) ||
                     "PetPlace Staff",
                   url: site.siteMetadata.siteUrl + edge.node.path,
                   guid: site.siteMetadata.siteUrl + edge.node.path,
@@ -565,7 +568,9 @@ module.exports = {
               allWordpressBreedPosts {
                 edges {
                   node {
-                    breed_author_name
+                    acf {
+                      breed_author_name
+                    }
                     date
                     title
                     yoast_meta
