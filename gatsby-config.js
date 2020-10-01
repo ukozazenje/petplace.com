@@ -542,7 +542,9 @@ module.exports = {
                   description: edge.node.yoast_meta,
                   date: edge.node.date,
                   title: edge.node.title,
-                  author: edge.node.breed_author_name,
+                  author:
+                    (edge && edge.node && edge.node.breed_author_name) ||
+                    "PetPlace Staff",
                   url: site.siteMetadata.siteUrl + edge.node.path,
                   guid: site.siteMetadata.siteUrl + edge.node.path,
                   enclosure: {
