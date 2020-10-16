@@ -41,7 +41,7 @@ const AdvertiseHero = () => {
     <>
       <section className="advertorial-hero-image">
         <div className="container is-fullhd hero-image-container">
-          <h1>An Emergency Vet Bill Left Me $10,000 In Debt</h1>
+          <h1>An Emergency Vet Bill Left Me with Sticker Shock</h1>
         </div>
         <Img
           className="is-hidden-touch"
