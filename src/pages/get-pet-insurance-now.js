@@ -30,7 +30,7 @@ const getPetInsuranceNow = () => {
       </nav>
       <div className="is-hidden-desktop advertorial-mobile-heading">
         <h1>Advertorial</h1>
-        <h1>An Emergency Vet Bill Left Me $10,000 In Debt</h1>
+        <h1>An Emergency Vet Bill Left Me with Sticker Shock</h1>
       </div>
       <AdvertorialHero />
       <section className="advertorial-main-content">
@@ -72,7 +72,7 @@ const getPetInsuranceNow = () => {
                   </a>
                   <a
                     className={`pinterest-/get-pet-insurance-now/`}
-                    href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/&media=&description=An Emergency Vet Bill Left Me $10,000 In Debt`}
+                    href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/&media=&description=An Emergency Vet Bill Left Me with Sticker Shock`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -85,7 +85,7 @@ const getPetInsuranceNow = () => {
                   </a>
                   <a
                     className={`mail-/get-pet-insurance-now/`}
-                    href={`mailto:info@petplace.com?&subject=An Emergency Vet Bill Left Me $10,000 In Debt&body=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/`}
+                    href={`mailto:info@petplace.com?&subject=An Emergency Vet Bill Left Me with Sticker Shock&body=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -129,7 +129,7 @@ const getPetInsuranceNow = () => {
                   </a>
                   <a
                     className={`pinterest-/get-pet-insurance-now/`}
-                    href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/&media=&description=An Emergency Vet Bill Left Me $10,000 In Debt`}
+                    href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/&media=&description=An Emergency Vet Bill Left Me with Sticker Shock`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -142,7 +142,7 @@ const getPetInsuranceNow = () => {
                   </a>
                   <a
                     className={`mail-/get-pet-insurance-now/`}
-                    href={`mailto:info@petplace.com?&subject=An Emergency Vet Bill Left Me $10,000 In Debt&body=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/`}
+                    href={`mailto:info@petplace.com?&subject=An Emergency Vet Bill Left Me with Sticker Shock&body=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -156,7 +156,7 @@ const getPetInsuranceNow = () => {
               </Sticky> */}
             </div>
             <div className="column">
-              <h3>I Went Into Debt Without Pet Insurance</h3>
+              <h3>I Wasn't Prepared for a Pet Emergency</h3>
               <p>
                 The definition of an emergency is “a serious, unexpected, and
                 often dangerous situation requiring immediate action.” Due to
