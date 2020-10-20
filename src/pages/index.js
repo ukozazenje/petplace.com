@@ -12,7 +12,7 @@ import TabletHeroImg from "../static/images/tabletHomeHeroImg"
 import homeImage from "../images/hero-bg.png" 
 import logo from "../images/PPlogo.jpg"
 import Helmet from 'react-helmet'
-
+import WelcomeToPetPlaceSection from '../components/homepage/WelcomeToPetPlaceSection'
 const IndexPage = () => {
   return (
     <Layout noSearch={true}>
@@ -63,7 +63,8 @@ const IndexPage = () => {
           <MobileHeroImg />
         </div>
       </div>
-      <CategoryListSection />
+      {/* <CategoryListSection /> */}
+      <WelcomeToPetPlaceSection />
       <Latest />
       <HappinessSection />
       <ContactUsSection />
