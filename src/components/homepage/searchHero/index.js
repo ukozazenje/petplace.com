@@ -26,7 +26,7 @@ const SearchHero = () => {
             }}
           >
             {(props) => (
-              <Form>
+              <Form className="search-box-wrapper">
                 <Field type="text" name="title" placeholder="Search for Posts..." className="search-input" />
                 <button type="submit" className="search-button">{loader ? 'Searching...' : 'Search'}</button>
               </Form>
