@@ -172,7 +172,7 @@ export default class Search extends Component {
                 }}
               >
                 {(props) => (
-                  <Form>
+                  <Form className="search-box-wrapper ">
                     <Field type="text" name="title" placeholder="Search...." className="search-input" />
                     <button type="submit" className="search-button" >Submit</button>
                     {props.errors.title && props.touched.title ? <div className="form-error ">{props.errors.title}</div> : null}

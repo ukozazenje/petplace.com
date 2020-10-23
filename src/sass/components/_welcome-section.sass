@@ -1,0 +1,136 @@
+.welcome-section
+  padding-top: 30px
+  padding-bottom: 30px
+  +tablet 
+    padding-top: 60px 
+    padding-bottom: 60px
+  +widescreen 
+    padding-top: 120px
+    padding-bottom: 120px
+  .welcome-section-heading-wrapper 
+    display: flex 
+    flex-direction: column 
+    align-items: center
+    margin-bottom: 30px 
+    +desktop 
+      flex-direction: row
+      justify-content: space-between
+      margin-bottom: 60px
+    h1 
+      text-align: center 
+      line-height: 40px 
+      font-size: 1.25rem 
+      max-width: 290px
+      margin-bottom: 20px
+      +desktop
+        text-align: left
+        font-size: 2rem 
+        span 
+          font-size: 4.125rem
+          line-height: 64px 
+
+    .welcome-section-paragraph 
+      font-size: 1.125rem 
+      line-height: 32px 
+      color: #353534 
+      +tablet 
+        width: 100%
+      +desktop
+        width: 65%
+  .welcome-sections-cards-wrapper 
+    display: flex 
+    flex-direction: column 
+    +tablet 
+      flex-direction: row
+      justify-content: space-between
+      flex-wrap: wrap
+    .welcome-section-card 
+      width: 100% 
+      background: #FFFFFF
+      border: 1px solid #E4E4E4
+      border-radius: 6px
+      margin: 25px 0
+      transition: 0.350s ease all
+      cursor: pointer
+      order: 1
+      &:hover 
+        // border: 1px solid transparent
+        box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.08)
+      +tablet 
+        max-width: 48%
+      +desktop 
+        min-height: 610px
+        max-width: 30% 
+      &.big 
+        max-width: 100%
+        +tablet 
+          order: 2
+        +desktop
+          order: 1
+          max-width: 65%
+        p 
+          margin-bottom: 30px 
+      .welcome-card-img 
+        border-top-left-radius: 6px 
+        border-top-right-radius: 6px
+      .welcome-section-card-wrapper 
+        padding: 0 10px 30px 10px 
+        +desktop 
+          padding: 0 25px 30px 25px
+        .welcome-section-card-icon-wrapper 
+          display: flex 
+          flex-direction: row 
+          align-items: center 
+          justify-content: flex-start 
+          min-height: 100px
+          img 
+            margin-right: 20px
+            display: block
+          h3 
+            font-size: 1.375rem 
+            font-family: $family-secondary
+            font-weight: $family-secondary-weight
+            color: #353534
+            display: flex 
+            flex-direction: column
+            // position: relative 
+            line-height: 26px
+            &:after 
+              content: ""
+              // position: absolute 
+              width: 50px
+              height: 3px
+              background-color: #FF7D5A 
+              // left: 0 
+              // bottom: -5px
+        .welcome-section-card-content 
+          p, li 
+            font-size: 1rem
+            line-height: 32px
+            color: #353534
+            font-family: $family-primary 
+            &.m-20 
+              margin-bottom: 20px
+          .welcome-section-card-content-list-wrapper 
+            display: flex 
+            flex-direction: column 
+            +tablet 
+              flex-direction: row 
+              justify-content: space-between
+            ul 
+              width: 100%
+              +tablet
+                width: 48%
+              li 
+                position: relative
+                list-style: none
+                margin: 10px 0 10px 20px
+                &::before 
+                  content: ""
+                  top: 12px
+                  left: -20px
+                  position: absolute
+                  width: 6px
+                  height: 6px
+                  border-radius: 6px
+                  background: #C9D4EA
