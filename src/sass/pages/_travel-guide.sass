@@ -1,0 +1,173 @@
+.travel-guide-hero-section
+  padding-top: 10px
+  padding-bottom: 10px
+  // background: rgb(255,255,255)
+  background: linear-gradient(180deg, rgba(255,255,255,1) 85%, rgba(242,246,252,1) 85%, rgba(242,246,252,1) 100%)
+  .hero-content-wrapper
+    display: flex 
+    flex-direction: column 
+    +tablet 
+      flex-direction: row 
+      align-items: center
+    .hero-content-heading 
+      width: 100%
+      +tablet 
+        width: 65%
+      +desktop 
+        width: 60%
+      +widescreen 
+        width: 50%
+      h1 
+        max-width: 100%
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1.875rem
+        line-height: 40px
+        color: #353534
+        margin-bottom: 30px
+        +tablet 
+          margin-bottom: 0
+          max-width: 522px
+          font-size: 3.125rem 
+          line-height: 56px
+    img 
+      max-width: 520px
+      margin-bottom: -80px
+    .travel-guide-hero-img
+      width: 100%
+      max-width: 400px 
+      margin: 0 auto
+      +tablet
+        margin: 0
+        max-width: 350px
+      +widescreen
+        max-width: 520px
+.travel-guide-intro-section 
+  background: #F2F6FC 
+  padding-top: 10px
+  padding-bottom: 30px
+  +desktop 
+    padding-top: 40px
+    padding-bottom: 90px
+  .travel-guide-intro-wrapper 
+    display: flex
+    flex-direction: column
+    +desktop 
+      flex-direction: row
+      justify-content: space-between
+    p 
+      color: #353534
+      font-size: 1rem
+      line-height: 24px
+      width: 100%
+      +desktop
+        width: 46%
+        font-size: 1.25rem
+        line-height: 32px 
+.travel-guide-cards 
+  padding-top: 30px
+  padding-bottom: 30px
+  +desktop 
+    padding-top: 60px
+    padding-bottom: 60px
+  +widescreen
+    padding-top: 100px
+    padding-bottom: 100px
+  &.blue-gradient 
+    background: rgba(242,246,252,1)
+    +desktop
+      background: linear-gradient(90deg, rgba(242,246,252,1) 0%, rgba(242,246,252,1) 70%, rgba(255,255,255,1) 70%)
+  .travel-guide-card-wrapper
+    display: flex 
+    align-items: center
+    flex-direction: column-reverse
+    +desktop 
+      align-items: flex-start
+      justify-content: space-between
+      flex-direction: row
+    .travel-guide-card-content 
+      margin-top: 30px
+      +desktop 
+        margin-top: 0
+        margin-right: 30px
+        max-width: 60%
+      +widescreen
+        max-width: 740px
+      h3 
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1.5rem
+        line-height: 28px
+        color: #353534
+        margin-bottom: 10px
+        +desktop 
+          margin-bottom: 30px
+          font-size: 2rem
+          line-height: 38px
+      p 
+        font-family: $family-primary
+        font-size: 1rem
+        line-height: 24px
+        color: #353534
+        margin-bottom: 30px
+        +desktop
+          font-size: 1.125rem
+          line-height: 32px
+      .travel-guide-cards-icons-wrapper 
+        display: flex
+        flex-direction: row 
+        flex-wrap: wrap
+        justify-content: space-around
+        +tablet 
+          justify-content: space-between
+        .travel-guide-card-icon 
+          display: flex 
+          flex-direction: column
+          align-items: center 
+          width: 40%
+          +tablet 
+            width: 16%
+          +desktop 
+            width: 30%
+          +widescreen
+            width: auto 
+            flex: 1
+
+          p 
+            margin-top: 10px
+            font-family: $family-secondary
+            font-weight: $family-secondary-weight
+            font-size: 0.875rem
+            line-height: 18px
+            text-align: center
+            max-width: 140px
+      button 
+        background: $orange 
+        color: #ffffff
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1rem
+        height: 50px
+        display: flex 
+        flex-direction: row 
+        align-items: center
+        justify-content: center
+        border-radius: 50px 
+        border: none
+        width: 100%
+        margin-top: 30px
+        margin-bottom: 50px
+        margin-left: auto
+        margin-right: auto
+        max-width: 400px
+        +tablet 
+          margin: 0
+          font-size: 1.25rem 
+          width: 215px
+          height: 60px
+        img 
+          margin-right: 10px
+        
+    .travel-guide-card-image-wrapper
+      width: 100%
+      max-width: 482px
