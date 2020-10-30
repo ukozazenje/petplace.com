@@ -348,7 +348,7 @@ const PawsomeFallStyleReportContent = () => {
             </p>
             <div className="button-wrapper">
               <img src={MaskImg} />
-              <span>Photo courtesy of Amazon.com</span>
+              {/* <span>Photo courtesy of Amazon.com</span> */}
               <a
                 className="shop-btn"
                 href="https://www.amazon.com/gp/product/B08JD4CQQ1?th=1"
@@ -371,7 +371,7 @@ const PawsomeFallStyleReportContent = () => {
             </p>
             <div className="button-wrapper">
               <img src={LoungeWearOneImg} />
-              <span>Photo courtesy of Amazon.com</span>
+              {/* <span>Photo courtesy of Amazon.com</span> */}
               <a
                 className="shop-btn"
                 href="https://www.etsy.com/shop/TheCustomGift?ref=l2-about-shopname&section_id=29052256"
