@@ -195,7 +195,7 @@ const PawsomeFallStyleReportContent = () => {
             </p>
             <div className="button-wrapper">
               <img src={SweaterThreeImg} />
-              <span>Photo courtesy of Amazon.com</span>
+              {/* <span>Photo courtesy of Amazon.com</span> */}
               <a
                 className="shop-btn"
                 href="https://www.markandgraham.com/products/personalized-cable-knit-dog-sweater/?"
