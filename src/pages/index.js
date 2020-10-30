@@ -5,20 +5,20 @@ import HappinessSection from "../components/homepage/pet-happiness"
 import ContactUsSection from "../components/homepage/contact-us"
 import CategoryListSection from "../components/homepage/categories-list"
 import SearchHero from "../components/homepage/searchHero"
-import Latest from '../components/homepage/latest-stories/latestStoriesHome'
+import Latest from "../components/homepage/latest-stories/latestStoriesHome"
 import HomeHeroImg from "../static/images/homeHeroImg"
 import MobileHeroImg from "../static/images/mobileHomeHeroImg"
 import TabletHeroImg from "../static/images/tabletHomeHeroImg"
-import homeImage from "../images/hero-bg.png" 
+import homeImage from "../images/hero-bg.png"
 import logo from "../images/PPlogo.jpg"
-import Helmet from 'react-helmet'
-
+import Helmet from "react-helmet"
+import WelcomeToPetPlaceSection from "../components/homepage/WelcomeToPetPlaceSection"
 const IndexPage = () => {
   return (
     <Layout noSearch={true}>
       <SEO title="PetPlace: The Web's #1 Source of Pet Information" />
       <Helmet>
-      {/* inline script elements */}
+        {/* inline script elements */}
         <script type="application/ld+json">{`
           {
             "@context": "https://schema.org",
@@ -64,6 +64,7 @@ const IndexPage = () => {
         </div>
       </div>
       <CategoryListSection />
+      {/* <WelcomeToPetPlaceSection /> */}
       <Latest />
       <HappinessSection />
       <ContactUsSection />

@@ -24,6 +24,7 @@ import { isMobile, isMobileOnly } from "react-device-detect"
 import LikeArticleWidget from "../components/LikeArticleWidget"
 import axios from "axios"
 import CounterImg from "../images/footer-counter.png"
+import PawsomeContent from "../components/PawsomeFallStyleReportContent"
 class Post extends Component {
   state = {
     likes: 0,
@@ -181,6 +182,7 @@ class Post extends Component {
             this.props.data.postHeroImg.childImageSharp.fluid.src
           }
         />
+        {console.log(post.categories[0])}
         {filterFaqPosts(post, author, imgUrl)}
 
         <div className="single-post">
@@ -437,12 +439,16 @@ class Post extends Component {
                   </Sticky>
                 </div>
                 <div className="column">
-                  <div
-                    className="single-post-content"
-                    dangerouslySetInnerHTML={{
-                      __html: post.content,
-                    }}
-                  />
+                  {post && post.title === "Pawsome Fall Style Report" ? (
+                    <PawsomeContent />
+                  ) : (
+                    <div
+                      className="single-post-content"
+                      dangerouslySetInnerHTML={{
+                        __html: post.content,
+                      }}
+                    />
+                  )}
                   <div className="counter-wrapper">
                     <img src={CounterImg} alt="number-of-posts" />
                     <span>
