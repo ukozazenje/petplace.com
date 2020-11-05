@@ -16,8 +16,6 @@ import Sticky from "react-stickynode"
 import Breadcrumbs from "../components/Breadcrumbs"
 import AdSet from "../components/AdSet"
 import AdMobile from "../components/AdMobile"
-import logo from "../images/PPlogo.jpg"
-import Helmet from "react-helmet"
 import { Link } from "gatsby"
 import { filterAuthorsLink, filterFaqPosts } from "../components/functions"
 import { isMobile, isMobileOnly } from "react-device-detect"
@@ -113,7 +111,6 @@ class Post extends Component {
   }
 
   render() {
-    // const nextPost = this.props.data.wordpressTtgPosts
     const post = this.props.data.wordpressPost
     const tagList = tags => (
       <div className="post-tags">
@@ -138,36 +135,6 @@ class Post extends Component {
 
     const author = (post.author && post.author.name) || "PetPlace Staff"
 
-    // if (typeof document !== "undefined") {
-    //   var modal = document.getElementById("myModal")
-
-    //   // // Get the image and insert it inside the modal - use its "alt" text as a caption
-    //   var img = document.getElementById("myImg")
-    //   // img.src = "/images/ppinfographic4.png"
-
-    //   var modalImg = document.getElementById("img01")
-    //   // var captionText = document.getElementById("caption")
-    //   if (img) {
-    //     img.src = "/images/ppinfographic4.png"
-    //     img.srcset = ""
-    //     img.sizes = ""
-    //     img.onclick = function() {
-    //       modal.style.display = "block"
-    //       modalImg.src = this.src
-    //       // captionText.innerHTML = this.alt
-    //     }
-    //     var span = document.getElementsByClassName("close")[0]
-
-    //     // When the user clicks on <span> (x), close the modal
-    //     span.onclick = function() {
-    //       modal.style.display = "none"
-    //     }
-    //   }
-    // } else {
-    //   return null
-    // }
-
-    // // Get the <span> element that closes the modal
     return (
       <Layout hideFooterNavigation>
         <Seo
@@ -186,73 +153,6 @@ class Post extends Component {
         {filterFaqPosts(post, author, imgUrl)}
 
         <div className="single-post">
-          <div id="myModal" className="image-modal">
-            <span className="close">&times;</span>
-
-            {/* <div className="modal-share-buttons-wrapper">
-              <p>Share:</p>
-              <a
-                className={`facebook-${post.path}`}
-                href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  className={`facebook-${post.path}`}
-                  src={facebook}
-                  alt="facebook"
-                />
-              </a>
-              <a
-                className={`twitter-${post.path}`}
-                href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  className={`twitter-${post.path}`}
-                  src={twitter}
-                  alt="twitter"
-                />
-              </a>
-              <a
-                className={`pinterest-${post.path}`}
-                href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {" "}
-                <img
-                  className={`pinterest-${post.path}`}
-                  src={pintrest}
-                  alt="pinterest"
-                />
-              </a>
-              <a
-                className={`mail-${post.path}`}
-                href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  className={`mail-${post.path}`}
-                  src={emailIcon}
-                  alt="email"
-                />
-              </a>
-              <a
-                href="/images/ppinfographic4.png"
-                download="Petplac.com - How the pet parents are navigating pandemic"
-              >
-                <img
-                  alt="Petplac.com - How the pet parents are navigating pandemic"
-                  src={downloadIcon}
-                />
-              </a>
-            </div> */}
-            {/* <img className="image-modal-content" id="img01" />
-            <div id="caption"></div> */}
-          </div>
           <section className="section post-hero-section">
             <div className="container is-fullhd">
               <Breadcrumbs category={post.categories && post.categories[0]} />
