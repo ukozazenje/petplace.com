@@ -89,7 +89,7 @@ function SEO({ description, lang, meta, title, image }) {
           content: `46f15ab5b9e6f45e4bd2461c880537a1`,
         },
         {
-          name: `og:image`,
+          property: `og:image`,
           content: `${process.env.GATSBY_WEB_SITE_URL}${metaImage}`,
         },
       ].concat(meta)}

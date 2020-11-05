@@ -138,34 +138,34 @@ class Post extends Component {
 
     const author = (post.author && post.author.name) || "PetPlace Staff"
 
-    if (typeof document !== "undefined") {
-      var modal = document.getElementById("myModal")
+    // if (typeof document !== "undefined") {
+    //   var modal = document.getElementById("myModal")
 
-      // // Get the image and insert it inside the modal - use its "alt" text as a caption
-      var img = document.getElementById("myImg")
-      // img.src = "/images/ppinfographic4.png"
+    //   // // Get the image and insert it inside the modal - use its "alt" text as a caption
+    //   var img = document.getElementById("myImg")
+    //   // img.src = "/images/ppinfographic4.png"
 
-      var modalImg = document.getElementById("img01")
-      // var captionText = document.getElementById("caption")
-      if (img) {
-        img.src = "/images/ppinfographic4.png"
-        img.srcset = ""
-        img.sizes = ""
-        img.onclick = function() {
-          modal.style.display = "block"
-          modalImg.src = this.src
-          // captionText.innerHTML = this.alt
-        }
-        var span = document.getElementsByClassName("close")[0]
+    //   var modalImg = document.getElementById("img01")
+    //   // var captionText = document.getElementById("caption")
+    //   if (img) {
+    //     img.src = "/images/ppinfographic4.png"
+    //     img.srcset = ""
+    //     img.sizes = ""
+    //     img.onclick = function() {
+    //       modal.style.display = "block"
+    //       modalImg.src = this.src
+    //       // captionText.innerHTML = this.alt
+    //     }
+    //     var span = document.getElementsByClassName("close")[0]
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-          modal.style.display = "none"
-        }
-      }
-    } else {
-      return null
-    }
+    //     // When the user clicks on <span> (x), close the modal
+    //     span.onclick = function() {
+    //       modal.style.display = "none"
+    //     }
+    //   }
+    // } else {
+    //   return null
+    // }
 
     // // Get the <span> element that closes the modal
     return (
@@ -189,8 +189,8 @@ class Post extends Component {
           <div id="myModal" className="image-modal">
             <span className="close">&times;</span>
 
-            <div className="modal-share-buttons-wrapper">
-              {/* <p>Share:</p> */}
+            {/* <div className="modal-share-buttons-wrapper">
+              <p>Share:</p>
               <a
                 className={`facebook-${post.path}`}
                 href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
@@ -249,9 +249,9 @@ class Post extends Component {
                   src={downloadIcon}
                 />
               </a>
-            </div>
-            <img className="image-modal-content" id="img01" />
-            <div id="caption"></div>
+            </div> */}
+            {/* <img className="image-modal-content" id="img01" />
+            <div id="caption"></div> */}
           </div>
           <section className="section post-hero-section">
             <div className="container is-fullhd">
