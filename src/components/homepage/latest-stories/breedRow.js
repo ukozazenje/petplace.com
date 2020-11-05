@@ -106,7 +106,7 @@ const BreedRow = props => {
       </div>
       <div className="tile is-5 is-vertical is-parent">
         <div className="tile is-child thumbnail-box flex-start">
-          <Link to={firstPost.path}>
+          {/* <Link to={firstPost.path}>
             <Img
               fluid={firstPost.featured_img.localFile.childImageSharp.fluid}
               alt={firstPost.featured_img.alt_text || "post image"}
@@ -114,7 +114,7 @@ const BreedRow = props => {
               objectFit="cover"
               objectPosition="50% 50%"
             />
-          </Link>
+          </Link> */}
           <div className="sub-content">
             <Link
               className={`category-link-btn ${categoryColor(
