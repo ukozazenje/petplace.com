@@ -35,6 +35,7 @@ export default function HTML(props) {
             `,
           }}
         />
+        <script async src="https://www.tiktok.com/embed.js" />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
