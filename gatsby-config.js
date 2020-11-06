@@ -28,6 +28,10 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-twitter`,
+    `gatsby-transformer-remark`,
+    `@raae/gatsby-remark-oembed`,
+    `gatsby-remark-embed-video`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
