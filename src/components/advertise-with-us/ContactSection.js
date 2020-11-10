@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Formik, Field, Form } from 'formik'
-import InstagramIconOrange from '../../images/instagram-orange.svg'
-import TwitterIconOrange from '../../images/twitter-orange.svg'
-import FacebookIconOrange from '../../images/facebook-orange.svg'
-import PintrestIconOrange from '../../images/pinterestIcon.svg'
+import InstagramIconOrange from '../../images/advertise-with-us/instagram-white.svg'
+import TwitterIconOrange from '../../images/advertise-with-us/twitter-white.svg'
+import FacebookIconOrange from '../../images/advertise-with-us/facebook-white.svg'
+import PintrestIconOrange from '../../images/advertise-with-us/pinterest-white.svg'
 import axios from 'axios'
 
 const validate = (values, props /* only available when using withFormik */) => {
@@ -43,6 +43,7 @@ const ContactSection = () => {
       { thankYouMsg ?  thankContent() : (
       <div className="container is-fullhd">
         <h4>Contact Us</h4>
+        <span className="text-divider"></span>
         <p>Fill out the form below if you’re interested in becoming a sponsor or advertiser with PetPlace.</p>
         <Formik
           initialValues={{ email: '', name: '', company: '', serviceOfInterest: 'Social Media' }} 
@@ -72,17 +73,14 @@ const ContactSection = () => {
             isSubmitting,
           }) => (
             <Form className="advertise-with-us-form">
-              <div className="field-wrapper">
-                <label htmlFor="name">First name</label>
-                <Field name='name' type='text' className={`${errors.name && touched.name ? "has-error" : ""}`} />
+              <div className="field-wrapper">            
+                <Field name='name' type='text' placeholder="First Name" className={`${errors.name && touched.name ? "has-error" : ""}`} />
               </div> 
               <div className="field-wrapper">
-                <label htmlFor="email">Email</label>
-                <Field name='email' type='email' className={`${errors.email && touched.email ? "has-error" : ""}`}/>
+                <Field name='email' type='email' placeholder="Email" className={`${errors.email && touched.email ? "has-error" : ""}`}/>
               </div> 
               <div className="field-wrapper">
-                <label htmlFor="serviceOfInterest">Service of Interest</label>
-                <Field as="select" name="serviceOfInterest" >
+                <Field as="select" placeholder="Service of Interest" name="serviceOfInterest" >
                     <option value="Social Media">Social Media</option>
                     <option value="Content Creation">Content Creation</option>
                     <option value="Pet Insurance Inquiry">Pet Insurance Inquiry</option>
@@ -90,10 +88,9 @@ const ContactSection = () => {
                 </Field>
               </div> 
               <div className="field-wrapper">
-                <label htmlFor="company">Company</label>
-                <Field name='company' type='text'  className={`${errors.company && touched.company ? "has-error" : ""}`}/>
+                <Field name='company' type='text' placeholder="Company" className={`${errors.company && touched.company ? "has-error" : ""}`}/>
               </div> 
-              <button disabled={isSubmitting}>Submit</button>
+              <button disabled={isSubmitting}>SUBMIT</button>
             </Form>
           )}
         </Formik>
