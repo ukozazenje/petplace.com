@@ -44,13 +44,6 @@ const AdvertiseHero = () => {
       <Img className="is-hidden-desktop is-hidden-mobile" sizes={{ ...data.homeHeroImageDesktop.childImageSharp.fluid, aspectRatio: 21 / 9 }} alt="advertise with us" />
       <Img className="is-hidden-tablet" sizes={{ ...data.homeHeroImageDesktop.childImageSharp.fluid, aspectRatio: 13 / 10 }} alt="advertise with us" />
     </section>
-     <section className="advertise-content">
-      <div className="container is-fullhd">
-        <h1 className="advertise-heading">Providing A Path <span>To Pet Parents
-For Your Brand</span></h1>
-        <p className="advertise-content-paragraph">Our brand partnerships provide businesses with a wonderful opportunity to position themselves as thought leaders, innovators, experts, and go-to resources for our diverse audience of pet parents. Together, we can craft thoughtful, engaging content that captures our audience’s attention and yields new customers.</p>
-      </div>
-    </section>
     </>
   
   )
