@@ -66,11 +66,11 @@ const AdvertiseWithUsIntro = () => {
         </div>
         <div className="columns">
           <div className="column">
-            <a
-              download="mediaKit2021.pdf"
+            <a          
               href="/mediaKit2021.pdf"
               title="Petplace mediakit 2021"
               className="download-btn"
+              target="_blank"
             >
               Download our 2021 Media Kit
             </a>
