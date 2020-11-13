@@ -1,7 +1,8 @@
 import React from 'react'
 import Layout from '../components/layout'
 import HeroImage from '../static/images/advertiseHero'
-import AdvertiseBoxes from '../components/advertise-with-us/AdvertiseBoxes'
+import AdvertiseWithUsIntro from '../components/advertise-with-us/AdvertiseWithUsIntro'
+// import AdvertiseBoxes from '../components/advertise-with-us/AdvertiseBoxes'
 import ContactSection from '../components/advertise-with-us/ContactSection'
 import SEO from '../components/seo'
 import SeoImage from '../images/advertise-home.jpg'
@@ -14,7 +15,8 @@ const Advertise = () => {
         image={SeoImage} 
       />
       <HeroImage />
-      <AdvertiseBoxes />
+      <AdvertiseWithUsIntro />
+      {/* <AdvertiseBoxes /> */}
       <ContactSection />
     </Layout>
   )
