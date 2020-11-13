@@ -698,6 +698,16 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: `${process.env.GATSBY_WEB_SITE_URL}`,
+        policy:
+          process.env.GATSBY_STAGE === "staging"
+            ? [{ userAgent: "*", disallow: ["/"] }]
+            : [{ userAgent: "*", disallow: "/?utm" }],
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
