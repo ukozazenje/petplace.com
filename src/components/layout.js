@@ -4,10 +4,12 @@ import Header from "./header"
 import Footer from './footer'
 import "../sass/main.sass"
 import EmailDialog from "../components/EmailDialog"
+import HolydayBanner from "./holidayBanner"
 
 const Layout = ({ children, hideFooterNavigation, noSearch, hideSearch }) => {
   return (
     <>
+      <HolydayBanner />
       <Header noSearch={noSearch} hideSearch={hideSearch}/>
       {children}
       <EmailDialog />
