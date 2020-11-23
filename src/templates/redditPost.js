@@ -274,7 +274,12 @@ class RedditPost extends Component {
                       </a>
                     </div>
                   </div>
-                  {isMobile ? <AdMobile /> : <AdSet />}
+                  {this.state.show ? (
+                    <div className="hide-mobile">
+                      <AdSet />
+                    </div>
+                  ) : null}
+                  {/* {isMobile ? <AdMobile /> : <AdSet />} */}
                   <div className="hide-mobile">
                     <LikeArticleWidget
                       url={post.path}
