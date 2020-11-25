@@ -99,6 +99,7 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const postTemplate = path.resolve(`./src/templates/post.js`)
+      const redditPostTemplate = path.resolve(`./src/templates/redditPost.js`)
       const postsPublished = getOnlyPublished(
         result.data.allWordpressPost.edges
       )
@@ -143,7 +144,11 @@ exports.createPages = ({ actions, graphql }) => {
           "no-next-post"
         createPage({
           path: `${post.path}`,
-          component: postTemplate,
+          component:
+            post.path ===
+            "/article/dogs/just-for-fun/cutest-dog-posts-october-2020/"
+              ? redditPostTemplate
+              : postTemplate,
           context: {
             id: post.id,
             randomPost: randomPost,
