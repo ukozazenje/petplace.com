@@ -53,6 +53,7 @@ const GiftGuide = ({ data }) => {
       <Seo
         title={`${post.yoast_meta.yoast_wpseo_title}`}
         description={post.yoast_meta.yoast_wpseo_metadesc}
+        image="/images/banner-background.jpg"
       />
       <div className="gift-guide-page">
         <div className="gift-guide-hero-image">
