@@ -1,0 +1,43 @@
+.holiday-banner-section
+  padding: 13px 16px
+  background: #333
+  background-image: url('../images/holiday-banner/banner-background.jpg')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: 55% 0
+  +tablet
+    padding: 23px 16px
+  +desktop
+    padding: 20px 16px
+  .column
+    +tablet
+      display: flex;
+      align-items: center;
+  h2
+    font-size: 1.625rem
+    padding-bottom: 8px
+    +tablet
+      font-size: 2rem
+      display: inline-block
+      padding-right: 20px
+      padding-bottom: 0
+    +desktop
+      font-size: 2.875rem
+      padding-right: 30px
+  .banner-btn
+    background: $orange
+    color: $white
+    font-family: $family-secondary
+    font-weight: $family-secondary-weight
+    border-radius: 60px
+    padding: 6px 14px
+    +tablet
+      padding: 10px 20px
+    +desktop
+      font-size: 1.25rem
+      padding: 15px 40px
+    .arrow-ico
+      display: none
+      padding-right: 10px
+      +tablet 
+        display: inline-block
