@@ -1,14 +1,22 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Header from "./header"
-import Footer from './footer'
+import Footer from "./footer"
 import "../sass/main.sass"
 import EmailDialog from "../components/EmailDialog"
+import HolydayBanner from "./holidayBanner"
 
-const Layout = ({ children, hideFooterNavigation, noSearch, hideSearch }) => {
+const Layout = ({
+  children,
+  hideFooterNavigation,
+  noSearch,
+  hideSearch,
+  hideHolidayBanner,
+}) => {
   return (
     <>
-      <Header noSearch={noSearch} hideSearch={hideSearch}/>
+      <HolydayBanner hideHolidayBanner={hideHolidayBanner} />
+      <Header noSearch={noSearch} hideSearch={hideSearch} />
       {children}
       <EmailDialog />
       <Footer hideFooterNavigation={hideFooterNavigation} />

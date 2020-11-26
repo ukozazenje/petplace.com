@@ -100,6 +100,7 @@ exports.createPages = ({ actions, graphql }) => {
 
       const postTemplate = path.resolve(`./src/templates/post.js`)
       const redditPostTemplate = path.resolve(`./src/templates/redditPost.js`)
+      const giftGuideTemplate = path.resolve(`./src/templates/giftGuide.js`)
       const postsPublished = getOnlyPublished(
         result.data.allWordpressPost.edges
       )
@@ -134,6 +135,15 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
       // Iterate over the array of posts
+      const customPosts = (path) => {
+        switch (path) {
+          case '/article/dogs/just-for-fun/cutest-dog-posts-october-2020/':
+            return redditPostTemplate;
+          case '/article/general/just-for-fun/2020-holiday-gift-guide-for-pets-and-pet-lovers/':
+            return giftGuideTemplate;
+          default: return postTemplate;
+        }
+      }
       _.each(postsPublished, ({ node: post }, key) => {
         let randomPost = getNextPost(post)
         let randomPostImg =
@@ -144,11 +154,7 @@ exports.createPages = ({ actions, graphql }) => {
           "no-next-post"
         createPage({
           path: `${post.path}`,
-          component:
-            post.path ===
-            "/article/dogs/just-for-fun/cutest-dog-posts-october-2020/"
-              ? redditPostTemplate
-              : postTemplate,
+          component: customPosts(post.path),
           context: {
             id: post.id,
             randomPost: randomPost,
