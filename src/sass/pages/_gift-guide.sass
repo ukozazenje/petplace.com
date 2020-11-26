@@ -1,0 +1,151 @@
+.gift-guide-page
+  .gift-guide-hero-image 
+    background: url("../images/gift-box/banner-background-mobile.jpg")
+    background-size: cover 
+    background-position: top center 
+    height: 514px
+    padding: 0 1.5rem
+    +tablet 
+      background: url("../images/gift-box/banner-background.jpg")
+      background-size: cover 
+      background-position: top center 
+      height: 752px
+    
+    h1 
+      padding-top: 50px
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      margin-bottom: 20px
+      max-width: 100%
+      +tablet 
+        max-width: 400px
+      +widescreen
+        max-width: 670px
+        padding-top: 157px
+        font-size: 3.625rem
+        line-height: 60px
+    p 
+      font-family: $family-primary
+      max-width: 100%
+      font-size: 1rem
+      line-height: 22px
+      color: $purple-darkest
+      +tablet 
+        max-width: 400px
+      +widescreen 
+        max-width: 620px
+        font-size: 1.5rem
+        line-height: 140%
+
+  .gift-guide-section 
+    padding-top: 30px
+    padding-bottom: 30px
+    +desktop 
+      padding-top: 60px
+      padding-bottom: 60px
+    &.white-section
+      background-color: #ffffff
+    &.blue-section 
+      background-color: #F2F5FC 
+    &.padding-top-0 
+      padding-top: 0
+  .gift-guide-intro 
+    max-width: 892px 
+    font-size: 1rem 
+    font-family: $family-primary
+    font-weight: 400
+    text-align: center
+    margin-bottom: 40px
+    margin-left: auto
+    margin-right: auto
+    color: $purple-darkest
+    +desktop 
+      margin-bottom: 70px
+      font-size: 1.5rem
+  .sponsored-paragraph
+    max-width: 745px
+    margin: 0 auto 
+    text-align: center
+    font-size: 0.875rem 
+    color: $purple-darkest
+  h3 
+    font-size: 1.625rem
+    line-height: 32px 
+    margin-top: 30px
+    margin-bottom: 30px
+    color: $purple-darkest
+    +desktop 
+      font-size: 2.5rem 
+      margin-bottom: 50px
+    +widescreen 
+      margin-bottom: 60px
+
+  .gift-box 
+    display: flex 
+    flex-direction: column
+    margin-bottom: 60px
+    +tablet 
+      flex-direction: row
+    .gift-box-image
+      margin-right: 40px
+      margin-bottom: 30px 
+      text-align: center
+      +tablet 
+        text-align: left
+        margin-bottom: 0
+    .gift-box-content 
+      max-width: 100%
+      +tablet 
+        max-width: 60%
+      +desktop 
+        max-width: 70%
+      +widescreen
+        max-width: 900px 
+      h4 
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1.25rem 
+        line-height: 120%
+        color: $purple-darkest
+        margin-bottom: 15px
+        +tablet 
+          font-size: 2rem
+      p 
+        font-size: 1rem
+        margin-bottom: 10px 
+        font-family: $family-primary
+        font-weight: 400
+        +tablet 
+          font-size: 1.125rem
+        &.last-of-type 
+          margin-bottom: 15px
+
+    .gift-box-btn 
+      background-color: $mauve
+      border: none 
+      border-radius: 50px 
+      height: 30px 
+      line-height: 30px
+      padding: 0 25px 
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      font-size: 0.875rem
+      color: #ffffff
+      margin-bottom: 10px
+      display: inline-block
+  .gift-guide-footer-section
+    padding-bottom: 0
+    .gift-guide-footer 
+      text-align: center
+      p 
+        font-size: 0.875rem 
+        font-family: $family-primary
+        font-weight: 400
+        margin-bottom: 30px 
+      h3 
+        font-size: 1.625rem
+        color: $purple-darkest
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        +desktop 
+          font-size: 2rem
