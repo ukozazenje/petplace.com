@@ -295,7 +295,7 @@ const GiftGuide = ({ data }) => {
               </a>
             </GiftBox>
 
-            <GiftBox title="Buffalo Check Pet Bed Gift Set" img={GiftImg11}>
+            {/* <GiftBox title="Buffalo Check Pet Bed Gift Set" img={GiftImg11}>
               <p>
                 Raise your hand if you agree with my New Year’s Resolution: get
                 Spot to sleep in his own bed. This plush bed with cushioned
@@ -312,7 +312,7 @@ const GiftGuide = ({ data }) => {
               >
                 Buy on Chewy.com{" "}
               </a>
-            </GiftBox>
+            </GiftBox> */}
 
             <GiftBox title="Wall Mounted Cat Shelves" img={GiftImg12}>
               <p>
