@@ -163,7 +163,7 @@ const GiftGuide = ({ data }) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Ffrisco-holiday-santas-helpers-plush%2Fdp%2F191340"
+                href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Ffrisco-holiday-festive-pals-plush%2Fdp%2F259729"
                 className="gift-box-btn"
               >
                 Buy on Chewy.com
