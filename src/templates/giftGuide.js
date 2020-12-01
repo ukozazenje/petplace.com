@@ -327,7 +327,7 @@ const GiftGuide = ({ data }) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Ftrixie-lounger-wall-mounted-cat%2Fdp%2F234070"
+                href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Ftrixie-lounger-wall-mounted-cat%2Fdp%2F234071"
                 className="gift-box-btn"
               >
                 Buy on Chewy.com{" "}
