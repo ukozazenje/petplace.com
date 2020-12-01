@@ -97,7 +97,7 @@ const GiftGuide = ({ data }) => {
               >
                 Buy on Chewy.com
               </a>
-              <p>Shopping for your cat?</p>
+              {/* <p>Shopping for your cat?</p>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -105,7 +105,7 @@ const GiftGuide = ({ data }) => {
                 className="gift-box-btn"
               >
                 Chewy has something for you too
-              </a>
+              </a> */}
             </GiftBox>
 
             <GiftBox title="Calm Bites" img={GiftImg2}>
