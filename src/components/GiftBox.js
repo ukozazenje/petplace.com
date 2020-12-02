@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react"
 
-const GiftBox = ({children,img, title}) => {
+const GiftBox = ({ children, img, title, style }) => {
   return (
     <div className="gift-box">
       <div className="gift-box-image">
-        <img src={img} alt="gift" />
+        <img style={style} src={img} alt="gift" />
       </div>
       <div className="gift-box-content">
         <h4>{title}</h4>

@@ -30,6 +30,7 @@ import GiftImg5 from "../images/gift-box/gift-box-5.png"
 import GiftImg6 from "../images/gift-box/gift-box-6.png"
 import GiftImg7 from "../images/gift-box/gift-box-7.png"
 import GiftImg8 from "../images/gift-box/gift-box-8.png"
+import GiftImg8New from "../images/gift-box/gift-box-8-new.jpg"
 import GiftImg9 from "../images/gift-box/gift-box-9.png"
 import GiftImg10 from "../images/gift-box/gift-box-10.png"
 import GiftImg11 from "../images/gift-box/gift-box-11.png"
@@ -234,18 +235,23 @@ const GiftGuide = ({ data }) => {
         <section className="section gift-guide-section white-section">
           <div className="container is-fullhd">
             <h3>Purrrfect Presents: Gifts Under $50</h3>
-            <GiftBox title="Advent Calendar for Dogs" img={GiftImg8}>
+            <GiftBox
+              style={{ borderRadius: "8px" }}
+              title="American Classic Food Set Squeaky Plush Dog Toy"
+              img={GiftImg8New}
+            >
               <p>
-                Count down the 12 days of Petmas with this genius (and cute)
-                Advent calendar for canines, stuffed with an irresistible array
-                of toys. What a great way to include your dog in an old-school
-                holiday tradition. Beware, they may beg for December to come
-                around every month!{" "}
+                Make playtime a little more whimsical for your pup with this
+                American Classic Food squeaky toy set, which includes a burger,
+                fries, milkshake, hot dog and chicken drumstick. This toy set
+                encourages you to forget what your mother always told you as a
+                child: we can absolutely play with our food! Or at least our
+                pets can.
               </p>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Ffrisco-holiday-12-days-christmas%2Fdp%2F271409"
+                href="https://www.chewy.com/ply-pet-lifestyle-you-american/dp/169819?utm_source=partnerize&utm_medium=affiliates&utm_campaign=1011l110390&utm_content=0&clickref=1101lcXppk9S&utm_term=1101lcXppk9S"
                 className="gift-box-btn"
               >
                 Buy on Chewy.com{" "}
