@@ -8,7 +8,7 @@ const holidayBanner = ({ hideHolidayBanner }) => {
       <div className="container is-fullhd">
         <div className="columns">
           <div className="column">
-            <h2>Holiday gift guide</h2>
+            <p>Holiday Gift Guide</p>
             <Link
               to="/article/general/just-for-fun/2020-holiday-gift-guide-for-pets-and-pet-lovers/"
               className="banner-btn read-more-btn"
