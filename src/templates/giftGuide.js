@@ -271,7 +271,7 @@ const GiftGuide = ({ data }) => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://go.paw5.com/pages/WSM-V1"
+                href="https://www.kmtrak.com/KZDWFR/3RMG47X/"
                 className="gift-box-btn"
               >
                 Buy on Paw5.com
