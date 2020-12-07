@@ -195,7 +195,6 @@ exports.createPages = ({ actions, graphql }) => {
         // Create the Gatsby page for this WordPress post
         if (
           page.slug === "privacy-policy" ||
-          page.slug === "about-us" ||
           page.slug === "newsletter-signup" ||
           page.slug === "prnews" ||
           page.slug === "terms-of-use" ||

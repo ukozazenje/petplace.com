@@ -5,10 +5,10 @@ import InstagramIcon from '../../images/instagramIcon.svg'
 import PinterestIcon from '../../images/pinterestIcon.svg'
 import TwitterIcon from '../../images/twitterIcon.svg'
 
-const ComunitySection = () => {
+const CommunitySection = () => {
   return (
     <>
-      <section className="section comunity-section">
+      <section className="section community-section">
         <div className="container is-fullhd">
           <div className="columns">
             <div className="column">
@@ -43,4 +43,4 @@ const ComunitySection = () => {
   )
 }
 
-export default ComunitySection
+export default CommunitySection
