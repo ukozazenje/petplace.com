@@ -9,10 +9,10 @@ const AdvertiseWithUsIntro = () => {
       <div className="container is-fullhd">
         <div className="columns">
           <div className="column">
-            <h1>
+            <h2>
               Providing a Path <br />
               <span className="highlight">To Pet Parents For Your Brand</span>
-            </h1>
+            </h2>
             <p className="advertise-subheading">
               Our brand partnerships provide businesses with a wonderful
               opportunity to position themselves as thought leaders, innovators,

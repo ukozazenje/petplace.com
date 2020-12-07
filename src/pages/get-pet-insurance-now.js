@@ -29,8 +29,8 @@ const getPetInsuranceNow = () => {
         </div>
       </nav>
       <div className="is-hidden-desktop advertorial-mobile-heading">
-        <h1>Advertorial</h1>
-        <h1>An Emergency Vet Bill Left Me with Sticker Shock</h1>
+        <h1>Advertorial<br />
+        An Emergency Vet Bill Left Me with Sticker Shock</h1>
       </div>
       <AdvertorialHero />
       <section className="advertorial-main-content">
