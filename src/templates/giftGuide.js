@@ -23,9 +23,11 @@ import LikeArticleWidget from "../components/LikeArticleWidget"
 import axios from "axios"
 import ContactUsSection from "../components/homepage/contact-us"
 import GiftImg1 from "../images/gift-box/gift-box-1.png"
+import GiftImgNew1 from "../images/gift-box/gift-box-1-new.jpg"
 import GiftImg2 from "../images/gift-box/gift-box-2.jpg"
 import GiftImg3 from "../images/gift-box/gift-box-3.png"
 import GiftImg4 from "../images/gift-box/gift-box-4.png"
+import GiftImgNew4 from "../images/gift-box/gift-box-4-new.jpg"
 import GiftImg5 from "../images/gift-box/gift-box-5.png"
 import GiftImg6 from "../images/gift-box/gift-box-6.png"
 import GiftImg7 from "../images/gift-box/gift-box-7.png"
@@ -81,19 +83,22 @@ const GiftGuide = ({ data }) => {
             </p>
             <h3>Who’s My Favorite Fur Baby?: Gifts Under $25</h3>
 
-            <GiftBox title="Goody Box for Dogs" img={GiftImg1}>
+            <GiftBox
+              style={{ borderRadius: "8px" }}
+              title="Goody Box for Dogs"
+              img={GiftImgNew1}
+            >
               <p>
                 Hand-picked by pet parents, this pawsome collection of top-rated
                 stocking stuffers comes bundled together in a fun Chewy Goody
-                Box. Inside, there are 5 special gifts: a holiday-themed
-                bandana, a super cozy blanket, an exciting dog toy, and two
-                tasty, full-size treats. It’s available right now, and, with so
-                many 5-star reviews, it’s sure to sell fast!{" "}
+                Box. Inside, there are a selection of tasty treats, a dinosaur
+                dog toy, and custom bandana. It's the ultimate gift box for your
+                furry friend!
               </p>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fgoody-box-holiday-toys-treats-apparel%2Fdp%2F244392"
+                href="https://www.chewy.com/goody-box-dog-toys-treats-apparel/dp/244386?utm_source=partnerize&utm_medium=affiliates&utm_campaign=1011l110390&utm_content=0&clickref=1100lcZ3679W&utm_term=1100lcZ3679W"
                 className="gift-box-btn"
               >
                 Buy on Chewy.com
@@ -153,18 +158,23 @@ const GiftGuide = ({ data }) => {
               </a>
             </GiftBox>
 
-            <GiftBox title="3-Pack Squeaky Dog Toy Set" img={GiftImg4}>
+            <GiftBox
+              title="Jungle Pals Plush & Rope Dog Toy Variety Pack"
+              img={GiftImgNew4}
+              style={{ borderRadius: "8px" }}
+            >
               <p>
-                Look at what Santa Paws is bringing to town! This jolly bunch of
-                squeaker toys is sure to delight your doggo. Play fetch,
-                tug-of-war, or toss with them for hours of fun, and before you
-                know it, your fur baby will be ready for a nice snooze, dreaming
-                of a winter wonderland.{" "}
+                Look at what Santa Paws is bringing to town! This fun collection
+                of toys is sure to delight your doggo. Featuring a variety of
+                textures, sounds, and materials, you can play fetch, tug-of-war,
+                or toss with them for hours of fun. Before you know it, your fur
+                baby will be ready for a nice snooze, dreaming of a winter
+                wonderland.
               </p>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Ffrisco-holiday-festive-pals-plush%2Fdp%2F259729"
+                href="https://www.chewy.com/frisco-plush-rope-bundle-dog-toy-6/dp/204504?utm_source=partnerize&utm_medium=affiliates&utm_campaign=1011l110390&utm_content=0&clickref=1101lcYBZzxQ&utm_term=1101lcYBZzxQ"
                 className="gift-box-btn"
               >
                 Buy on Chewy.com
