@@ -6,7 +6,6 @@ import {Link} from 'gatsby'
 
 const PetCareTools = () => {
   return (
-    <>
       <section className="section pet-care-tools">
         <div className="container is-fullhd">
           <div className="columns">
@@ -52,9 +51,7 @@ const PetCareTools = () => {
            
           </div>         
         </div>
-        
       </section>
-    </>
   )
 }
 
