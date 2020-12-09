@@ -1,86 +1,162 @@
-section.about-us
-  background-color: $blue-lightest
-  padding: 0
-  .single-post-content
-    display: flex
-    flex-direction: column-reverse
-    +tablet
-      flex-direction: column
-  .about-us-section,
-  .join-community-section
-    img
-      width: 100%
-    .copy
-      +tablet
-        width: 70%
-      p.p1
-        +tablet
-          font-size: 1rem
-    +tablet
-      display: flex
-      align-items: center
-      flex-direction: row-reverse
-      padding: 0 2rem 3rem
-  .about-us-section
-    padding: 1rem 1rem 2rem
-    img
-      +tablet
-        margin-left: 2rem
-    +tablet
-      padding: 2rem
+.about-us
+  
+  section.about-us-hero,
+  section.pet-lovers,
+  section.just-for-fun,
+  section.pet-care-tools,
+  section.petplace-team-section,
+  section.community-section
+    padding: 30px 16px
+    
+    h2
+      padding-bottom: 30px
+    
+    p 
+      padding-bottom: 20px
+    
     +desktop
-      padding: 4rem
-  .join-community-section
-    background-color: $white
-    position: relative
-    padding: 2rem 1rem 1rem
-    .copy
-      margin-bottom: 4rem
-      +tablet
-        z-index: 2
-        margin-bottom: 0
-    p
-      +tablet
-        z-index: 2
-    img
-      +tablet
-        padding-right: 2rem
-        z-index: 2
-    p.hashtag
-      background: -webkit-linear-gradient($orange, $red, $purple)
-      -webkit-background-clip: text
-      -webkit-text-fill-color: transparent
-      position: absolute
-      z-index: 3
-      font-size: 2.5rem
-      top: 0
-      left: 0
-      font-weight: bold
-      transform: translate(30px, 290px) rotate(-5deg)
-      font-family: $family-secondary
-      @media screen and ( min-width: 450px )
-        transform: translate(30px, 270px) rotate(-10deg)
-      +tablet
-        transform: translate(30px, 30px) rotate(-20deg)
-        font-size: 3rem
-    &::before
-      +tablet
-        content: ''
-        background-color: $white
-        position: absolute
-        height: 100%
-        width: 4000px
-        left: -2000px
-        z-index: 0
-    .icons-wrapper
-      width: 175px
-      display: flex
-      flex-direction: row
-      justify-content: space-between
-      img
-        padding: 0
-    +tablet
-      padding: 3rem
-    +desktop
-      padding: 5rem
+      padding: 60px 30px
+  
+  section.about-us-hero 
+    background-color: $blue-lightest
+    
+    .columns
       
+      +tablet
+        flex-direction: row-reverse
+      
+      .column
+        align-self: center
+
+        .video-container 
+          overflow: hidden
+          position: relative
+          width: 100%
+      
+        .video-container::after 
+          padding-top: 56.25%
+          display: block
+          content: ''
+      
+        .video-container iframe 
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%        
+
+    .image-wrapper
+
+      +tablet 
+        text-align: right
+
+    h1
+      padding-bottom: 30px
+    
+    p 
+      padding-bottom: 15px
+
+  section.pet-lovers
+
+    .column
+      align-self: center
+    
+    .image-wrapper
+
+      +tablet 
+        text-align: center
+
+    ul 
+      padding-left: 26px
+      padding-bottom: 10px
+
+      li
+        list-style: none
+        padding-bottom: 6px
+      
+      li::before 
+        content: "\2022"
+        color: $orange
+        font-weight: bold
+        display: inline-block
+        width: 1rem
+        margin-left: -1em
+
+  section.just-for-fun
+    background-color: $blue-lightest
+    background-image: url("../images/about-us/cameleon-background-mobile.jpg")  
+    padding: 30px 16px 260px 16px
+    background-position: 0% 100%
+    background-repeat: no-repeat
+    
+    +tablet
+      background-image: url("../images/about-us/cameleon-background.jpg")
+      background-size: cover
+      background-position: 60% 100%
+      padding: 60px 30px 90px 30px
+
+  section.pet-care-tools
+
+    h3
+      padding-bottom: 20px
+
+    p
+      padding-bottom: 30px
+
+    .pet-care-article
+      padding-bottom: 30px
+
+  section.petplace-team-section
+    background: $purple-dark
+
+    h2,
+    p
+      color: $white
+
+    .image-wrapper
+      
+      +tablet
+        text-align: right    
+
+  section.community-section
+
+    .columns
+      
+      +tablet
+        flex-direction: row-reverse
+
+      .column
+        align-self: center
+
+      .text-content-wrap
+        max-width: 522px
+        margin: 0 auto
+
+      .image-wrapper
+        padding-bottom: 5%
+    
+      h3 
+        font-size: 20px
+        padding-bottom: 30px
+        
+        +tablet
+          font-size: 22px
+
+      .icons-wrapper
+        width: 175px
+        padding-bottom: 20px
+        margin-top: 0
+
+  .about-us-btn
+    background-color: $orange
+    color: $white
+    padding: 8px 35px
+    font-size: 1.125rem
+    border-radius: 50px
+    display: inline-block
+    margin: 0 20px 20px 0
+    font-weight: $family-secondary-weight
+    font-family: $family-secondary
+
+    &:hover 
+      color: white
