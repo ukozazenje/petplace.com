@@ -52,6 +52,8 @@
     font-size: 1.875rem
     line-height: 40px
     color: #24081D
+    span 
+      color: #24081D
   h1:first-of-type 
     color: #FF7D5A
     margin-bottom: 10px
@@ -205,3 +207,90 @@
     margin-top: 60px
     height: 1px
     background-color: #8F8F8F 
+
+  &.gift-pet-insurance 
+    ul
+      li 
+        position: relative
+        list-style: none
+        margin: 10px 0 10px 20px
+        &::before 
+          content: ""
+          top: 12px
+          left: -20px
+          position: absolute
+          width: 6px
+          height: 6px
+          border-radius: 6px
+          background: $orange
+        a 
+          color: #FF7D5A
+          text-decoration-line: underline
+    .gift-pet-insurance-columns
+      align-items: center
+      justify-content: space-between
+      &.reverse-columns 
+        +mobile
+          display: flex
+          flex-direction: column-reverse
+          align-items: flex-start
+      p 
+        +tablet
+          max-width: 560px
+      .img-column 
+        max-width: 310px 
+    .gift-pet-insurance-cta
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap 
+      background: $purple-dark 
+      padding: 20px
+      margin-left: -25px
+      margin-right: -25px
+      +tablet
+        margin-left: 0
+        margin-right: 0
+        border-radius: 20px
+      +widescreen 
+        padding: 30px 40px
+      p 
+        margin: 0
+        padding: 0
+        color: $orange 
+      .cta 
+        display: flex 
+        width: 100%
+        justify-content: space-between
+        flex-direction: column
+        +desktop 
+          align-items: center
+          flex-direction: row
+      h4 
+        margin-top: 15px
+        margin-right: 10px
+        color: white 
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1.625rem
+        line-height: 34px
+      a 
+        margin-top: 20px
+        display: block
+        background: $orange 
+        color: white
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 22px
+        height: 48px
+        width: 100%
+        padding: 7px 5px
+        line-height: 34px
+        text-align: center
+        border-radius: 50px
+        
+        +tablet
+          max-width: 350px
+        +desktop 
+          margin-top: 15px
+        +widescreen 
+          font-size: 28px
