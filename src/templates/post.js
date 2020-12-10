@@ -112,6 +112,9 @@ class Post extends Component {
 
   render() {
     const post = this.props.data.wordpressPost
+    const petpartnersRegex = /petpartners.com/gi
+    const petpartnersDisclosure = post.content.match(petpartnersRegex)
+
     const tagList = tags => (
       <div className="post-tags">
         <span>
@@ -151,7 +154,6 @@ class Post extends Component {
         />
         {console.log(post.categories[0])}
         {filterFaqPosts(post, author, imgUrl)}
-
         <div className="single-post">
           <section className="section post-hero-section">
             <div className="container is-fullhd">
@@ -342,12 +344,27 @@ class Post extends Component {
                   {post && post.title === "Pawsome Fall Style Report" ? (
                     <PawsomeContent />
                   ) : (
-                    <div
-                      className="single-post-content"
-                      dangerouslySetInnerHTML={{
-                        __html: post.content,
-                      }}
-                    />
+                    <div className="single-post-content">
+                      {petpartnersDisclosure && (
+                        <p className="petpartners-disclosure">
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.petpartners.com/"
+                          >
+                            PetPartners, Inc.
+                          </a>{" "}
+                          is an indirect corporate affiliate of PetPlace.com.
+                          PetPlace may be compensated when you click on or make
+                          a purchase using the links in this article.
+                        </p>
+                      )}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: post.content,
+                        }}
+                      />
+                    </div>
                   )}
                   <div className="counter-wrapper">
                     <img src={CounterImg} alt="number-of-posts" />
