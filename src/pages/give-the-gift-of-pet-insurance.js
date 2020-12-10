@@ -14,10 +14,17 @@ import AdvertorialImg3 from "../images/advertorial-3.svg"
 import AdvertorialArrow from "../images/advertorial-arrow.svg"
 import { filterAuthorsLink, filterFaqPosts } from "../components/functions"
 import Sticky from "react-stickynode"
-
+import SEO from "../components/seo"
 const giveTheGiftOfPetInsurance = () => {
   return (
     <>
+      <SEO
+        title="Give the gift of Pet Insurance"
+        description="Puppies and kittens are a favorite gift every holiday season and
+                they should prove even more popular in a year of pandemic
+                stress."
+        image="/images/petpartners-desktop-hero.png"
+      />
       <nav className="advertorial-navbar">
         <div className="container is-fullhd">
           <div className="advertorial-navigation-wrapper">
