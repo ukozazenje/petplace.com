@@ -197,7 +197,7 @@ const giveTheGiftOfPetInsurance = () => {
               <p>
                 Still not sure you’re ready to bring home a new pet? Check out{" "}
                 <a
-                  href="https://www.petpartners.com/blog/behavior-and-training/easy-steps-towards-pet-adoption"
+                  href="https://www.petpartners.com/blog/category/new-pet-owners?page=8"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -355,7 +355,7 @@ const giveTheGiftOfPetInsurance = () => {
                 <div className="cta">
                   <h4>Check out PetPartners today for a quote.</h4>
                   <a
-                    href="https://www.petpartners.com/enroll?p=PP2020"
+                    href="https://www.petpartners.com/enroll?p=PPNA202"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
