@@ -19,10 +19,8 @@ const giveTheGiftOfPetInsurance = () => {
   return (
     <>
       <SEO
-        title="Give the gift of Pet Insurance"
-        description="Puppies and kittens are a favorite gift every holiday season and
-                they should prove even more popular in a year of pandemic
-                stress."
+        title="Give the Gift of Pet Insurance"
+        description="Pets can make a great holiday gift, but they come with “some assembly required.” Here why pet insurance is a must for your four-legged-friend"
         image="/images/petpartners-desktop-hero.png"
       />
       <nav className="advertorial-navbar">
@@ -39,7 +37,7 @@ const giveTheGiftOfPetInsurance = () => {
         <h1>
           Advertorial
           <br />
-          <span>Pets as Gifts: Be Prepared</span>
+          <span>Give the Gift of Pet Insurance</span>
         </h1>
       </div>
       <AdvertorialHero />
@@ -109,6 +107,25 @@ const giveTheGiftOfPetInsurance = () => {
               </div>
             </div>
             <div className="column">
+              <p className="petpartners-disclosure">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.petpartners.com/"
+                >
+                  PetPartners, Inc.
+                </a>{" "}
+                is an indirect corporate affiliate of{" "}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.petplace.com/"
+                >
+                  PetPlace.com.
+                </a>{" "}
+                PetPlace may be compensated when you click on or make a purchase
+                using the links in this article.
+              </p>
               <p>
                 Puppies and kittens are a favorite gift every holiday season and
                 they should prove even more popular in a year of pandemic
@@ -197,7 +214,7 @@ const giveTheGiftOfPetInsurance = () => {
               <p>
                 Still not sure you’re ready to bring home a new pet? Check out{" "}
                 <a
-                  href="https://www.petpartners.com/blog/category/new-pet-owners?page=8"
+                  href="https://www.petpartners.com/blog/new-pet-owners/easy-steps-towards-pet-adoption"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -289,7 +306,7 @@ const giveTheGiftOfPetInsurance = () => {
               </p>
               <ul>
                 <li>
-                  <strong>Pet InsuranceSaves Money</strong>: Pet care isn’t
+                  <strong>Pet Insurance Saves Money</strong>: Pet care isn’t
                   cheap. Both routine and emergency expenses add up fast and
                   sometimes force pet parents to make impossible decisions. With
                   pet insurance, you’ll never have to make the choice between
@@ -303,8 +320,8 @@ const giveTheGiftOfPetInsurance = () => {
                   specific needs, as well as your own budget concerns.{" "}
                 </li>
                 <li>
-                  <strong>Pet Insurance Provides Peace of Mind</strong>: TAny
-                  dog or cat owner will tell you to expect the unexpected.
+                  <strong>Pet Insurance Provides Peace of Mind</strong>: Any dog
+                  or cat owner will tell you to expect the unexpected.
                   Accidents, injuries, and other pet health emergencies can
                   occur at any moment. Pet insurance can’t eliminate stress, but
                   it can certainly help you keep a cooler head in these
