@@ -20,7 +20,7 @@ const giveTheGiftOfPetInsurance = () => {
     <>
       <SEO
         title="Give the Gift of Pet Insurance"
-        description="Pets can make a great holiday gift, but they come with “some assembly required.” Here why pet insurance is a must for your four-legged-friend"
+        description="Pets can make a great holiday gift, but they come with “some assembly required.” Here’s why pet insurance is a must for your four-legged-friend."
         image="/images/petpartners-desktop-hero.png"
       />
       <nav className="advertorial-navbar">
