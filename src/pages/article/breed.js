@@ -204,7 +204,7 @@ const Breeds = ({ data }) => {
                                   .fluid,
                                 aspectRatio: 4 / 3,
                               }}
-                              alt={"post image"}
+                              alt={breed.featured.alt_text || "post image"}
                             />
                           ) : (
                             <NoImg />
