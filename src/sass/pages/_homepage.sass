@@ -443,3 +443,98 @@
   top: -25px
   z-index: 99
   cursor: pointer
+
+.search-section
+  text-align: center
+  padding-top: 0
+
+  h2
+    padding-bottom: 30px
+
+    +widescreen
+      font-size: 2.875rem
+
+    span
+      color: $orange
+
+  p 
+    max-width: 726px
+    margin: 15px auto 0
+
+  .el 
+    height: 36px
+    padding: 0 60px
+    position: relative
+    max-width: 890px
+    margin: 0 auto
+    margin-top: -35px
+
+  .el::before,
+  .el::after 
+    content: " "
+    position: absolute
+    width: 60px
+    height: 36px
+    background-image: url("../images/wave-el.svg")
+    top: 0
+    z-index: 10
+  
+  .el::before 
+    left: 0  
+
+  .el::after 
+    background-position: right
+    right: 0  
+
+  .inner-el 
+    background: white
+    height: 100%
+
+  button 
+    @extend .h5
+    width: 100%
+    outline: none
+    border-radius: 50px
+    height: 40px
+    background: $orange
+    color: #ffffff
+    text-transform: uppercase
+    border: 1px solid rgba(255, 255, 255, 0.78)
+
+    @media screen and (min-width: 461px) 
+      position: absolute
+      top: 4px
+      right: 4px
+      height: 55px
+      width: 250px
+      margin-left: -254px
+  
+  .search-box-wrapper 
+    position: relative
+    max-width: 600px
+    margin: 0 auto
+  
+  input.search-input 
+    @include font-size(18px)
+    outline: none
+    background: rgba(255, 255, 255, 0.78)
+    border-radius: 70px
+    margin-bottom: 1rem
+    width: 100%
+    border: 1px solid rgba(255, 255, 255, 0.78)
+    display: inline-block
+    height: 44px
+    padding-left: 30px
+    padding-right: 10px
+    box-shadow: 5px 5px 50px rgba(0, 0, 0, 0.1)
+
+    @media screen and (min-width: 461px) 
+      height: 63px
+      max-width: 700px
+      padding-left: 30px
+      padding-right: 260px
+    
+  
+    
+  
+  

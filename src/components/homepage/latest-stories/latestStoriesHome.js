@@ -237,7 +237,7 @@ const PopularPosts = props => {
   return (
     <section className="section latest-stories-section">
       <div className="container is-fullhd">
-        <h2>Latest Stories</h2>
+        {/* <h2>Latest Stories</h2> */}
         {wordpressTtgPages.acf.category_rows.map((category_row, i) => {
           return (
             <div className="featured-categories" key={i}>
