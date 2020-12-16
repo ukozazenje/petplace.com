@@ -101,6 +101,8 @@ exports.createPages = ({ actions, graphql }) => {
       const postTemplate = path.resolve(`./src/templates/post.js`)
       const redditPostTemplate = path.resolve(`./src/templates/redditPost.js`)
       const giftGuideTemplate = path.resolve(`./src/templates/giftGuide.js`)
+      const HolidayDogTreats = path.resolve(`./src/templates/HolidayDogTreats.js`)
+      const HolidayCatTreats = path.resolve(`./src/templates/HolidayCatTreats.js`)
       const postsPublished = getOnlyPublished(
         result.data.allWordpressPost.edges
       )
@@ -141,6 +143,9 @@ exports.createPages = ({ actions, graphql }) => {
             return redditPostTemplate;
           case '/article/general/just-for-fun/2020-holiday-gift-guide-for-pets-and-pet-lovers/':
             return giftGuideTemplate;
+          case '/article/dogs/just-for-fun/holiday-themed-dog-treats/':
+            return HolidayDogTreats;
+          case '/article/cats/just-for-fun/holiday-themed-cat-toys/':
           default: return postTemplate;
         }
       }
