@@ -146,6 +146,7 @@ exports.createPages = ({ actions, graphql }) => {
           case '/article/dogs/just-for-fun/holiday-themed-dog-treats/':
             return HolidayDogTreats;
           case '/article/cats/just-for-fun/holiday-themed-cat-toys/':
+            return HolidayCatTreats;
           default: return postTemplate;
         }
       }

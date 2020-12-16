@@ -1,5 +1,6 @@
 .holiday-treats-page
-  .holiday-treats-hero-image 
+.holiday-treats-cats-page
+  .holiday-treats-hero-image
     background: url("../images/holiday-treats-for-dogs/holiday-dog-treats-background.jpg")
     background-repeat: no-repeat
     background-size: 1080px 
@@ -46,6 +47,26 @@
       a
         color: $purple-dark
         text-decoration: underline
+  .holiday-treats-cats-hero-image 
+    background: url("../images/holiday-treats-for-cats/holiday-cat-treats-background.jpg")
+    background-repeat: no-repeat
+    background-size: 1080px 
+    background-position: 73% 100%
+    height: 710px
+    padding: 0 1.5rem
+    @media (min-width: 420px)
+      height: 670px
+      background-position: 83% 100%
+
+    +tablet       
+      background-size: cover 
+      background-position: top center 
+      height: 600px
+    +widescreen
+      height: 777px
+    h1
+      +widescreen
+        padding-top: 160px
 
   .products-section 
     padding-top: 30px
