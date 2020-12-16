@@ -148,7 +148,7 @@ const giveTheGiftOfPetInsurance = () => {
                 <div className="cta">
                   <h4>Check out PetPartners today for a quote.</h4>
                   <a
-                    href="https://www.petpartners.com/enroll?p=PPNA202"
+                    href="https://www.petpartners.com/enroll?p=PPFB2020"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -213,7 +213,8 @@ const giveTheGiftOfPetInsurance = () => {
                 A pet insurance policy can keep expenses manageable, ease your
                 mind, and even help save a pet’s life. Insurance can’t prevent
                 pet health emergencies or eliminate the need for routine care,
-                but it can drama
+                but it can dramatically reduce the financial and emotional toll
+                of both. What’s a better gift than that?
               </p>
 
               {/* <div className="columns gift-pet-insurance-columns reverse-columns">
@@ -421,7 +422,7 @@ const giveTheGiftOfPetInsurance = () => {
                 <div className="cta">
                   <h4>Check out PetPartners today for a quote.</h4>
                   <a
-                    href="https://www.petpartners.com/enroll?p=PPNA202"
+                    href="https://www.petpartners.com/enroll?p=PPFB2020"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

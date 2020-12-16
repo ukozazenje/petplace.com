@@ -35,43 +35,45 @@ import ProdImg10 from "../images/holiday-treats-for-cats/prod-box-10.jpg"
 
 import PawsomeContent from "../components/PawsomeFallStyleReportContent"
 import GiftBox from "../components/GiftBox"
-const HolidayCatTreats = ({data}) => {
+const HolidayCatTreats = ({ data }) => {
   const post = data.wordpressPost
   return (
     <Layout>
       <Seo
         title={`${post.yoast_meta.yoast_wpseo_title}`}
         description={post.yoast_meta.yoast_wpseo_metadesc}
-        image="/images/holiday-dog-treats-background.jpg"
+        image="/images/holiday-cat-treats-background.jpg"
       />
       <div className="holiday-treats-cats-page">
         <div className="holiday-treats-hero-image holiday-treats-cats-hero-image">
           <div className="container is-fullhd">
             <h1>10 Purrfect Holiday Toys for Cats</h1>
             <p>
-              We found some extra special toys to delight even the finickiest feline. With these nifty gifts under the tree, you are sure to be the cat’s meow! 
+              We found some extra special toys to delight even the finickiest
+              feline. With these nifty gifts under the tree, you are sure to be
+              the cat’s meow!
             </p>
           </div>
         </div>
         <section className="section products-section blue-section padding-top-0">
           <div className="container is-fullhd">
             <p className="sponsored-paragraph">
-              All products featured in this article were independently selected by our editorial team. As an Amazon Associate, 
-              PetPlace will earn if you click on the provided links and/or purchase a qualifying product from Amazon.
+              All products featured in this article were independently selected
+              by our editorial team. As an Amazon Associate, PetPlace will earn
+              if you click on the provided links and/or purchase a qualifying
+              product from Amazon.
             </p>
 
             <div className="section-subtitle"></div>
 
-            <GiftBox
-              title="Savvy Tabby Holiday Chew Toys Set"
-              img={ProdImg1}
-            >
+            <GiftBox title="Savvy Tabby Holiday Chew Toys Set" img={ProdImg1}>
               <p>
-                Even a kitty that’s ‘a little naughty’ deserves a fun holiday present! 
-                This toy box is a collection of feline favorites: 10 toys that roll, rattle, 
-                crinkle, or contain catnip, in two different assortments of colors and shapes. 
-                Packaged in a pretty holiday box, complete with ribbon and a tag, it is ready 
-                for holiday gifting! 
+                Even a kitty that’s ‘a little naughty’ deserves a fun holiday
+                present! This toy box is a collection of feline favorites: 10
+                toys that roll, rattle, crinkle, or contain catnip, in two
+                different assortments of colors and shapes. Packaged in a pretty
+                holiday box, complete with ribbon and a tag, it is ready for
+                holiday gifting!
               </p>
               <a
                 target="_blank"
@@ -85,9 +87,10 @@ const HolidayCatTreats = ({data}) => {
 
             <GiftBox title="Santa Mouse Toy Treat Dispenser" img={ProdImg2}>
               <p>
-                This tumbling toy is made of non-toxic, high-quality plastic that will entertain your cat for hours. 
-                Dressed up in a fancy party hat, this mouse tumbles to give out treats, which is purr-fect for rewarding 
-                your nice kitty during the holidays.
+                This tumbling toy is made of non-toxic, high-quality plastic
+                that will entertain your cat for hours. Dressed up in a fancy
+                party hat, this mouse tumbles to give out treats, which is
+                purr-fect for rewarding your nice kitty during the holidays.
               </p>
               <a
                 target="_blank"
@@ -99,11 +102,15 @@ const HolidayCatTreats = ({data}) => {
               </a>
             </GiftBox>
 
-            <GiftBox title="Springy Teaser Mouse Toy on Roller Track with Catnip" img={ProdImg3}>
+            <GiftBox
+              title="Springy Teaser Mouse Toy on Roller Track with Catnip"
+              img={ProdImg3}
+            >
               <p>
-                A busy cat is a happy cat! This whimsical track toy is designed to stimulate your cat’s senses 
-                and hunting instincts. It’s a 2-in-1 plaything that features a detachable mouse teaser that can 
-                be used separately from the roller track bottom.
+                A busy cat is a happy cat! This whimsical track toy is designed
+                to stimulate your cat’s senses and hunting instincts. It’s a
+                2-in-1 plaything that features a detachable mouse teaser that
+                can be used separately from the roller track bottom.
               </p>
               <a
                 target="_blank"
@@ -115,14 +122,12 @@ const HolidayCatTreats = ({data}) => {
               </a>
             </GiftBox>
 
-            <GiftBox
-              title="4-Piece Sushi Toy Set"
-              img={ProdImg4}
-            >
+            <GiftBox title="4-Piece Sushi Toy Set" img={ProdImg4}>
               <p>
-                Using non-toxic, soft, and plush materials, this super fun sushi set features organic catnip, 
-                crinkle paper bell, and rattle. Nothing fishy here, just a well-designed and pet-safe toy you 
-                can feel good gifting to your furball.   
+                Using non-toxic, soft, and plush materials, this super fun sushi
+                set features organic catnip, crinkle paper bell, and rattle.
+                Nothing fishy here, just a well-designed and pet-safe toy you
+                can feel good gifting to your furball.
               </p>
               <a
                 target="_blank"
@@ -136,9 +141,11 @@ const HolidayCatTreats = ({data}) => {
 
             <GiftBox title="Tower of Tracks Cat Toy" img={ProdImg5}>
               <p>
-                This interactive cat toy has almost 30,000 positive reviews! It is designed with 3 levels of tracks 
-                and 3 brightly-colored moving balls to engage kitty’s attention and keep them moving! Watch your kitty 
-                bat, swat, and pounce on the brightly-colored, non-slip, sturdy track toy. 
+                This interactive cat toy has almost 30,000 positive reviews! It
+                is designed with 3 levels of tracks and 3 brightly-colored
+                moving balls to engage kitty’s attention and keep them moving!
+                Watch your kitty bat, swat, and pounce on the brightly-colored,
+                non-slip, sturdy track toy.
               </p>
               <a
                 target="_blank"
@@ -152,8 +159,9 @@ const HolidayCatTreats = ({data}) => {
 
             <GiftBox title="Magic Cat Track and Ball Toy" img={ProdImg6}>
               <p>
-                A track and ball toy of a different kind, the Magic Cat Track consists of 82 pieces of flexible track and 2 balls. 
-                The track can be laid out in several different shapes and configurations.  
+                A track and ball toy of a different kind, the Magic Cat Track
+                consists of 82 pieces of flexible track and 2 balls. The track
+                can be laid out in several different shapes and configurations.
               </p>
               <a
                 target="_blank"
@@ -167,8 +175,10 @@ const HolidayCatTreats = ({data}) => {
 
             <GiftBox title="Interactive Running Mouse Cat Toy" img={ProdImg7}>
               <p>
-                This battery-operated toy features a cunning mouse that runs in and out of the hole to play hide-and-seek with kitty. 
-                Tired from all that hunting? The felt top also serves as a comfortable place for your kitten to rest.
+                This battery-operated toy features a cunning mouse that runs in
+                and out of the hole to play hide-and-seek with kitty. Tired from
+                all that hunting? The felt top also serves as a comfortable
+                place for your kitten to rest.
               </p>
               <a
                 target="_blank"
@@ -180,11 +190,16 @@ const HolidayCatTreats = ({data}) => {
               </a>
             </GiftBox>
 
-            <GiftBox title="SmartyKat Hot Pursuit Concealed Motion Toy" img={ProdImg8}>
+            <GiftBox
+              title="SmartyKat Hot Pursuit Concealed Motion Toy"
+              img={ProdImg8}
+            >
               <p>
-                This genius toy replicates the movement of hidden prey with lights and a wand hidden under a durable fabric cover. 
-                With adjustable speeds, it will entertain and keep your cat in hot pursuit of their “prey,” satisfying the natural 
-                instinct to hunt.
+                This genius toy replicates the movement of hidden prey with
+                lights and a wand hidden under a durable fabric cover. With
+                adjustable speeds, it will entertain and keep your cat in hot
+                pursuit of their “prey,” satisfying the natural instinct to
+                hunt.
               </p>
               <a
                 target="_blank"
@@ -198,8 +213,10 @@ const HolidayCatTreats = ({data}) => {
 
             <GiftBox title="Interactive Cat Toothbrush Chew Toy" img={ProdImg9}>
               <p>
-                Move over, tuna breath! This chew toy eliminates odor, germs, and bacteria from your fur buddy's mouth. 
-                The unique texture of the non-toxic rubber, hidden catnip, and bell make it an irresistible, new favorite plaything.
+                Move over, tuna breath! This chew toy eliminates odor, germs,
+                and bacteria from your fur buddy's mouth. The unique texture of
+                the non-toxic rubber, hidden catnip, and bell make it an
+                irresistible, new favorite plaything.
               </p>
               <a
                 target="_blank"
@@ -211,10 +228,15 @@ const HolidayCatTreats = ({data}) => {
               </a>
             </GiftBox>
 
-            <GiftBox title="Self-Warming 2-in-1 Triangle Cat Tent and Bed" img={ProdImg10}>
+            <GiftBox
+              title="Self-Warming 2-in-1 Triangle Cat Tent and Bed"
+              img={ProdImg10}
+            >
               <p>
-                After all that playing with their new toys, your cutie cat will need a snooze in this cozy, soft enclosed space. 
-                This classic, tent-shaped cat house boasts a very cute fabric design to compliment your holiday decor and please your fur baby.
+                After all that playing with their new toys, your cutie cat will
+                need a snooze in this cozy, soft enclosed space. This classic,
+                tent-shaped cat house boasts a very cute fabric design to
+                compliment your holiday decor and please your fur baby.
               </p>
               <a
                 target="_blank"
@@ -226,11 +248,13 @@ const HolidayCatTreats = ({data}) => {
               </a>
             </GiftBox>
             <p className="sponsored-paragraph sponsored-paragraph-bottom">
-              All products featured in this article were independently selected by our editorial team. As an Amazon Associate, 
-              PetPlace will earn if you click on the provided links and/or purchase a qualifying product from Amazon.
+              All products featured in this article were independently selected
+              by our editorial team. As an Amazon Associate, PetPlace will earn
+              if you click on the provided links and/or purchase a qualifying
+              product from Amazon.
             </p>
           </div>
-        </section>           
+        </section>
       </div>
       <ContactUsSection />
     </Layout>
