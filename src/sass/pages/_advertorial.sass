@@ -7,6 +7,33 @@
   +desktop 
     padding: 40px 0 
     border-bottom: none
+  &.phone-number-navigation 
+    flex-direction: column
+    align-items: flex-start 
+    +tablet 
+      justify-content: space-between
+      flex-direction: row 
+    .phone-wrapper 
+      margin-top: 10px
+      display: flex 
+      flex-direction: column
+      align-items: flex-start
+      +tablet 
+        margin-top: 0
+        align-items: center
+      a 
+        display: block 
+        line-height: 1.25
+        color: $orange
+        font-family: $family-primary
+        font-weight: 800
+        font-size: 1.5rem
+        +tablet 
+          line-height: 1
+          font-size: 1.75rem
+      span 
+        display: block 
+        font-size: 0.875rem
   .advertorial-logo
     width: 180px 
     +tablet 
