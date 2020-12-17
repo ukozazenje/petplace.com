@@ -29,15 +29,17 @@ const giveTheGiftOfPetInsurance = () => {
             <div className="advertorial-logo">
               <img src={logoImg} alt="logo" />
             </div>
-            <span className="advertorial-navigation-headline">Advertorial</span>
+            {/* <span className="advertorial-navigation-headline">Advertorial</span> */}
           </div>
         </div>
       </nav>
       <div className="is-hidden-desktop advertorial-mobile-heading">
         <h1>
-          Advertorial
-          <br />
-          <span>Give the Gift of Pet Insurance</span>
+          <span>
+            Getting a New Pet for the Holidays?
+            <br />
+            You’ll Need Pet Insurance Too
+          </span>
         </h1>
       </div>
       <AdvertorialHero />
@@ -198,9 +200,12 @@ const giveTheGiftOfPetInsurance = () => {
                 We know that pet parents shop for pet insurance for a variety of
                 reasons. No matter your reason, our Customer Care Team, which
                 consists of veterinary technicians and pet professionals, can
-                help you create a custom plan for your beloved pet. Call
-                1800-xxx-xxxx to get recommendations and review the different
-                plan options with one of our helpful agents.
+                help you create a custom plan for your beloved pet. Call{" "}
+                <a className="tel-link" href="tel:18559285348">
+                  1-855-928-5348
+                </a>{" "}
+                to get recommendations and review the different plan options
+                with one of our helpful agents.
               </p>
               <h3>Give the Gift of Pet Insurance This Holiday Season</h3>
               <p>

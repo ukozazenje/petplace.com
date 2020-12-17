@@ -37,7 +37,7 @@ import ProdImg12 from "../images/holiday-treats-for-dogs/prod-box-12.jpg"
 
 import PawsomeContent from "../components/PawsomeFallStyleReportContent"
 import GiftBox from "../components/GiftBox"
-const HolidayDogTreats = ({data}) => {
+const HolidayDogTreats = ({ data }) => {
   const post = data.wordpressPost
   return (
     <Layout>
@@ -51,30 +51,40 @@ const HolidayDogTreats = ({data}) => {
           <div className="container is-fullhd">
             <h1>12 Holiday-Themed Treats for Dogs</h1>
             <p>
-              According to our latest <a href="https://www.petplace.com/article/general/just-for-fun/2020-pet-parent-survey/">reader survey</a>, the majority of pet parents (79.4% to be exact) give 
-              holiday presents to their four-legged family members. Whether they’ve been naughty or nice, 
-              here is a selection of limited-edition seasonal treats for your favorite furball, all of which 
-              are made in the U.S. of A. These are paw-fect gifts for your beloved pooch! 
+              According to our latest{" "}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.petplace.com/article/general/just-for-fun/2020-pet-parent-survey/"
+              >
+                reader survey
+              </a>
+              , the majority of pet parents (79.4% to be exact) give holiday
+              presents to their four-legged family members. Whether they’ve been
+              naughty or nice, here is a selection of limited-edition seasonal
+              treats for your favorite furball, all of which are made in the
+              U.S. of A. These are paw-fect gifts for your beloved pooch!
             </p>
           </div>
         </div>
         <section className="section products-section blue-section padding-top-0">
           <div className="container is-fullhd">
             <p className="sponsored-paragraph">
-              All products featured in this article were independently selected by our editorial team. As an Amazon Associate, 
-              PetPlace will earn if you click on the provided links and/or purchase a qualifying product from Amazon.
+              All products featured in this article were independently selected
+              by our editorial team. As an Amazon Associate, PetPlace will earn
+              if you click on the provided links and/or purchase a qualifying
+              product from Amazon.
             </p>
             <h3>Crunchy Treats</h3>
-            <p className="section-subtitle">Your dog will love chomping on these crunchy and tasty treats!</p>
+            <p className="section-subtitle">
+              Your dog will love chomping on these crunchy and tasty treats!
+            </p>
 
-            <GiftBox
-              title="Bocce’s Bakery Santa’s Cookies"
-              img={ProdImg1}
-            >
+            <GiftBox title="Bocce’s Bakery Santa’s Cookies" img={ProdImg1}>
               <p>
-                Wheat-free and baked with real ingredients, Bocce’s treats 
-                are a perennial hit in our home. These seasonal Santa Cookies 
-                are no exception. Grab a bag or two before they disappear! 
+                Wheat-free and baked with real ingredients, Bocce’s treats are a
+                perennial hit in our home. These seasonal Santa Cookies are no
+                exception. Grab a bag or two before they disappear!
               </p>
               <a
                 target="_blank"
@@ -88,8 +98,9 @@ const HolidayDogTreats = ({data}) => {
 
             <GiftBox title="Blue Buffalo Santa Snacks" img={ProdImg2}>
               <p>
-                Oatmeal and cinnamon snacks get four-paws up for their yummy goodness. 
-                These meat and wheat-free treats come in fun holiday shapes too.
+                Oatmeal and cinnamon snacks get four-paws up for their yummy
+                goodness. These meat and wheat-free treats come in fun holiday
+                shapes too.
               </p>
               <a
                 target="_blank"
@@ -103,9 +114,10 @@ const HolidayDogTreats = ({data}) => {
 
             <GiftBox title="Buddy Biscuits Assorted Flavors" img={ProdImg3}>
               <p>
-                Buddy Biscuits use just 5 ingredients and are oven baked to perfection. 
-                This variety pack includes Roasted Chicken, Grilled Beef, and 
-                Sharp Cheddar flavors in a fun, gingerbread man “buddy” shape.
+                Buddy Biscuits use just 5 ingredients and are oven baked to
+                perfection. This variety pack includes Roasted Chicken, Grilled
+                Beef, and Sharp Cheddar flavors in a fun, gingerbread man
+                “buddy” shape.
               </p>
               <a
                 target="_blank"
@@ -117,14 +129,12 @@ const HolidayDogTreats = ({data}) => {
               </a>
             </GiftBox>
 
-            <GiftBox
-              title="Custom Milk-Bone® Box"
-              img={ProdImg4}
-            >
+            <GiftBox title="Custom Milk-Bone® Box" img={ProdImg4}>
               <p>
-                Here’s something extra festive: customize your next box of Milk-Bone® 
-                treats with your favorite picture of your doggo or any photo and text. 
-                Click on the link below and select the Milk-Bone® icon to get started.  
+                Here’s something extra festive: customize your next box of
+                Milk-Bone® treats with your favorite picture of your doggo or
+                any photo and text. Click on the link below and select the
+                Milk-Bone® icon to get started.
               </p>
               <a
                 target="_blank"
@@ -138,9 +148,10 @@ const HolidayDogTreats = ({data}) => {
 
             <GiftBox title="Bonnet Et Filou Combo Gift Pack" img={ProdImg5}>
               <p>
-                These handmade, macaron-shaped treats are a unique and tasty way to spoil your fur baby. 
-                Choose from lavender, strawberry, mint, rose, and vanilla flavors all made from human-grade, 
-                non-GMO ingredients. 
+                These handmade, macaron-shaped treats are a unique and tasty way
+                to spoil your fur baby. Choose from lavender, strawberry, mint,
+                rose, and vanilla flavors all made from human-grade, non-GMO
+                ingredients.
               </p>
               <a
                 target="_blank"
@@ -151,21 +162,21 @@ const HolidayDogTreats = ({data}) => {
                 Buy Now
               </a>
             </GiftBox>
-
           </div>
         </section>
         <section className="section products-section white-section">
           <div className="container is-fullhd">
             <h3>Soft Treats</h3>
-            <p className="section-subtitle">Got a new puppy, or does your small-sized or older fur buddy prefer a softer texture? Either way, we’ve got you covered.</p>
-            <GiftBox              
-              title="Zuke’s Mini Naturals"
-              img={ProdImg6}
-            >
+            <p className="section-subtitle">
+              Got a new puppy, or does your small-sized or older fur buddy
+              prefer a softer texture? Either way, we’ve got you covered.
+            </p>
+            <GiftBox title="Zuke’s Mini Naturals" img={ProdImg6}>
               <p>
-                These tender, turkey and cranberry morsels may be the key to training your pup. 
-                Each seasonal bite-sized, tree-shaped, wholesome treat is a delicious way to 
-                guide your pooch on the path to puppy trick mastery. 
+                These tender, turkey and cranberry morsels may be the key to
+                training your pup. Each seasonal bite-sized, tree-shaped,
+                wholesome treat is a delicious way to guide your pooch on the
+                path to puppy trick mastery.
               </p>
               <a
                 target="_blank"
@@ -177,12 +188,16 @@ const HolidayDogTreats = ({data}) => {
               </a>
             </GiftBox>
 
-            <GiftBox title="Buddy Biscuits Bacon & Cheese Soft & Chewy Treats" img={ProdImg7}>
+            <GiftBox
+              title="Buddy Biscuits Bacon & Cheese Soft & Chewy Treats"
+              img={ProdImg7}
+            >
               <p>
-                No one, I mean, no dog can resist bacon and cheese-flavored anything! Buddy Biscuits’ 
-                soft and chewy treats are low calorie, but promise “gobs of flavor” in each bite. Just 
-                like their crunchy treats, these are made with natural ingredients and just right for 
-                puppies or older dogs that prefer a soft texture. 
+                No one, I mean, no dog can resist bacon and cheese-flavored
+                anything! Buddy Biscuits’ soft and chewy treats are low calorie,
+                but promise “gobs of flavor” in each bite. Just like their
+                crunchy treats, these are made with natural ingredients and just
+                right for puppies or older dogs that prefer a soft texture.
               </p>
               <a
                 target="_blank"
@@ -196,9 +211,10 @@ const HolidayDogTreats = ({data}) => {
 
             <GiftBox title="Three Dog Bakery Assort “Mutt” Trio" img={ProdImg8}>
               <p>
-                This soft-baked assortment is 3 pounds of Oats and Apple, Peanut Butter, and Vanilla cookies. 
-                Baked slowly using only the highest-quality ingredients, these are good enough to share with 
-                Santa Paws, with more than enough to spare for your hungry pups.  
+                This soft-baked assortment is 3 pounds of Oats and Apple, Peanut
+                Butter, and Vanilla cookies. Baked slowly using only the
+                highest-quality ingredients, these are good enough to share with
+                Santa Paws, with more than enough to spare for your hungry pups.
               </p>
               <a
                 target="_blank"
@@ -210,10 +226,14 @@ const HolidayDogTreats = ({data}) => {
               </a>
             </GiftBox>
 
-            <GiftBox title="Blue Buffalo Santa Sampler Gift Pack" img={ProdImg9}>
+            <GiftBox
+              title="Blue Buffalo Santa Sampler Gift Pack"
+              img={ProdImg9}
+            >
               <p>
-                The sampler pack is great for stocking up on these howliday treats. It contains Tasty Chicken Bits, 
-                Sizzlers Bacon-Style Treats, and Stix Pepperoni-Style Treats. 
+                The sampler pack is great for stocking up on these howliday
+                treats. It contains Tasty Chicken Bits, Sizzlers Bacon-Style
+                Treats, and Stix Pepperoni-Style Treats.
               </p>
               <a
                 target="_blank"
@@ -229,14 +249,20 @@ const HolidayDogTreats = ({data}) => {
         <section className="section products-section blue-section">
           <div className="container is-fullhd">
             <h3>Dental Chew Sticks</h3>
-            <p className="section-subtitle">Cookies, chews, and treats are great, but how about sneaking in dental care? These chew sticks help reduce plaque and tartar, while satisfying your dog’s cravings. </p>
+            <p className="section-subtitle">
+              Cookies, chews, and treats are great, but how about sneaking in
+              dental care? These chew sticks help reduce plaque and tartar,
+              while satisfying your dog’s cravings.{" "}
+            </p>
             <GiftBox
               title="Get Naked Super Antioxidant Dental Sticks"
               img={ProdImg10}
             >
               <p>
-                Grain-free sticks pack an extra punch with a special blend of antioxidant-rich super fruits and veggies. 
-                While providing dental health and big flavor, they also sneakily support overall canine wellness. 
+                Grain-free sticks pack an extra punch with a special blend of
+                antioxidant-rich super fruits and veggies. While providing
+                dental health and big flavor, they also sneakily support overall
+                canine wellness.
               </p>
               <a
                 target="_blank"
@@ -247,11 +273,16 @@ const HolidayDogTreats = ({data}) => {
                 Buy on Amazon
               </a>
             </GiftBox>
-            <GiftBox title="Merrick Fresh Kisses Double Brush Mint-Flavored Breath Strips" img={ProdImg11}>
+            <GiftBox
+              title="Merrick Fresh Kisses Double Brush Mint-Flavored Breath Strips"
+              img={ProdImg11}
+            >
               <p>
-                Minty puppy kisses? Yes, please! These tasty chews have a special blend of coconut, peppermint, lemongrass, 
-                and rosemary oils to keep Fido’s breath minty fresh. They also feature a double-brush design to serve double 
-                duty as plaque and tartar fighter. 
+                Minty puppy kisses? Yes, please! These tasty chews have a
+                special blend of coconut, peppermint, lemongrass, and rosemary
+                oils to keep Fido’s breath minty fresh. They also feature a
+                double-brush design to serve double duty as plaque and tartar
+                fighter.
               </p>
               <a
                 target="_blank"
@@ -267,9 +298,11 @@ const HolidayDogTreats = ({data}) => {
               img={ProdImg12}
             >
               <p>
-                Crafted with all-natural ingredients, the seasonal gingerbread flavor in these treats kicks it 
-                up a notch in time for the howlidays. Dog approved and vet recommended, each chew stick helps 
-                maintain healthy gums and teeth while freshening doggy breath. 
+                Crafted with all-natural ingredients, the seasonal gingerbread
+                flavor in these treats kicks it up a notch in time for the
+                howlidays. Dog approved and vet recommended, each chew stick
+                helps maintain healthy gums and teeth while freshening doggy
+                breath.
               </p>
               <a
                 target="_blank"
@@ -281,11 +314,13 @@ const HolidayDogTreats = ({data}) => {
               </a>
             </GiftBox>
             <p className="sponsored-paragraph sponsored-paragraph-bottom">
-              All products featured in this article were independently selected by our editorial team. As an Amazon Associate, 
-              PetPlace will earn if you click on the provided links and/or purchase a qualifying product from Amazon.
+              All products featured in this article were independently selected
+              by our editorial team. As an Amazon Associate, PetPlace will earn
+              if you click on the provided links and/or purchase a qualifying
+              product from Amazon.
             </p>
           </div>
-        </section>        
+        </section>
       </div>
       <ContactUsSection />
     </Layout>

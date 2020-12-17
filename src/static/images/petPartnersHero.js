@@ -45,9 +45,10 @@ const PetPartnersHero = () => {
     <>
       <section className="advertorial-hero-image">
         <div className="container is-fullhd hero-image-container">
-          <h2>
-            Give the Gift of
-            <br /> Pet Insurance
+          <h2 className="pet-partners-advertorial-heading">
+            Getting a New Pet for the Holidays?
+            <br />
+            You’ll Need Pet Insurance Too
           </h2>
         </div>
         <Img
