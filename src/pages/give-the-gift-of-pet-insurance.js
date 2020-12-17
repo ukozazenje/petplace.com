@@ -25,11 +25,11 @@ const giveTheGiftOfPetInsurance = () => {
       />
       <nav className="advertorial-navbar">
         <div className="container is-fullhd">
-          <div className="advertorial-navigation-wrapper">
+          <div className="advertorial-navigation-wrapper phone-number-navigation">
             <div className="advertorial-logo">
               <img src={logoImg} alt="logo" />
             </div>
-            {/* <span className="advertorial-navigation-headline">Advertorial</span> */}
+            <div className="phone-wrapper"><span>Give us a call to discuss your options:</span> <a className="tel-link" href="tel:18559285348">1-855-928-5348</a></div>
           </div>
         </div>
       </nav>
