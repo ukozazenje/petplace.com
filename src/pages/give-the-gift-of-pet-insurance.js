@@ -29,15 +29,17 @@ const giveTheGiftOfPetInsurance = () => {
             <div className="advertorial-logo">
               <img src={logoImg} alt="logo" />
             </div>
-            <span className="advertorial-navigation-headline">Advertorial</span>
+            {/* <span className="advertorial-navigation-headline">Advertorial</span> */}
           </div>
         </div>
       </nav>
       <div className="is-hidden-desktop advertorial-mobile-heading">
         <h1>
-          Advertorial
-          <br />
-          <span>Give the Gift of Pet Insurance</span>
+          <span>
+            Getting a New Pet for the Holidays?
+            <br />
+            You’ll Need Pet Insurance Too
+          </span>
         </h1>
       </div>
       <AdvertorialHero />
@@ -129,45 +131,98 @@ const giveTheGiftOfPetInsurance = () => {
               <p>
                 Puppies and kittens are a favorite gift every holiday season and
                 they should prove even more popular in a year of pandemic
-                stress.{" "}
-                <a
-                  href="https://apnews.com/article/31e3e60e7ea6bc4566b0ee3998ab98a6"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Adoption numbers have surged
-                </a>{" "}
-                throughout 2020 and many pet lovers across the country are
-                surely adding dogs or cats to their wish lists this year.
+                stress. Adoption numbers have surged throughout 2020 and many
+                pet lovers across the country are surely adding dogs or cats to
+                their wish lists this year.
               </p>
               <p>
                 If a new pet happens to be on your list this holiday season,
                 it’s important to plan ahead to ensure that they can make a
-                smooth transition into your family.
+                smooth transition into your family. In addition to accessories,
+                food, and grooming supplies, there’s one thing that many people
+                overlook when they bring home a new pet: pet insurance.
               </p>
-              <h3>Pets as Gifts: Be Prepared</h3>
+              <div className="gift-pet-insurance-cta">
+                <p>
+                  Want to learn more about pet insurance from the comfort of
+                  your home?
+                </p>
+                <div className="cta">
+                  <h4>Check out PetPartners today for a quote.</h4>
+                  <a
+                    href="https://www.petpartners.com/enroll?p=PPFB2020"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Your Free Quote
+                  </a>
+                </div>
+              </div>
+              <h3>Check Pet Insurance Off Your List</h3>
               <p>
-                In a sense, pets are gifts with “some assembly required.”
-                Keeping a dog or cat safe, happy, and healthy means purchasing a{" "}
-                <a
-                  href="https://www.petplace.com/article/dogs/pet-care/10-essential-items-for-new-puppies-part-1/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  number of other essentials
-                </a>{" "}
-                on or before Day 1. Some -- like identification tags or a{" "}
-                <a
-                  href="https://www.petpartners.com/blog/pet-health-and-safety/4-reasons-to-microchip-your-pet"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  microchip
-                </a>{" "}
-                -- could last your pet’s lifetime. Others will become regular
-                purchases and a major component of your pet care budget:
+                Like car or health insurance, pet insurance provides protection
+                against future costs. It’s also similar to human health
+                insurance in the sense that some policies cover routine wellness
+                and preventative services. Although it would be strange to give
+                the gift of health insurance to a human friend, it’s far more
+                common when it comes to pets. After all, pet insurance boasts
+                benefits that make it an ideal present for pets and pet parents
+                alike:
               </p>
-              <div className="columns gift-pet-insurance-columns reverse-columns">
+
+              <ul>
+                <li>
+                  <strong>Pet Insurance Saves Money:</strong> Pet care isn’t
+                  cheap. Both routine and emergency expenses add up fast and
+                  sometimes force pet parents to make impossible decisions. With
+                  pet insurance, you’ll never have to make the choice between
+                  your pet’s health and your own financial well-being.
+                </li>
+                <li>
+                  <strong>Pet Insurance Fits Your Needs:</strong> Nobody likes
+                  paying for things they don’t want or need. Fortunately, pet
+                  insurance plans don’t saddle policyholders with unexpected or
+                  unnecessary expenses. Plans are flexible to your pet’s
+                  specific needs, as well as your own budget concerns.
+                </li>
+                <li>
+                  <strong>Pet Insurance Provides Peace of Mind:</strong> Any dog
+                  or cat owner will tell you to expect the unexpected.
+                  Accidents, injuries, and other pet health emergencies can
+                  occur at any moment. Pet insurance can’t eliminate stress, but
+                  it can certainly help you keep a cooler head in these
+                  instances. As you seek out veterinary care, you’ll be able to
+                  act with confidence, secure in the knowledge that your
+                  provider has you covered.
+                </li>
+              </ul>
+              <p>
+                We know that pet parents shop for pet insurance for a variety of
+                reasons. No matter your reason, our Customer Care Team, which
+                consists of veterinary technicians and pet professionals, can
+                help you create a custom plan for your beloved pet. Call{" "}
+                <a className="tel-link" href="tel:18559285348">
+                  1-855-928-5348
+                </a>{" "}
+                to get recommendations and review the different plan options
+                with one of our helpful agents.
+              </p>
+              <h3>Give the Gift of Pet Insurance This Holiday Season</h3>
+              <p>
+                Looking for a holiday gift that truly shows that special someone
+                how much you care? Consider purchasing pet insurance for a
+                friend or loved one with a new pet. Simply put, pet insurance is
+                the gift that keeps on giving long after the holidays are over.
+              </p>
+              <p>
+                A pet insurance policy can keep expenses manageable, ease your
+                mind, and even help save a pet’s life. Insurance can’t prevent
+                pet health emergencies or eliminate the need for routine care,
+                but it can dramatically reduce the financial and emotional toll
+                of both. What’s a better gift than that?
+              </p>
+
+              {/* <div className="columns gift-pet-insurance-columns reverse-columns">
                 <div className="column">
                   <ul>
                     <li>Bowls for food and water</li>
@@ -183,8 +238,8 @@ const giveTheGiftOfPetInsurance = () => {
                 <div className="column img-column">
                   <img src={AdvertorialImg1} />
                 </div>
-              </div>
-              <p>
+              </div> */}
+              {/* <p>
                 That’s not to mention all the work that goes into pet-proofing a
                 house. While you’re putting up the holiday decorations, look
                 around for potential pet safety hazards, because they are more
@@ -352,7 +407,7 @@ const giveTheGiftOfPetInsurance = () => {
                 <div className="column img-column">
                   <img className="is-hidden-mobile" src={AdvertorialImg2} />
                 </div>
-              </div>
+              </div> */}
 
               {/* <div className="advertorial-free-quote-wrapper">
                 <span>Get Your Free Quote</span> <img src={AdvertorialArrow} />{" "}
@@ -372,7 +427,7 @@ const giveTheGiftOfPetInsurance = () => {
                 <div className="cta">
                   <h4>Check out PetPartners today for a quote.</h4>
                   <a
-                    href="https://www.petpartners.com/enroll?p=PPNA202"
+                    href="https://www.petpartners.com/enroll?p=PPFB2020"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
