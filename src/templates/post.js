@@ -23,6 +23,7 @@ import LikeArticleWidget from "../components/LikeArticleWidget"
 import axios from "axios"
 import CounterImg from "../images/footer-counter.png"
 import PawsomeContent from "../components/PawsomeFallStyleReportContent"
+import PetPartnersBanner from "../components/PetPartnersBanner"
 class Post extends Component {
   state = {
     likes: 0,
@@ -137,9 +138,14 @@ class Post extends Component {
       this.props.data.postHeroImg.childImageSharp.fluid.src
 
     const author = (post.author && post.author.name) || "PetPlace Staff"
-
     return (
-      <Layout hideFooterNavigation>
+      <Layout
+        hideFooterNavigation
+        hideHolidayBanner={
+          post.slug === "pet-insurance-as-a-gift" ? true : false
+        }
+        showPetPartners={post.slug === "pet-insurance-as-a-gift" ? true : false}
+      >
         <Seo
           title={`${post.yoast_meta.yoast_wpseo_title}`}
           description={post.yoast_meta.yoast_wpseo_metadesc}
@@ -154,6 +160,7 @@ class Post extends Component {
         />
         {console.log(post.categories[0])}
         {filterFaqPosts(post, author, imgUrl)}
+
         <div className="single-post">
           <section className="section post-hero-section">
             <div className="container is-fullhd">
@@ -165,6 +172,7 @@ class Post extends Component {
               />
             </div>
           </section>
+
           <div className="post-hero-img">
             <div className="is-hidden-touch">
               {post.featured_media &&
