@@ -144,7 +144,6 @@ class Post extends Component {
         hideHolidayBanner={
           post.slug === "pet-insurance-as-a-gift" ? true : false
         }
-        showPetPartners={post.slug === "pet-insurance-as-a-gift" ? true : false}
       >
         <Seo
           title={`${post.yoast_meta.yoast_wpseo_title}`}
@@ -211,6 +210,9 @@ class Post extends Component {
               )}
             </div>
           </div>
+          {post.slug === "pet-insurance-as-a-gift" ? (
+            <PetPartnersBanner />
+          ) : null}
           <section className="main-content">
             <div className="container is-fullhd">
               <div className="columns">

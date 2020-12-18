@@ -1,7 +1,7 @@
 import React from "react"
 
 const PetPartnersBanner = ({ showPetPartners }) => {
-  return showPetPartners ? (
+  return (
     <div className="pet-insurance-cta-banner">
       <div className="container is-fullhd">
         <p>
@@ -19,7 +19,7 @@ const PetPartnersBanner = ({ showPetPartners }) => {
         </div>
       </div>
     </div>
-  ) : null
+  )
 }
 
 export default PetPartnersBanner
