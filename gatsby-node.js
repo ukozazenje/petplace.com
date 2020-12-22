@@ -101,8 +101,13 @@ exports.createPages = ({ actions, graphql }) => {
       const postTemplate = path.resolve(`./src/templates/post.js`)
       const redditPostTemplate = path.resolve(`./src/templates/redditPost.js`)
       const giftGuideTemplate = path.resolve(`./src/templates/giftGuide.js`)
-      const HolidayDogTreats = path.resolve(`./src/templates/HolidayDogTreats.js`)
-      const HolidayCatTreats = path.resolve(`./src/templates/HolidayCatTreats.js`)
+      const HolidayDogTreats = path.resolve(
+        `./src/templates/HolidayDogTreats.js`
+      )
+      const HolidayCatTreats = path.resolve(
+        `./src/templates/HolidayCatTreats.js`
+      )
+      const yearInReview = path.resolve(`./src/templates/YearInReview.js`)
       const postsPublished = getOnlyPublished(
         result.data.allWordpressPost.edges
       )
@@ -137,17 +142,20 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
       // Iterate over the array of posts
-      const customPosts = (path) => {
+      const customPosts = path => {
         switch (path) {
-          case '/article/dogs/just-for-fun/cutest-dog-posts-october-2020/':
-            return redditPostTemplate;
-          case '/article/general/just-for-fun/2020-holiday-gift-guide-for-pets-and-pet-lovers/':
-            return giftGuideTemplate;
-          case '/article/dogs/just-for-fun/holiday-themed-dog-treats/':
-            return HolidayDogTreats;
-          case '/article/cats/just-for-fun/holiday-themed-cat-toys/':
-            return HolidayCatTreats;
-          default: return postTemplate;
+          case "/article/dogs/just-for-fun/cutest-dog-posts-october-2020/":
+            return redditPostTemplate
+          case "/article/general/just-for-fun/2020-holiday-gift-guide-for-pets-and-pet-lovers/":
+            return giftGuideTemplate
+          case "/article/dogs/just-for-fun/holiday-themed-dog-treats/":
+            return HolidayDogTreats
+          case "/article/cats/just-for-fun/holiday-themed-cat-toys/":
+            return HolidayCatTreats
+          case "/article/general/just-for-fun/2020-year-in-review/":
+            return yearInReview
+          default:
+            return postTemplate
         }
       }
       _.each(postsPublished, ({ node: post }, key) => {
