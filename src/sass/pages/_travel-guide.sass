@@ -42,6 +42,43 @@
         max-width: 350px
       +widescreen
         max-width: 520px
+
+
+.year-in-review-hero-section
+  .hero-content-wrapper
+    .hero-content-heading
+      +tablet 
+        p
+          padding-bottom: 120px        
+      +widescreen
+        p
+          font-size: 1.5rem
+          padding-bottom: 70px    
+      h1 
+        color: $purple
+        margin-bottom: 20px
+        +tablet 
+          margin-top: 30px
+          margin-bottom: 20px
+          max-width: 522px
+          font-size: 3.625rem 
+          line-height: 60px
+        +widescreen
+          margin-top: 0px
+    img 
+      max-width: 520px
+      margin-bottom: -80px
+    .travel-guide-hero-img
+      width: 100%
+      max-width: 400px 
+      margin: 0 auto
+      +tablet
+        margin: 0
+        max-width: 350px
+      +widescreen
+        max-width: 665px
+
+
 .travel-guide-intro-section 
   background: #F2F6FC 
   padding-top: 10px
@@ -64,6 +101,28 @@
         width: 46%
         font-size: 1.25rem
         line-height: 32px 
+
+.intro-wrapper-intro-section
+  padding-top: 10px
+  padding-bottom: 30px
+  +desktop 
+    padding-bottom: 60px
+  .travel-guide-intro-wrapper 
+    display: flex
+    flex-direction: column
+    align-items: center
+    p 
+      width: 100%
+      max-width: 1150px
+      text-align: center
+      padding-bottom: 20px
+      +tablet
+        font-size: 1.125rem
+        line-height: 1.5
+        padding-bottom: 30px
+      +widescreen
+        font-size: 1.5rem        
+
 .travel-guide-cards 
   padding-top: 30px
   padding-bottom: 30px
