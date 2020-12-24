@@ -282,7 +282,10 @@ class Post extends Component {
                       </a>
                     </div>
                   </div>
-                  {isMobile ? <AdMobile /> : <AdSet />}
+                  <div className="hide-mobile">
+                    <AdSet />
+                  </div>
+                  {/* {isMobile ? <AdMobile /> : } */}
                   <div className="hide-mobile">
                     <LikeArticleWidget
                       url={post.path}
