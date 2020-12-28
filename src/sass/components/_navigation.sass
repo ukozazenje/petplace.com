@@ -146,9 +146,14 @@ header .menu-open:hover, header .menu-open:active, header .menu-open:visited
     line-height: 1.2
     @include font-size(15px)
     +widescreen
-      padding: 0 1.2rem
+      padding: 0 1rem
       @include font-size(16px)
-
+    +fullhd
+      padding: 0 1.2rem
+  .navigation-search 
+    display: none 
+    @media only screen and (min-width: 1300px)
+      display: block
 input[type="text"]
   &.navigation-search
     background: #FF7D5A

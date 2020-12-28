@@ -225,7 +225,7 @@ const Breed = ({ data }) => {
                 ...featured.localFile.childImageSharp.fluid,
                 aspectRatio: 22 / 7,
               }}
-              alt="breed"
+              alt={featured.alt_text || "breed"}
             />
           ) : (
             <Img
@@ -233,7 +233,7 @@ const Breed = ({ data }) => {
                 ...data.postHeroImg.childImageSharp.fluid,
                 aspectRatio: 22 / 7,
               }}
-              alt="breed"
+              alt={featured.alt_text || "breed"}
             />
           )}
         </div>
@@ -246,7 +246,7 @@ const Breed = ({ data }) => {
                 ...featured.localFile.childImageSharp.fluid,
                 aspectRatio: 4 / 3,
               }}
-              alt="breed"
+              alt={featured.alt_text || "breed"}
             />
           ) : (
             <Img
@@ -254,7 +254,7 @@ const Breed = ({ data }) => {
                 ...data.postHeroImg.childImageSharp.fluid,
                 aspectRatio: 4 / 3,
               }}
-              alt="breed"
+              alt={featured.alt_text || "breed"}
             />
           )}
         </div>

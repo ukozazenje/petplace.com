@@ -476,14 +476,15 @@ const GiftGuide = ({ data }) => {
             <GiftBox title="PetPartners Insurance" img={GiftImg18}>
               <p>
                 While pet insurance might seem like a strange gift to give for
-                the holidays, it’s actually one of the best ways to show your
-                pet that you love them. In an emergency, good pet insurance will
-                cover medical costs so you never have to choose between going
-                into debt and saving your pet’s life. The pet experts over at
-                PetPartners are exactly that: experts. They have vet technicians
-                and animal lovers on their staff who can walk you through
-                exactly what type of coverage you might need for your beloved
-                pet.
+                the holidays, it’s actually one of the best ways to show that
+                special pet parent in your life how much you care. In an
+                emergency, good pet insurance will cover medical costs, so your
+                special someone doesn't have to choose between going into debt
+                and saving their pet’s life. The pet experts over at PetPartners
+                are exactly that: experts. They have vet technicians and animal
+                lovers on their staff who can cater coverage to any pet or
+                budget. Treat your favorite pet person (or your pet) to the gift
+                of good health in 2021.
               </p>
               <a
                 target="_blank"

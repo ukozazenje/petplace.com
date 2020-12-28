@@ -5,13 +5,13 @@ import Footer from "./footer"
 import "../sass/main.sass"
 import EmailDialog from "../components/EmailDialog"
 import HolydayBanner from "./holidayBanner"
-
 const Layout = ({
   children,
   hideFooterNavigation,
   noSearch,
   hideSearch,
   hideHolidayBanner,
+  showPetPartners,
 }) => {
   return (
     <>

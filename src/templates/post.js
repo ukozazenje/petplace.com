@@ -23,6 +23,7 @@ import LikeArticleWidget from "../components/LikeArticleWidget"
 import axios from "axios"
 import CounterImg from "../images/footer-counter.png"
 import PawsomeContent from "../components/PawsomeFallStyleReportContent"
+import PetPartnersBanner from "../components/PetPartnersBanner"
 class Post extends Component {
   state = {
     likes: 0,
@@ -112,6 +113,9 @@ class Post extends Component {
 
   render() {
     const post = this.props.data.wordpressPost
+    const petpartnersRegex = /petpartners.com/gi
+    const petpartnersDisclosure = post.content.match(petpartnersRegex)
+
     const tagList = tags => (
       <div className="post-tags">
         <span>
@@ -134,9 +138,13 @@ class Post extends Component {
       this.props.data.postHeroImg.childImageSharp.fluid.src
 
     const author = (post.author && post.author.name) || "PetPlace Staff"
-
     return (
-      <Layout hideFooterNavigation>
+      <Layout
+        hideFooterNavigation
+        hideHolidayBanner={
+          post.slug === "pet-insurance-as-a-gift" ? true : false
+        }
+      >
         <Seo
           title={`${post.yoast_meta.yoast_wpseo_title}`}
           description={post.yoast_meta.yoast_wpseo_metadesc}
@@ -163,6 +171,7 @@ class Post extends Component {
               />
             </div>
           </section>
+
           <div className="post-hero-img">
             <div className="is-hidden-touch">
               {post.featured_media &&
@@ -201,6 +210,9 @@ class Post extends Component {
               )}
             </div>
           </div>
+          {post.slug === "pet-insurance-as-a-gift" ? (
+            <PetPartnersBanner />
+          ) : null}
           <section className="main-content">
             <div className="container is-fullhd">
               <div className="columns">
@@ -270,7 +282,10 @@ class Post extends Component {
                       </a>
                     </div>
                   </div>
-                  {isMobile ? <AdMobile /> : <AdSet />}
+                  <div className="hide-mobile">
+                    <AdSet />
+                  </div>
+                  {/* {isMobile ? <AdMobile /> : } */}
                   <div className="hide-mobile">
                     <LikeArticleWidget
                       url={post.path}
@@ -342,12 +357,27 @@ class Post extends Component {
                   {post && post.title === "Pawsome Fall Style Report" ? (
                     <PawsomeContent />
                   ) : (
-                    <div
-                      className="single-post-content"
-                      dangerouslySetInnerHTML={{
-                        __html: post.content,
-                      }}
-                    />
+                    <div className="single-post-content">
+                      {petpartnersDisclosure && (
+                        <p className="petpartners-disclosure">
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.petpartners.com/"
+                          >
+                            PetPartners, Inc.
+                          </a>{" "}
+                          is an indirect corporate affiliate of PetPlace.com.
+                          PetPlace may be compensated when you click on or make
+                          a purchase using the links in this article.
+                        </p>
+                      )}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: post.content,
+                        }}
+                      />
+                    </div>
                   )}
                   <div className="counter-wrapper">
                     <img src={CounterImg} alt="number-of-posts" />
