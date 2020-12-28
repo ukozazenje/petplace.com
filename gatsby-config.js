@@ -692,6 +692,7 @@ module.exports = {
           "**/media",
           "**/most-used-tags",
           "**/yoast",
+          "**/allcategories",
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: ["**/posts/1456"],

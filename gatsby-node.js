@@ -43,17 +43,7 @@ exports.createPages = ({ actions, graphql }) => {
         `./src/templates/videoCategory.js`
       )
       _.each(result.data.allWordpressTtgCategories.edges, ({ node: cat }) => {
-        if (cat.slug !== "videos") {
-          createPage({
-            path: `${cat.path}`,
-            component: categoriesTemplate,
-            context: {
-              id: cat.id,
-              slug: cat.slug,
-              title: cat.name,
-            },
-          })
-        } else {
+        if (cat.slug === "videos") {
           createPage({
             path: `/article/category/just-for-fun/videos/`,
             component: categoriesVideoTemplate,
@@ -65,6 +55,56 @@ exports.createPages = ({ actions, graphql }) => {
           })
         }
       })
+    })
+    .then(() => {
+      return graphql(`
+        {
+          allWordpressTtgAllcategories {
+            edges {
+              node {
+                categories {
+                  id
+                  wordpress_id
+                }
+                name
+                slug
+                wordpress_id
+                path
+              }
+            }
+          }
+        }
+      `)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const categoriesNewTemplate = path.resolve(`./src/templates/test.js`)
+
+      _.each(
+        result.data.allWordpressTtgAllcategories.edges,
+        ({ node: cat }) => {
+          if (cat.slug !== "videos") {
+            createPage({
+              path: `${cat.path}`,
+              component: categoriesNewTemplate,
+              context: {
+                id: cat.wordpress_id,
+                categories: cat.categories
+                  ? cat.categories
+                      .map(category => category.wordpress_id)
+                      .concat(cat.wordpress_id)
+                  : [cat.wordpress_id],
+                cat_name: cat.name,
+                cat_path: cat.path,
+              },
+            })
+          }
+        }
+      )
     })
     .then(() => {
       return graphql(`
