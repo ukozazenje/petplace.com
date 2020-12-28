@@ -238,27 +238,27 @@
           "name": "Small Pet Behavior & Training",
           "children": [
             {
-              "url": "https://www.petplace.com/article/category/pet-behavior-training/small-pet-behavior-training/",
+              "url": "/article/category/pet-behavior-training/small-pet-behavior-training/",
               "name": "Small Pet Behavior & Training"
             },
 
             {
-              "url": "https://www.petplace.com/article/category/pet-behavior-training/small-pet-behavior-training/birds-small-pet-behavior-training/",
+              "url": "/article/category/pet-behavior-training/small-pet-behavior-training/birds-small-pet-behavior-training/",
               "name": "Bird Behavior & Training"
             },
 
             {
-              "url": "https://www.petplace.com/article/category/pet-behavior-training/small-pet-behavior-training/fish-small-pet-behavior-training/",
+              "url": "/article/category/pet-behavior-training/small-pet-behavior-training/fish-small-pet-behavior-training/",
               "name": "Fish Behavior & Training"
             },
 
             {
-              "url": "https://www.petplace.com/article/category/pet-behavior-training/small-pet-behavior-training/reptile-small-pet-behavior-training/",
+              "url": "/article/category/pet-behavior-training/small-pet-behavior-training/reptile-small-pet-behavior-training/",
               "name": "Reptile Behavior & Training"
             },
 
             {
-              "url": "https://www.petplace.com/article/category/pet-behavior-training/small-pet-behavior-training/small-mammals-small-pet-behavior-training/",
+              "url": "/article/category/pet-behavior-training/small-pet-behavior-training/small-mammals-small-pet-behavior-training/",
               "name": "Small Mammal Behavior & Training"
             }
           ]
