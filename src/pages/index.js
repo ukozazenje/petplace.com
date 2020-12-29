@@ -14,6 +14,7 @@ import logo from "../images/PPlogo.jpg"
 import Helmet from "react-helmet"
 import WelcomeToPetPlaceSection from "../components/homepage/WelcomeToPetPlaceSection"
 import SearchSection from "../components/homepage/SearchSection"
+import SliderHomePage from "../components/homepage/SliderHomePage"
 const IndexPage = () => {
   return (
     <Layout noSearch={true}>
@@ -51,17 +52,20 @@ const IndexPage = () => {
         `}</script>
       </Helmet>
       <div className="flex-container">
-        <div className="search-wrapper">
+        {/* <div className="search-wrapper">
           <SearchHero />
         </div>
         <div className="desktop-img">
           <HomeHeroImg />
-        </div>
+        </div> 
         <div className="tablet-img">
           <TabletHeroImg />
         </div>
         <div className="mobile-img">
           <MobileHeroImg />
+        </div> */}
+        <div className="home-slider">
+          <SliderHomePage />
         </div>
       </div>
       <SearchSection />
