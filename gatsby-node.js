@@ -82,7 +82,9 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const categoriesNewTemplate = path.resolve(`./src/templates/test.js`)
+      const categoriesNewTemplate = path.resolve(
+        `./src/templates/categoryTemplate.js`
+      )
 
       _.each(
         result.data.allWordpressTtgAllcategories.edges,

@@ -13,7 +13,7 @@ import Seo from "../components/seo"
 import logo from "../images/PPlogo.jpg"
 import Helmet from "react-helmet"
 
-class test extends Component {
+class categoryTemplate extends Component {
   state = {
     posts: this.props.data.allWordpressPost.edges,
     currentPosts: [],
@@ -164,7 +164,7 @@ class test extends Component {
   }
 }
 
-export default test
+export default categoryTemplate
 
 export const testCategoryQuery = graphql`
   query TestCategory($id: Int!, $categories: [Int!]) {
