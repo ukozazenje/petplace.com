@@ -52,16 +52,27 @@ const SliderHomePage = () => {
       }
       missingMobilePostImg: file(relativePath: { eq: "defaultImg.jpg" }) {
         childImageSharp {
-          fixed(width: 1920, height: 580) {
+          fixed(width: 580, height: 400) {
             ...GatsbyImageSharpFixed
           }
         }
       }
     }
-  `)
+  `
+  )
+
+  const truncateString = (str, num) => {
+    if (str.length > num) {
+      const cutString = str.slice(0, num)
+      return `${str.slice(0, cutString.lastIndexOf(' '))} ...`
+    } else {
+      return str
+    }
+  }
+
   const { slider_posts } = data.wordpressTtgPages.acf
   const missingDesktopImg = data.missingDesktopPostImg.childImageSharp.fixed.src
-  console.log("slider_posts", slider_posts)
+  const missingMobileImg = data.missingMobilePostImg.childImageSharp.fixed.src
   return (
     <Slider {...settings}>
       {slider_posts &&
@@ -72,21 +83,21 @@ const SliderHomePage = () => {
               <picture>
                 <source
                   srcset={
-                    slide.featured_img.localFile.childImageSharp.fixed.src
+                    slide.featured_img.localFile.childImageSharp.fixed.src || missingDesktopImg
                   }
                   media="(min-width: 769px)"
                 />
                 <source
                   srcset={
                     slide.featured_img_mobile.localFile.childImageSharp.fixed
-                      .src
+                      .src || missingMobileImg
                   }
                   media="(min-width: 440px)"
                 />
                 <img
                   src={
-                    slide.featured_img_mobile.localFile.childImageSharp.fixed
-                      .src
+                    slide.featured_img_mobile.localFile.childImageSharp.fixed 
+                      .src || missingMobileImg
                   }
                   alt="Some picture"
                 />
@@ -95,9 +106,14 @@ const SliderHomePage = () => {
             <div className="text-wrapper">
               <div className="text-content">
                 <h1
+                  // dangerouslySetInnerHTML={{
+                  //   __html: slide.post_title || "No title",
+                  // }}
+                  
                   dangerouslySetInnerHTML={{
-                    __html: slide.post_title || "No title",
+                    __html: truncateString(slide.post_title, 40) || "No title",
                   }}
+                  
                 />
                 <Link class="read-more-btn" to={slide.path || "/"}>
                   <img
