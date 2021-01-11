@@ -15,7 +15,7 @@ const Layout = ({
 }) => {
   return (
     <>
-      <HolydayBanner hideHolidayBanner={hideHolidayBanner} />
+      {/* <HolydayBanner hideHolidayBanner={hideHolidayBanner} /> */}
       <Header noSearch={noSearch} hideSearch={hideSearch} />
       {children}
       <EmailDialog />
