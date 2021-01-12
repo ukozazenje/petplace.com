@@ -12,7 +12,8 @@ const SearchSection = () => {
             <div class="el">
               <div class="inner-el"></div>
             </div>
-            <h2>Search Our <span>Vet-Approved Articles</span></h2>          
+            <h2>Search Our <span>Vet-Approved Articles</span></h2>
+            <p>Our comprehensive library of informative articles covers medical diagnosis, wellness tips, breed bios, and everything in between.</p>
             <Formik
               initialValues={{ title: '' }}
               onSubmit={(values, actions) => {
@@ -34,7 +35,6 @@ const SearchSection = () => {
                 </Form>
               )}
             </Formik>
-            <p>Our comprehensive library of informative articles covers medical diagnosis, wellness tips, breed bios, and everything in between.</p>
           </div>
         </div>
       </div>
