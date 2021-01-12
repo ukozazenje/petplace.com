@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Link } from "gatsby"
 import NoImg from "../static/images/noPostImg"
@@ -7,13 +8,14 @@ import Pagination from "../components/search/pagination"
 import HeroSection from "../components/categories/categoryHero"
 import SideBar from "../components/categories/sideBar"
 import PopularPosts from "../components/categories/PopularPosts"
-import DefaultImg from "../images/defaultImg.jpg"
 import Img from "gatsby-image"
+import Seo from "../components/seo"
+import logo from "../images/PPlogo.jpg"
 import Helmet from "react-helmet"
 
-class Tags extends Component {
+class categoryTemplate extends Component {
   state = {
-    posts: this.props.data.wordpressTtgTags.posts,
+    posts: this.props.data.allWordpressPost.edges,
     currentPosts: [],
     currentPage: 1,
     totalPages: 0,
@@ -23,7 +25,7 @@ class Tags extends Component {
   componentDidMount() {
     const { limit } = this.state
     this.setState({
-      currentPosts: this.props.data.wordpressTtgTags.posts.slice(0, limit),
+      currentPosts: this.props.data.allWordpressPost.edges.slice(0, limit),
       currentPage: 1,
     })
   }
@@ -44,52 +46,56 @@ class Tags extends Component {
   }
 
   render() {
+    console.log("Posts--->", this.props.data.allWordpressPost.edges)
+    console.log(this.props.data.allWordpressCategory)
     const { limit, currentPage, posts } = this.state
     const total = posts.length
     return (
       <Layout>
+        <Seo
+          title={`${this.props.pageContext.cat_name} | Petplace`}
+          description="PetPlace is the most comprehensive resource for pet information available on the web"
+        />
         <Helmet>
-          <title>{`${this.props.data.wordpressTtgTags.name} | Petplace`}</title>
-          <meta
-            name="description"
-            content="PetPlace is the most comprehensive resource for pet information available on the web."
-          />
-          <meta name="robots" content="noindex" />
-          <meta property="og:type" content="article" />
-          <meta
-            property="og:title"
-            content={`${this.props.data.wordpressTtgTags.name} | Petplace`}
-          />
-          <meta
-            property="og:description"
-            content="PetPlace is the most comprehensive resource for pet information available on the web."
-          />
-          <meta property="og:image" content={DefaultImg} />
-          <meta property="og:url" content="PERMALINK" />
-          <meta property="og:site_name" content="Petplace" />
-          <meta
-            name="twitter:title"
-            content={`${this.props.data.wordpressTtgTags.name} | Petplace`}
-          />
-          <meta
-            name="twitter:description"
-            content="PetPlace is the most comprehensive resource for pet information available on the web."
-          />
-          <meta name="twitter:image" content={DefaultImg} />
-          <meta name="twitter:creator" content="@PetPlaceFans" />
+          {/* inline script elements */}
+          <script type="application/ld+json">{`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "headline": "PetPlace: The Web's #1 Source of Pet Information",
+              "description": "PetPlace is the most comprehensive resource for pet information available on the web",
+              "author": {
+                "@type": "Organization",
+                "name": "PetPlace Staff"
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "${process.env.GATSBY_WEB_SITE_URL}${this.props.pageContext.cat_path}"
+              },  
+              "publisher": {
+                "@type": "Organization",
+                "name": "PetPlace",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "${process.env.GATSBY_WEB_SITE_URL}${logo}",
+                  "width": 236,
+                  "height": 45
+                }
+              }
+            }
+          `}</script>
         </Helmet>
-        <HeroSection title={this.props.data.wordpressTtgTags.name} />
+        <HeroSection title={this.props.pageContext.cat_name} />
         <section className="section category-posts">
           <div className="container is-fullhd">
             <div className="columns categories-columns">
-              <SideBar noSubcategory />
+              <SideBar
+                subcategories={this.props.data.allWordpressCategory.edges}
+              />
               <div className="column">
                 <div className="columns posts-list-container">
-                  {this.state.currentPosts.map(post => (
-                    <div
-                      className="column is-one-third"
-                      key={post.wordpress_id}
-                    >
+                  {this.state.currentPosts.map(({ node: post }) => (
+                    <div className="column is-one-third" key={post.id}>
                       <div className="category-post-card">
                         <div className="card-img">
                           <Link to={post.path}>
@@ -115,12 +121,12 @@ class Tags extends Component {
                             )}
                           </Link>
                           <Link
-                            to={post.category_path}
+                            to={post.categories[0]["path"]}
                             className={`card-category ${categoryColor(
-                              post.category_name
+                              post.categories[0]["name"].replace(/&amp;/g, "&")
                             )}`}
                           >
-                            {post.category_name.replace(/&amp;/g, "&")}
+                            {post.categories[0]["name"].replace(/&amp;/g, "&")}
                           </Link>
                         </div>
                         <div className="card-content">
@@ -133,7 +139,7 @@ class Tags extends Component {
                           </div>
                           <div className="card-author">
                             <span>{post.date || "date"} · </span>
-                            <span>{post.author_name || "author"}</span>
+                            <span>{post.author.name || "author"}</span>
                           </div>
                         </div>
                       </div>
@@ -158,31 +164,52 @@ class Tags extends Component {
   }
 }
 
-export default Tags
+export default categoryTemplate
 
-export const pageQuery = graphql`
-  query TagPage($id: String!) {
-    wordpressTtgTags(id: { eq: $id }) {
-      name
-      id
-      posts {
-        title
-        author_name
-        category_path
-        category_name
-        date
-        path
-        wordpress_id
-        featured_media {
-          source_url
-          alt_text
-          localFile {
-            childImageSharp {
-              fluid(maxHeight: 600) {
-                ...GatsbyImageSharpFluid
+export const testCategoryQuery = graphql`
+  query TestCategory($id: Int!, $categories: [Int!]) {
+    allWordpressPost(
+      filter: {
+        categories: { elemMatch: { wordpress_id: { in: $categories } } }
+      }
+    ) {
+      edges {
+        node {
+          id
+          content
+          title
+          featured_media {
+            source_url
+            alt_text
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 300, quality: 80) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
+          date(formatString: "MMMM DD, YYYY")
+          path
+          categories {
+            path
+            name
+          }
+          author {
+            name
+          }
+        }
+      }
+    }
+    allWordpressCategory(
+      filter: { parent_element: { wordpress_id: { eq: $id } } }
+    ) {
+      edges {
+        node {
+          id
+          name
+          path
         }
       }
     }
