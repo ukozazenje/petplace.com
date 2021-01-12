@@ -33,10 +33,19 @@ const SliderHomePage = () => {
                 }
               }
             }
-            featured_img_mobile {
+            featured_img_tablet {
               localFile {
                 childImageSharp {
                   fixed(width: 580, height: 400) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+            }
+            featured_img_mobile {
+              localFile {
+                childImageSharp {
+                  fixed(width: 320, height: 400) {
                     ...GatsbyImageSharpFixed
                   }
                 }
@@ -91,7 +100,7 @@ const SliderHomePage = () => {
                 />
                 <source
                   srcset={
-                    slide.featured_img_mobile.localFile.childImageSharp.fixed
+                    slide.featured_img_tablet.localFile.childImageSharp.fixed
                       .src || missingMobileImg
                   }
                   media="(min-width: 440px)"
