@@ -7,8 +7,8 @@ const AboutUsHero = () => {
         <div className="columns">
           <div className="column image-wrapper">              
             <div className="video-container">
-              <iframe src="https://www.youtube.com/embed/7tZdK2Qa1HQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>              
+              <iframe src="https://www.youtube.com/embed/r-0nrUHU54M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>            
           </div>
           <div className="column">
             <h1>
