@@ -305,6 +305,46 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
     .then(() => {
+      return graphql(`
+        {
+          allWordpressPuppyDiariesPosts(sort: { order: ASC, fields: date }) {
+            edges {
+              node {
+                id
+                slug
+                path
+              }
+            }
+          }
+        }
+      `)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const PuppyDiariesTemplate = path.resolve(`./src/templates/puppyDiary.js`)
+
+      // In production builds, filter for only published posts.
+      const allPuppyDiaries = result.data.allWordpressPuppyDiariesPosts.edges
+
+      // Iterate over the array of posts
+      _.each(allPuppyDiaries, ({ node: puppyDiary }, key) => {
+        // Create the Gatsby page for this WordPress post
+        console.log("Key", key)
+        createPage({
+          path: `${puppyDiary.path}`,
+          component: PuppyDiariesTemplate,
+          context: {
+            post_number: key + 1,
+            id: puppyDiary.id,
+          },
+        })
+      })
+    })
+    .then(() => {
       return axios
         .get("http://staging.ppl.torchte.ch/wp-json/ttg/v2/vetlocator")
         .then(res => res.data)
