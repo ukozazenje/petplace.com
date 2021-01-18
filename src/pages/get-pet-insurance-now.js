@@ -14,10 +14,16 @@ import AdvertorialImg3 from "../images/advertorial-3.svg"
 import AdvertorialArrow from "../images/advertorial-arrow.svg"
 import { filterAuthorsLink, filterFaqPosts } from "../components/functions"
 import Sticky from "react-stickynode"
+import SEO from "../components/seo"
 
 const getPetInsuranceNow = () => {
   return (
     <>
+      <SEO
+        title="An Emergency Vet Bill Left Me with Sticker Shock - PetPlace"
+        description='The definition of an emergency is "a serious, unexpected, and often dangerous situation requiring immediate action." Due to its very nature, there is no way to plan for an emergency; they can happen at any time, regardless of age or relative well-being. This is true for humans and pets.'
+        image="/images/get-pet-insurance-now.jpg"
+      />
       <nav className="advertorial-navbar">
         <div className="container is-fullhd">
           <div className="advertorial-navigation-wrapper phone-number-navigation">
