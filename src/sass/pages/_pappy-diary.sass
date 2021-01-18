@@ -131,16 +131,17 @@
     @media only screen and (min-width: 1280px)
       display: block
   .post-hero-img 
+    margin-bottom: 30px
     // height: 568px
     // background: url('../images/puppy-diaries/puppy-diaries-background-mobile.jpg')
     // background-size: cover
     // background-position: center bottom
-    position: relative
+    // position: relative
     // padding-top: 30px
     // padding-left: 15px
-    +fullhd
-      padding-left: 0
-    +tablet 
+    // +fullhd
+    //   padding-left: 0
+    // +tablet 
       // background: url('../images/puppy-diaries/puppy-diaries-background.jpg')
       // background-size: cover
       // background-position: center 
@@ -150,6 +151,21 @@
       margin-top: 30px
       +tablet 
         margin-top: 60px
+  .puppy-diaries-intro 
+    padding-top: 0
+    p
+      text-align: center
+      max-width: 1030px
+      margin: 0 auto
+      font-size: 1rem
+      margin-bottom: 0.75rem
+      +tablet 
+        font-size: 1.375rem
+      +widescreen 
+        font-size: 1.5rem
+        margin-bottom: 1.5rem
+      a 
+        color: $orange
   .story-number
     float: left 
     margin: 0 15px 15px 0

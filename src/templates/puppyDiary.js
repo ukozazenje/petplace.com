@@ -187,7 +187,13 @@ class Post extends Component {
               </div>
             </div>
           </div>
-
+          <section className="section puppy-diaries-intro">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: post.acf.intro_text,
+              }}
+            />
+          </section>
           <section className="main-content">
             <div className="container is-fullhd">
               <div className="columns">
