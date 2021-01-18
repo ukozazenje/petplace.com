@@ -20,11 +20,12 @@ const getPetInsuranceNow = () => {
     <>
       <nav className="advertorial-navbar">
         <div className="container is-fullhd">
-          <div className="advertorial-navigation-wrapper">
+          <div className="advertorial-navigation-wrapper phone-number-navigation">
             <div className="advertorial-logo">
               <img src={logoImg} alt="logo" />
             </div>
-            <span className="advertorial-navigation-headline">Advertorial</span>
+            <span className="advertorial-navigation-headline advertorial-navigation-headline-w-phone">Advertorial</span>
+            <div className="phone-wrapper"><span>Give us a call to discuss your options:</span> <a className="tel-link" href="tel:18559285348">1-855-928-5348</a></div>
           </div>
         </div>
       </nav>
@@ -177,6 +178,16 @@ const getPetInsuranceNow = () => {
                 emergency. Who better to tell you all the reasons why pet
                 insurance is a sound investment than a pet parent?
               </p>
+              <div className="advertorial-free-quote-wrapper">
+                <span>Get Your Free Quote</span> <img src={AdvertorialArrow} />{" "}
+                <a
+                  href="https://www.petpartners.com/enroll?p=PPNA2020"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get Your Free Quote
+                </a>
+              </div>
               <h3>Protect Your Wallet from Genetic Conditions</h3>
               <p>
                 Adam Price and his family had thought about pet insurance
@@ -212,16 +223,7 @@ const getPetInsuranceNow = () => {
                 gotten Sydney’s health under control, but have an expensive
                 stack of veterinary bills as a result.
               </p>
-              <div className="advertorial-free-quote-wrapper">
-                <span>Get Your Free Quote</span> <img src={AdvertorialArrow} />{" "}
-                <a
-                  href="https://www.petpartners.com/enroll?p=PPNA2020"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Get Your Free Quote
-                </a>
-              </div>
+              
               <h3>Even Puppies Have Health Problems</h3>
               <p>
                 After moving across the country 8 years ago, Brendan Heffernan
