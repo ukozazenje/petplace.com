@@ -1,0 +1,174 @@
+.puppy-diary-page
+  margin-bottom: 60px
+  .mobile-image
+    display: block
+    @media only screen and (min-width: 600px) 
+      display: none
+  .tablet-image
+    display: none
+    @media only screen and (min-width: 600px) and (max-width: 1280px)
+      display: block
+  .desktop-image
+    display: none
+    @media only screen and (min-width: 1280px)
+      display: block
+  .puppy-diaries-hero-section
+    position: relative
+  .puppy-diaries-hero-intro 
+    position: absolute
+    z-index: 1
+    margin-top: 180px
+    width: 630px
+    h1 
+      margin-bottom: 30px
+  .diary-wrapper
+    display: flex 
+    align-items: center
+    flex-direction: column-reverse
+    margin-bottom: 30px
+    +desktop 
+      margin-bottom: 60px
+      align-items: flex-start
+      justify-content: space-between
+      flex-direction: row
+    .diary-content 
+      margin-top: 30px
+      +desktop 
+        margin-top: 0
+        margin-right: 30px
+        max-width: 60%
+      +widescreen
+        max-width: 740px
+      h3 
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1.5rem
+        line-height: 28px
+        color: #353534
+        margin-bottom: 10px
+        +desktop 
+          margin-bottom: 30px
+          font-size: 2rem
+          line-height: 38px
+      .diary-intro-text 
+        p
+          font-family: $family-primary
+          font-size: 1rem
+          line-height: 24px
+          color: #353534
+          margin-bottom: 30px
+          +desktop
+            font-size: 1.125rem
+            line-height: 32px
+      button 
+        background: $orange 
+        color: #ffffff
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1rem
+        height: 50px
+        display: flex 
+        flex-direction: row 
+        align-items: center
+        justify-content: center
+        border-radius: 50px 
+        border: none
+        width: 100%
+        margin-top: 30px
+        margin-bottom: 50px
+        margin-left: auto
+        margin-right: auto
+        max-width: 400px
+        &:hover 
+          cursor: pointer
+        +tablet 
+          margin: 0
+          font-size: 1.25rem 
+          width: 215px
+          height: 60px
+        img 
+          margin-right: 10px
+        a 
+          color: #ffffff 
+          &:hover 
+            color: #ffffff
+      
+    .diary-img-wrapper
+      width: 100%
+      max-width: 480px  
+      align-self: flex-start
+      +desktop
+        min-width: 480px
+      img 
+        border-radius: 6px
+       
+.puppy-diary-post 
+  margin-top: 0
+  .breadcrumbs-wrapper 
+    position: absolute
+    top: 20px
+    z-index: 11
+    left: 50%
+    margin: auto
+    left: 0
+    right: 0 
+    +fullhd 
+      top: 40px
+    .breadcrumbs
+      margin-left: 15px
+      +fullhd
+        margin-left: 0
+  .mobile-image
+    display: block
+    @media only screen and (min-width: 600px) 
+      display: none
+  .tablet-image
+    display: none
+    @media only screen and (min-width: 600px) and (max-width: 1280px)
+      display: block
+  .desktop-image
+    display: none
+    @media only screen and (min-width: 1280px)
+      display: block
+  .post-hero-img
+    position: relative
+    margin-bottom: 30px
+    // height: 568px
+    // background: url('../images/puppy-diaries/puppy-diaries-background-mobile.jpg')
+    // background-size: cover
+    // background-position: center bottom
+    // position: relative
+    // padding-top: 30px
+    // padding-left: 15px
+    // +fullhd
+    //   padding-left: 0
+    // +tablet 
+      // background: url('../images/puppy-diaries/puppy-diaries-background.jpg')
+      // background-size: cover
+      // background-position: center 
+      // padding-top: 60px
+    
+    .puppy-diaries-logo
+      margin-top: 30px
+      +tablet 
+        margin-top: 60px
+  .puppy-diaries-intro 
+    padding-top: 0
+    p
+      text-align: center
+      max-width: 1030px
+      margin: 0 auto
+      font-size: 1rem
+      margin-bottom: 0.75rem
+      +tablet 
+        font-size: 1.375rem
+      +widescreen 
+        font-size: 1.5rem
+        margin-bottom: 1.5rem
+      a 
+        color: $orange
+  .story-number
+    float: left 
+    margin: 0 15px 15px 0
+    +tablet 
+      margin: 0 30px 30px 0
