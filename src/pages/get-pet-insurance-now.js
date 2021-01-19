@@ -29,15 +29,13 @@ const getPetInsuranceNow = () => {
           <div className="advertorial-navigation-wrapper phone-number-navigation">
             <div className="advertorial-logo">
               <img src={logoImg} alt="logo" />
-            </div>
-            <span className="advertorial-navigation-headline advertorial-navigation-headline-w-phone">Advertorial</span>
+            </div>            
             <div className="phone-wrapper"><span>Give us a call to discuss your options:</span> <a className="tel-link" href="tel:18559285348">1-855-928-5348</a></div>
           </div>
         </div>
       </nav>
       <div className="is-hidden-desktop advertorial-mobile-heading">
-        <h1>Advertorial<br />
-        An Emergency Vet Bill Left Me with Sticker Shock</h1>
+        <h1><span>An Emergency Vet Bill Left Me with Sticker Shock</span></h1>
       </div>
       <AdvertorialHero />
       <section className="advertorial-main-content">
