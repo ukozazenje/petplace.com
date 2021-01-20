@@ -105,15 +105,36 @@ const PopularPosts = props => {
         <div className="tile is-parent">
           <div className="tile is-child main-box">
             <div className="main-box-mobile-img">
+              {/* {mainPost.category_name === "Puppy Diaries" ? (
+                <Link
+                  className={`category-link-btn ${categoryColor(
+                    "Puppy Diaries"
+                  )} hide-desktop`}
+                  to="/article/puppy-diaries/"
+                  dangerouslySetInnerHTML={{
+                    __html: "Puppy Diaries",
+                  }}
+                />
+              ) : ( */}
               <Link
                 className={`category-link-btn ${categoryColor(
-                  mainPost.category_name
+                  mainPost.category_name === "Puppy Diaries"
+                    ? "Puppy Diaries"
+                    : mainPost.category_name
                 )} hide-desktop`}
-                to={mainPost.category_path}
+                to={
+                  mainPost.category_name === "Puppy Diaries"
+                    ? "/article/puppy-diaries/"
+                    : mainPost.category_path
+                }
                 dangerouslySetInnerHTML={{
-                  __html: mainPost.category_name,
+                  __html:
+                    mainPost.category_name === "Puppy Diaries"
+                      ? "Puppy Diaries"
+                      : mainPost.category_name,
                 }}
               />
+              {/* )} */}
               <Img
                 sizes={{
                   ...mainPost.featured_image.full.localFile.childImageSharp
@@ -135,16 +156,27 @@ const PopularPosts = props => {
             </div>
             <div
               className={`main-content ${categoryColor(
-                mainPost.category_name
+                mainPost.category_name === "Puppy Diaries"
+                  ? "Puppy Diaries"
+                  : mainPost.category_name
               )}-transparent`}
             >
               <Link
                 className={`category-link-btn ${categoryColor(
-                  mainPost.category_name
+                  mainPost.category_name === "Puppy Diaries"
+                    ? "Puppy Diaries"
+                    : mainPost.category_name
                 )}  hide-mobile`}
-                to={mainPost.category_path}
+                to={
+                  mainPost.category_name === "Puppy Diaries"
+                    ? "/article/puppy-diaries/"
+                    : mainPost.category_path
+                }
                 dangerouslySetInnerHTML={{
-                  __html: mainPost.category_name,
+                  __html:
+                    mainPost.category_name === "Puppy Diaries"
+                      ? "Puppy Diaries"
+                      : mainPost.category_name,
                 }}
               />
               <Link to={mainPost.path}>
@@ -177,11 +209,20 @@ const PopularPosts = props => {
             <div className="sub-content">
               <Link
                 className={`category-link-btn ${categoryColor(
-                  firstPost.category_name
+                  firstPost.category_name === "Puppy Diaries"
+                    ? "Puppy Diaries"
+                    : firstPost.category_name
                 )}`}
-                to={firstPost.category_path}
+                to={
+                  firstPost.category_name === "Puppy Diaries"
+                    ? "/article/puppy-diaries/"
+                    : firstPost.category_path
+                }
                 dangerouslySetInnerHTML={{
-                  __html: firstPost.category_name,
+                  __html:
+                    firstPost.category_name === "Puppy Diaries"
+                      ? "Puppy Diaries"
+                      : firstPost.category_name,
                 }}
               />
               <Link to={firstPost.path}>
@@ -211,11 +252,20 @@ const PopularPosts = props => {
             <div className="sub-content align-slef-start">
               <Link
                 className={`category-link-btn ${categoryColor(
-                  secondPost.category_name
+                  secondPost.category_name === "Puppy Diaries"
+                    ? "Puppy Diaries"
+                    : secondPost.category_name
                 )}`}
-                to={secondPost.category_path}
+                to={
+                  secondPost.category_name === "Puppy Diaries"
+                    ? "/article/puppy-diaries/"
+                    : secondPost.category_path
+                }
                 dangerouslySetInnerHTML={{
-                  __html: secondPost.category_name,
+                  __html:
+                    secondPost.category_name === "Puppy Diaries"
+                      ? "Puppy Diaries"
+                      : secondPost.category_name,
                 }}
               />
               <Link to={secondPost.path}>
