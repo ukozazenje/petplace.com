@@ -29,13 +29,20 @@ const getPetInsuranceNow = () => {
           <div className="advertorial-navigation-wrapper phone-number-navigation">
             <div className="advertorial-logo">
               <img src={logoImg} alt="logo" />
-            </div>            
-            <div className="phone-wrapper"><span>Give us a call to discuss your options:</span> <a className="tel-link" href="tel:18559285348">1-855-928-5348</a></div>
+            </div>
+            <div className="phone-wrapper">
+              <span>Give us a call to discuss your options:</span>{" "}
+              <a className="tel-link" href="tel:18559285348">
+                1-855-928-5348
+              </a>
+            </div>
           </div>
         </div>
       </nav>
       <div className="is-hidden-desktop advertorial-mobile-heading">
-        <h1><span>An Emergency Vet Bill Left Me with Sticker Shock</span></h1>
+        <h1>
+          <span>An Emergency Vet Bill Left Me with Sticker Shock</span>
+        </h1>
       </div>
       <AdvertorialHero />
       <section className="advertorial-main-content">
@@ -185,7 +192,7 @@ const getPetInsuranceNow = () => {
               <div className="advertorial-free-quote-wrapper">
                 <span>Get Your Free Quote</span> <img src={AdvertorialArrow} />{" "}
                 <a
-                  href="https://www.petpartners.com/enroll?p=PPNA2020"
+                  href="https://www.petpartners.com/enroll?p=PPFB2020"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -227,7 +234,7 @@ const getPetInsuranceNow = () => {
                 gotten Sydney’s health under control, but have an expensive
                 stack of veterinary bills as a result.
               </p>
-              
+
               <h3>Even Puppies Have Health Problems</h3>
               <p>
                 After moving across the country 8 years ago, Brendan Heffernan
@@ -330,7 +337,7 @@ const getPetInsuranceNow = () => {
               <div className="advertorial-free-quote-wrapper">
                 <span>Get Your Free Quote</span> <img src={AdvertorialArrow} />{" "}
                 <a
-                  href="https://www.petpartners.com/enroll?p=PPNA2020"
+                  href="https://www.petpartners.com/enroll?p=PPFB2020"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
