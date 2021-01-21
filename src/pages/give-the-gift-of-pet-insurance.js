@@ -29,7 +29,12 @@ const giveTheGiftOfPetInsurance = () => {
             <div className="advertorial-logo">
               <img src={logoImg} alt="logo" />
             </div>
-            <div className="phone-wrapper"><span>Give us a call to discuss your options:</span> <a className="tel-link" href="tel:18559285348">1-855-928-5348</a></div>
+            <div className="phone-wrapper">
+              <span>Give us a call to discuss your options:</span>{" "}
+              <a className="tel-link" href="tel:18559285348">
+                1-855-928-5348
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -412,7 +417,7 @@ const giveTheGiftOfPetInsurance = () => {
               {/* <div className="advertorial-free-quote-wrapper">
                 <span>Get Your Free Quote</span> <img src={AdvertorialArrow} />{" "}
                 <a
-                  href="https://www.petpartners.com/enroll?p=PPNA2020"
+                  href="www.petpartners.com/enroll?p=PPFB2020"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
