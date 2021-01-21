@@ -417,7 +417,7 @@ const giveTheGiftOfPetInsurance = () => {
               {/* <div className="advertorial-free-quote-wrapper">
                 <span>Get Your Free Quote</span> <img src={AdvertorialArrow} />{" "}
                 <a
-                  href="www.petpartners.com/enroll?p=PPFB2020"
+                  href="https://www.petpartners.com/enroll?p=PPFB2020"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
