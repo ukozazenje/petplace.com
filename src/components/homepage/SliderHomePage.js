@@ -12,7 +12,7 @@ const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 5000
+  autoplaySpeed: 5000,
 }
 
 const SliderHomePage = () => {
@@ -24,6 +24,9 @@ const SliderHomePage = () => {
             author
             path
             post_title
+            acf {
+              slider_title
+            }
             featured_img {
               localFile {
                 childImageSharp {
@@ -69,13 +72,12 @@ const SliderHomePage = () => {
         }
       }
     }
-  `
-  )
+  `)
 
   const truncateString = (str, num) => {
     if (str.length > num) {
       const cutString = str.slice(0, num)
-      return `${str.slice(0, cutString.lastIndexOf(' '))} ...`
+      return `${str.slice(0, cutString.lastIndexOf(" "))} ...`
     } else {
       return str
     }
@@ -84,6 +86,7 @@ const SliderHomePage = () => {
   const { slider_posts } = data.wordpressTtgPages.acf
   const missingDesktopImg = data.missingDesktopPostImg.childImageSharp.fixed.src
   const missingMobileImg = data.missingMobilePostImg.childImageSharp.fixed.src
+  console.log("slider_posts", slider_posts)
   return (
     <Slider {...settings}>
       {slider_posts &&
@@ -94,7 +97,8 @@ const SliderHomePage = () => {
               <picture>
                 <source
                   srcset={
-                    slide.featured_img.localFile.childImageSharp.fixed.src || missingDesktopImg
+                    slide.featured_img.localFile.childImageSharp.fixed.src ||
+                    missingDesktopImg
                   }
                   media="(min-width: 769px)"
                 />
@@ -107,7 +111,7 @@ const SliderHomePage = () => {
                 />
                 <img
                   src={
-                    slide.featured_img_mobile.localFile.childImageSharp.fixed 
+                    slide.featured_img_mobile.localFile.childImageSharp.fixed
                       .src || missingMobileImg
                   }
                   alt="Some picture"
@@ -120,11 +124,13 @@ const SliderHomePage = () => {
                   // dangerouslySetInnerHTML={{
                   //   __html: slide.post_title || "No title",
                   // }}
-                  
+
                   dangerouslySetInnerHTML={{
-                    __html: truncateString(slide.post_title, 40) || "No title",
+                    __html:
+                      slide && slide.acf && slide.acf.slider_title
+                        ? slide.acf.slider_title
+                        : truncateString(slide.post_title, 40) || "No title",
                   }}
-                  
                 />
                 <Link class="read-more-btn" to={slide.path || "/"}>
                   <img
