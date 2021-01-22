@@ -37,6 +37,7 @@ module.exports = {
       options: {
         output: `/sitemap.xml`,
         exclude: [`/search`, `/tags/*`],
+        sitemapSize: 5000,
       },
     },
     {
