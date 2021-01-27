@@ -26,6 +26,15 @@ const SliderHomePage = () => {
             post_title
             acf {
               slider_title
+              slide_image {
+                localFile {
+                  childImageSharp {
+                    fixed(width: 1920, height: 580) {
+                      ...GatsbyImageSharpFixed
+                    }
+                  }
+                }
+              }
             }
             featured_img {
               localFile {
@@ -97,6 +106,11 @@ const SliderHomePage = () => {
               <picture>
                 <source
                   srcset={
+                    (slide.acf &&
+                      slide.acf.slide_image &&
+                      slide.acf.slide_image.localFile &&
+                      slide.acf.slide_image.localFile.childImageSharp.fixed
+                        .src) ||
                     slide.featured_img.localFile.childImageSharp.fixed.src ||
                     missingDesktopImg
                   }
