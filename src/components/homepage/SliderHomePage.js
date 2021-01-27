@@ -24,17 +24,35 @@ const SliderHomePage = () => {
             author
             path
             post_title
-            acf {
-              slider_title
-              slide_image {
-                localFile {
-                  childImageSharp {
-                    fixed(width: 1920, height: 580) {
-                      ...GatsbyImageSharpFixed
-                    }
+            slider_desktop_img {
+              localFile {
+                childImageSharp {
+                  fixed(width: 1920, height: 580) {
+                    ...GatsbyImageSharpFixed
                   }
                 }
               }
+            }
+            slider_tablet_img {
+              localFile {
+                childImageSharp {
+                  fixed(width: 580, height: 400) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+            }
+            slider_mobile_img {
+              localFile {
+                childImageSharp {
+                  fixed(width: 320, height: 400) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+            }
+            acf {
+              slider_title
             }
             featured_img {
               localFile {
@@ -106,10 +124,9 @@ const SliderHomePage = () => {
               <picture>
                 <source
                   srcset={
-                    (slide.acf &&
-                      slide.acf.slide_image &&
-                      slide.acf.slide_image.localFile &&
-                      slide.acf.slide_image.localFile.childImageSharp.fixed
+                    (slide &&
+                      slide.slider_desktop_img &&
+                      slide.slider_desktop_img.localFile.childImageSharp.fixed
                         .src) ||
                     slide.featured_img.localFile.childImageSharp.fixed.src ||
                     missingDesktopImg
@@ -118,15 +135,25 @@ const SliderHomePage = () => {
                 />
                 <source
                   srcset={
+                    (slide &&
+                      slide.slider_tablet_img &&
+                      slide.slider_tablet_img.localFile.childImageSharp.fixed
+                        .src) ||
                     slide.featured_img_tablet.localFile.childImageSharp.fixed
-                      .src || missingMobileImg
+                      .src ||
+                    missingMobileImg
                   }
                   media="(min-width: 440px)"
                 />
                 <img
                   src={
+                    (slide &&
+                      slide.slider_mobile_img &&
+                      slide.slider_mobile_img.localFile.childImageSharp.fixed
+                        .src) ||
                     slide.featured_img_mobile.localFile.childImageSharp.fixed
-                      .src || missingMobileImg
+                      .src ||
+                    missingMobileImg
                   }
                   alt="Some picture"
                 />
