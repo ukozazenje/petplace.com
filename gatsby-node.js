@@ -307,7 +307,9 @@ exports.createPages = ({ actions, graphql }) => {
     .then(() => {
       return graphql(`
         {
-          allWordpressPuppyDiariesPosts(sort: { order: ASC, fields: date }) {
+          allWordpressPuppyDiariesPosts(
+            sort: { order: ASC, fields: wordpress_id }
+          ) {
             edges {
               node {
                 id
