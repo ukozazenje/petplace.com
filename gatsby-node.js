@@ -43,17 +43,7 @@ exports.createPages = ({ actions, graphql }) => {
         `./src/templates/videoCategory.js`
       )
       _.each(result.data.allWordpressTtgCategories.edges, ({ node: cat }) => {
-        if (cat.slug !== "videos") {
-          createPage({
-            path: `${cat.path}`,
-            component: categoriesTemplate,
-            context: {
-              id: cat.id,
-              slug: cat.slug,
-              title: cat.name,
-            },
-          })
-        } else {
+        if (cat.slug === "videos") {
           createPage({
             path: `/article/category/just-for-fun/videos/`,
             component: categoriesVideoTemplate,
@@ -65,6 +55,109 @@ exports.createPages = ({ actions, graphql }) => {
           })
         }
       })
+    })
+    .then(() => {
+      return graphql(`
+        {
+          allWordpressTtgAllcategories {
+            edges {
+              node {
+                categories {
+                  id
+                  wordpress_id
+                  path
+                  name
+                }
+                name
+                slug
+                wordpress_id
+                path
+              }
+            }
+          }
+          allWordpressPost(sort: { fields: date, order: ASC }) {
+            edges {
+              node {
+                id
+                slug
+                path
+                title
+                categories {
+                  id
+                  name
+                  path
+                }
+              }
+            }
+          }
+        }
+      `)
+    })
+    .then(result => {
+      if (result.errors) {
+        result.errors.forEach(e => console.error(e.toString()))
+        return Promise.reject(result.errors)
+      }
+
+      const categoriesNewTemplate = path.resolve(
+        `./src/templates/categoryTemplate.js`
+      )
+      const categoryPosts = result.data.allWordpressPost.edges
+
+      _.each(
+        result.data.allWordpressTtgAllcategories.edges,
+        ({ node: cat }) => {
+          const allCats = cat.categories
+            ? cat.categories.map(category => category.path).concat(cat.path)
+            : [cat.path]
+          const allCategoryPosts = categoryPosts.filter(
+            ({ node: posts }) =>
+              posts.categories.filter(category =>
+                allCats.includes(category.path)
+              ).length
+          )
+          if (cat.slug !== "videos") {
+            // createPage({
+            //   path: `${cat.path}`,
+            //   component: categoriesNewTemplate,
+            //   context: {
+            //     id: cat.wordpress_id,
+            //     categories: cat.categories
+            //       ? cat.categories
+            //           .map(category => category.wordpress_id)
+            //           .concat(cat.wordpress_id)
+            //       : [cat.wordpress_id],
+            //     cat_name: cat.name,
+            //     cat_path: cat.path,
+            //     allPosts: categoryPosts.filter(
+            //       ({ node: posts }) =>
+            //         posts.categories.filter(category =>
+            //           allCats.includes(category.path)
+            //         ).length
+            //     ),
+            //   },
+            // })
+            paginate({
+              createPage,
+              items: allCategoryPosts,
+              itemsPerPage: 18,
+              component: categoriesNewTemplate,
+              pathPrefix: ({ pageNumber }) =>
+                pageNumber === 0 ? cat.path : `${cat.path}page`,
+              context: {
+                id: cat.wordpress_id,
+                categories: cat.categories
+                  ? cat.categories
+                      .map(category => category.wordpress_id)
+                      .concat(cat.wordpress_id)
+                  : [cat.wordpress_id],
+                cat_name: cat.name,
+                cat_path: cat.path,
+              },
+            })
+          }
+        }
+      )
     })
     .then(() => {
       return graphql(`
