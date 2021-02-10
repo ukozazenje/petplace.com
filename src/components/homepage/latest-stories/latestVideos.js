@@ -13,6 +13,7 @@ const LatestVideos = props => {
             latest_videos {
               category_link
               category_name
+              category_path
               path
               post_date
               post_title

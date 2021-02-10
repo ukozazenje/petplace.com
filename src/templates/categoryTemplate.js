@@ -1,64 +1,27 @@
-import React, { Component } from "react"
-import { graphql } from "gatsby"
+import React from "react"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
-import { Link } from "gatsby"
-import NoImg from "../static/images/noPostImg"
-import { categoryColor } from "../components/functions"
-import Pagination from "../components/search/pagination"
-import HeroSection from "../components/categories/categoryHero"
-import SideBar from "../components/categories/sideBar"
-import PopularPosts from "../components/categories/PopularPosts"
-import Img from "gatsby-image"
 import Seo from "../components/seo"
-import logo from "../images/PPlogo.jpg"
 import Helmet from "react-helmet"
-
-class categoryTemplate extends Component {
-  state = {
-    posts: this.props.data.allWordpressPost.edges,
-    currentPosts: [],
-    currentPage: 1,
-    totalPages: 0,
-    limit: 18,
-  }
-
-  componentDidMount() {
-    const { limit } = this.state
-    this.setState({
-      currentPosts: this.props.data.allWordpressPost.edges.slice(0, limit),
-      currentPage: 1,
-    })
-  }
-
-  handlePageChange = page => {
-    const { posts, limit } = this.state
-    const offset = (page - 1) * limit
-    const currentPosts = posts.slice(offset, offset + limit)
-    window.scrollTo({
-      top: 100,
-      left: 0,
-      behavior: "smooth",
-    })
-    this.setState({
-      currentPage: page,
-      currentPosts,
-    })
-  }
-
-  render() {
-    console.log("Posts--->", this.props.data.allWordpressPost.edges)
-    console.log(this.props.data.allWordpressCategory)
-    const { limit, currentPage, posts } = this.state
-    const total = posts.length
-    return (
-      <Layout>
-        <Seo
-          title={`${this.props.pageContext.cat_name} | Petplace`}
-          description="PetPlace is the most comprehensive resource for pet information available on the web"
-        />
-        <Helmet>
-          {/* inline script elements */}
-          <script type="application/ld+json">{`
+import HeroSection from "../components/categories/categoryHero"
+import SideBar from "../components/categories/newSideBar"
+// import PopularPosts from "../components/categories/PopularPosts"
+import Img from "gatsby-image"
+// import NoImg from "../static/images/noPostImg"
+import { categoryColor } from "../components/functions"
+import logo from "../images/PPlogo.jpg"
+import placeholderImg from "../images/no-next-post.jpg"
+const CategoryTemplate = ({ pageContext, data }) => {
+  return (
+    <Layout>
+      <Seo
+        title={`${(pageContext && pageContext.cat_name) || " "} | Petplace`}
+        description="PetPlace is the most comprehensive resource for pet information available on the web"
+        image="/images/pet-health.jpg"
+      />
+      <Helmet>
+        {/* inline script elements */}
+        <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "WebPage",
@@ -70,7 +33,9 @@ class categoryTemplate extends Component {
               },
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "${process.env.GATSBY_WEB_SITE_URL}${this.props.pageContext.cat_path}"
+                "@id": "${process.env.GATSBY_WEB_SITE_URL}${(pageContext &&
+          pageContext.cat_path) ||
+          "/"}"
               },  
               "publisher": {
                 "@type": "Organization",
@@ -84,21 +49,28 @@ class categoryTemplate extends Component {
               }
             }
           `}</script>
-        </Helmet>
-        <HeroSection title={this.props.pageContext.cat_name} />
-        <section className="section category-posts">
-          <div className="container is-fullhd">
-            <div className="columns categories-columns">
-              <SideBar
-                subcategories={this.props.data.allWordpressCategory.edges}
-              />
-              <div className="column">
-                <div className="columns posts-list-container">
-                  {this.state.currentPosts.map(({ node: post }) => (
+      </Helmet>
+      <HeroSection title={(pageContext && pageContext.cat_name) || " "} />
+      <section className="section category-posts">
+        <div className="container is-fullhd">
+          <div className="columns categories-columns">
+            <SideBar
+              subcategories={
+                (data &&
+                  data.allWordpressCategory &&
+                  data.allWordpressCategory.edges) ||
+                ""
+              }
+            />
+            <div className="column">
+              <div className="columns posts-list-container">
+                {data &&
+                  data.allWordpressPost &&
+                  data.allWordpressPost.edges.map(({ node: post }) => (
                     <div className="column is-one-third" key={post.id}>
                       <div className="category-post-card">
                         <div className="card-img">
-                          <Link to={post.path}>
+                          <Link to={post && post.path}>
                             {post.featured_media &&
                             post.featured_media.localFile &&
                             post.featured_media.localFile.childImageSharp &&
@@ -117,58 +89,106 @@ class categoryTemplate extends Component {
                                 }
                               />
                             ) : (
-                              <NoImg />
+                              <img
+                                style={{ width: "100%" }}
+                                className="category-placeholder-image"
+                                src={placeholderImg}
+                                alt="no img"
+                              />
                             )}
                           </Link>
                           <Link
-                            to={post.categories[0]["path"]}
+                            to={
+                              post &&
+                              post.categories &&
+                              post.categories[0]["path"]
+                            }
                             className={`card-category ${categoryColor(
-                              post.categories[0]["name"].replace(/&amp;/g, "&")
+                              post &&
+                                post.categories &&
+                                post.categories[0]["name"].replace(
+                                  /&amp;/g,
+                                  "&"
+                                )
                             )}`}
                           >
-                            {post.categories[0]["name"].replace(/&amp;/g, "&")}
+                            {post &&
+                              post.categories &&
+                              post.categories[0]["name"].replace(/&amp;/g, "&")}
                           </Link>
                         </div>
                         <div className="card-content">
                           <div className="card-title">
                             <h3>
-                              <Link to={`${post.path}`}>
-                                {post.title.replace(/&amp;/g, "&") || "title"}
+                              <Link to={`${post && post.path}`}>
+                                {(post && post.title.replace(/&amp;/g, "&")) ||
+                                  "title"}
                               </Link>
                             </h3>
                           </div>
                           <div className="card-author">
-                            <span>{post.date || "date"} · </span>
-                            <span>{post.author.name || "author"}</span>
+                            <span>{(post && post.date) || "date"} · </span>
+                            <span>
+                              {(post && post.author && post.author.name) ||
+                                "author"}
+                            </span>
                           </div>
                         </div>
                       </div>
                     </div>
                   ))}
-                  <div className="pagination">
-                    <Pagination
-                      limit={limit}
-                      total={total}
-                      currentPage={currentPage}
-                      onPageChange={this.handlePageChange}
-                    />
+                <div className="pagination">
+                  <div className="pagination-buttons">
+                    {pageContext.previousPagePath != "" && (
+                      <Link
+                        className="prev"
+                        to={pageContext.previousPagePath}
+                        rel="prev"
+                      >
+                        {""}
+                      </Link>
+                    )}
+
+                    {data &&
+                    data.allWordpressPost &&
+                    data.allWordpressPost.edges &&
+                    data.allWordpressPost.edges.length === 0
+                      ? "No Posts"
+                      : `Page: ${pageContext.humanPageNumber} of ${pageContext.numberOfPages}`}
+                    {pageContext.nextPagePath != "" && (
+                      <Link
+                        className="next"
+                        to={pageContext.nextPagePath}
+                        rel="next"
+                      >
+                        {""}
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        <PopularPosts />
-      </Layout>
-    )
-  }
+        </div>
+      </section>
+      {/* <PopularPosts /> */}
+    </Layout>
+  )
 }
 
-export default categoryTemplate
+export default CategoryTemplate
 
-export const testCategoryQuery = graphql`
-  query TestCategory($id: Int!, $categories: [Int!]) {
+export const testCategoryQueryTemplate = graphql`
+  query testCategoryQueryTemplate(
+    $id: Int!
+    $categories: [Int!]
+    $limit: Int!
+    $skip: Int!
+  ) {
     allWordpressPost(
+      sort: { fields: date, order: DESC }
+      limit: $limit
+      skip: $skip
       filter: {
         categories: { elemMatch: { wordpress_id: { in: $categories } } }
       }

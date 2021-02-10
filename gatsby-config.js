@@ -726,6 +726,7 @@ module.exports = {
             : [{ userAgent: "*", disallow: "/?utm" }],
       },
     },
+    "gatsby-plugin-remove-serviceworker",
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
