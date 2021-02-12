@@ -9,7 +9,7 @@ phases:
       - npm -v
       - yarn -v
     runtime-versions:
-      nodejs: 12
+      nodejs: 10
   build:
     commands:
       - yarn install
