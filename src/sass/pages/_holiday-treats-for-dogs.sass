@@ -1,5 +1,6 @@
 .holiday-treats-page,
-.holiday-treats-cats-page
+.holiday-treats-cats-page,
+.winter-paw-tection-page
   .holiday-treats-hero-image
     background: url("../images/holiday-treats-for-dogs/holiday-dog-treats-background.jpg")
     background-repeat: no-repeat
@@ -67,6 +68,41 @@
     h1
       +widescreen
         padding-top: 160px
+  .winter-paw-tection-hero-image
+    background: url("../images/winter-paw-tection-for-dogs/winter-paw-tection-for-dogs.jpg")
+    background-repeat: no-repeat
+    background-size: 1080px 
+    background-position: 73% 100%
+    height: 710px
+    padding: 0 1.5rem
+    @media (min-width: 420px)
+      height: 670px
+      background-position: 83% 100%
+
+    +tablet       
+      background-size: cover 
+      background-position: top center 
+      height: 600px
+    +widescreen
+      height: 777px
+    h1
+      padding-top: 30px
+      +widescreen
+        padding-top: 15px
+        max-width: 550px
+    p 
+      +widescreen 
+        max-width: 550px
+    .author-info
+      display: flex
+      align-items: center
+      padding-top: 30px
+      +widescreen
+        padding-top: 80px 
+      img
+        margin-right: 15px
+      p
+        font-size: 1.125rem
 
   .products-section 
     padding-top: 30px
@@ -80,6 +116,19 @@
       background-color: $blue-lightest 
     &.padding-top-0 
       padding-top: 0
+  .winter-paw-tection-intro-wrapper
+    max-width: 1050px
+    margin: 0 auto
+    text-align: center
+    p      
+      font-size: 1rem
+      margin-bottom: 15px
+      +desktop 
+        font-size: 1.5rem
+        margin-bottom: 30px
+        line-height: 140%
+    h4
+      margin-bottom: 15px
 
   .sponsored-paragraph
     max-width: 745px
@@ -90,6 +139,11 @@
     padding-top: 40px  
     +desktop
       padding-top: 60px
+  .sponsored-paragraph-wpd
+    max-width: 842px
+    padding-top: 0
+    +desktop 
+      padding-top: 40px
 
   .sponsored-paragraph-bottom
     padding-top: 0
@@ -139,7 +193,15 @@
       +desktop 
         max-width: 70%
       +widescreen
-        max-width: 900px 
+        max-width: 900px
+      .gift-box-subtitle
+        font-size: 1rem
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        line-height: 120%
+        margin-bottom: 5px
+        +desktop
+        font-size: 1.125rem
       h4 
         font-family: $family-secondary
         font-weight: $family-secondary-weight
@@ -172,5 +234,10 @@
       margin-bottom: 10px
       display: inline-block
       text-align: center
+      margin-right: 30px
       +tablet
         padding: 7px 25px 
+
+.winter-paw-tection-page
+  a
+    color: $orange
