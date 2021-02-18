@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import Layout from "../components/layout"
 import ContactUsSection from "../components/homepage/contact-us"
 import GiftBox from "../components/GiftBox"
+import SEO from '../components/seo'
 import AvatarImg from "../images/winter-paw-tection-for-dogs/jeena-choi-avatar.jpg"
 import ProdImg1 from "../images/winter-paw-tection-for-dogs/prod-box-1.jpg"
 import ProdImg2 from "../images/winter-paw-tection-for-dogs/prod-box-2.jpg"
@@ -20,6 +21,11 @@ import ProdImg13 from "../images/winter-paw-tection-for-dogs/prod-box-13.jpg"
 const WinterPawDogs = () => {
   return (
     <Layout>
+      <SEO  
+        title="Winter Paw-tection for Dogs - Petplace" 
+        description="In my snowy Northeastern town, there is a blizzard blowing through that's estimated to last about 2 days. Talk about an opportune time to discuss paw protection!" 
+        image="/images/winter-paw-tection-for-dogs.jpg"
+      />
       <div className="winter-paw-tection-page">
         <div className="holiday-treats-hero-image winter-paw-tection-hero-image">
           <div className="container is-fullhd">
