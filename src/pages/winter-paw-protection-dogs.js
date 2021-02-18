@@ -40,8 +40,8 @@ const WinterPawDogs = () => {
             <div class="winter-paw-tection-intro-wrapper">
               <p>
                 Last year, I made my first contribution to PetPlace with <a href="https://www.petplace.com/article/dogs/pet-care/does-puppy-need-snow-boots/" target="_blank">Does My Puppy
-                Need Snow Boots?</a>. I learned so much about paw care while writing and researching, specifically that my 
-                <a href="https://www.instagram.com/p/CLIlBzAAoBw/?utm_source=ig_web_copy_link" target="_blank">Westie</a> pup needed boots due to his 
+                Need Snow Boots?</a> <br />I learned so much about paw care while writing and researching, specifically that my 
+                <a href="https://www.instagram.com/p/CLIlBzAAoBw/?utm_source=ig_web_copy_link" target="_blank"> Westie</a> pup needed boots due to his 
                 size and height. 
               </p>
               <p>
@@ -79,16 +79,16 @@ const WinterPawDogs = () => {
                 <p className="gift-box-subtitle">For Active Dogs</p>
                 <h4>Kurgo</h4>
                 <p>
-                  These lightweight, durable, waterproof <a href="https://prf.hn/click/camref:1101l9vcZ/destination:http%3A%2F%2Furgo%20Blaze%20Cross%20Dog%20Shoes" target="_blank">all-terrain boots </a> 
+                  These lightweight, durable, waterproof all-terrain boots 
                   are popular with active families. Featuring rugged soles that mimics a 
-                  dog’s pads, breathable mesh, and flexible ankle cord, these boots “make
-                  any quest paws-sible,” whether through rain, snow, salt, heat, glass, and
+                  dog’s pads, breathable mesh, and flexible ankle cord, these boots “make 
+                  any quest paws-sible,” whether through rain, snow, salt, heat, glass, and 
                   other hazards.
                 </p>
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://prf.hn/click/camref:1101l9vcZ/destination:http%3A%2F%2Furgo%20Blaze%20Cross%20Dog%20Shoes"
+                  href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fkurgo-blaze-cross-dog-shoes%2Fdp%2F190627"
                   className="gift-box-btn"
                 >
                   Buy on Chewy
@@ -104,7 +104,7 @@ const WinterPawDogs = () => {
                 <p className="gift-box-subtitle">For Day-to-Day Use</p>
                 <h4>QUMY</h4>
                 <p>
-                  Everyday walks with this set of <a href="https://www.amazon.com/gp/product/B01LYITJ4S/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01LYITJ4S&linkCode=as2&tag=petplace07-20&linkId=edf7814e6ad69ea76ba1a5f67269703d" target="_blank">flexible ankle boots</a> will
+                  Everyday walks with this set of flexible ankle boots will
                   protect your doggy’s paws from any type of weather. Skid-resistant and 
                   anti-slip soles mean these can also be worn indoors for dogs with hip 
                   conditions, and help prevent accidental slips and falls.
@@ -136,7 +136,7 @@ const WinterPawDogs = () => {
                 <p className="gift-box-subtitle">For Day-to-Day Use</p>
                 <h4>Ultra Paws</h4>
                 <p>
-                  Another option for daily use is <a href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fultra-paws-durable-dog-boots-4-count%2Fdp%2F56632" target="_blank">this set</a> made from water-resistant, extra 
+                  Another option for daily use is this set made from water-resistant, extra 
                   flexible nylon and Tough Trek, a thermoplastic material that provides extra 
                   grip indoors and out. They also have foam ankle pads for extra comfort.
                 </p>
@@ -160,7 +160,7 @@ const WinterPawDogs = () => {
                 <h4>Winsoon</h4>
                 <p>
                   Ideal for short-haired or short-stature dogs, these adorable and affordable 
-                  <a href="https://www.amazon.com/gp/product/B00XR42U6S/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00XR42U6S&linkCode=as2&tag=petplace07-20&linkId=4004e265ff7df5dac96619d4e7c59ac8" target="_blank">sherpa-lined winter boots</a> are made for providing extra warmth while protecting 
+                  sherpa-lined winter boots are made for providing extra warmth while protecting 
                   paws in cold or wet climates. Constructed from soft, synthetic leather and 
                   sturdy rubber soles, these boots are made for walking!
                 </p>
@@ -183,7 +183,7 @@ const WinterPawDogs = () => {
                 <p className="gift-box-subtitle">High-ankle Option</p>
                 <h4>GF Pet</h4>
                 <p>
-                  The <a href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fgf-pet-dog-booties%2Fdp%2F254218" target="_blank">high-ankle style</a> ensures your doggo doesn’t kick off the boots accidentally 
+                  The high-ankle style ensures your doggo doesn’t kick off the boots accidentally 
                   or just for kicks (I know because my mischievous pup is a master at kicking off 
                   his boots). This set boasts built-in socks for warmth and an adjustable fastener 
                   for a secure fit. Try a set for your leggy, furry friend.
@@ -207,9 +207,9 @@ const WinterPawDogs = () => {
                 <p className="gift-box-subtitle">Rain Boots</p>
                 <h4>Canada Pooch</h4>
                 <p>
-                Wellies for your pooch equals no more muddy paw tracks on your just-cleaned floors. But really, 
-                these <a href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fcanada-pooch-lined-wellies-dog-boots%2Fdp%2F256198" target="_blank">seriously stylish boots</a> excel at protecting their precious paws from the outdoor elements. 
-                The warm liner and slick silicon exterior with non-slip soles provide comfort too. 
+                  Wellies for your pooch equals no more muddy paw tracks on your just-cleaned floors. But really, 
+                  these seriously stylish boots excel at protecting their precious paws from the outdoor elements. 
+                  The warm liner and slick silicon exterior with non-slip soles provide comfort too. 
                 </p>
                 <a
                   target="_blank"
@@ -230,7 +230,7 @@ const WinterPawDogs = () => {
                 <p className="gift-box-subtitle">Year-Round</p>
                 <h4>Ethical Pet</h4>
                 <p>
-                  These are no-nonsense, no-frills <a href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fethical-pet-fashion-lookin-good%2Fdp%2F56345" target="_blank">fleece boots</a> that do the job without breaking the bank. 
+                  These are no-nonsense, no-frills fleece boots that do the job without breaking the bank. 
                   This practical number from Ethical Pet has an easy-on and off design and no-skid, non-slip 
                   PVC soles that work great for hot summer sidewalks and salty winter walkways. Bonus: they 
                   can be machine washed and air dried. 
@@ -254,7 +254,7 @@ const WinterPawDogs = () => {
                 <p className="gift-box-subtitle">Year-Round</p>
                 <h4>Frisco</h4>
                 <p>
-                  The <a href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Ffrisco-anti-slip-soft-soled-dog-boots%2Fdp%2F250890" target="_blank">water-resistant soft soles</a> with snug fit elastic toggles make these boots a step-up 
+                  The water-resistant soft soles with snug fit elastic toggles make these boots a step-up 
                   from run-of-the-mill fleece boots, but still practical enough for fun outdoor adventures. 
                   Anti-slip soles are a plus for traction in the rain and snow as well.
                 </p>
@@ -278,7 +278,7 @@ const WinterPawDogs = () => {
                 <h4>Walkee Paws</h4>
                 <p>
                   These are truly the most unique pup boots on the market right now. In fact, the company 
-                  prefers to call its design “<a href="https://walkeepaws.com/collections/waterproof-dog-leggings?sscid=21k5_34aub&utm_source=2689152&utm_medium=affiliate&utm_campaign=1586457" target="_blank">dog leggings,</a>”  promising a better bootie 
+                  prefers to call its design “dog leggings,”  promising a better bootie 
                   experience to match the distinctive design. Made of stretchy, waterproof fabric, grippy 
                   soles for traction, and over-the-back design (see photo), these go above and beyond to 
                   ensure a comfortable fit and maximum protection for your pooch. Use discount code WALKEE15 
@@ -290,7 +290,7 @@ const WinterPawDogs = () => {
                   href="https://walkeepaws.com/collections/waterproof-dog-leggings?sscid=21k5_34aub&utm_source=2689152&utm_medium=affiliate&utm_campaign=1586457"
                   className="gift-box-btn"
                 >
-                  Buy on Amazon
+                  Buy at Walkee Paws
                 </a>
               </div>
             </div>
@@ -304,8 +304,8 @@ const WinterPawDogs = () => {
 
             <GiftBox title="Musher’s Secret" img={ProdImg10}>
               <p>
-                Made of 100% pure natural wax, beeswax, and vitamin E, this balm doesn't just have a <a href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fmushers-secret-paw-protection-natural%2Fdp%2F128336" target="_blank">cult 
-                following</a> among pet owners, it also has hordes of horse-loving devotees. The super-moisturizing 
+                Made of 100% pure natural wax, beeswax, and vitamin E, this balm doesn't just have a cult 
+                following among pet owners, it also has hordes of horse-loving devotees. The super-moisturizing 
                 formula soothes cracked paw pads and hooves, creating a breathable, yet dense, barrier. This 
                 means hot concrete, steamy sand beaches, and icy terrain are no match for its protective powers. 
                 A little dab goes a long way, so keep this balm handy and use on parched snouts too.
@@ -322,8 +322,8 @@ const WinterPawDogs = () => {
 
             <GiftBox title="Pawstruck" img={ProdImg11}>
               <p>
-                This <a href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fpawstruck-ruff-relief-nose-paw-dog%2Fdp%2F244043" target="_blank">creamy balm</a>, made with extra virgin olive oil, coconut oil, beeswax, and 
-                non-GMO vitamin E is a USDA-certified organic product. It’s also known for its protection against
+                This creamy balm, made with extra virgin olive oil, coconut oil, beeswax, and non-GMO 
+                vitamin E is a USDA-certified organic product. It’s also known for its protection against
                 rough terrain and extreme temperatures.
               </p>
               <a
@@ -338,10 +338,10 @@ const WinterPawDogs = () => {
 
             <GiftBox title="Natural Dog Company" img={ProdImg12}>
               <p>
-                <a href="https://www.amazon.com/gp/product/B00LR365T4/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00LR365T4&linkCode=as2&tag=petplace07-20&linkId=224e12c092dc867bcbebffbd11809ea9" target="_blank">PawTection</a> is a vegan, all-natural blend of waxes and oils made for safeguarding 
-                sensitive paw pads from painful scratches and damaging chaps. With ingredients that include mango 
-                butter, sunflower oil, and rosemary extract, it creates a protective barrier to lock in moisture 
-                and help prevent drying.
+                PawTection is a vegan, all-natural blend of waxes and oils made for safeguarding sensitive 
+                paw pads from painful scratches and damaging chaps. With ingredients that include mango butter, 
+                sunflower oil, and rosemary extract, it creates a protective barrier to lock in moisture and 
+                help prevent drying.
               </p>
               <a
                 target="_blank"
@@ -356,7 +356,7 @@ const WinterPawDogs = () => {
             <GiftBox title="Dr. Bronner’s" img={ProdImg13}>
               <p>
                 Dry skin happens to dogs too, especially cracked paw pads in the colder months. Gently wash and 
-                dry their paws and apply this <a href="https://www.amazon.com/gp/product/B01LXE0TP5/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01LXE0TP5&linkCode=as2&tag=petplace07-20&linkId=66aa0788c484ecabb36e1686cfba5f53" target="_blank">unscented balm</a> for soothing relief. This is formulated 
+                dry their paws and apply this unscented balm for soothing relief. This is formulated 
                 for human babies, so go ahead and put some on your rough patches too. 
               </p>
               <a
