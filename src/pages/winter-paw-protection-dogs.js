@@ -149,10 +149,10 @@ const WinterPawDogs = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fultra-paws-durable-dog-boots-4-count%2Fdp%2F56632"
+                  href="https://www.amazon.com/gp/product/B006YTXGW0/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B006YTXGW0&linkCode=as2&tag=petplace07-20&linkId=0fb21ce9617e8f6eedba1cefe8c7394d"
                   className="gift-box-btn"
                 >
-                  Buy on Chewy
+                  Buy on Amazon
                 </a>
               </div>
             </div>
@@ -187,7 +187,7 @@ const WinterPawDogs = () => {
               </div>
               <div className="gift-box-content">
                 <p className="gift-box-subtitle">High-ankle Option</p>
-                <h4>GF Pet</h4>
+                <h4>KOOLTAIL</h4>
                 <p>
                   The high-ankle style ensures your doggo doesn’t kick off the boots accidentally 
                   or just for kicks (I know because my mischievous pup is a master at kicking off 
@@ -197,10 +197,10 @@ const WinterPawDogs = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fgf-pet-dog-booties%2Fdp%2F254218"
+                  href="https://www.amazon.com/gp/product/B073F6SHZG/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B073F6SHZG&linkCode=as2&tag=petplace07-20&linkId=e6d618e24e1943e6b8ec0f8cd60c1b3c"
                   className="gift-box-btn"
                 >
-                  Buy on Chewy
+                  Buy on Amazon
                 </a>
               </div>
             </div>
@@ -220,37 +220,13 @@ const WinterPawDogs = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fcanada-pooch-lined-wellies-dog-boots%2Fdp%2F256198"
+                  href="https://canadapooch.com/collections/dog-boots/products/lined-wellies"
                   className="gift-box-btn"
                 >
-                  Buy on Chewy
+                  Buy at Canada Pooch
                 </a>
               </div>
-            </div>
-
-            <div className="gift-box">
-              <div className="gift-box-image">
-                <img src={ProdImg7} alt="gift" />
-              </div>
-              <div className="gift-box-content">
-                <p className="gift-box-subtitle">Year-Round</p>
-                <h4>Ethical Pet</h4>
-                <p>
-                  These are no-nonsense, no-frills fleece boots that do the job without breaking the bank. 
-                  This practical number from Ethical Pet has an easy-on and off design and no-skid, non-slip 
-                  PVC soles that work great for hot summer sidewalks and salty winter walkways. Bonus: they 
-                  can be machine washed and air dried. 
-                </p>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://prf.hn/click/camref:1101l9vcZ/destination:https%3A%2F%2Fwww.chewy.com%2Fethical-pet-fashion-lookin-good%2Fdp%2F56345"
-                  className="gift-box-btn"
-                >
-                  Buy on Chewy
-                </a>
-              </div>
-            </div>
+            </div>            
 
             <div className="gift-box">
               <div className="gift-box-image">
