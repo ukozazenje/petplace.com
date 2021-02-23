@@ -1,0 +1,90 @@
+.write-for-us-page
+  .write-for-us-hero-image
+    position: relative
+    color: white
+    height: 328px
+    display: flex
+    background: url('../images/write-for-us/write-for-us-background-mob.jpg')
+    background-size: cover    
+    background-position: right 
+    +tablet
+      height: 545px
+      background: url('../images/write-for-us/write-for-us-background.jpg')
+      background-size: cover
+      background-position: right
+    .text-content
+     text-align: center
+     padding-top: 12px
+     +tablet
+      text-align: left
+      padding-top: 120px
+      max-width: 530px
+    h1, p
+      color: white      
+    h1      
+      padding-bottom: 15px
+    p.lead
+      +tablet
+        font-size: 1.375rem
+        line-height: 1.5
+    .scroll-btn
+      position: absolute
+      left: 50%
+      bottom: -33px
+      transform: translateX(-50%)
+  .text-content-wrap
+    position: relative
+    padding-left: 15px
+    padding-bottom: 15px 
+    &::before
+      content: "\2022"
+      font-size: 2rem
+      color: $orange
+      position: absolute
+      left: 0
+      top: -10px
+    +tablet
+      padding-left: 34px
+      padding-bottom: 30px
+      &::before
+        left: 10px
+        
+    .text-subheading
+      font-family: $family-secondary
+  .section
+    h2
+      padding-bottom: 30px
+      +desktop
+        font-size: 2.875rem
+    p
+      font-size: 1.125rem
+      +tablet
+        line-height: 1.8
+    .image-wrap
+      display: flex
+      align-items: center
+      justify-content: center
+  .whats-in-section,
+  .guidlines-section
+    padding-bottom: 45px
+    padding-top: 60px
+    +tablet
+      padding-bottom: 110px
+      padding-top: 140px
+  .tips-section
+    background: $blue-lightest
+    padding-bottom: 45px
+    padding-top: 60px
+    +tablet
+      padding-bottom: 75px
+      padding-top: 90px
+    h2
+      max-width: 345px
+      +tablet
+        padding-bottom: 60px
+    .text-content-wrap
+      padding-bottom: 15px
+    .tips-first-column
+      max-width: 550px
+    .tips-second-column
+      max-width: 675px
