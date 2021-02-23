@@ -120,10 +120,12 @@ const CategoryTemplate = ({ pageContext, data }) => {
                         <div className="card-content">
                           <div className="card-title">
                             <h3>
-                              <Link to={`${post && post.path}`}>
-                                {(post && post.title.replace(/&amp;/g, "&")) ||
-                                  "title"}
-                              </Link>
+                              <Link
+                                to={`${post && post.path}`}
+                                dangerouslySetInnerHTML={{
+                                  __html: post.title || "title",
+                                }}
+                              />
                             </h3>
                           </div>
                           <div className="card-author">
