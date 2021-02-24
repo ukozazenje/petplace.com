@@ -338,3 +338,75 @@
     a 
       color: $mauve
       text-decoration: none
+.cost-of-puppy
+  .hero-image-container
+    h2.pet-partners-advertorial-heading
+      +desktop
+        max-width: 800px
+      +fullhd
+        max-width: 490px
+  .advertorial-free-quote-wrapper
+    height: 268px
+    +desktop
+      margin-bottom: 60px
+      height: 155px
+    span
+      font-size: 1.375rem
+      max-width: 320px
+      margin-bottom: 30px
+      +tablet
+        max-width: 300px
+      +desktop
+        margin-bottom: 0
+      +fullhd
+        max-width: 430px
+    a
+      +desktop
+        min-width: 320px
+  .advertorial-image-content
+    .advertorial-img 
+      justify-content: center
+      margin-bottom: 25px
+      +desktop
+        min-width: 350px
+      +widescreen
+        min-width: 410px
+      +fullhd
+        min-width: 440px
+    &.img-left 
+      .advertorial-img 
+        +widescreen
+          padding-left: 30px
+    &.img-right
+      .advertorial-img 
+        +widescreen
+          justify-content: flex-end
+          padding-right: 30px
+  .p-subtitle
+    font-family: $family-secondary
+    font-size: 1.25rem
+    margin-bottom: 10px
+    +desktop
+      font-size: 1.5rem
+      margin-bottom: 15px
+  .avg-chart-image
+    padding-bottom: 30px
+    display: flex
+    justify-content: center
+    +tablet
+      padding-bottom: 60px
+  ul
+      margin-bottom: 15px
+      li 
+        position: relative
+        list-style: none
+        margin: 10px 0 10px 20px
+        &::before 
+          content: ""
+          top: 12px
+          left: -20px
+          position: absolute
+          width: 6px
+          height: 6px
+          border-radius: 6px
+          background: $orange
