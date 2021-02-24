@@ -201,6 +201,9 @@ exports.createPages = ({ actions, graphql }) => {
         `./src/templates/HolidayCatTreats.js`
       )
       const yearInReview = path.resolve(`./src/templates/YearInReview.js`)
+      const winterPawProtection = path.resolve(
+        `./src/templates/winter-paw-protection-dogs.js`
+      )
       const postsPublished = getOnlyPublished(
         result.data.allWordpressPost.edges
       )
@@ -247,6 +250,8 @@ exports.createPages = ({ actions, graphql }) => {
             return HolidayCatTreats
           case "/article/general/just-for-fun/2020-year-in-review/":
             return yearInReview
+          case "/article/dogs/just-for-fun/winter-paw-protection-dogs/":
+            return winterPawProtection
           default:
             return postTemplate
         }
