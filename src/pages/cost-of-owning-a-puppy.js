@@ -29,8 +29,8 @@ const CostOfPuppy = () => {
   return (
     <>
       <SEO
-        title="The Cost of Owning a Puppy: Months 1-6"
-        description=""
+        title="The Cost of Owning a Puppy: Months 1-6 - PetPlace"
+        description="Read on for a closer look at the average costs of caring for a puppy throughout their first six months. During this period, pet parents are responsible for a range of one-time costs, as well as recurring expenses they’ll face throughout their dog’s lifetime."
         image="/images/cost-of-puppy-hero.jpg"
       />
       <nav className="advertorial-navbar">
@@ -70,50 +70,50 @@ const CostOfPuppy = () => {
                 </div>
                 <div className="share-icons-horizontal">
                   <a
-                    className={`facebook-/get-pet-insurance-now/`}
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/`}
+                    className={`facebook-/cost-of-owning-a-puppy/`}
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}/cost-of-owning-a-puppy/`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <img
-                      className={`facebook-/get-pet-insurance-now/`}
+                      className={`facebook-/cost-of-owning-a-puppy/`}
                       src={facebook}
                       alt="facebook"
                     />
                   </a>
                   <a
-                    className={`twitter-/get-pet-insurance-now/`}
-                    href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/`}
+                    className={`twitter-/cost-of-owning-a-puppy/`}
+                    href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}/cost-of-owning-a-puppy/`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <img
-                      className={`twitter-/get-pet-insurance-now/`}
+                      className={`twitter-/cost-of-owning-a-puppy/`}
                       src={twitter}
                       alt="twitter"
                     />
                   </a>
                   <a
-                    className={`pinterest-/get-pet-insurance-now/`}
-                    href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/&media=&description=An Emergency Vet Bill Left Me with Sticker Shock`}
+                    className={`pinterest-/cost-of-owning-a-puppy/`}
+                    href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}/images/cost-of-puppy-hero.jpg`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     {" "}
                     <img
-                      className={`pinterest-/get-pet-insurance-now/`}
+                      className={`pinterest-/cost-of-owning-a-puppy/`}
                       src={pintrest}
                       alt="pinterest"
                     />
                   </a>
                   <a
-                    className={`mail-/get-pet-insurance-now/`}
-                    href={`mailto:info@petplace.com?&subject=An Emergency Vet Bill Left Me with Sticker Shock&body=${process.env.GATSBY_WEB_SITE_URL}/get-pet-insurance-now/`}
+                    className={`mail-/cost-of-owning-a-puppy/`}
+                    href={`mailto:info@petplace.com?&subject=The Cost of Owning a Puppy: Months 1-6&body=${process.env.GATSBY_WEB_SITE_URL}/cost-of-owning-a-puppy/`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <img
-                      className={`mail-/get-pet-insurance-now/`}
+                      className={`mail-/cost-of-owning-a-puppy/`}
                       src={emailIcon}
                       alt="email"
                     />
