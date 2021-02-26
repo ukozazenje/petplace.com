@@ -251,7 +251,7 @@ const CostOfPuppy = () => {
                 with the vaccine for COVID-19, this vaccine protects pooches
                 against a different type of respiratory illness. Sometimes, this
                 vaccine is included with the DAPP vaccination, but as a
-                stand-alone vaccination, it costs about{" "}
+                stand-alone vaccination, it costs between{" "}
                 <strong>$15 and $20</strong>.
               </p>
               <div className="advertorial-image-content img-right column-reverse">
@@ -468,7 +468,7 @@ const CostOfPuppy = () => {
               <p>
                 <strong>Pest Prevention:</strong> Depending on your pet’s
                 schedule, it may be time to purchase another round of preventive
-                medications for <strong>around %50</strong>.
+                medications for <strong>around $50</strong>.
               </p>
               <p className="p-subtitle">Pet Care Essentials</p>
               <p>
