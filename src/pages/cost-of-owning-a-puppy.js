@@ -65,7 +65,7 @@ const CostOfPuppy = () => {
                   <img className="author-img" src={avatarImg} alt="avatar" />
                   <div className="author-info">
                     <p className="author-name">PetPlace Staff</p>
-                    <p className="post-date">23 Oct 2020</p>
+                    <p className="post-date">26 Feb 2021</p>
                   </div>
                 </div>
                 <div className="share-icons-horizontal">
