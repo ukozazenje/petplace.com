@@ -252,7 +252,7 @@ const CostOfPuppy = () => {
                 against a different type of respiratory illness. Sometimes, this
                 vaccine is included with the DAPP vaccination, but as a
                 stand-alone vaccination, it costs about{" "}
-                <strong>$15 and $20</strong>
+                <strong>$15 and $20</strong>.
               </p>
               <div className="advertorial-image-content img-right column-reverse">
                 <div className="advertorial-content">
@@ -274,7 +274,7 @@ const CostOfPuppy = () => {
                       bowls for food and water
                     </a>{" "}
                     (<strong>$10 - $30</strong>), a leash, harness (
-                    <strong>$10 - $40</strong>), or collar (
+                    <strong>$10 - $40</strong>) or collar (
                     <strong>$5 - $20</strong>), and a crate (
                     <strong>$40 - $200</strong>). If you have a small dog, you
                     may need to purchase a carrier for trips to and from the
@@ -306,7 +306,7 @@ const CostOfPuppy = () => {
                 <strong>Pet Insurance:</strong> At eight weeks of age, your
                 puppy may be eligible to{" "}
                 <a
-                  href="https://www.akcpetinsurance.com/our-plans/frequently-asked-questions"
+                  href="https://www.petpartners.com/pet-insurance/frequently-asked-questions"
                   target="_blank"
                 >
                   enroll in pet insurance
@@ -385,10 +385,9 @@ const CostOfPuppy = () => {
                   pets can be microchipped
                 </a>
                 . The process is quick, effectively painless, and costs about{" "}
-                <strong>$45</strong>
-                on average. You may need to pay an additional fee (
-                <strong>around $20</strong>) to register your dog’s microchip in
-                a nationwide database.
+                <strong>$45</strong> on average. You may need to pay an
+                additional fee (<strong>around $20</strong>) to register your
+                dog’s microchip in a nationwide database.
               </p>
               <p>
                 <strong>Food and Treats:</strong> Unless you bought in bulk or
@@ -468,17 +467,16 @@ const CostOfPuppy = () => {
               </p>
               <p>
                 <strong>Pest Prevention:</strong> Depending on your pet’s
-                schedule, It may be time to purchase another round of preventive
-                medications for
-                <strong>around %50</strong>.
+                schedule, it may be time to purchase another round of preventive
+                medications for <strong>around %50</strong>.
               </p>
               <p className="p-subtitle">Pet Care Essentials</p>
               <p>
                 <strong>Food and Treats:</strong> By now, you’ve hopefully
                 learned to spot deals on your puppy’s preferred food and treats.
-                Plan to spend another
-                <strong>$20 to $60</strong> this month and make sure to consult
-                your veterinarian before making any updates to your dog’s diet.
+                Plan to spend another <strong>$20 to $60</strong> this month and
+                make sure to consult your veterinarian before making any updates
+                to your dog’s diet.
               </p>
               <div className="advertorial-image-content img-left">
                 <div className="advertorial-img">
@@ -494,8 +492,8 @@ const CostOfPuppy = () => {
                     as well, since many will continue teething until they reach
                     eight months of age. By now, you’ve hopefully learned how to
                     identify toys that can withstand heavy biting and chewing.
-                    Plan to spend <strong>about $20</strong>
-                    on another assortment.
+                    Plan to spend <strong>about $20</strong> on another
+                    assortment.
                   </p>
                 </div>
               </div>
