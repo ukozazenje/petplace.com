@@ -122,6 +122,18 @@ const CostOfPuppy = () => {
               </div>
             </div>
             <div className="column">
+              <p className="petpartners-disclosure">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.petpartners.com/"
+                >
+                  PetPartners, Inc.
+                </a>{" "}
+                is an indirect corporate affiliate of PetPlace.com. PetPlace may
+                be compensated when you click on or make a purchase using the
+                links in this article.
+              </p>
               <p>
                 Ready to bring a new puppy into your life? There is so much
                 excitement around welcoming a new pup into your home that
