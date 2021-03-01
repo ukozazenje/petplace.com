@@ -12,8 +12,10 @@ const WriteForUs = () => {
   return (
     <Layout>
       <SEO
-        title="Advertise With Us - Petplace"
-        description="Our brand partnerships provide businesses with a wonderful opportunity to position themselves as thought leaders, innovators, experts, and go-to resources for our diverse audience of pet parents. Together, we can craft thoughtful, engaging content that captures our audience’s attention and yields new customers."
+        title="Write for Us - Petplace"
+        description="If you’re a pet professional, pet blogger, or just a pet lover,
+                PetPlace may be interested in sharing your thoughts, insights,
+                recommendations, and reflections with our readers."
         image={SeoImage}
       />
       <div className="write-for-us-page">
@@ -161,7 +163,7 @@ const WriteForUs = () => {
             </div>
           </div>
         </section>
-        <section>
+        <section className="section write-for-us-form-section">
           <WriteForUsContactForm />
         </section>
       </div>
