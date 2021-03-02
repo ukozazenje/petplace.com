@@ -50,6 +50,7 @@ const Breeds = ({ data }) => {
     "Toy",
     "Herding",
     "Working",
+    "N/A",
   ])
 
   const handleChange = value => {
@@ -181,6 +182,11 @@ const Breeds = ({ data }) => {
                   />
                   <FilterCheckBox
                     checkBoxName="Working"
+                    handleChange={handleChange}
+                    types={types}
+                  />
+                  <FilterCheckBox
+                    checkBoxName="N/A"
                     handleChange={handleChange}
                     types={types}
                   />
