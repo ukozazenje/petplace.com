@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import { v4 as uuidv4 } from "uuid"
 import { Formik, Form, Field } from "formik"
 
 const validate = values => {
@@ -12,8 +13,8 @@ const validate = values => {
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = "Invalid email address"
   }
-  if (!values.massage) {
-    errors.massage = "Required"
+  if (!values.message) {
+    errors.message = "Required"
   }
 
   return errors
@@ -32,16 +33,19 @@ const WriteForUsContactForm = () => {
       <Formik
         initialValues={{
           name: "",
-          massage: "",
+          message: "",
           email: "",
         }}
         onSubmit={values => {
-          // axios
-          //   .post(
-          //     "https://7dzmo5zwc3.execute-api.us-east-1.amazonaws.com/prod/create?name=petplace&age=56&location=Kraljevo"
-          //   )
-          //   .then(res => console.log(res))
-          setSuccess(true)
+          values.itemId = uuidv4()
+          axios
+            .post(
+              "https://2ympwguwl3.execute-api.us-east-1.amazonaws.com/prod/people",
+              values
+            )
+            .then(res => {
+              setSuccess(true)
+            })
         }}
         validate={validate}
       >
@@ -59,7 +63,7 @@ const WriteForUsContactForm = () => {
             <Field
               id="name"
               name="name"
-              placeholder="Jane"
+              placeholder="Enter your name"
               className={`${errors.name && touched.name ? "has-error" : ""}`}
             />
 
@@ -67,19 +71,19 @@ const WriteForUsContactForm = () => {
             <Field
               id="email"
               name="email"
-              placeholder="jane@acme.com"
+              placeholder="Enter email"
               type="email"
               className={`${errors.email && touched.email ? "has-error" : ""}`}
             />
 
-            <label htmlFor="massage">Massage</label>
+            <label htmlFor="message">Massage</label>
             <Field
-              id="massage"
-              name="massage"
-              placeholder="Massage"
+              id="message"
+              name="message"
+              placeholder="Enter Message"
               component="textarea"
               className={`${
-                errors.massage && touched.massage ? "has-error" : ""
+                errors.message && touched.message ? "has-error" : ""
               }`}
             />
             <button className="primary" type="submit">
