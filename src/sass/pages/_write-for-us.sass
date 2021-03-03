@@ -1,0 +1,163 @@
+.write-for-us-page
+  .write-for-us-hero-image
+    position: relative
+    color: white
+    height: 328px
+    display: flex
+    background: url('../images/write-for-us/write-for-us-background-mob.jpg')
+    background-size: cover    
+    background-position: right 
+    +tablet
+      height: 545px
+      background: url('../images/write-for-us/write-for-us-background.jpg')
+      background-size: cover
+      background-position: right
+    .text-content
+     text-align: center
+     padding-top: 12px
+     +tablet
+      text-align: left
+      padding-top: 120px
+      max-width: 530px
+    h1, p
+      color: white      
+    h1      
+      padding-bottom: 15px
+    p.lead
+      +tablet
+        font-size: 1.375rem
+        line-height: 1.5
+    .scroll-btn
+      position: absolute
+      left: 50%
+      bottom: -33px
+      transform: translateX(-50%)
+  .text-content-wrap
+    position: relative
+    padding-left: 15px
+    padding-bottom: 15px 
+    &::before
+      content: "\2022"
+      font-size: 2rem
+      color: $orange
+      position: absolute
+      left: 0
+      top: -10px
+    +tablet
+      padding-left: 34px
+      padding-bottom: 30px
+      &::before
+        left: 10px
+        
+    .text-subheading
+      font-family: $family-secondary
+  .section
+    h2
+      padding-bottom: 30px
+      +desktop
+        font-size: 2.875rem
+    p
+      font-size: 1.125rem
+      +tablet
+        line-height: 1.8
+    .image-wrap
+      display: flex
+      align-items: center
+      justify-content: center
+  .whats-in-section,
+  .guidlines-section
+    padding-bottom: 45px
+    padding-top: 60px
+    a 
+      color: $orange
+      font-weight: bold
+    +tablet
+      padding-bottom: 110px
+      padding-top: 140px
+  .tips-section
+    background: $blue-lightest
+    padding-bottom: 45px
+    padding-top: 60px
+    +tablet
+      padding-bottom: 75px
+      padding-top: 90px
+    h2
+      max-width: 345px
+      +tablet
+        padding-bottom: 60px
+    .text-content-wrap
+      padding-bottom: 15px
+    .tips-first-column
+      max-width: 550px
+    .tips-second-column
+      max-width: 675px
+  .write-for-us-form-section
+    background: #F2F5FC
+    padding-top: 60px
+    padding-bottom: 60px
+    +tablet 
+      padding-top: 90px
+      padding-bottom: 90px
+    h3 
+      color: #0E0F17
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      font-size: 1.25rem
+      margin: 0
+      padding: 0
+      +tablet 
+        font-size: 2.5rem
+      &.success-msg 
+        color: $orange 
+        text-align: center
+    .write-for-us-form
+      margin-top: 10px
+      display: flex
+      flex-direction: column
+      label
+        color: #0E0F17
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1.125rem
+        margin-top: 20px
+        margin-bottom: 15px
+        margin-left: 16px
+        +tablet 
+          font-size: 1.75rem
+      input, textarea
+        width: 100%
+        height: 50px
+        border-radius: 16px
+        border: 1px solid #C4C4C4
+        padding: 0 16px
+        font-size: 1.125rem 
+        +tablet 
+          height: 56px
+        &.has-error
+          border-color: $red
+      textarea 
+        padding-top: 16px
+        height: 160px
+        +tablet 
+          height: 220px
+      button 
+        width: 100%
+        height: 27px
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        font-size: 1rem
+        color: #ffffff
+        background: $orange 
+        border: 1px solid $orange
+        border-radius: 50px
+        margin-top: 30px
+        cursor: pointer
+        align-self: flex-end
+        +tablet 
+          font-size: 1.125rem
+          height: 60px
+          width: 200px
+        &.primary
+          &:disabled 
+            background: $gray-dark 
+            border-color: $gray-dark
