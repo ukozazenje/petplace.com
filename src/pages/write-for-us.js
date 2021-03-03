@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import { Link } from "gatsby"
 import ContactUsSection from "../components/homepage/contact-us"
 import SEO from "../components/seo"
 import SeoImage from "../images/advertise-home.jpg"
@@ -154,7 +155,9 @@ const WriteForUs = () => {
                 </div>
                 <p>
                   Have a product or service to promote? <br />
-                  Head to our Advertise With Us Page to learn more.
+                  Head to our{" "}
+                  <Link to="/advertise-with-us/">Advertise With Us</Link> Page
+                  to learn more.
                 </p>
               </div>
               <div className="column image-wrap">

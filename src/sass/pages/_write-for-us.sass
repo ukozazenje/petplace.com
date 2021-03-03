@@ -68,6 +68,9 @@
   .guidlines-section
     padding-bottom: 45px
     padding-top: 60px
+    a 
+      color: $orange
+      font-weight: bold
     +tablet
       padding-bottom: 110px
       padding-top: 140px
@@ -154,3 +157,7 @@
           font-size: 1.125rem
           height: 60px
           width: 200px
+        &.primary
+          &:disabled 
+            background: $gray-dark 
+            border-color: $gray-dark

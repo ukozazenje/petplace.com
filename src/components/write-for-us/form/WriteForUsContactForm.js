@@ -36,7 +36,7 @@ const WriteForUsContactForm = () => {
           message: "",
           email: "",
         }}
-        onSubmit={values => {
+        onSubmit={(values, { setSubmitting }) => {
           values.itemId = uuidv4()
           axios
             .post(
@@ -44,6 +44,7 @@ const WriteForUsContactForm = () => {
               values
             )
             .then(res => {
+              setSubmitting(false)
               setSuccess(true)
             })
         }}
@@ -76,7 +77,7 @@ const WriteForUsContactForm = () => {
               className={`${errors.email && touched.email ? "has-error" : ""}`}
             />
 
-            <label htmlFor="message">Massage</label>
+            <label htmlFor="message">Message</label>
             <Field
               id="message"
               name="message"
@@ -86,7 +87,7 @@ const WriteForUsContactForm = () => {
                 errors.message && touched.message ? "has-error" : ""
               }`}
             />
-            <button className="primary" type="submit">
+            <button disabled={isSubmitting} className="primary" type="submit">
               Submit
             </button>
           </Form>
