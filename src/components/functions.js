@@ -1,11 +1,11 @@
-import PetCare from '../static/images/category-images/pet'
-import CatCare from '../static/images/category-images/cat'
-import DogCare from '../static/images/category-images/dog'
-import SmallPetCare from '../static/images/category-images/smallPet'
-import Insurance from '../static/images/category-images/insurance'
-import Breeds from '../static/images/category-images/breed'
-import Health from '../static/images/category-images/health'
-import Behavior from '../static/images/category-images/behavior'
+import PetCare from "../static/images/category-images/pet"
+import CatCare from "../static/images/category-images/cat"
+import DogCare from "../static/images/category-images/dog"
+import SmallPetCare from "../static/images/category-images/smallPet"
+import Insurance from "../static/images/category-images/insurance"
+import Breeds from "../static/images/category-images/breed"
+import Health from "../static/images/category-images/health"
+import Behavior from "../static/images/category-images/behavior"
 import BirdsSmallPetHealthHeroImage from "../static/images/category-images/birdsSmallPetHealth"
 import DogHealthHeroImage from "../static/images/category-images/dogHealth"
 import SmallPetHeroImage from "../static/images/category-images/smallPetHealth"
@@ -28,162 +28,166 @@ import FishSmallPetBreadsHeroImage from "../static/images/category-images/fishSm
 import ReptileSmallPetBreedsHeroImage from "../static/images/category-images/reptileSmallPetBreeds"
 import SmallMammalsSmallPetBreedsHeroImage from "../static/images/category-images/smallMammalsSmallPetBreeds"
 import SmallMammalsSmallPetBehaviorTrainingHeroImage from "../static/images/category-images/smallMammalsSmallPetBehaviorTraining"
-import React from 'react'
-import Helmet from 'react-helmet'
-import logo from '../images/PPlogo.jpg'
+import React from "react"
+import Helmet from "react-helmet"
+import logo from "../images/PPlogo.jpg"
 
 const terms = [
-  'fish behavior & training',
-  'reptile behavior & training',
-  'small mammals behavior & training',
-  'small pet behavior & training',
-  'bird behavior & training',
-  'small mammals pet care',
-  'reptile pet care',
-  'bird pet care',
-  'fish pet care',
-  'small pet care',
-  'small mammals breeds',
-  'small pet breeds',
-  'birds pet breeds',
-  'small pet health',
-  'small mammal health',
-  'fish breeds',
-  'reptiles breeds',
-  'cat breeds',
-  'cat insurance',
-  'pet insurance',
-  'pet behavior',
-  'reptile health',
-  'bird health',
-  'dog health',
-  'fish health',
-  'dog care',
-  'pet care',
-  'cat care',
-  'health',
-  'breeds',
+  "fish behavior & training",
+  "reptile behavior & training",
+  "small mammals behavior & training",
+  "small pet behavior & training",
+  "bird behavior & training",
+  "small mammals pet care",
+  "reptile pet care",
+  "bird pet care",
+  "fish pet care",
+  "small pet care",
+  "small mammals breeds",
+  "small pet breeds",
+  "birds pet breeds",
+  "small pet health",
+  "small mammal health",
+  "fish breeds",
+  "reptiles breeds",
+  "cat breeds",
+  "cat insurance",
+  "pet insurance",
+  "pet expenses",
+  "pet behavior",
+  "reptile health",
+  "bird health",
+  "dog health",
+  "fish health",
+  "dog care",
+  "pet care",
+  "cat care",
+  "health",
+  "breeds",
 ]
-export const categoryColor = ( category ) => {
-  let filteredCategory = terms.filter((term) => category.toLowerCase().indexOf(term) >= 0 )
+export const categoryColor = category => {
+  let filteredCategory = terms.filter(
+    term => category.toLowerCase().indexOf(term) >= 0
+  )
   if (filteredCategory.length > 0) {
     switch (filteredCategory[0]) {
-      case 'dog care':
-        return 'mauve'
-      case 'cat care':
-        return 'orange'
-      case 'pet care':
-        return 'blue-dark'
-      case 'health':
-        return 'red'
-      case 'pet behavior':
-        return 'magenta'
-      case 'pet insurance':
-        return 'green'
-      case 'small pet care':
-        return 'purple-light'
-      case 'breeds':
-        return 'gold'
+      case "dog care":
+        return "mauve"
+      case "cat care":
+        return "orange"
+      case "pet care":
+        return "blue-dark"
+      case "health":
+        return "red"
+      case "pet behavior":
+        return "magenta"
+      case "pet insurance":
+        return "green"
+      case "pet expenses":
+        return "green"
+      case "small pet care":
+        return "purple-light"
+      case "breeds":
+        return "gold"
       default:
-        return 'blue'
+        return "blue"
     }
-  
   } else {
-    return 'purple'
+    return "purple"
   }
-  
 }
 
-
-export const categoryImage = ( category ) => {
-  let filteredCategory = terms.filter((term) => category.toLowerCase().indexOf(term) >= 0 )
+export const categoryImage = category => {
+  let filteredCategory = terms.filter(
+    term => category.toLowerCase().indexOf(term) >= 0
+  )
   // console.log(filteredCategory)
   if (filteredCategory.length > 0) {
     switch (filteredCategory[0]) {
-      case 'bird behavior & training':
+      case "bird behavior & training":
         return <BirdsSmallPetBehaviorTrainingHeroImage />
-      case 'dog care':
+      case "dog care":
         return <DogCare />
-      case 'cat care':
+      case "cat care":
         return <CatCare />
-      case 'pet care':
+      case "pet care":
         return <PetCare />
-      case 'pet behavior':
+      case "pet behavior":
         return <Behavior />
-      case 'pet insurance':
+      case "pet insurance":
         return <Insurance />
-      case 'small pet care':
+      case "pet expenses":
+        return <Insurance />
+      case "small pet care":
         return <SmallPetCare />
-      case 'bird health':
+      case "bird health":
         return <BirdsSmallPetHealthHeroImage />
-      case 'dog health':
+      case "dog health":
         return <DogHealthHeroImage />
-      case 'small pet health':
+      case "small pet health":
         return <SmallPetHeroImage />
-      case 'fish health':
+      case "fish health":
         return <FishSmallPetHealthHeroImage />
-      case 'reptile health':
+      case "reptile health":
         return <ReptileSmallPetHealthHeroImage />
-      case 'small mammal health':
+      case "small mammal health":
         return <SmallMammalsSmallPetHealthHeroImage />
-      case 'cat insurance':
+      case "cat insurance":
         return <CatPetInsuranceHeroImage />
-      case 'bird pet care':
+      case "bird pet care":
         return <BirdsHeroImage />
-      case 'reptile pet care':
+      case "reptile pet care":
         return <ReptileHeroImage />
-      case 'small mammals pet care':
+      case "small mammals pet care":
         return <SmallMammalsHeroImage />
-      case 'fish pet care':
+      case "fish pet care":
         return <FishHeroImage />
-      case 'small pet behavior & training':
+      case "small pet behavior & training":
         return <SmallPetBehaviorTrainingHeroImage />
-      case 'fish behavior & training':
+      case "fish behavior & training":
         return <FishSmallPetBehaviorTrainingHeroImage />
-      case 'reptile behavior & training':
+      case "reptile behavior & training":
         return <ReptileSmallPetBehaviorTrainingImage />
-      case 'small mammals behavior & training':
-        return <SmallMammalsSmallPetBehaviorTrainingHeroImage/>
-      case 'cat breeds':
+      case "small mammals behavior & training":
+        return <SmallMammalsSmallPetBehaviorTrainingHeroImage />
+      case "cat breeds":
         return <CatBreedsHeroImage />
-      case 'small pet breeds':
+      case "small pet breeds":
         return <SmallPetBreedsHeroImage />
-      case 'birds pet breeds':
+      case "birds pet breeds":
         return <BirdsSmallPetBreedsHeroImage />
-      case 'fish breeds':
+      case "fish breeds":
         return <FishSmallPetBreadsHeroImage />
-      case 'reptiles breeds':
+      case "reptiles breeds":
         return <ReptileSmallPetBreedsHeroImage />
-      case 'small mammals breeds':
+      case "small mammals breeds":
         return <SmallMammalsSmallPetBreedsHeroImage />
-      case 'health':
+      case "health":
         return <Health />
-      case 'breeds':
+      case "breeds":
         return <Breeds />
       default:
         return <PetCare />
     }
-  
   } else {
     return <PetCare />
   }
-  
 }
 
 // returns author name
-export const filterAuthors = (author) => {
+export const filterAuthors = author => {
   // console.log(author.slug)
   switch (author.slug) {
-    case 'stephanie-silberstang-dvm-cva':
-    case 'alett-mekler-ma-econ-dvm-ccrp-cvma':
-    case 'dr-debra-primovic-dvm':
-    case 'carey-hemmelgarn':
-    case 'kimmi-whitehead-vmd-dacvecc':
-    case 'rebecca-mount-dvm-dacvd':
-    case 'danika-sorensen-vmd':
-    case 'lori-savka':
-    case 'melissa-evans-lvt-vts-ecc':
-    case 'carey-hemmelgarn-dvm-dacvecc':
+    case "stephanie-silberstang-dvm-cva":
+    case "alett-mekler-ma-econ-dvm-ccrp-cvma":
+    case "dr-debra-primovic-dvm":
+    case "carey-hemmelgarn":
+    case "kimmi-whitehead-vmd-dacvecc":
+    case "rebecca-mount-dvm-dacvd":
+    case "danika-sorensen-vmd":
+    case "lori-savka":
+    case "melissa-evans-lvt-vts-ecc":
+    case "carey-hemmelgarn-dvm-dacvecc":
       return author.display_name
     default:
       return false
@@ -191,69 +195,75 @@ export const filterAuthors = (author) => {
 }
 
 // returns slug for selected authors
-export const filterAuthorsLink = (author) => {
+export const filterAuthorsLink = author => {
   // console.log(author)
   switch (author) {
-    case 'Stephanie Silberstang, DVM CVA':
-      return 'stephanie-silberstang-dvm-cva'
-    case 'Alett Mekler MA (Econ), DVM, CCRP, CVMA':
-      return 'alett-mekler-ma-econ-dvm-ccrp-cvma'
-    case 'Dr. Debra Primovic - DVM':
-      return 'dr-debra-primovic-dvm'
-    case 'Carey Hemmelgarn':
-      return 'carey-hemmelgarn'
-    case 'KimMi Whitehead, VMD, DACVECC':
-      return 'kimmi-whitehead-vmd-dacvecc'
-    case 'Rebecca Mount, DVM DACVD':
-      return 'rebecca-mount-dvm-dacvd'
-    case 'Danika Sorensen, VMD':
-      return 'danika-sorensen-vmd'
-    case 'Lori Savka':
-      return 'lori-savka'
-    case 'Melissa Evans, LVT, VTS (ECC)': 
-      return 'melissa-evans-lvt-vts-ecc'
-    case 'Carey Hemmelgarn, DVM DACVECC':
-      return 'carey-hemmelgarn-dvm-dacvecc'
+    case "Stephanie Silberstang, DVM CVA":
+      return "stephanie-silberstang-dvm-cva"
+    case "Alett Mekler MA (Econ), DVM, CCRP, CVMA":
+      return "alett-mekler-ma-econ-dvm-ccrp-cvma"
+    case "Dr. Debra Primovic - DVM":
+      return "dr-debra-primovic-dvm"
+    case "Carey Hemmelgarn":
+      return "carey-hemmelgarn"
+    case "KimMi Whitehead, VMD, DACVECC":
+      return "kimmi-whitehead-vmd-dacvecc"
+    case "Rebecca Mount, DVM DACVD":
+      return "rebecca-mount-dvm-dacvd"
+    case "Danika Sorensen, VMD":
+      return "danika-sorensen-vmd"
+    case "Lori Savka":
+      return "lori-savka"
+    case "Melissa Evans, LVT, VTS (ECC)":
+      return "melissa-evans-lvt-vts-ecc"
+    case "Carey Hemmelgarn, DVM DACVECC":
+      return "carey-hemmelgarn-dvm-dacvecc"
     default:
       return false
   }
 }
 
-export const formatDate = (date) => {
+export const formatDate = date => {
   const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-    ];
-  const year = date.substring(0,4)
-  const month = months[parseInt( date.substring(5,7))-1]
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
+  const year = date.substring(0, 4)
+  const month = months[parseInt(date.substring(5, 7)) - 1]
   // console.log(month)
-  const day = date.substring(8,10)
+  const day = date.substring(8, 10)
 
   return `${month} ${day}, ${year}`
 }
 
 export const filterFaqPosts = (post, author, imgUrl) => {
   switch (post.slug) {
-    case 'heres-help-puppy-will-not-eat':
+    case "heres-help-puppy-will-not-eat":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -354,16 +364,22 @@ export const filterFaqPosts = (post, author, imgUrl) => {
           `}</script>
         </Helmet>
       )
-    case 'here-are-the-best-dog-foods-for-picky-dogs':
+    case "here-are-the-best-dog-foods-for-picky-dogs":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -480,16 +496,22 @@ export const filterFaqPosts = (post, author, imgUrl) => {
           `}</script>
         </Helmet>
       )
-    case 'dog-wont-eat-food-will-eat-treats':
+    case "dog-wont-eat-food-will-eat-treats":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -584,16 +606,22 @@ export const filterFaqPosts = (post, author, imgUrl) => {
           `}</script>
         </Helmet>
       )
-    case 'what-is-a-pet-wellness-plan':
+    case "what-is-a-pet-wellness-plan":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -672,16 +700,22 @@ export const filterFaqPosts = (post, author, imgUrl) => {
           `}</script>
         </Helmet>
       )
-    case 'cat-head-pressing-while-sleeping-what-does-it-mean':
+    case "cat-head-pressing-while-sleeping-what-does-it-mean":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -821,16 +855,22 @@ export const filterFaqPosts = (post, author, imgUrl) => {
           `}</script>
         </Helmet>
       )
-    case 'what-causes-bad-breath-in-puppies':
+    case "what-causes-bad-breath-in-puppies":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "BlogPosting",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -886,18 +926,26 @@ export const filterFaqPosts = (post, author, imgUrl) => {
           `}</script>
         </Helmet>
       )
-    case 'can-dogs-get-coronavirus':
+    case "can-dogs-get-coronavirus":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "SpecialAnnouncement",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
-              "diseasePreventionInfo": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "diseasePreventionInfo": "${process.env.GATSBY_WEB_SITE_URL}${
+            post.path
+          }",
               "category": "https://www.wikidata.org/wiki/Q81068910",
               "author": {
                 "@type": "Person",
@@ -916,22 +964,33 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "datePublished": "${post.date}",
               "dateModified" : "${post.date}",
               "datePosted"   : "${post.date}",
-              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}"
             }
           `}</script>
         </Helmet>
       )
-    case 'can-pet-get-coronavirus-covid-19':
+    case "can-pet-get-coronavirus-covid-19":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "SpecialAnnouncement",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
-              "newsUpdatesAndGuidelines": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "newsUpdatesAndGuidelines": "${process.env.GATSBY_WEB_SITE_URL}${
+            post.path
+          }",
               "category": "https://www.wikidata.org/wiki/Q81068910",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
@@ -951,22 +1010,33 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "datePublished": "${post.date}",
               "dateModified" : "${post.date}",
               "datePosted"   : "${post.date}",
-              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}"
             }
           `}</script>
         </Helmet>
       )
-    case 'can-my-cat-get-coronavirus':
+    case "can-my-cat-get-coronavirus":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "SpecialAnnouncement",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
-              "diseasePreventionInfo": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "diseasePreventionInfo": "${process.env.GATSBY_WEB_SITE_URL}${
+            post.path
+          }",
               "category": "https://www.wikidata.org/wiki/Q81068910",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
@@ -986,22 +1056,33 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "datePublished": "${post.date}",
               "dateModified" : "${post.date}",
               "datePosted"   : "${post.date}",
-              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}"
             }
           `}</script>
         </Helmet>
       )
-    case 'pet-lovers-quarantine-movie-guide':
+    case "pet-lovers-quarantine-movie-guide":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "SpecialAnnouncement",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
-              "newsUpdatesAndGuidelines": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "newsUpdatesAndGuidelines": "${process.env.GATSBY_WEB_SITE_URL}${
+            post.path
+          }",
               "category": "https://www.wikidata.org/wiki/Q81068910",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
@@ -1021,22 +1102,33 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "datePublished": "${post.date}",
               "dateModified" : "${post.date}",
               "datePosted"   : "${post.date}",
-              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}"
             }
           `}</script>
         </Helmet>
       )
-    case 'emergency-dog-food':
+    case "emergency-dog-food":
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "SpecialAnnouncement",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
-              "quarantineGuidelines": "${process.env.GATSBY_WEB_SITE_URL}${post.path}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "quarantineGuidelines": "${process.env.GATSBY_WEB_SITE_URL}${
+            post.path
+          }",
               "category": "https://www.wikidata.org/wiki/Q81068910",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
@@ -1056,7 +1148,10 @@ export const filterFaqPosts = (post, author, imgUrl) => {
               "datePublished": "${post.date}",
               "dateModified" : "${post.date}",
               "datePosted"   : "${post.date}",
-              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}"
+              "text"         : "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}"
             }
           `}</script>
         </Helmet>
@@ -1064,13 +1159,19 @@ export const filterFaqPosts = (post, author, imgUrl) => {
     default:
       return (
         <Helmet>
-        {/* inline script elements */}
+          {/* inline script elements */}
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
               "@type": "BlogPosting",
-              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(/[^a-zA-Z ]/g, "")}",
-              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(/[^a-zA-Z ]/g, "")}",
+              "headline": "${post.yoast_meta.yoast_wpseo_title.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
+              "description": "${post.yoast_meta.yoast_wpseo_metadesc.replace(
+                /[^a-zA-Z ]/g,
+                ""
+              )}",
               "image": "${process.env.GATSBY_WEB_SITE_URL}${imgUrl}",  
               "author": {
                 "@type": "Person",
@@ -1100,7 +1201,7 @@ export const filterFaqPosts = (post, author, imgUrl) => {
   }
 }
 
-export const setBreedColor = (breed) => {
+export const setBreedColor = breed => {
   switch (breed) {
     case 0:
     case 3:
@@ -1113,9 +1214,9 @@ export const setBreedColor = (breed) => {
     case 7:
     case 10:
     case 13:
-    return "breed-red"
-  
+      return "breed-red"
+
     default:
       return "breed-blue"
   }
-} 
+}
