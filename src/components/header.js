@@ -32,7 +32,7 @@ const Header = ({ siteTitle, noSearch, hideSearch }) => (
             Breed Guide
           </Link>
           <Link to="/article/category/pet-insurance/" className="navbar-item">
-            Pet Insurance
+            Pet Expenses
           </Link>
           <Link
             to="/tags/ask-dr-debra-common-questions/"

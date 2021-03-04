@@ -479,7 +479,7 @@ const Sitemap = () => {
               <div className="sitemap-list">
                 {/* <Img sizes={{...data.petCareImg.childImageSharp.fluid, aspectRatio: 18 / 5}} /> */}
                 <Link to="/article/category/pet-insurance/">
-                  <h3>Pet Insurance</h3>
+                  <h3>Pet Expenses</h3>
                 </Link>
                 <ul>
                   <li>
