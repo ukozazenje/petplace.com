@@ -48,7 +48,7 @@ const CategoriesList = () => {
                 <Card
                   icon={petInsuranceIcon}
                   link="/article/category/pet-insurance/"
-                  title="Pet Insurance"
+                  title="Pet Expenses"
                   text="Request a quote or shop for plans based on your personal budget and the unique needs of your pet."
                 />
               </div>
