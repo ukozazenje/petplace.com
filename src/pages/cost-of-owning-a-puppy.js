@@ -492,15 +492,15 @@ const CostOfPuppy = () => {
                 >
                   about <strong>$45</strong> on average.
                 </a>{" "}
+                You may need to pay an additional fee (
                 <a
                   href="https://pets.thenest.com/much-cost-microchip-dog-9117.html"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  You may need to pay an additional fee (
-                  <strong>around $20</strong>) to register your dog’s microchip
-                  in a nationwide database.
-                </a>
+                  <strong>around $20</strong> 
+                </a> 
+                ) to register your dog’s microchip in a nationwide database.
               </p>
               <p>
                 <strong>Food and Treats:</strong> Unless you bought in bulk or
@@ -624,15 +624,15 @@ const CostOfPuppy = () => {
               <p>
                 <strong>Food and Treats:</strong> By now, you’ve hopefully
                 learned to spot deals on your puppy’s preferred food and treats.
-                Plan to spend{" "}
+                Plan to spend another {" "}
                 <a
                   href="https://money.usnews.com/money/personal-finance/articles/costs-to-consider-when-adopting-a-pet"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  another <strong>$20 to $60</strong> this
+                   <strong>$20 to $60</strong> 
                 </a>{" "}
-                month and make sure to consult your veterinarian before making
+                this month and make sure to consult your veterinarian before making
                 any updates to your dog’s diet.
               </p>
               <div className="advertorial-image-content img-left">
@@ -657,16 +657,16 @@ const CostOfPuppy = () => {
                 your dog at home, first-time dog owners in particular may
                 benefit from professional guidance. The experience won’t just
                 promote obedience, it’ll also help socialize your dog and
-                strengthen their bond with you. Private training sessions{" "}
+                strengthen their bond with you. Private training sessions can cost {" "}
                 <a
                   href="https://www.rover.com/blog/how-much-does-dog-training-cost/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  can cost <strong>hundreds of dollars an hour</strong>
-                  , but group training could cost{" "}
-                  <strong>just over $100 for several weeks of sessions</strong>.
+                  <strong>hundreds of dollars an hour</strong>  
                 </a>
+                , but group training could cost{" "}
+                <strong>just over $100 for several weeks of sessions</strong>.
               </p>
               <div className="avg-chart-image">
                 <img src={AvgChartMobImg4} className="is-hidden-tablet" />
