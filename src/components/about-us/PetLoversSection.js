@@ -31,6 +31,7 @@ const PetLoversSection = () => {
             <Link to="/article/category/pet-care/" className="about-us-btn">Pet Care</Link>
             <Link to="/article/category/pet-health/" className="about-us-btn">Health and Wellness</Link>
             <Link to="/article/category/pet-behavior-training/" className="about-us-btn">Behavior and Training</Link>
+            <Link to="/article/category/pet-insurance/" className="about-us-btn">Pet Expenses</Link>
           </div>
           <div className="column image-wrapper">
             <img src={PetLoversImg} alt="Pet lovers" />
