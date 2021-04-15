@@ -123,6 +123,7 @@ const CostOfPuppy = () => {
             </div>
             <div className="column">
               <p className="petpartners-disclosure">
+                The following is advertorial content.{" "}
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
@@ -160,9 +161,16 @@ const CostOfPuppy = () => {
                     Canine Distemper Virus, Canine Adenovirus, Canine
                     Parainfluenza, and Canine Parvovirus. This initial dose is a
                     primer intended to boost your dog’s immune system in
-                    anticipation of the full vaccine. It usually costs between{" "}
-                    <strong>$20 and $30</strong> for each dose. The cost of this
-                    first dose may be included in your adoption or purchase fee.
+                    anticipation of the full vaccine. {" "}
+                    <a
+                      href="https://www.akc.org/expert-advice/health/puppy-shots-complete-guide/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      It usually costs between <strong>$20 and $30</strong> for each dose
+                    </a>
+                    . The cost of this first dose may be included
+                    in your adoption or purchase fee.
                   </p>
                 </div>
                 <div className="advertorial-img">
@@ -178,6 +186,7 @@ const CostOfPuppy = () => {
                 <strong>
                   <a
                     href="https://www.thesprucepets.com/the-cost-of-dog-ownership-1117321#:~:text=It%20is%20important%20to%20feed,the%20quality%20of%20the%20food."
+                    rel="noopener noreferrer"
                     target="_blank"
                   >
                     $20 and $60
@@ -205,9 +214,16 @@ const CostOfPuppy = () => {
                   <p>
                     Some shelters and adoption centers may offer pets for free,
                     but prospective pet parents should expect to pay{" "}
-                    <strong>as much as $500</strong>, since adoption fees often
-                    help cover costs associated with vaccination, microchipping,
-                    and other pet ownership essentials.
+                    <a
+                      href="https://money.usnews.com/money/personal-finance/articles/costs-to-consider-when-adopting-a-pet"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <strong>as much as $500</strong>
+                    </a>
+                    , since adoption fees often help cover costs associated with
+                    vaccination, microchipping, and other pet ownership
+                    essentials.
                   </p>
                   <p>
                     Whichever option you choose, you probably won’t bring home
@@ -224,39 +240,57 @@ const CostOfPuppy = () => {
                 <strong>Initial Veterinary Visit:</strong> Within the first week
                 of bringing your puppy home, you should make your first trip to
                 the vet. New dog owners could pay around{" "}
-                <strong>$75 to $100</strong> for this introductory visit. The
-                vet will conduct a general examination to identify signs of
-                congenital disorders or infections. They’ll also review your
-                puppy’s vaccination history (expect to be charged if they
-                haven’t had that first DAPP dose at this visit) and assess their
-                stool to check for intestinal parasites. Don’t forget to bring
-                along any medical records you have, a stool sample (if
-                applicable), and any burning questions.
+                <a
+                  href="https://www.akcpetinsurance.com/blog/the-big-day-puppys-first-vet-visit"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>$75 to $100</strong>
+                </a>{" "}
+                for this introductory visit. The vet will conduct a general
+                examination to identify signs of congenital disorders or
+                infections. They’ll also review your puppy’s vaccination history
+                (expect to be charged if they haven’t had that first DAPP dose
+                at this visit) and assess their stool to check for intestinal
+                parasites. Don’t forget to bring along any medical records you
+                have, a stool sample (if applicable), and any burning questions.
               </p>
               <p>
                 <strong>Heartworm Prevention:</strong> The American Heartworm
                 Society encourages pet owners to begin treating their dogs with
                 preventive medicine against heartworm when they’re around eight
                 weeks of age. Treatment types vary, and your veterinarian may
-                suggest oral, topical, or injectible preventive treatments.
+                suggest oral, topical, or injectable preventive treatments.
                 Typically, they recommend that pets undergo these treatments
                 throughout the entire year. Depending on your dog’s weight,
-                preventing heartworm will cost between{" "}
-                <strong>$30 and $80</strong> each year. If you’re on the fence
-                about whether or not this is a necessary expense, keep this in
-                mind: a single bite from an infected mosquito can cause
-                heartworm, and preventing them is typically much less expensive
-                than getting rid of them.
+                preventing heartworm will cost{" "}
+                <a
+                  href="https://www.petmd.com/dog/parasites/how-much-does-heartworm-treatment-cost-dogs"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>between $35 and $75</strong>
+                </a>{" "}
+                each year. If you’re on the fence about whether or not this is a
+                necessary expense, keep this in mind: a single bite from an
+                infected mosquito can cause heartworm, and preventing them is
+                typically much less expensive than getting rid of them.
               </p>
               <p>
                 <strong>Bordetella Vaccine:</strong> The vaccine against
                 Bordetella (also known as kennel cough) is optional, but some
                 pet care establishments like dog daycares and overnight boarding
-                facilities require pets to be vaccinated. It costs between{" "}
-                <strong>$20 and $45</strong> on average. If you choose to
-                vaccinate your dog, it can be administered concurrently with
-                their first dose of heartworm prevention medicine and the DAPP
-                vaccine.
+                facilities require pets to be vaccinated. It costs{" "}
+                <a
+                  href="https://www.akc.org/expert-advice/health/puppy-shots-complete-guide/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>between $20 and $45</strong>
+                </a>{" "}
+                on average. If you choose to vaccinate your dog, it can be
+                administered concurrently with their first dose of heartworm
+                prevention medicine and the DAPP vaccine.
               </p>
               <p>
                 <strong>Canine Coronavirus Vaccine:</strong> Not to be confused
@@ -264,7 +298,13 @@ const CostOfPuppy = () => {
                 against a different type of respiratory illness. Sometimes, this
                 vaccine is included with the DAPP vaccination, but as a
                 stand-alone vaccination, it costs between{" "}
-                <strong>$15 and $20</strong>.
+                <a
+                  href="https://www.akc.org/expert-advice/health/puppy-shots-complete-guide/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>$15 and $20</strong>.
+                </a>
               </p>
               <div className="advertorial-image-content img-right column-reverse">
                 <div className="advertorial-content">
@@ -280,17 +320,17 @@ const CostOfPuppy = () => {
                     <strong>Gear:</strong> Before your puppy arrives, you’ll
                     want to visit the pet store for must-haves like{" "}
                     <a
-                      href="https://www.chewy.com/s?query=dog%20bowl&nav-submit-button="
+                      href="https://money.usnews.com/money/personal-finance/articles/costs-to-consider-when-adopting-a-pet"
+                      rel="noopener noreferrer"
                       target="_blank"
                     >
-                      bowls for food and water
-                    </a>{" "}
-                    (<strong>$10 - $30</strong>), a leash, harness (
-                    <strong>$10 - $40</strong>) or collar (
-                    <strong>$5 - $20</strong>), and a crate (
-                    <strong>$40 - $200</strong>). If you have a small dog, you
-                    may need to purchase a carrier for trips to and from the
-                    vet, and other travel.
+                      bowls for food and water (<strong>$10 - $30</strong>), a
+                      leash, harness (<strong>$10 - $40</strong>) or collar (
+                      <strong>$5 - $20</strong>), and a crate (
+                      <strong>$40 - $200</strong>)
+                    </a>
+                    . If you have a small dog, you may need to purchase a
+                    carrier for trips to and from the vet, and other travel.
                   </p>
                 </div>
                 <div className="advertorial-img">
@@ -299,8 +339,15 @@ const CostOfPuppy = () => {
               </div>
               <p>
                 <strong>Identification:</strong> Once you’ve picked out a name
-                for your pup, don’t forget to put it on their identification tag
-                (<strong>$5 - $10</strong>).{" "}
+                for your pup, don’t forget to put it on their{" "}
+                <a
+                  href="https://www.chewy.com/b/id-tags-accessories-348"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  identification tag (<strong>$5 - $10</strong>)
+                </a>
+                .
               </p>
               <p>
                 <strong>Toys:</strong> Toys aren’t just about fun and games.
@@ -310,25 +357,39 @@ const CostOfPuppy = () => {
                 set of 42 adult teeth grow in, they’ll need plenty of toys to
                 soothe their sore gums. You’ll want to keep them comfortable
                 while keeping them away from your shoes, rugs, and furniture.
-                Plan on spending <strong>at least $20</strong> on their initial
-                set of toys and as much{" "}
-                <strong>as $100 during their first year</strong>.
+                Plan on spending{" "}
+                <a
+                  href="https://money.usnews.com/money/personal-finance/articles/costs-to-consider-when-adopting-a-pet"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>at least $20</strong> on their initial set of toys and
+                  as much <strong>as $100 during their first year</strong>
+                </a>
+                .
               </p>
               <p>
                 <strong>Pet Insurance:</strong> At eight weeks of age, your
                 puppy may be eligible to{" "}
                 <a
                   href="https://www.petpartners.com/pet-insurance/frequently-asked-questions"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   enroll in pet insurance
                 </a>
                 . Like traditional health insurance, pet insurance provides
-                reimbursement for both emergency and routine expenses. Plans
-                start as low as $15 per month for basic accident and illness
-                coverage. Providers offer more benefits for an additional fee
-                and give pet owners the option to customize plans to meet their
-                pet’s needs.
+                reimbursement for both emergency and routine expenses.{" "}
+                <a
+                  href="https://www.petpartners.com/pet-insurance/frequently-asked-questions"
+                  target="_blank"
+                >
+                  Plans start as low as $15 per month for basic accident and
+                  illness coverage
+                </a>
+                . Pet insurance companies offer more benefits for additional
+                fees and give pet owners the option to customize plans to meet
+                their pet’s needs.
               </p>
               <div className="avg-chart-image">
                 <img src={AvgChartMobImg2} className="is-hidden-tablet" />
@@ -354,14 +415,28 @@ const CostOfPuppy = () => {
                 <strong>Routine Checkup:</strong> Your vet will take another
                 look at your puppy to ensure they’re growing into a healthy
                 young dog. These routine visits will happen twice-a-year and
-                typically cost between <strong>$45 and $55</strong> for a
-                wellness check. This will be a recurring expense throughout your
-                dog’s life.
+                typically cost between{" "}
+                <a
+                  href="https://www.carecredit.com/vetmed/costs/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>$45 and $55</strong>
+                </a>{" "}
+                for a wellness check. This will be a recurring expense
+                throughout your dog’s life.
               </p>
               <p>
                 <strong>DAPP Vaccine (2 of 3):</strong> About three weeks after
                 their first DAPP shot, it’s time for your puppy to receive dose
-                #2, which is another <strong>$20 to $30</strong> expense.
+                #2, which is{" "}
+                <a
+                  href="https://www.akc.org/expert-advice/health/puppy-shots-complete-guide/"
+                  target="_blank"
+                >
+                  another <strong>$20 to $30 expense</strong>
+                </a>
+                .
               </p>
               <div className="advertorial-image-content img-left">
                 <div className="advertorial-img">
@@ -371,19 +446,31 @@ const CostOfPuppy = () => {
                   <p>
                     <strong>Rabies Vaccine:</strong> Your dog will need a rabies
                     vaccine to protect them from this deadly and widespread
-                    virus. The initial dose costs around{" "}
-                    <strong>$15 to $20</strong> and your dog will get it
-                    somewhere between 12 and 16 weeks of age. Remember that your
-                    dog will need additional rabies boosters to keep up their
-                    immunity in the coming years.
+                    virus. The initial dose costs{" "}
+                    <a
+                      href="https://www.akc.org/expert-advice/health/puppy-shots-complete-guide/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <strong>around $15 to $20</strong>
+                    </a>{" "}
+                    and your dog will get it somewhere between 12 and 16 weeks
+                    of age. Remember that your dog will need additional rabies
+                    boosters to keep up their immunity in the coming years.
                   </p>
                   <p>
                     <strong>Flea and Tick Prevention:</strong> After they’ve
                     reached eight weeks of age, it’s safe for puppies to be
                     treated with pest-prevention medications. If you live in a
                     high-risk area, these treatments may be a year-round
-                    necessity. On average, a three-month supply of medication
-                    costs <strong>around $50.</strong>
+                    necessity. On average, a three-month supply of medication{" "}
+                    <a
+                      href="https://www.chewy.com/b/flea-tick-381"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      costs <strong>around $55.</strong>
+                    </a>
                   </p>
                 </div>
               </div>
@@ -392,20 +479,39 @@ const CostOfPuppy = () => {
                 <strong>Microchipping:</strong> Around 12 weeks of age,{" "}
                 <a
                   href="https://www.petplace.com/article/general/pet-care/microchip-pet-month/#section2"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   pets can be microchipped
                 </a>
-                . The process is quick, effectively painless, and costs about{" "}
-                <strong>$45</strong> on average. You may need to pay an
-                additional fee (<strong>around $20</strong>) to register your
-                dog’s microchip in a nationwide database.
+                . The process is quick, effectively painless, and costs{" "}
+                <a
+                  href="https://www.petfinder.com/dogs/lost-and-found-dogs/microchip-faqs/#:~:text=A%3A%20The%20average%20cost%20to,may%20already%20have%20a%20microchip."
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  about <strong>$45</strong> on average.
+                </a>{" "}
+                You may need to pay an additional fee (
+                <a
+                  href="https://pets.thenest.com/much-cost-microchip-dog-9117.html"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>around $20</strong> 
+                </a> 
+                ) to register your dog’s microchip in a nationwide database.
               </p>
               <p>
                 <strong>Food and Treats:</strong> Unless you bought in bulk or
                 placed an autoship subscription, you’ll probably have to make at
-                least one trip to the pet store to spend another{" "}
-                <strong>$20 to $60</strong> on dog food and treats.
+                least one trip to the pet store to spend{" "}
+                <a
+                  href="https://money.usnews.com/money/personal-finance/articles/costs-to-consider-when-adopting-a-pet"
+                  target="_blank"
+                >
+                  another <strong>$20 to $60</strong> on dog food and treats.
+                </a>
               </p>
               <div className="avg-chart-image">
                 <img src={AvgChartMobImg3} className="is-hidden-tablet" />
@@ -418,7 +524,13 @@ const CostOfPuppy = () => {
                 <strong>DAPP Vaccine (3 of 3):</strong> About three weeks after
                 shot #2, your puppy needs their third and final dose of the DAPP
                 vaccine and you’ll need to pay another{" "}
-                <strong>$20 to $30</strong>.
+                <a
+                  href="https://www.akc.org/expert-advice/health/puppy-shots-complete-guide/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>$20 to $30</strong>.
+                </a>
               </p>
               <p>
                 <strong>Leptospirosis Vaccination:</strong> Your vet may
@@ -427,12 +539,19 @@ const CostOfPuppy = () => {
                 by infected rodents and is treatable with antibiotics. As with
                 other canine illnesses, prevention is often less expensive than
                 treatment. The vaccine costs between{" "}
-                <strong>$75 and $100</strong> on average.
+                <a
+                  href="https://www.akc.org/expert-advice/health/puppy-shots-complete-guide/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>$75 and $100</strong> on average.
+                </a>
               </p>
               <p>
                 <strong>Lyme Vaccination:</strong> This{" "}
                 <a
                   href="https://www.petmd.com/dog/parasites/does-your-dog-need-lyme-vaccine"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   non-core, yearly vaccination
@@ -443,14 +562,28 @@ const CostOfPuppy = () => {
                 decision. However, keep in mind that indoor dogs are still
                 vulnerable to ticks and Lyme disease. If you opt to vaccinate
                 your pet against Lyme, you’ll likely pay between{" "}
-                <strong>$20 and $40</strong> each year.
+                <a
+                  href="https://www.akc.org/expert-advice/health/puppy-shots-complete-guide/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>$20 and $40</strong> each year.
+                </a>
               </p>
               <p className="p-subtitle">Pet Care Essentials</p>
               <p>
                 <strong>Food and Treats:</strong> Still more food and treats and
-                another bill around <strong>$20 to $60</strong>. Continue using
-                treats as positive reinforcement to encourage good behavior and
-                consult your veterinarian about any adverse reactions.{" "}
+                another{" "}
+                <a
+                  href="https://money.usnews.com/money/personal-finance/articles/costs-to-consider-when-adopting-a-pet"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  bill around <strong>$20 to $60</strong>.
+                </a>{" "}
+                Continue using treats as positive reinforcement to encourage
+                good behavior and consult your veterinarian about any adverse
+                reactions.{" "}
               </p>
               <div className="avg-chart-image">
                 <img src={AvgChartMobImg3} className="is-hidden-tablet" />
@@ -463,6 +596,7 @@ const CostOfPuppy = () => {
                 be{" "}
                 <a
                   href="https://www.aaha.org/your-pet/pet-owner-education/ask-aaha/spay-or-neuter/"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   spayed or neutered
@@ -471,6 +605,7 @@ const CostOfPuppy = () => {
                 later. Regardless of your dog’s size and breed,{" "}
                 <a
                   href="https://www.petfinder.com/cats/cat-health/low-cost-spay-neuter/#:~:text=These%20routine%20surgeries%20typically%20cost,spay%2Fneuter%20programs%20and%20clinics."
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   the procedure can cost as much as $500
@@ -480,15 +615,25 @@ const CostOfPuppy = () => {
               <p>
                 <strong>Pest Prevention:</strong> Depending on your pet’s
                 schedule, it may be time to purchase another round of preventive
-                medications for <strong>around $50</strong>.
+                medications{" "}
+                <a href="https://www.chewy.com/b/flea-tick-381" target="_blank" rel="noopener noreferrer">
+                  for <strong>around $55</strong>.
+                </a>
               </p>
               <p className="p-subtitle">Pet Care Essentials</p>
               <p>
                 <strong>Food and Treats:</strong> By now, you’ve hopefully
                 learned to spot deals on your puppy’s preferred food and treats.
-                Plan to spend another <strong>$20 to $60</strong> this month and
-                make sure to consult your veterinarian before making any updates
-                to your dog’s diet.
+                Plan to spend another {" "}
+                <a
+                  href="https://money.usnews.com/money/personal-finance/articles/costs-to-consider-when-adopting-a-pet"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                   <strong>$20 to $60</strong> 
+                </a>{" "}
+                this month and make sure to consult your veterinarian before making
+                any updates to your dog’s diet.
               </p>
               <div className="advertorial-image-content img-left">
                 <div className="advertorial-img">
@@ -504,8 +649,6 @@ const CostOfPuppy = () => {
                     as well, since many will continue teething until they reach
                     eight months of age. By now, you’ve hopefully learned how to
                     identify toys that can withstand heavy biting and chewing.
-                    Plan to spend <strong>about $20</strong> on another
-                    assortment.
                   </p>
                 </div>
               </div>
@@ -514,21 +657,27 @@ const CostOfPuppy = () => {
                 your dog at home, first-time dog owners in particular may
                 benefit from professional guidance. The experience won’t just
                 promote obedience, it’ll also help socialize your dog and
-                strengthen their bond with you. Private training sessions can
-                cost <strong>hundreds of dollars an hour</strong>, but group
-                training could cost{" "}
+                strengthen their bond with you. Private training sessions can cost {" "}
+                <a
+                  href="https://www.rover.com/blog/how-much-does-dog-training-cost/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <strong>hundreds of dollars an hour</strong>  
+                </a>
+                , but group training could cost{" "}
                 <strong>just over $100 for several weeks of sessions</strong>.
               </p>
               <div className="avg-chart-image">
                 <img src={AvgChartMobImg4} className="is-hidden-tablet" />
                 <img src={AvgChartImg4} className="is-hidden-mobile" />
               </div>
-              <h3>Financial Support from Puppy to Senior Dog</h3>
+              <h3>What Costs Pet Insurance May Cover</h3>
               <p>
-                Over just six months, your puppy has already run up quite a
-                bill. It’s not too late to start saving with a pet insurance
-                policy. Depending on the level of coverage you select, you may
-                be able to save each year on expenses including:
+                Pet ownership can run up quite a bill. It’s not too late to
+                think about the protection pet insurance can offer. Depending on
+                the level of coverage you select, you may be able to help pay
+                for expenses like:
               </p>
               <div className="advertorial-image-content img-right column-reverse">
                 <div className="advertorial-content">
@@ -548,7 +697,7 @@ const CostOfPuppy = () => {
               </div>
               <p>
                 Purchasing a plan shortly after bringing home your puppy can
-                even help you save on microchipping and spaying or neutering.
+                even help you pay for microchipping and spaying or neutering.
               </p>
               <div className="advertorial-free-quote-wrapper">
                 <span>
