@@ -374,7 +374,10 @@ class Post extends Component {
                       )}
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: post.content,
+                          __html: post.content.replace(
+                            /http:\/\/prod.ppl.torchte.ch\//gi,
+                            "https://prod.ppl.torchte.ch/"
+                          ),
                         }}
                       />
                     </div>
