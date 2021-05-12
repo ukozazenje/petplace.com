@@ -67,7 +67,7 @@ const AdvertiseWithUsIntro = () => {
         <div className="columns">
           <div className="column">
             <a
-              href="/PetPlacemediaKit2021.pdf"
+              href="/PPmediaKit_May2021.pdf"
               title="Petplace mediakit 2021"
               className="download-btn"
               target="_blank"
