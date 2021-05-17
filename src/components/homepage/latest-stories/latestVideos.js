@@ -56,11 +56,20 @@ const LatestVideos = props => {
             <div className="main-box-mobile-img">
               <Link
                 className={`category-link-btn ${categoryColor(
-                  mainPost.category_name
+                  mainPost.category_name === "Puppy Diaries"
+                    ? "Puppy Diaries"
+                    : mainPost.category_name
                 )} hide-desktop`}
-                to={mainPost.category_path}
+                to={
+                  mainPost.category_name === "Puppy Diaries"
+                    ? "/article/puppy-diaries/"
+                    : mainPost.category_path
+                }
                 dangerouslySetInnerHTML={{
-                  __html: mainPost.category_name,
+                  __html:
+                    mainPost.category_name === "Puppy Diaries"
+                      ? "Puppy Diaries"
+                      : mainPost.category_name,
                 }}
               />
               <Img
@@ -100,9 +109,16 @@ const LatestVideos = props => {
                 className={`category-link-btn ${categoryColor(
                   mainPost.category_name
                 )}  hide-mobile`}
-                to={mainPost.category_path}
+                to={
+                  mainPost.category_name === "Puppy Diaries"
+                    ? "/article/puppy-diaries/"
+                    : mainPost.category_path
+                }
                 dangerouslySetInnerHTML={{
-                  __html: mainPost.category_name,
+                  __html:
+                    mainPost.category_name === "Puppy Diaries"
+                      ? "Puppy Diaries"
+                      : mainPost.category_name,
                 }}
               />
               <Link to={mainPost.path}>
@@ -137,11 +153,20 @@ const LatestVideos = props => {
               <div className="category-links-wrapper">
                 <Link
                   className={`category-link-btn ${categoryColor(
-                    firstPost.category_name
+                    firstPost.category_name === "Puppy Diaries"
+                      ? "Puppy Diaries"
+                      : firstPost.category_name
                   )}`}
-                  to={firstPost.category_path}
+                  to={
+                    firstPost.category_name === "Puppy Diaries"
+                      ? "/article/puppy-diaries/"
+                      : firstPost.category_path
+                  }
                   dangerouslySetInnerHTML={{
-                    __html: firstPost.category_name,
+                    __html:
+                      firstPost.category_name === "Puppy Diaries"
+                        ? "Puppy Diaries"
+                        : firstPost.category_name,
                   }}
                 />
                 <Link
@@ -181,11 +206,20 @@ const LatestVideos = props => {
               <div className="category-links-wrapper">
                 <Link
                   className={`category-link-btn ${categoryColor(
-                    secondPost.category_name
+                    secondPost.category_name === "Puppy Diaries"
+                      ? "Puppy Diaries"
+                      : secondPost.category_name
                   )}`}
-                  to={secondPost.category_path}
+                  to={
+                    secondPost.category_name === "Puppy Diaries"
+                      ? "/article/puppy-diaries/"
+                      : secondPost.category_path
+                  }
                   dangerouslySetInnerHTML={{
-                    __html: secondPost.category_name,
+                    __html:
+                      secondPost.category_name === "Puppy Diaries"
+                        ? "Puppy Diaries"
+                        : secondPost.category_name,
                   }}
                 />
                 <Link
