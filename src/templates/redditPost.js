@@ -438,7 +438,7 @@ class RedditPost extends Component {
           </section>
           <SimilarPosts />
           <NextPost
-            post={this.props.pageContext.randomPost}
+            post={this.props.pageContext.nextPost}
             location={{ ...this.props.location }}
             nextPostImg={this.props.data.wordpressWpMedia}
           />
@@ -481,7 +481,7 @@ class RedditPost extends Component {
 export default RedditPost
 
 export const pageQuery = graphql`
-  query RedditPostPage($id: String!, $randomPostImg: String!) {
+  query RedditPostPage($id: String!, $nextPostImg: String!) {
     wordpressPost(id: { eq: $id }) {
       id
       title
@@ -527,7 +527,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    wordpressWpMedia(slug: { eq: $randomPostImg }) {
+    wordpressWpMedia(slug: { eq: $nextPostImg }) {
       localFile {
         childImageSharp {
           fixed(width: 164, height: 164) {

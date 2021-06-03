@@ -207,7 +207,11 @@ exports.createPages = ({ actions, graphql }) => {
       const postsPublished = getOnlyPublished(
         result.data.allWordpressPost.edges
       )
-
+      const getRandomPost = post => {
+        const allPosts = result.data.allWordpressPost.edges
+        const randomPost = allPosts[Math.floor(Math.random() * allPosts.length)]
+        return randomPost
+      }
       const getNextPost = post => {
         const allPosts = result.data.allWordpressPost.edges
         const postPetType = post.path.split("/")[2]
@@ -223,6 +227,38 @@ exports.createPages = ({ actions, graphql }) => {
         const sameCategory = allPosts.filter(
           ({ node: currentPost }) =>
             currentPost.slug != post.slug &&
+            currentPost.categories[0].name === post.categories[0].name
+        )
+        if (filteredCategories && filteredCategories.length > 0) {
+          return filteredCategories[
+            Math.floor(Math.random() * filteredCategories.length)
+          ]
+        } else if (filteredPetType && filteredPetType.type > 0) {
+          return filteredPetType[
+            Math.floor(Math.random() * filteredPetType.length)
+          ]
+        } else {
+          return sameCategory[Math.floor(Math.random() * sameCategory.length)]
+        }
+      }
+
+      const getPrevPost = (post, nextPost) => {
+        const allPosts = result.data.allWordpressPost.edges
+        const postPetType = post.path.split("/")[2]
+        const filteredPetType = allPosts.filter(
+          ({ node: singlePost }) =>
+            postPetType === singlePost.path.split("/")[2] &&
+            post.slug !== singlePost.slug &&
+            singlePost.slug !== nextPost
+        )
+        const filteredCategories = filteredPetType.filter(
+          ({ node: singlePost }) =>
+            singlePost.categories[0].name === post.categories[0].name
+        )
+        const sameCategory = allPosts.filter(
+          ({ node: currentPost }) =>
+            currentPost.slug != post.slug &&
+            currentPost.slug != nextPost &&
             currentPost.categories[0].name === post.categories[0].name
         )
         if (filteredCategories && filteredCategories.length > 0) {
@@ -257,20 +293,33 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
       _.each(postsPublished, ({ node: post }, key) => {
-        let randomPost = getNextPost(post)
-        let randomPostImg =
-          (randomPost &&
-            randomPost.node &&
-            randomPost.node.featured_media &&
-            randomPost.node.featured_media.slug) ||
+        let nextPost = getNextPost(post)
+        let prevPost =
+          nextPost && nextPost.node && getPrevPost(post, nextPost.node.slug)
+        let nextPostImg =
+          (nextPost &&
+            nextPost.node &&
+            nextPost.node.featured_media &&
+            nextPost.node.featured_media.slug) ||
           "no-next-post"
+
+        let prevPostImg =
+          (prevPost &&
+            prevPost.node &&
+            prevPost.node.featured_media &&
+            prevPost.node.featured_media.slug) ||
+          "no-prev-post"
         createPage({
           path: `${post.path}`,
           component: customPosts(post.path),
           context: {
             id: post.id,
-            randomPost: randomPost,
-            randomPostImg: randomPostImg,
+            nextPost:
+              nextPost && nextPost.node ? nextPost : getRandomPost(post),
+            nextPostImg: nextPostImg,
+            prevPost:
+              prevPost && prevPost.node ? prevPost : getRandomPost(post),
+            prevPostImg: prevPostImg,
           },
         })
       })

@@ -24,6 +24,28 @@ import axios from "axios"
 import CounterImg from "../images/footer-counter.png"
 import PawsomeContent from "../components/PawsomeFallStyleReportContent"
 import PetPartnersBanner from "../components/PetPartnersBanner"
+import NextPrevPost from "../components/post/NextPrevPost"
+// import TailtraxMobile from "../images/ads/Tailtrax_300X250.png"
+// import TailtraxDesktop from "../images/ads/Tailtrax_300X600.png"
+// import Tailtrax from "../images/ads/Tailtrax_728X90.png"
+
+// const setUpAdInMiddle = content => {
+//   const delimiter = "</p>"
+//   // removing empty paragraphs from post content
+//   const filterContent = content.replace("<p></p>", "")
+
+//   // counting number of paragraph's in content splitting in half end removing one because of quote paragraph in bottom of page
+//   const start = Math.round(filterContent.split(delimiter).length / 2)
+//   const tokens = filterContent.split(delimiter).slice(start)
+//   const res = tokens.join(delimiter)
+
+//   const tokens2 = filterContent.split(delimiter).slice(0, start)
+//   const res2 = tokens2.join(delimiter)
+
+//   // mailmunch code
+
+//   return [res2 + delimiter, res]
+// }
 class Post extends Component {
   state = {
     likes: 0,
@@ -115,7 +137,7 @@ class Post extends Component {
     const post = this.props.data.wordpressPost
     const petpartnersRegex = /petpartners.com/gi
     const petpartnersDisclosure = post.content.match(petpartnersRegex)
-
+    // const content = setUpAdInMiddle(post.content)
     const tagList = tags => (
       <div className="post-tags">
         <span>
@@ -157,11 +179,11 @@ class Post extends Component {
             this.props.data.postHeroImg.childImageSharp.fluid.src
           }
         />
-        {console.log(post.categories[0])}
+        {console.log(this.props.data)}
         {filterFaqPosts(post, author, imgUrl)}
 
-        <div className="single-post">
-          <section className="section post-hero-section">
+        <div className="single-post new-single-post">
+          <section className="section post-hero-section is-hidden-desktop">
             <div className="container is-fullhd">
               <Breadcrumbs category={post.categories && post.categories[0]} />
               <h1
@@ -173,6 +195,19 @@ class Post extends Component {
           </section>
 
           <div className="post-hero-img">
+            <section className="post-breadcrumbs-desktop-image is-hidden-touch">
+              <div className="container is-fullhd">
+                <Breadcrumbs
+                  category={post.categories && post.categories[0]}
+                  desktop={true}
+                />
+                <h1
+                  dangerouslySetInnerHTML={{
+                    __html: post.title,
+                  }}
+                />
+              </div>
+            </section>
             <div className="is-hidden-touch">
               {post.featured_media &&
               post.featured_media.localFile &&
@@ -214,146 +249,15 @@ class Post extends Component {
             <PetPartnersBanner />
           ) : null}
           <section className="main-content">
-            <div className="container is-fullhd">
+            <div className="post-container">
               <div className="columns">
-                <div className="column is-one-quarter single-post-sidebar">
-                  <div className="post-info">
-                    <img className="author-img" src={avatarImg} alt="avatar" />
-                    <p className="author-name">
-                      {filterAuthorsLink(author) ? (
-                        <Link to={`/authors/${filterAuthorsLink(author)}`}>
-                          {author}
-                        </Link>
-                      ) : (
-                        author
-                      )}
-                    </p>
-                    <p className="post-date">{post.date}</p>
-                    <div className="share-icons-horizontal">
-                      <p>Share:</p>
-                      <a
-                        className={`facebook-${post.path}`}
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          className={`facebook-${post.path}`}
-                          src={facebook}
-                          alt="facebook"
-                        />
-                      </a>
-                      <a
-                        className={`twitter-${post.path}`}
-                        href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          className={`twitter-${post.path}`}
-                          src={twitter}
-                          alt="twitter"
-                        />
-                      </a>
-                      <a
-                        className={`pinterest-${post.path}`}
-                        href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {" "}
-                        <img
-                          className={`pinterest-${post.path}`}
-                          src={pintrest}
-                          alt="pinterest"
-                        />
-                      </a>
-                      <a
-                        className={`mail-${post.path}`}
-                        href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          className={`mail-${post.path}`}
-                          src={emailIcon}
-                          alt="email"
-                        />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="hide-mobile">
-                    <AdSet />
-                  </div>
-                  {/* {isMobile ? <AdMobile /> : } */}
-                  <div className="hide-mobile">
-                    <LikeArticleWidget
-                      url={post.path}
-                      wordpress_id={post.wordpress_id}
-                      likes={this.state.likes}
-                      HandleSubmit={this.handleSubmit}
-                      liked={this.state.liked}
-                    />
-                  </div>
-                  <Sticky
-                    enabled={true}
-                    top={20}
-                    bottomBoundary=".single-post-sidebar"
+                <div className="column single-post-column">
+                  {/* <a
+                    className="tailtrax-post-image is-hidden-desktop"
+                    href="https://www.tailtrax.com/"
                   >
-                    <div className="share-icons-vertical">
-                      <a
-                        className={`facebook-${post.path}`}
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          className={`facebook-${post.path}`}
-                          src={facebook}
-                          alt="facebook"
-                        />
-                      </a>
-                      <a
-                        className={`twitter-${post.path}`}
-                        href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          className={`twitter-${post.path}`}
-                          src={twitter}
-                          alt="twitter"
-                        />
-                      </a>
-                      <a
-                        className={`pinterest-${post.path}`}
-                        href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {" "}
-                        <img
-                          className={`pintrest-${post.path}`}
-                          src={pintrest}
-                          alt="pinterest"
-                        />
-                      </a>
-                      <a
-                        className={`mail-${post.path}`}
-                        href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          className={`mail-${post.path}`}
-                          src={emailIcon}
-                          alt="email"
-                        />
-                      </a>
-                    </div>
-                  </Sticky>
-                </div>
-                <div className="column">
+                    <img src={Tailtrax} alt="tailtrax" />
+                  </a> */}
                   {post && post.title === "Pawsome Fall Style Report" ? (
                     <PawsomeContent />
                   ) : (
@@ -380,6 +284,28 @@ class Post extends Component {
                           ),
                         }}
                       />
+                      {/* <div
+                        dangerouslySetInnerHTML={{
+                          __html: content[0].replace(
+                            /http:\/\/prod.ppl.torchte.ch\//gi,
+                            "https://prod.ppl.torchte.ch/"
+                          ),
+                        }}
+                      /> */}
+                      {/* <a
+                        className="tailtrax-post-image"
+                        href="https://www.tailtrax.com/"
+                      >
+                        <img src={Tailtrax} alt="tailtrax" />
+                      </a> */}
+                      {/* <div
+                        dangerouslySetInnerHTML={{
+                          __html: content[1].replace(
+                            /http:\/\/prod.ppl.torchte.ch\//gi,
+                            "https://prod.ppl.torchte.ch/"
+                          ),
+                        }}
+                      /> */}
                     </div>
                   )}
                   <div className="counter-wrapper">
@@ -388,7 +314,7 @@ class Post extends Component {
                       <strong>{this.state.likes}</strong> paws up
                     </span>
                   </div>
-                  <div className="hide-desktop">
+                  <div className="is-hidden-tablet">
                     <LikeArticleWidget
                       url={post.path}
                       wordpress_id={post.wordpress_id}
@@ -458,14 +384,176 @@ class Post extends Component {
                     </div>
                   </div>
                 </div>
+                {/* sidebar */}
+                <div className="column single-post-sidebar">
+                  <div className="post-info">
+                    <img className="author-img" src={avatarImg} alt="avatar" />
+                    <p className="author-name">
+                      {filterAuthorsLink(author) ? (
+                        <Link to={`/authors/${filterAuthorsLink(author)}`}>
+                          {author}
+                        </Link>
+                      ) : (
+                        author
+                      )}
+                    </p>
+                    <p className="post-date">{post.date}</p>
+                    {/* <a
+                      className="is-hidden-mobile"
+                      href="https://www.tailtrax.com/"
+                    >
+                      <img src={TailtraxMobile} alt="tailtrax" />
+                    </a> */}
+                    <div className="share-icons-horizontal">
+                      <p>Share:</p>
+                      <a
+                        className={`facebook-${post.path}`}
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className={`facebook-${post.path}`}
+                          src={facebook}
+                          alt="facebook"
+                        />
+                      </a>
+                      <a
+                        className={`twitter-${post.path}`}
+                        href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className={`twitter-${post.path}`}
+                          src={twitter}
+                          alt="twitter"
+                        />
+                      </a>
+                      <a
+                        className={`pinterest-${post.path}`}
+                        href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {" "}
+                        <img
+                          className={`pinterest-${post.path}`}
+                          src={pintrest}
+                          alt="pinterest"
+                        />
+                      </a>
+                      <a
+                        className={`mail-${post.path}`}
+                        href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className={`mail-${post.path}`}
+                          src={emailIcon}
+                          alt="email"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  {/* <div className="is-hidden-mobile">
+                    <AdSet />
+                  </div> */}
+                  {/* {isMobile ? <AdMobile /> : } */}
+
+                  <div className="is-hidden-mobile">
+                    <LikeArticleWidget
+                      url={post.path}
+                      wordpress_id={post.wordpress_id}
+                      likes={this.state.likes}
+                      HandleSubmit={this.handleSubmit}
+                      liked={this.state.liked}
+                    />
+                  </div>
+                  {/* <a
+                    className="is-hidden-mobile"
+                    href="https://www.tailtrax.com/"
+                  >
+                    <img src={TailtraxDesktop} alt="tailtrax" />
+                  </a> */}
+                  <Sticky
+                    enabled={true}
+                    top={20}
+                    bottomBoundary=".single-post-sidebar"
+                  >
+                    <div className="share-icons-vertical">
+                      <a
+                        className={`facebook-${post.path}`}
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className={`facebook-${post.path}`}
+                          src={facebook}
+                          alt="facebook"
+                        />
+                      </a>
+                      <a
+                        className={`twitter-${post.path}`}
+                        href={`https://twitter.com/intent/tweet?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className={`twitter-${post.path}`}
+                          src={twitter}
+                          alt="twitter"
+                        />
+                      </a>
+                      <a
+                        className={`pinterest-${post.path}`}
+                        href={`https://pinterest.com/pin/create/button/?url=${process.env.GATSBY_WEB_SITE_URL}${post.path}&media=&description=${post.title}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {" "}
+                        <img
+                          className={`pintrest-${post.path}`}
+                          src={pintrest}
+                          alt="pinterest"
+                        />
+                      </a>
+                      <a
+                        className={`mail-${post.path}`}
+                        href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className={`mail-${post.path}`}
+                          src={emailIcon}
+                          alt="email"
+                        />
+                      </a>
+                    </div>
+                  </Sticky>
+                </div>
+                {/* /sidebar */}
               </div>
             </div>
           </section>
           <SimilarPosts />
-          <NextPost
-            post={this.props.pageContext.randomPost}
+          {/* <NextPost
+            post={this.props.pageContext.nextPost}
             location={{ ...this.props.location }}
-            nextPostImg={this.props.data.wordpressWpMedia}
+            // nextPostImg={this.props.data.allWordpressWpMedia.node[0]}
+          />
+          <NextPost
+            post={this.props.pageContext.prevPost}
+            location={{ ...this.props.location }}
+            nextPostImg={this.props.data.allWordpressWpMedia.edges[0].node}
+          /> */}
+          <NextPrevPost
+            nextPost={this.props.pageContext.nextPost}
+            prevPost={this.props.pageContext.prevPost}
+            images={this.props.data.allWordpressWpMedia.edges}
           />
         </div>
       </Layout>
@@ -476,7 +564,7 @@ class Post extends Component {
 export default Post
 
 export const pageQuery = graphql`
-  query PostPage($id: String!, $randomPostImg: String!) {
+  query PostPage($id: String!, $nextPostImg: String!, $prevPostImg: String!) {
     wordpressPost(id: { eq: $id }) {
       id
       title
@@ -522,11 +610,18 @@ export const pageQuery = graphql`
         }
       }
     }
-    wordpressWpMedia(slug: { eq: $randomPostImg }) {
-      localFile {
-        childImageSharp {
-          fixed(width: 164, height: 164) {
-            ...GatsbyImageSharpFixed
+    allWordpressWpMedia(
+      filter: { slug: { in: [$nextPostImg, $prevPostImg] } }
+    ) {
+      edges {
+        node {
+          id
+          localFile {
+            childImageSharp {
+              fixed(width: 164, height: 164) {
+                ...GatsbyImageSharpFixed
+              }
+            }
           }
         }
       }
