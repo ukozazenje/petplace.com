@@ -13,8 +13,8 @@ const NextPrevPost = ({ nextPost, prevPost, images }) => {
   console.log("nextPost", nextPost)
   console.log("prevPost", prevPost)
   console.log("images", images)
-  const nextImg = (images[0] && images[0].node) || false
-  const prevImg = (images[1] && images[1].node) || false
+  const nextImg = (images && images[0] && images[0].node) || false
+  const prevImg = (images && images[1] && images[1].node) || false
 
   return (
     <section className="section next-prev-post-section">
