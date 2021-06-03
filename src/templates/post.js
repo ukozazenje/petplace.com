@@ -553,7 +553,12 @@ class Post extends Component {
           <NextPrevPost
             nextPost={this.props.pageContext.nextPost}
             prevPost={this.props.pageContext.prevPost}
-            images={this.props.data.allWordpressWpMedia.edges}
+            images={
+              this.props &&
+              this.props.data &&
+              this.props.data.allWordpressWpMedia &&
+              this.props.data.allWordpressWpMedia.edges
+            }
           />
         </div>
       </Layout>
