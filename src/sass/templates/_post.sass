@@ -3,6 +3,9 @@
   overflow: hidden
   +widescreen
     margin-top: 40px
+  &.new-single-post 
+    +widescreen
+      margin-top: 0
   .main-content
     display: flex
     flex-direction: column
@@ -17,11 +20,63 @@
     width: 100%
     +tablet
       margin: 0 2rem
+  .post-container
+    width: 100%
+    max-width: 1120px
+    .columns 
+      display: flex
+      flex-direction: column-reverse
+      align-items: center
+      margin: 0
+      padding-left: 1rem
+      padding-right: 1rem
+      +tablet
+        align-items: flex-start
+        flex-direction: row 
+        justify-content: space-between
+    .single-post-column
+      max-width: 720px
+      padding: 0
+    .single-post-content
+      padding: 0
+    .single-post-sidebar
+      width: 100%
+      margin-left: 0
+      padding: 0
+      +tablet
+        margin-left: 1rem
+        max-width: 300px
+        padding: 0
   .post-hero-img
     display: block
     margin-bottom: 2rem
+    position: relative
     +desktop
       margin-bottom: 3rem
+    // .is-hidden-touch
+    //   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45.95%, rgba(0, 0, 0, 0.25) 62.19%, #000000 126.16%)
+    //   mix-blend-mode: multiply
+    //   .gatsby-image-wrapper
+    //     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45.95%, rgba(0, 0, 0, 0.25) 62.19%, #000000 126.16%)
+    //     mix-blend-mode: multiply
+    .post-breadcrumbs-desktop-image
+      padding-left: 1rem
+      padding-right: 1rem 
+      position: absolute
+      left: 50%
+      right: 50%
+      transform: translate(-50%)
+      width: 100%
+      height: 100%
+      padding-bottom: 50px
+      display: flex
+      align-items: flex-end
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45.95%, rgba(0, 0, 0, 0.25) 62.19%, #000000 126.16%)
+      z-index: 9
+      .is-fullhd
+        // z-index: 99
+        h1 
+          color: #fff
   h1
     margin-bottom: 1rem
   h2
@@ -92,6 +147,9 @@
   .single-post-content
     padding-left: 1.5rem
     padding-right: 1.5rem
+    .tailtrax-post-image
+      margin: 20px 0
+      display: block
     .petpartners-disclosure 
       color: $mauve
       font-size: 0.875rem
@@ -334,3 +392,79 @@
 .post-hero-section
   padding-top: 1rem
   padding-bottom: 1rem
+
+.next-prev-post-section
+  padding-top: 1.5rem   
+  .next-prev-post-container
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+  .next-prev-post-container-mobile
+    display: flex
+    justify-content: center
+    align-items: center
+  .navigation-icon
+    cursor: pointer
+  .next-prev-post-mobile
+    display: flex
+    justify-content: center
+    flex-direction: column
+    .next-prev-post-mobile-headline
+      font-size: 1.125rem
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      margin-bottom: 15px
+      text-align: center
+    .next-prev-post-mobile-post-wrapper
+      max-width: 400px
+      display: flex
+      align-items: center
+      justify-content: center
+      .next-prev-post-mobile-content-wrapper
+        margin: 0 15px
+        display: flex 
+        align-items: flex-start
+        .next-prev-post-mobile-title
+          margin-left: 15px
+          p 
+            font-family: $family-secondary
+            font-weight: $family-secondary-weight
+            font-size: 0.75rem
+          h4 
+            font-size: 1rem
+        .next-prev-post-mobile-image
+          height: 90px
+          border-radius: 6px
+          overflow: hidden
+          max-width: 90px
+          width: 100%
+        .prev-img.gatsby-image-wrapper 
+          img
+            width: 90px !important
+            height: 90px !important
+  .prev-post-container, .next-post-container
+    display: flex
+    flex-direction: row
+    align-items: center
+    max-width: 560px
+    .prev-post-image-wrapper
+      margin-left: 50px
+      min-width: 175px
+      h3 
+        font-size: 1.375rem
+    .prev-post-content-wrapper, 
+      margin: 0 15px
+      h4 
+        font-size: 1.75rem
+        text-align: left
+      p 
+        font-size: 0.875rem
+        text-align: left
+    .next-post-content-wrapper
+      margin: 0 15px
+      h4 
+        font-size: 1.75rem
+        text-align: right
+      p 
+        font-size: 0.875rem
+        text-align: right

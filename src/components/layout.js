@@ -6,6 +6,7 @@ import "../sass/main.sass"
 import EmailDialog from "../components/EmailDialog"
 import HolydayBanner from "./holidayBanner"
 const Layout = ({
+  location,
   children,
   hideFooterNavigation,
   noSearch,
@@ -13,6 +14,7 @@ const Layout = ({
   hideHolidayBanner,
   showPetPartners,
 }) => {
+  console.log("rootPath", location)
   return (
     <>
       {/* <HolydayBanner hideHolidayBanner={hideHolidayBanner} /> */}
