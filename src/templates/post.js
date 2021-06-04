@@ -179,7 +179,7 @@ class Post extends Component {
             this.props.data.postHeroImg.childImageSharp.fluid.src
           }
         />
-        {console.log(this.props.data)}
+        {/* {console.log(this.props.data)} */}
         {filterFaqPosts(post, author, imgUrl)}
 
         <div className="single-post new-single-post">
@@ -620,6 +620,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          slug
           id
           localFile {
             childImageSharp {
