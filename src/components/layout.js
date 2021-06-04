@@ -6,6 +6,7 @@ import "../sass/main.sass"
 import EmailDialog from "../components/EmailDialog"
 import HolydayBanner from "./holidayBanner"
 const Layout = ({
+  location,
   children,
   hideFooterNavigation,
   noSearch,
