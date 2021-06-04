@@ -12,11 +12,17 @@ const checkForImage = (images, slug) => {
   // console.log(slug)
   const filteredImages = images.filter(image => image.node.slug === slug)
   if (filteredImages.length > 0) {
-    return (
+    return filteredImages[0] &&
+      filteredImages[0].node &&
+      filteredImages[0].node.localFile &&
+      filteredImages[0].node.localFile.childImageSharp &&
+      filteredImages[0].node.localFile.childImageSharp ? (
       <Img
         className="prev-img"
         fixed={filteredImages[0].node.localFile.childImageSharp.fixed}
       />
+    ) : (
+      <NoImg />
     )
   } else {
     return <NoImg />

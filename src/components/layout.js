@@ -14,7 +14,6 @@ const Layout = ({
   hideHolidayBanner,
   showPetPartners,
 }) => {
-  console.log("rootPath", location)
   return (
     <>
       {/* <HolydayBanner hideHolidayBanner={hideHolidayBanner} /> */}
