@@ -5,6 +5,7 @@ import avatarImg from "../images/author.svg"
 import facebook from "../images/facebookIcon.svg"
 import pintrest from "../images/pinterestIcon.svg"
 import twitter from "../images/twitterIcon.svg"
+import instagram from "../images/instagramIcon.svg"
 import emailIcon from "../images/emailIcon.svg"
 import downloadIcon from "../images/download.svg"
 import SimilarPosts from "../components/post/SimilarPosts"
@@ -364,6 +365,18 @@ class Post extends Component {
                       />
                     </a>
                     <a
+                        className={`instagram-${post.path}`}
+                        href={`https://www.instagram.com/petplace/`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className={`instagram-${post.path}`}
+                          src={instagram}
+                          alt="instagram"
+                        />
+                    </a>
+                    <a
                       className={`mail-${post.path}`}
                       href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
                       target="_blank"
@@ -444,6 +457,18 @@ class Post extends Component {
                         />
                       </a>
                       <a
+                        className={`instagram-${post.path}`}
+                        href={`https://www.instagram.com/petplace/`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className={`instagram-${post.path}`}
+                          src={instagram}
+                          alt="instagram"
+                        />
+                      </a>
+                      <a
                         className={`mail-${post.path}`}
                         href={`mailto:info@petplace.com?&subject=${post.title}&body=${process.env.GATSBY_WEB_SITE_URL}${post.path}`}
                         target="_blank"
@@ -518,6 +543,18 @@ class Post extends Component {
                           className={`pintrest-${post.path}`}
                           src={pintrest}
                           alt="pinterest"
+                        />
+                      </a>
+                      <a
+                        className={`instagram-${post.path}`}
+                        href={`https://www.instagram.com/petplace/`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          className={`instagram-${post.path}`}
+                          src={instagram}
+                          alt="instagram"
                         />
                       </a>
                       <a
