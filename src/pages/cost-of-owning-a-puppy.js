@@ -161,16 +161,17 @@ const CostOfPuppy = () => {
                     Canine Distemper Virus, Canine Adenovirus, Canine
                     Parainfluenza, and Canine Parvovirus. This initial dose is a
                     primer intended to boost your dog’s immune system in
-                    anticipation of the full vaccine. {" "}
+                    anticipation of the full vaccine.{" "}
                     <a
                       href="https://www.akc.org/expert-advice/health/puppy-shots-complete-guide/"
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      It usually costs between <strong>$20 and $30</strong> for each dose
+                      It usually costs between <strong>$20 and $30</strong> for
+                      each dose
                     </a>
-                    . The cost of this first dose may be included
-                    in your adoption or purchase fee.
+                    . The cost of this first dose may be included in your
+                    adoption or purchase fee.
                   </p>
                 </div>
                 <div className="advertorial-img">
@@ -378,7 +379,7 @@ const CostOfPuppy = () => {
                 >
                   enroll in pet insurance
                 </a>
-                . Like traditional health insurance, pet insurance provides
+                . Like traditional health insurance, pet insurance may provide
                 reimbursement for both emergency and routine expenses.{" "}
                 <a
                   href="https://www.petpartners.com/pet-insurance/frequently-asked-questions"
@@ -402,7 +403,7 @@ const CostOfPuppy = () => {
                 </span>{" "}
                 <img src={AdvertorialArrow} />{" "}
                 <a
-                  href="https://www.petpartners.com/enroll?p=PPFB2020"
+                  href="https://www.petpartners.com/enroll?p=PPNCTA21"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -498,8 +499,8 @@ const CostOfPuppy = () => {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <strong>around $20</strong> 
-                </a> 
+                  <strong>around $20</strong>
+                </a>
                 ) to register your dog’s microchip in a nationwide database.
               </p>
               <p>
@@ -616,7 +617,11 @@ const CostOfPuppy = () => {
                 <strong>Pest Prevention:</strong> Depending on your pet’s
                 schedule, it may be time to purchase another round of preventive
                 medications{" "}
-                <a href="https://www.chewy.com/b/flea-tick-381" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.chewy.com/b/flea-tick-381"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   for <strong>around $55</strong>.
                 </a>
               </p>
@@ -624,16 +629,16 @@ const CostOfPuppy = () => {
               <p>
                 <strong>Food and Treats:</strong> By now, you’ve hopefully
                 learned to spot deals on your puppy’s preferred food and treats.
-                Plan to spend another {" "}
+                Plan to spend another{" "}
                 <a
                   href="https://money.usnews.com/money/personal-finance/articles/costs-to-consider-when-adopting-a-pet"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                   <strong>$20 to $60</strong> 
+                  <strong>$20 to $60</strong>
                 </a>{" "}
-                this month and make sure to consult your veterinarian before making
-                any updates to your dog’s diet.
+                this month and make sure to consult your veterinarian before
+                making any updates to your dog’s diet.
               </p>
               <div className="advertorial-image-content img-left">
                 <div className="advertorial-img">
@@ -657,13 +662,14 @@ const CostOfPuppy = () => {
                 your dog at home, first-time dog owners in particular may
                 benefit from professional guidance. The experience won’t just
                 promote obedience, it’ll also help socialize your dog and
-                strengthen their bond with you. Private training sessions can cost {" "}
+                strengthen their bond with you. Private training sessions can
+                cost{" "}
                 <a
                   href="https://www.rover.com/blog/how-much-does-dog-training-cost/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <strong>hundreds of dollars an hour</strong>  
+                  <strong>hundreds of dollars an hour</strong>
                 </a>
                 , but group training could cost{" "}
                 <strong>just over $100 for several weeks of sessions</strong>.
@@ -706,7 +712,7 @@ const CostOfPuppy = () => {
                 </span>{" "}
                 <img src={AdvertorialArrow} />{" "}
                 <a
-                  href="https://www.petpartners.com/enroll?p=PPFB2020"
+                  href="https://www.petpartners.com/enroll?p=PPNCTA21"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
