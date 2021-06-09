@@ -396,7 +396,7 @@ const CostOfPuppy = () => {
                 <img src={AvgChartMobImg2} className="is-hidden-tablet" />
                 <img src={AvgChartImg2} className="is-hidden-mobile" />
               </div>
-              <div className="advertorial-free-quote-wrapper">
+              {/* <div className="advertorial-free-quote-wrapper">
                 <span>
                   Want to learn more about pet insurance from the comfort of
                   your home?
@@ -409,6 +409,23 @@ const CostOfPuppy = () => {
                 >
                   Get Your Free Quote
                 </a>
+              </div> */}
+              <div className="gift-pet-insurance-cta">
+                <p>
+                  Pet insurance can be a safety net for you and your pet,
+                  <br className="is-hidden-touch" /> helping your pet care
+                  budget go further.
+                </p>
+                <div className="cta">
+                  <h4>Get a free quote from PetPartners today.</h4>
+                  <a
+                    href="https://www.petpartners.com/enroll?p=PPNCTA21"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Your Quote
+                  </a>
+                </div>
               </div>
               <h3>Weeks 12 - 16: Keeping Puppy Happy & Healthy</h3>
               <p className="p-subtitle">Medical Needs</p>
@@ -518,7 +535,6 @@ const CostOfPuppy = () => {
                 <img src={AvgChartMobImg3} className="is-hidden-tablet" />
                 <img src={AvgChartImg3} className="is-hidden-mobile" />
               </div>
-
               <h3>Weeks 16 - 20: A Growing Pup</h3>
               <p className="p-subtitle">Medical Needs</p>
               <p>
@@ -705,7 +721,7 @@ const CostOfPuppy = () => {
                 Purchasing a plan shortly after bringing home your puppy can
                 even help you pay for microchipping and spaying or neutering.
               </p>
-              <div className="advertorial-free-quote-wrapper">
+              {/* <div className="advertorial-free-quote-wrapper">
                 <span>
                   Want to learn more about pet insurance from the comfort of
                   your home?
@@ -718,6 +734,23 @@ const CostOfPuppy = () => {
                 >
                   Get Your Free Quote
                 </a>
+              </div> */}
+              <div className="gift-pet-insurance-cta">
+                <p>
+                  Pet insurance can be a safety net for you and your pet,
+                  <br className="is-hidden-touch" /> helping your pet care
+                  budget go further.
+                </p>
+                <div className="cta">
+                  <h4>Get a free quote from PetPartners today.</h4>
+                  <a
+                    href="https://www.petpartners.com/enroll?p=PPNCTA21"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Your Quote
+                  </a>
+                </div>
               </div>
               <hr className="bottom-line" />
             </div>
