@@ -137,8 +137,10 @@ class Post extends Component {
   render() {
     const post = this.props.data.wordpressPost
     const petpartnersRegex = /petpartners.com/gi
+    const ctaPetPartners = post.content.match(/gift-pet-insurance-cta/gi)
     const petpartnersDisclosure = post.content.match(petpartnersRegex)
     // const content = setUpAdInMiddle(post.content)
+    console.log("ctaPetPartners", ctaPetPartners)
     const tagList = tags => (
       <div className="post-tags">
         <span>
@@ -263,7 +265,7 @@ class Post extends Component {
                     <PawsomeContent />
                   ) : (
                     <div className="single-post-content">
-                      {petpartnersDisclosure && (
+                      {petpartnersDisclosure && !ctaPetPartners && (
                         <p className="petpartners-disclosure">
                           <a
                             target="_blank"
@@ -307,6 +309,20 @@ class Post extends Component {
                           ),
                         }}
                       /> */}
+                      {petpartnersDisclosure && ctaPetPartners && (
+                        <p className="petpartners-disclosure">
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.petpartners.com/"
+                          >
+                            PetPartners, Inc.
+                          </a>{" "}
+                          is an indirect corporate affiliate of PetPlace.com.
+                          PetPlace may be compensated when you click on or make
+                          a purchase using the links in this article.
+                        </p>
+                      )}
                     </div>
                   )}
                   <div className="counter-wrapper">
@@ -365,16 +381,16 @@ class Post extends Component {
                       />
                     </a>
                     <a
+                      className={`instagram-${post.path}`}
+                      href={`https://www.instagram.com/petplace/`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
                         className={`instagram-${post.path}`}
-                        href={`https://www.instagram.com/petplace/`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          className={`instagram-${post.path}`}
-                          src={instagram}
-                          alt="instagram"
-                        />
+                        src={instagram}
+                        alt="instagram"
+                      />
                     </a>
                     <a
                       className={`mail-${post.path}`}
