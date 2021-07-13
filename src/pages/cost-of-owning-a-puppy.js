@@ -418,6 +418,9 @@ const CostOfPuppy = () => {
                 </p>
                 <div className="cta">
                   <h4>Get a free quote from PetPartners today.</h4>
+                  <small>
+                    Underwritten by Independence American Insurance Company
+                  </small>
                   <a
                     href="https://www.petpartners.com/enroll?p=PPNCTA21"
                     target="_blank"
@@ -743,6 +746,9 @@ const CostOfPuppy = () => {
                 </p>
                 <div className="cta">
                   <h4>Get a free quote from PetPartners today.</h4>
+                  <small>
+                    Underwritten by Independence American Insurance Company
+                  </small>
                   <a
                     href="https://www.petpartners.com/enroll?p=PPNCTA21"
                     target="_blank"
@@ -752,6 +758,18 @@ const CostOfPuppy = () => {
                   </a>
                 </div>
               </div>
+              <p className="petpartners-disclosure">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.petpartners.com/"
+                >
+                  PetPartners, Inc.
+                </a>{" "}
+                is an indirect corporate affiliate of PetPlace.com. PetPlace may
+                be compensated when you click on or make a purchase using the
+                links in this article.
+              </p>
               <hr className="bottom-line" />
             </div>
           </div>
