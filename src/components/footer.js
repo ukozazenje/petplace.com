@@ -121,8 +121,8 @@ const copyrightFooter = () => {
             </div>
             <div className="column is-7 copyright">
               <p>
-                &copy;Copyright 1999 - {year}. The IHC Group. All Rights
-                Reserved
+                &copy;Copyright 1999 - {year}. Independence America Holdings
+                Corp. All Rights Reserved
               </p>
             </div>
           </div>
