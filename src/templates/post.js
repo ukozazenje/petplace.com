@@ -498,9 +498,9 @@ class Post extends Component {
                       </a>
                     </div>
                   </div>
-                  {/* <div className="is-hidden-mobile">
+                  <div className="is-hidden-mobile">
                     <AdSet />
-                  </div> */}
+                  </div>
                   {/* {isMobile ? <AdMobile /> : } */}
 
                   <div className="is-hidden-mobile">
