@@ -12,7 +12,7 @@ const ContactUs = () => {
 
   return (
     <section className="section contact-us-form">
-      <div className="container is-fullhd">
+      <div id="digioh-footer-contact" className="container is-fullhd">
         {/* <Formik
           initialValues={{ email: "", name: "", dog_crazy: true, cat_crazy: true}}
           validate={values => {
