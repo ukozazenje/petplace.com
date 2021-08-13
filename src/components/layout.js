@@ -19,7 +19,7 @@ const Layout = ({
       {/* <HolydayBanner hideHolidayBanner={hideHolidayBanner} /> */}
       <Header noSearch={noSearch} hideSearch={hideSearch} />
       {children}
-      <EmailDialog />
+      {/* <EmailDialog /> */}
       <Footer hideFooterNavigation={hideFooterNavigation} />
     </>
   )
