@@ -573,7 +573,7 @@ exports.createPages = ({ actions, graphql }) => {
             case "melissa-evans-lvt-vts-ecc":
             case "carey-hemmelgarn-dvm-dacvecc":
               createPage({
-                path: `/authors/${author.slug}`,
+                path: `/authors/${author.slug}/`,
                 component: authorsTemplate,
                 context: {
                   id: author.id,

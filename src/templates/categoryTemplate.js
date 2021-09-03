@@ -144,7 +144,11 @@ const CategoryTemplate = ({ pageContext, data }) => {
                     {pageContext.previousPagePath != "" && (
                       <Link
                         className="prev"
-                        to={pageContext.previousPagePath}
+                        to={`${
+                          pageContext.previousPagePath === pageContext.cat_path
+                            ? pageContext.previousPagePath
+                            : `${pageContext.previousPagePath}/`
+                        }`}
                         rel="prev"
                       >
                         {""}
@@ -160,7 +164,7 @@ const CategoryTemplate = ({ pageContext, data }) => {
                     {pageContext.nextPagePath != "" && (
                       <Link
                         className="next"
-                        to={pageContext.nextPagePath}
+                        to={`${pageContext.nextPagePath}/`}
                         rel="next"
                       >
                         {""}
