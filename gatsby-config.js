@@ -21,8 +21,21 @@ module.exports = {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
         siteUrl: `https://www.petplace.com`,
+        exclude: [
+          "https://www.petplace.com/tags/ask-dr-debra-common-questions/",
+          "https://www.petplace.com/tags/pet-tips-for-dogs/",
+          "https://www.petplace.com/tags/features/",
+          "https://www.petplace.com/tags/pet-tips-for-cats/",
+          "https://www.petplace.com/tags/prescription/",
+          "https://www.petplace.com/tags/dr-debras-posts/",
+          "https://www.petplace.com/tags/health-safety/",
+          "https://www.petplace.com/tags/choosing-a-breed/",
+          "https://www.petplace.com/tags/symptoms/",
+          "https://www.petplace.com/tags/videos-fun/",
+        ],
       },
     },
+    `gatsby-plugin-force-trailing-slashes`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
