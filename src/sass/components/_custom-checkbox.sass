@@ -1,0 +1,60 @@
+/* Customize the label (the custom-checkbox) */
+.custom-checkbox 
+  display: block
+  position: relative
+  padding-left: 35px
+  margin-top: 15px
+  cursor: pointer
+  font-size: 22px
+  user-select: none
+
+
+/* Hide the browser's default checkbox */
+.custom-checkbox input 
+  position: absolute
+  opacity: 0
+  cursor: pointer
+  height: 0
+  width: 0
+
+/* Create a custom checkbox */
+.custom-checkbox-checkmark 
+  position: absolute
+  top: 0
+  left: 0
+  height: 32px
+  width: 32px
+  background-color: #888888
+  border-radius: 6px
+
+
+/* On mouse-over, add a grey background color */
+.custom-checkbox:hover
+  background-color: #ccc
+
+/* When the checkbox is checked, add a blue background */
+.custom-checkbox-checkmark
+  &.checked
+    background-color: $orange
+
+
+/* Create the custom-checkbox-checkmark/indicator (hidden when not checked) */
+.custom-checkbox-checkmark:after 
+  content: ""
+  position: absolute
+  display: none
+
+
+/* Show the custom-checkbox-checkmark when checked */
+.custom-checkbox input:checked ~ .custom-checkbox-checkmark:after
+  display: block
+
+
+/* Style the custom-checkbox-checkmark/indicator */
+.custom-checkbox-checkmark:after
+  background: url("../images/custom-checkbox.svg")
+  background-position: center
+  background-repeat: no-repeat
+  width: 32px
+  height: 32px
+  border-radius: 6px
