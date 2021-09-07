@@ -1,0 +1,907 @@
+.quote-page-container
+  margin: 30px auto
+  width: 100%
+  max-width: 800px
+  padding: 1rem
+  .basic-single
+    &.has-error
+      border-radius: 6px
+      border: none !important
+      background: none !important
+      .select__control
+        border-radius: 6px
+        border: 1px solid #D73535 !important
+        background: rgba(215, 53, 53, 0.1) !important
+  +tablet 
+    margin: 60px auto
+  
+.progress-bar-section 
+  .progress-bar
+    width: 100%
+    position: relative
+    .progress-form 
+      height: 3px
+      width: calc(100% - 60px)
+      background: #D4D4D4
+      display: block
+      margin: 0 auto
+      position: relative
+      .progression
+        width: 0
+        height: 3px
+        background: $orange
+        // transition: width .350s ease
+      .step
+        position: absolute
+        // height: 10px
+        // width: 10px
+        top: -16px
+        img 
+          display: block
+        .ellipse
+          display: block
+          margin: 12px auto
+          background: #D4D4D4
+          width: 10px
+          height: 10px
+          border-radius: 10px
+        &.step-one
+          left: 0
+        &.step-two
+          left: 33%
+        &.step-three
+          left: 66%
+        &.step-four
+          left: 83%
+          &.active
+            width: 24px
+            height: 24px
+            top: -11px
+        &.step-five
+          left: 99%
+        &.active
+          width: 32px
+          height: 32px
+        
+  // .progress-steps-wrapper
+  //   display: flex
+  //   justify-content: space-between
+  //   .progress-step
+  //     text-align: center
+  //     p 
+  //       font-size: 1rem
+  //       font-weight: 700
+  //     .ellipse
+  //       margin: 0 auto
+  //       background: #D4D4D4
+  //       width: 10px
+  //       height: 10px
+  //       border-radius: 10px
+  //     &.step-one
+  //       p 
+  //         width: 60px
+  //     &.step-four
+  //       p 
+  //         width: 60px
+  .progress-steps-headings-mobile
+    display: block 
+    +tablet 
+      display: none
+    p
+      text-align: center
+      font-size: 1.25rem
+      color: $orange
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      margin-bottom: 30px
+  .progress-steps-headings-desktop
+    display: none
+    +tablet
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      text-align: center
+      margin-bottom: 20px
+    p 
+      margin: 0
+      font-size: 1rem
+      color: $orange
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      &:first-of-type
+        width: 80px
+      &:last-of-type
+        width: 80px
+.quote-form-steps-section
+  margin-top: 30px
+  +tablet 
+    margin-top: 80px
+  .quote-form-step-four-paragraph
+    font-size: 1rem
+  .step-five-intro-paragraph
+    font-size: 1rem
+  h2
+    font-family: $family-secondary
+    font-weight: $family-secondary-weight
+    color: $purple
+    font-size: 1.75rem
+    display: flex 
+    flex-direction: row
+    align-items: center
+    +tablet
+      line-height: 40px 
+      font-size: 1.875rem
+    img 
+      margin-left: 12px
+  p 
+    margin-top: 15px
+    margin-bottom: 0
+    font-size: 1rem
+    font-family: $family-primary
+    font-weight: 400
+    +tablet 
+      font-size: 1.125rem
+  label 
+    font-size: 1rem
+    line-height: 26px
+  input, select 
+    padding: 15px
+    background: #FFFFFF
+    border: 2px solid #E7E7E7
+    border-radius: 5px
+    height: 50px
+    font-size: 1rem
+  &.step-one
+    max-width: 550px
+    margin-left: auto
+    margin-right: auto
+  .look-up-box 
+    margin-top: 20px
+    background: #FBFBF6
+    padding: 30px 20px
+    h5 
+      font-size: 1.375rem
+      color: $purple
+      font-weight: 400
+    .look-up-content 
+      display: flex
+      flex-direction: column 
+      +tablet 
+        justify-content: space-between
+        flex-direction: row
+        align-items: center
+      p
+        font-size: 1rem
+        +tablet 
+          max-width: 330px
+      .button 
+        color: #fff
+        font-size: 1.125rem
+        background-color: $orange
+        border-color: $orange
+        width: 100%
+        margin-top: 20px
+        max-width: 135px
+        +tablet 
+          margin-top: 0
+          margin-left: 10px
+  .searchable-select
+    input
+      height: 36px
+      font-size: 1rem
+
+  .fields-row 
+    display: flex
+    flex-direction: column
+    margin: 30px 0 0 0
+    +tablet 
+      flex-wrap: wrap
+      flex-direction: row
+      margin: 30px -15px 0 -15px
+    .fraud-warning
+      font-size: 1rem
+      color: #858585
+    .checkbox-col
+      max-width: 120px
+      margin-top: 0 !important
+      margin-bottom: 50px
+      +tablet
+        align-items: flex-end
+    &.fields-buttons-row
+      margin: 30px -15px 0 -15px
+      display: flex
+      flex-direction: row
+      .fields-col
+        margin: 0 15px
+        &.alg-end 
+          align-self: flex-end
+
+    .fields-col
+      flex: 1
+      display: flex
+      flex-direction: column
+      &:nth-of-type(2),  &:nth-of-type(3)
+        margin-top: 30px
+      +tablet
+        margin: 0 15px
+        &:nth-of-type(2),  &:nth-of-type(3)
+          margin: 0 15px
+      &.disclaimer-col
+        min-width: 100%
+        p 
+          font-size: 1rem
+          color: #C8C8C8
+          a 
+            color: $orange
+      &.phone_number-col
+        width: 100%
+        +tablet 
+          max-width: 46%
+        
+  .react-switch
+    margin-top: 15px
+  .switch-icon 
+    font-family: $family-secondary
+    height: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    font-weight: 700
+    font-size: 14px
+    color: #fff
+    &.checked 
+      color: #fff
+
+  .custom-radio-button
+    padding: 0 15px
+    background: #FFFFFF
+    border: 2px solid #E7E7E7
+    border-radius: 5px
+    height: 50px
+    font-size: 1rem
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    transition: all 0.350s ease
+    width: 100%
+    cursor: pointer
+    &.active-state
+      border: 2px solid $orange
+      background: $orange 
+  .discount-box-wrapper
+    margin-top: 30px
+    padding: 30px 15px
+    background: #FBFBFA
+    border-radius: 10px
+    +tablet
+      padding: 30px
+    h4 
+      font-size: 1.375rem
+      color: $purple
+      display: flex 
+      flex-direction: row 
+      align-items: center
+      img 
+        margin-right: 15px 
+    p 
+      font-size: 1rem
+    button 
+      margin-top: 30px
+      border: none 
+      background: transparent 
+      display: flex
+      align-items: center
+      padding: 0
+      cursor: pinter
+      font-size: 1.125rem
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      color: $purple
+      img 
+        margin-right: 15px
+  .quote-buttons-wrapper
+    display: flex
+    flex-direction: column-reverse
+    +tablet 
+      flex-direction: row
+    .back-button
+      display: block
+      width: 100%
+      border: 2px solid #E7E7E7
+      background-color: #fff
+      border-radius: 5px
+      height: 50px
+      color: $purple-dark
+      cursor: pointer
+      width: 100%
+      font-family: $family-secondary
+      font-weight:  $family-secondary-weight
+      font-size: 1.5rem
+      margin-top: 30px
+      +tablet 
+        margin-right: 30px
+        max-width: 240px
+  .submit-button
+    background-color: $pink
+    height: 50px
+    border: none
+    color: #fff
+    cursor: pointer
+    border-radius: 5px
+    width: 100%
+    // display: block
+    font-family: $family-secondary
+    font-weight: 700px
+    font-size: 1.5rem
+    margin-top: 30px
+    &:disabled
+      background-color: $pink
+      color: $purple
+  .coverage-prices-wrapper
+    position: relative
+    padding: 50px 30px 30px 30px
+    border: 2px solid #E7E7E7
+    border-radius: 12px
+    .use-scale 
+      margin: 0
+      text-align: center
+      font-size: 1rem
+      position: absolute
+      top: 26px
+      left: 50%
+      transform: translate(-50%, -50%)
+      right: 50%
+      width: 100%
+    .slider-steps-row
+      padding: 0 15px
+      display: flex
+      flex-direction: column
+      +tablet 
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: space-between
+      .slider-steps-col
+        margin-top: 40px
+        &:nth-of-type(1)
+          width: 100%
+          +tablet 
+            width: 65%
+        &:nth-of-type(2)
+          width: 100%
+          +tablet 
+            width: 25%
+        &:nth-of-type(3)
+          width: 100%
+      .rc-slider-mark-text
+        top: -50px
+      .rc-slider-disabled
+        background-color: transparent
+      .custom-slider 
+        .rc-slider-dot 
+          display: none
+          +tablet 
+            display: block
+          &:first-of-type 
+            display: block
+          &:last-of-type
+            display: block 
+        .slider-price-mobile
+          display: block
+          margin: 0
+          padding: 0
+          font-size: 1.25rem
+          margin-bottom: 10px
+          font-family: $family-primary
+          font-weight: 800
+          +tablet 
+            display: none
+        .rc-slider-mark
+          .rc-slider-mark-text
+            display: none
+            +tablet 
+              display: block
+            &:first-of-type, &:last-of-type
+              display: block
+          // .rc-slider-mark-text-active
+          //   transform: translateX(-50%)
+          //   left: 44.4444%
+      p
+        font-size: 1.25rem
+        color: $purple
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+        text-align: center
+        margin-top: 0
+        margin-bottom: 20px
+        +tablet 
+          margin-bottom: 40px
+  .additional-coverage-section
+    margin: 40px -30px -30px -30px
+    padding-top: 30px
+    background-color: #F9F9F9
+    h3 
+      color: $purple
+      font-size: 1.375rem
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      padding: 0 30px
+      margin-bottom: 30px
+    .additional-coverage-wrapper
+      padding: 0 15px 30px 15px
+      +tablet 
+        padding: 0 30px 30px 30px
+      .additional-coverage-container
+        display: flex
+        flex-direction: column
+        +tablet 
+          flex-direction: row
+          justify-content: space-between
+      .additional-coverage-content
+        +tablet
+          max-width: 550px
+          margin-right: 10px
+        .product-logo
+          max-height: 42px
+          margin-right: 20px
+        .additional-coverage-title          
+          display: block
+          &.most-popular
+            display: flex
+            .most-popular-image
+              max-width: 120px
+              +tablet 
+                max-width: 100%
+          +tablet 
+            display: flex
+            flex-direction: row
+            align-items: center
+          span
+            color: $red
+            margin-top: 10px
+            +tablet 
+              margin-left: 10px 
+              margin-top: 8px 
+      .additional-coverage-control
+        margin-top: 10px
+        display: flex
+        flex-direction: row 
+        justify-content: space-between
+        align-items: flex-end
+        +tablet 
+          margin-top: 0
+          flex-direction: column
+          justify-content: flex-start
+          align-items: center
+        .react-switch
+          margin-top: 0
+          +tablet 
+            margin-top: 15px
+        .additional-coverage-price
+          font-family: $family-primary
+          font-weight: 400
+          color: $orange
+          +tablet 
+            margin-top: 14px
+      .help-tip 
+        margin-top: 15px
+        font-family: $family-primary
+        font-weight: 400
+        color: $orange
+        img 
+          margin-left: 5px
+  .price-calculator-wrapper
+    margin-top: 40px
+    display: flex 
+    flex-direction: column
+    +tablet 
+      flex-direction: row
+      justify-content: space-between
+    .price-calculator-pet-name, .active-plan-price
+      color: $orange 
+      font-family: $family-primary
+      font-weight: 400
+      font-size: 2.5rem
+      span 
+        font-size: 1.375rem
+    .active-plan
+      font-family: $family-primary
+      font-weight: 700
+      font-size: 1rem
+      font-weight: 400
+      margin-right: 20px
+      margin-left: 5px
+  .defenders-plan-prices-table-section
+    padding-left: 5px
+    padding-right: 5px
+    +tablet 
+      padding-left: 30px
+      padding-right: 30px
+  .table-wrapper
+    margin-top: 30px
+    border-radius: 10px
+    border: 1px solid #E7E7E7
+    overflow: hidden
+    .defenders-table
+      width: 100%
+      .defenders-header
+        background-color: $purple
+        th 
+          font-family: $family-secondary
+          font-weight: $family-secondary-weight
+          color: $white
+          text-align: center
+          padding: 20px 5px
+          position: relative
+          &:first-of-type
+            text-align: left
+            padding-left: 15px
+            +tablet 
+              padding-left: 30px
+          img
+            max-width: 100%
+          .information-defender-icon
+            position: absolute
+            border: 2px solid #ffffff
+            border-radius: 10px
+            bottom: -10px
+            left: calc(50% - 11px)
+      .defenders-controls
+        background-color: #F6F6F5
+        th
+          text-align: center
+          padding: 20px 10px
+          font-size: 0.75rem
+          +tablet 
+            font-size: 1rem
+            padding: 30px 5px
+          &:first-of-type
+            font-size: 1rem
+            padding-left: 15px
+            text-align: left
+            +tablet 
+              padding-left: 30px
+      tbody
+        .defenders-titles
+          td
+            color: #363636 !important
+            font-weight: 700
+            padding: 20px 5px
+            +tablet
+              padding: 30px 5px
+            &:first-of-type
+              font-size: 1rem
+              padding-left: 15px
+              +tablet
+                padding-left: 30px
+        td 
+          text-align: center
+          padding: 5px
+          &:nth-of-type(1)
+            text-align: left
+            padding-left: 15px
+            width: 50%
+            font-size: 0.75rem
+            +tablet
+              font-size: 1rem
+              padding-left: 30px
+          &:nth-of-type(2)
+            width: 25%
+            border-left: 1px solid #f7f7f7
+            border-right: 1px solid #f7f7f7
+            color: $purple
+          &:nth-of-type(3)
+            width: 25%
+            color: $purple-light
+
+      .defenders-total
+        td 
+          font-weight: 800
+          text-align: center
+          border: 1px solid #f7f7f7
+          padding: 20px 5px
+          +tablet 
+            padding: 30px 5px
+          &:nth-of-type(1)
+            text-align: left
+            padding-left: 15px
+            +tablet
+              padding-left: 30px
+          &:nth-of-type(2)
+            color: $purple
+          &:nth-of-type(3)
+            color: $purple-light
+  .coverage-expansion-panel
+    border: 1px solid #F6F6F5
+    border-radius: 10px
+    .MuiExpansionPanelSummary-root
+      background: $purple
+    .coverage-expansion-panel-summary
+      border-top-left-radius: 10px
+      border-top-right-radius: 10px
+    h4 
+      color: #fff
+      font-size: 1.375rem
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      text-align: center
+      padding: 20px 15px 
+      width: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      .MuiSvgIcon-root
+        margin-left: 10px
+        color: #fff
+      // +tablet 
+      //   padding: 30px 15px
+    .MuiCollapse-container
+      background: transparent
+    .coverage-expansion-panel-details
+      background-color: #F6F6F5
+      // border: none
+      border-bottom-left-radius: 10px
+      border-bottom-right-radius: 10px
+      p 
+        span
+          font-size: 2.5rem
+          color: $purple
+          span 
+            font-size: 1.375rem
+  .policy-overview-card
+    margin-top: 30px
+    border: 2px solid #E7E7E7
+    border-radius: 10px
+    display: flex 
+    flex-direction: column
+    +tablet 
+      flex-direction: row
+    h4 
+      font-size: 1.375rem
+      font-weight: 400
+      font-family: $family-primary
+      margin-bottom: 15px
+      span 
+        color: $purple
+    .policy-overview-content
+      border-bottom: 2px solid #e7e7e7
+      padding: 30px 15px
+      +tablet 
+        width: 100%
+        border-bottom: none
+        border-right: 2px solid #e7e7e7
+        padding: 30px
+    .policy-overview-prices
+      padding: 30px 15px
+      +tablet 
+        max-width: 290px
+        min-width: 38%
+        padding: 30px
+      button 
+        cursor: pointer
+        margin-top: 30px
+        background: $orange 
+        color: #fff
+        width: 180px
+        height: 35px
+        border-radius: 5px
+        border: none
+        font-size: 1rem
+        font-family: $family-secondary
+        font-weight: $family-secondary-weight
+      ul 
+        li 
+          color: $purple
+          &:first-of-type
+            color: $purple-dark
+            font-size: 1.375rem
+          &:nth-of-type(3)
+            border-top: 2px solid #e7e7e7
+            font-size: 0.75rem
+            color: #C2C2C2
+    ul 
+      li
+        list-style: none
+        line-height: 1.5
+        span 
+          color: $purple
+      
+  span.price-format
+    font-size: 3rem
+    span 
+      font-size: 1.375rem 
+
+  &.step-five
+    .fields-col
+      p 
+        font-size: 1rem
+    .switch-col
+      max-width: 80px
+      display: flex
+      align-items: flex-start
+      +tablet 
+        align-items: flex-end
+      &:nth-of-type(2),  &:nth-of-type(3)
+        margin-top: 10px
+      .react-switch
+        margin-top: 0
+  .satisfaction-period-wrapper
+    margin-top: 30px
+    background-color: #FBFBF6
+    padding: 30px 15px
+    +tablet 
+      padding: 30px
+    h3 
+      display: flex
+      align-items: center
+      flex-direction: row
+      font-size: 1.375rem
+      color: $purple
+      font-family: $family-secondary
+      font-weight: $family-secondary-weight
+      img 
+        margin-right: 15px
+    p 
+      font-size: 1rem
+      span 
+        color: $purple
+.thank-you-quote-page
+  margin-top: 0
+  .thank-you-page-subheading
+    margin-top: 22px
+    font-size: 1.375rem
+    font-weight: 400
+  p 
+    font-size: 1rem 
+    a 
+      color: $purple
+  .login-portal-section
+    margin-top: 30px
+    background-color: #FBFBF6
+    padding: 30px 15px
+    border-radius: 10px
+    +tablet 
+      padding: 30px
+    h4 
+      font-size: 1.375rem
+      font-weight: 400
+      color: $purple
+      margin: 0
+    p 
+      margin-bottom: 15px
+      margin-top: 22px
+    button
+      width: 100%
+
+.email-quote
+  display: flex
+  flex-direction: column
+  width: 300px 
+  background: $purple-dark
+  padding: 3rem 2rem
+  +tablet 
+    width: 400px
+  ::placeholder
+    color: #ffffff
+  p
+    margin-left: 10px
+    margin-bottom: 20px
+    color: $white
+    font-size: 1.25rem
+  h4
+    margin-top: 1rem
+    margin-bottom: 2rem
+    color: #fff
+    font-size: 1.5rem
+    +tablet
+        font-size: 1.5rem
+  input[type="email"], input[type="text"]
+    background: $mauve
+    color: #ffffff
+    padding: 12px 30px
+    border-radius: 50px
+    border: 1px solid $mauve
+    width: 100%
+    margin: 0.5rem 0
+    max-width: 450px
+    +tablet
+      margin: 0 10px
+      width: 330px
+    @include font-size(20px)
+    &.field-error
+      background: #9F1E1E
+  button
+    @extend .h4
+    background: $orange
+    color: #ffffff
+    padding: 12px 30px
+    border-radius: 50px
+    border: 1px solid $orange
+    width: 600
+    margin: 30px 10px
+    &:hover
+      background: #EA7856
+      cursor: pointer
+    
+  // input[type="email"],
+  // input[type="text"]
+  //   max-width: 330px
+  //   font-size: 1rem
+  //   padding: .5rem .5 .5rem 1.5rem
+  //   +tablet
+  //     margin: 0.5rem
+  //     font-size: 1.1rem
+  //     padding: .75rem .75 .75rem 2rem 
+.what-we-cover-panel
+  margin: 16px 0 !important
+  border: 2px solid #E7E7E7
+  border-radius: 12px !important
+  &:before
+    height: 0 !important
+  p 
+    text-indent: 0
+  h3 
+    // text-indent: 0
+    color: $purple 
+    font-weight: 400
+  .what-we-cover-heading
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-top: 0
+    text-transform: uppercase
+    color: $purple
+    font-family: $family-secondary
+    font-weight: $family-secondary-weight
+    .MuiSvgIcon-root
+      color: $purple
+  .MuiCollapse-container
+    border-bottom-left-radius: 12px
+    border-bottom-right-radius: 12px
+    overflow: hidden
+    .what-we-cover-panel-details
+      background: #fff
+      display: block
+      h3 
+        font-size: 1.375rem
+        text-indent: 0
+      hr
+        margin-top: 0
+        margin-bottom: 18px
+        height: 2px
+        width: 100%
+        background-color: #D4D4D4
+      h5
+        text-indent: 0
+        font-size: 1.125rem
+      .what-we-cover-panel-lists 
+        display: flex
+        flex-direction: column
+        justify-content: space-between 
+        margin-top: 20px
+        +tablet 
+          flex-direction: row
+        ul 
+          width: 100%
+          +tablet 
+            width: 30%
+          li 
+            position: relative
+            padding-left: 16px
+            list-style: none
+            text-indent: 0
+            margin-bottom: 10px
+            font-size: 1rem
+            &:before
+              left: 0px
+              top: 0px
+              position: absolute
+              content: url("../images/checkmark.svg")
+      .x-checked-list
+        ul 
+          width: 100%
+          li 
+            &:before
+              content: url("../images/xmark.svg")
