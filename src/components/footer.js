@@ -37,6 +37,9 @@ const fullFooter = () => (
               <Link to="/article/category/pet-health/small-pet-health/">
                 Small Pet Health
               </Link>
+              <Link to="/tags/ask-dr-debra-common-questions/">
+                Ask Dr. Debra
+              </Link>
             </div>
           </div>
           <div className="column">

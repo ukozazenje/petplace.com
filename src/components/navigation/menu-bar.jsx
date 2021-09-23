@@ -118,6 +118,9 @@ class MenuBar extends Component {
                     Reader Stories
                   </Link>
                 </li>
+                <li>
+                  <Link to="/enroll/?p=PPSEP21">Get a Pet Insurance Quote</Link>
+                </li>
               </ul>
               <SocialLinks />
             </div>
