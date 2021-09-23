@@ -15,7 +15,7 @@ const Header = ({ siteTitle, noSearch, hideSearch }) => (
           </Link>
         </div>
 
-        <div className="navbar-end">
+        <div className="navbar-end pp-navbar">
           <Link to="/article/category/pet-care/" className="navbar-item">
             Pet Care
           </Link>
@@ -34,11 +34,17 @@ const Header = ({ siteTitle, noSearch, hideSearch }) => (
           <Link to="/article/category/pet-insurance/" className="navbar-item">
             Pet Expenses
           </Link>
-          <Link
+          {/* <Link
             to="/tags/ask-dr-debra-common-questions/"
             className="navbar-item"
           >
             Ask Dr. Debra
+          </Link> */}
+          <Link
+            to="/article/general/pet-insurance/pet-insurance-review/"
+            className="navbar-item"
+          >
+            Learn About Pet Insurance
           </Link>
           {noSearch ? null : <NavigationSearch />}
         </div>
