@@ -50,6 +50,7 @@ const IndexPage = () => {
             "dateModified" : "2020-01-23"
           }
         `}</script>
+        <link rel="canonical" href="https://www.petplace.com/" />
       </Helmet>
       <div className="flex-container">
         {/* <div className="search-wrapper">

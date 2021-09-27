@@ -190,6 +190,7 @@ export const StepOne = ({
               axios
                 .post(`${process.env.GATSBY_PP_API}/quote/v1`, {
                   marketChannelId: 1,
+                  partnerCode: "PPSEP21",
                   // effectiveOn: new Date().toISOString(),
                   pets: [
                     {
