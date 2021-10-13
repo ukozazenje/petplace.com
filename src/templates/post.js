@@ -137,8 +137,10 @@ class Post extends Component {
   render() {
     const post = this.props.data.wordpressPost
     const petpartnersRegex = /petpartners.com/gi
+    const enrollPPRegex = /PPSEP21/gi
     const ctaPetPartners = post.content.match(/gift-pet-insurance-cta/gi)
-    const petpartnersDisclosure = post.content.match(petpartnersRegex)
+    const petpartnersDisclosure =
+      post.content.match(petpartnersRegex) || post.content.match(enrollPPRegex)
     // const content = setUpAdInMiddle(post.content)
     console.log("ctaPetPartners", ctaPetPartners)
     const tagList = tags => (
