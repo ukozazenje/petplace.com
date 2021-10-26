@@ -26,6 +26,8 @@ import CounterImg from "../images/footer-counter.png"
 import PawsomeContent from "../components/PawsomeFallStyleReportContent"
 import PetPartnersBanner from "../components/PetPartnersBanner"
 import NextPrevPost from "../components/post/NextPrevPost"
+import SideBarWidget from "../components/post/SideBarWidget"
+
 // import TailtraxMobile from "../images/ads/Tailtrax_300X250.png"
 // import TailtraxDesktop from "../images/ads/Tailtrax_300X600.png"
 // import Tailtrax from "../images/ads/Tailtrax_728X90.png"
@@ -429,6 +431,7 @@ class Post extends Component {
                       )}
                     </p>
                     <p className="post-date">{post.date}</p>
+                    <SideBarWidget acf={post.acf} />
                     {/* <a
                       className="is-hidden-mobile"
                       href="https://www.tailtrax.com/"
@@ -631,6 +634,18 @@ export const pageQuery = graphql`
       excerpt
       content
       wordpress_id
+      acf {
+        sidebar_image_url
+        sidebar_image {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 360, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
       author {
         name
         slug
