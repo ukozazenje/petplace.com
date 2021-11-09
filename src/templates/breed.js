@@ -370,7 +370,21 @@ const Breed = ({ data }) => {
               /> */}
             </div>
             <div className="column breed-main-image">
-              <Img fluid={about_image.localFile.childImageSharp.fluid} />
+              {about_image &&
+              about_image.localFile &&
+              about_image.localFile.childImageSharp &&
+              about_image.localFile.childImageSharp.fluid ? (
+                <Img
+                  fluid={
+                    about_image && about_image.localFile.childImageSharp.fluid
+                  }
+                />
+              ) : (
+                <Img
+                  fluid={data.placeholderImage.childImageSharp.fluid}
+                  alt="breed"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -908,6 +922,14 @@ export const pageQuery = graphql`
     postHeroImg: file(relativePath: { eq: "defaultImg.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1920, quality: 80) {
+          ...GatsbyImageSharpFluid_tracedSVG
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    placeholderImage: file(relativePath: { eq: "no-next-post.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 450, quality: 100) {
           ...GatsbyImageSharpFluid_tracedSVG
           ...GatsbyImageSharpFluid
         }
