@@ -91,6 +91,17 @@ const fullFooter = () => (
               <Link to="/article/category/just-for-fun/reviews/">Reviews</Link>
             </div>
           </div>
+          <div className="column">
+            <h6>Insurance</h6>
+            <div className="footer-menu-wrapper">
+              <Link to="https://www.akcpetinsurance.com/pet-insurance/dog-insurance" target="_blank" rel="noopener noreferrer">
+                Dog Insurance
+              </Link>
+              <Link to="https://www.akcpetinsurance.com/pet-insurance/cat-insurance" target="_blank" rel="noopener noreferrer">
+                Cat Insurance
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
