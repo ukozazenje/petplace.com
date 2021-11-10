@@ -106,10 +106,7 @@ exports.createPages = ({ actions, graphql }) => {
               createPage,
               items: allCategoryPosts,
               itemsPerPage: 18,
-              component:
-                cat.slug !== "videos"
-                  ? categoriesNewTemplate
-                  : videoCategoryTemplate,
+              component: categoriesNewTemplate,
               pathPrefix: ({ pageNumber }) =>
                 pageNumber === 0 ? cat.path : `${cat.path}page`,
               context: {
