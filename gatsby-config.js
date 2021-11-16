@@ -59,18 +59,18 @@ module.exports = {
         sitemapSize: 5000,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Pet place`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/logo-fav.png`, // This path is relative to the root of the site.
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Pet place`,
+    //     short_name: `starter`,
+    //     start_url: `/`,
+    //     background_color: `#663399`,
+    //     theme_color: `#663399`,
+    //     display: `minimal-ui`,
+    //     icon: `src/images/logo-fav.png`, // This path is relative to the root of the site.
+    //   },
+    // },
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
