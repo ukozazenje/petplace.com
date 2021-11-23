@@ -352,6 +352,7 @@ const Breed = ({ data }) => {
           history_image={history_image}
           title={title}
           history_title={history_title}
+          placeholderImg={data.placeholderImage.childImageSharp.fluid}
         />
       </div>
       <section className="section breed-main-section">
@@ -405,6 +406,7 @@ const Breed = ({ data }) => {
           history_image={history_image}
           title={title}
           history_title={history_title}
+          placeholderImg={data.placeholderImage.childImageSharp.fluid}
         />
       </div>
       <div className="is-hidden-desktop">
@@ -424,6 +426,7 @@ const Breed = ({ data }) => {
           history_image={history_image}
           title={title}
           history_title={history_title}
+          placeholderImg={data.placeholderImage.childImageSharp.fluid}
         />
       </div>
       {/* <section className="section attributes-section">
