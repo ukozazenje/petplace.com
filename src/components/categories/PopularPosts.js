@@ -48,6 +48,7 @@ const PopularPosts = props => {
                 {post.featured_image &&
                 post.featured_image &&
                 post.featured_image.full &&
+                post.featured_image.full.localFile &&
                 post.featured_image.full.localFile.childImageSharp.fluid ? (
                   <Img
                     className="popular-post-card-image"
@@ -55,6 +56,7 @@ const PopularPosts = props => {
                       post.featured_image &&
                       post.featured_image &&
                       post.featured_image.full &&
+                      post.featured_image.full.localFile &&
                       post.featured_image.full.localFile.childImageSharp.fluid
                     }
                     alt={
