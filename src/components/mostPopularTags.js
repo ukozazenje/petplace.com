@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from 'gatsby'
+import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 // import Img from "gatsby-image"
 
@@ -17,11 +17,27 @@ import { useStaticQuery, graphql } from "gatsby"
 const MostPopularTags = () => {
   const data = useStaticQuery(graphql`
     query {
-      allWordpressTtgTags(sort: {fields: count, order: DESC}, limit: 10) {
+      allWordpressTag(
+        filter: {
+          slug: {
+            in: [
+              "choosing-a-breed"
+              "ask-dr-debra-common-questions"
+              "videos-fun"
+              "dr-debras-posts"
+              "pet-tips-for-dogs"
+              "pet-tips-for-cats"
+              "features"
+              "prescription"
+              "health-safety"
+              "symptoms"
+            ]
+          }
+        }
+      ) {
         edges {
           node {
-            id
-            count
+            path
             name
             slug
           }
@@ -29,15 +45,28 @@ const MostPopularTags = () => {
       }
     }
   `)
-    
-  const { edges: tags } = data.allWordpressTtgTags 
+
+  const { edges: tags } = data.allWordpressTag
 
   // console.log(tags)
-
+  // const tags = [
+  //   "choosing-a-breed",
+  //                   "ask-dr-debra-common-questions",
+  //                   "videos-fun",
+  //                   "dr-debras-posts",
+  //                   "pet-tips-for-dogs",
+  //                   "pet-tips-for-cats",
+  //                   "features",
+  //                   "prescription",
+  //                   "health-safety",
+  //                   "symptoms"
+  // ]
   return (
     <div className="tags">
       {tags.map(({ node: tag }) => (
-        <Link key={tag.id} className="tag-links" to={`/tags/${tag.slug}`}>{tag.name.replace(/&amp;/g, '&')}</Link>
+        <Link key={tag.id} className="tag-links" to={`/tags/${tag.slug}/`}>
+          {tag.name.replace(/&amp;/g, "&")}
+        </Link>
       ))}
     </div>
   )

@@ -202,7 +202,6 @@ export const testCategoryQueryTemplate = graphql`
       edges {
         node {
           id
-          content
           title
           featured_media {
             source_url

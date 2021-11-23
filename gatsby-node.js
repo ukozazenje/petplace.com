@@ -22,12 +22,34 @@ exports.createPages = ({ actions, graphql }) => {
   return (
     graphql(`
       {
-        allWordpressTtgCategories {
+        allWordpressTtgAllcategories {
+          edges {
+            node {
+              categories {
+                id
+                wordpress_id
+                path
+                name
+              }
+              name
+              slug
+              wordpress_id
+              path
+            }
+          }
+        }
+        allWordpressPost(sort: { fields: date, order: ASC }) {
           edges {
             node {
               id
-              path
               slug
+              path
+              title
+              categories {
+                id
+                name
+                path
+              }
             }
           }
         }
@@ -39,69 +61,11 @@ exports.createPages = ({ actions, graphql }) => {
           return Promise.reject(result.errors)
         }
 
-        const categoriesTemplate = path.resolve(`./src/templates/category.js`)
-        const categoriesVideoTemplate = path.resolve(
-          `./src/templates/videoCategory.js`
-        )
-        _.each(result.data.allWordpressTtgCategories.edges, ({ node: cat }) => {
-          if (cat.slug === "videos") {
-            createPage({
-              path: `/article/category/just-for-fun/videos/`,
-              component: categoriesVideoTemplate,
-              context: {
-                id: cat.id,
-                slug: cat.slug,
-                title: cat.name,
-              },
-            })
-          }
-        })
-      })
-      .then(() => {
-        return graphql(`
-          {
-            allWordpressTtgAllcategories {
-              edges {
-                node {
-                  categories {
-                    id
-                    wordpress_id
-                    path
-                    name
-                  }
-                  name
-                  slug
-                  wordpress_id
-                  path
-                }
-              }
-            }
-            allWordpressPost(sort: { fields: date, order: ASC }) {
-              edges {
-                node {
-                  id
-                  slug
-                  path
-                  title
-                  categories {
-                    id
-                    name
-                    path
-                  }
-                }
-              }
-            }
-          }
-        `)
-      })
-      .then(result => {
-        if (result.errors) {
-          result.errors.forEach(e => console.error(e.toString()))
-          return Promise.reject(result.errors)
-        }
-
         const categoriesNewTemplate = path.resolve(
           `./src/templates/categoryTemplate.js`
+        )
+        const videoCategoryTemplate = path.resolve(
+          `./src/templates/videoCategory.js`
         )
         const categoryPosts = result.data.allWordpressPost.edges
 
@@ -117,47 +81,47 @@ exports.createPages = ({ actions, graphql }) => {
                   allCats.includes(category.path)
                 ).length
             )
-            if (cat.slug !== "videos") {
-              // createPage({
-              //   path: `${cat.path}`,
-              //   component: categoriesNewTemplate,
-              //   context: {
-              //     id: cat.wordpress_id,
-              //     categories: cat.categories
-              //       ? cat.categories
-              //           .map(category => category.wordpress_id)
-              //           .concat(cat.wordpress_id)
-              //       : [cat.wordpress_id],
-              //     cat_name: cat.name,
-              //     cat_path: cat.path,
-              //     allPosts: categoryPosts.filter(
-              //       ({ node: posts }) =>
-              //         posts.categories.filter(category =>
-              //           allCats.includes(category.path)
-              //         ).length
-              //     ),
-              //   },
-              // })
-              paginate({
-                createPage,
-                items: allCategoryPosts,
-                itemsPerPage: 18,
-                component: categoriesNewTemplate,
-                pathPrefix: ({ pageNumber }) =>
-                  pageNumber === 0 ? cat.path : `${cat.path}page`,
-                context: {
-                  id: cat.wordpress_id,
-                  categories: cat.categories
-                    ? cat.categories
-                        .map(category => category.wordpress_id)
-                        .concat(cat.wordpress_id)
-                    : [cat.wordpress_id],
-                  cat_name: cat.name,
-                  cat_path: cat.path,
-                },
-              })
-            }
+            // if (cat.slug !== "videos") {
+            // createPage({
+            //   path: `${cat.path}`,
+            //   component: categoriesNewTemplate,
+            //   context: {
+            //     id: cat.wordpress_id,
+            //     categories: cat.categories
+            //       ? cat.categories
+            //           .map(category => category.wordpress_id)
+            //           .concat(cat.wordpress_id)
+            //       : [cat.wordpress_id],
+            //     cat_name: cat.name,
+            //     cat_path: cat.path,
+            //     allPosts: categoryPosts.filter(
+            //       ({ node: posts }) =>
+            //         posts.categories.filter(category =>
+            //           allCats.includes(category.path)
+            //         ).length
+            //     ),
+            //   },
+            // })
+            paginate({
+              createPage,
+              items: allCategoryPosts,
+              itemsPerPage: 18,
+              component: categoriesNewTemplate,
+              pathPrefix: ({ pageNumber }) =>
+                pageNumber === 0 ? cat.path : `${cat.path}page`,
+              context: {
+                id: cat.wordpress_id,
+                categories: cat.categories
+                  ? cat.categories
+                      .map(category => category.wordpress_id)
+                      .concat(cat.wordpress_id)
+                  : [cat.wordpress_id],
+                cat_name: cat.name,
+                cat_path: cat.path,
+              },
+            })
           }
+          // }
         )
       })
       .then(() => {
@@ -376,15 +340,60 @@ exports.createPages = ({ actions, graphql }) => {
       .then(() => {
         return graphql(`
           {
-            allWordpressTtgTags(
-              sort: { fields: count, order: DESC }
-              limit: 10
+            allWordpressPost(
+              filter: {
+                tags: {
+                  elemMatch: {
+                    slug: {
+                      in: [
+                        "choosing-a-breed"
+                        "ask-dr-debra-common-questions"
+                        "videos-fun"
+                        "dr-debras-posts"
+                        "pet-tips-for-dogs"
+                        "pet-tips-for-cats"
+                        "features"
+                        "prescription"
+                        "health-safety"
+                        "symptoms"
+                      ]
+                    }
+                  }
+                }
+              }
             ) {
               edges {
                 node {
                   id
+                  tags {
+                    slug
+                    name
+                  }
+                }
+              }
+            }
+            allWordpressTag(
+              filter: {
+                slug: {
+                  in: [
+                    "choosing-a-breed"
+                    "ask-dr-debra-common-questions"
+                    "videos-fun"
+                    "dr-debras-posts"
+                    "pet-tips-for-dogs"
+                    "pet-tips-for-cats"
+                    "features"
+                    "prescription"
+                    "health-safety"
+                    "symptoms"
+                  ]
+                }
+              }
+            ) {
+              edges {
+                node {
+                  path
                   name
-                  count
                   slug
                 }
               }
@@ -397,26 +406,67 @@ exports.createPages = ({ actions, graphql }) => {
           result.errors.forEach(e => console.error(e.toString()))
           return Promise.reject(result.errors)
         }
-
+        const selectedTags = [
+          "choosing-a-breed",
+          "ask-dr-debra-common-questions",
+          "videos-fun",
+          "dr-debras-posts",
+          "pet-tips-for-dogs",
+          "pet-tips-for-cats",
+          "features",
+          "prescription",
+          "health-safety",
+          "symptoms",
+        ]
         const tagsTemplate = path.resolve(`./src/templates/tags.js`)
         const drDebraTemplate = path.resolve(`./src/templates/drDebra.js`)
         // In production builds, filter for only published posts.
-        const allTags = result.data.allWordpressTtgTags.edges
-
+        const allTags = result.data.allWordpressTag.edges
+        const tagsPosts = result.data.allWordpressPost.edges
         // Iterate over the array of posts
-        _.each(allTags, ({ node: tag }, key) => {
-          // Create the Gatsby page for this WordPress post
-          createPage({
-            path: `/tags/${tag.slug}`,
-            component:
-              tag.slug === "ask-dr-debra-common-questions"
-                ? drDebraTemplate
-                : tagsTemplate,
-            context: {
-              id: tag.id,
-            },
-          })
-        })
+        _.each(
+          result.data.allWordpressTag.edges,
+          ({ node: selectedTag }, key) => {
+            // Create the Gatsby page for this WordPress post
+            // createPage({
+            //   path: `/tags/${tag.slug}/`,
+            //   component:
+            //     tag.slug === "ask-dr-debra-common-questions"
+            //       ? drDebraTemplate
+            //       : tagsTemplate,
+            //   context: {
+            //     tag_name: tag.name,
+            //     id: tag.id,
+            //   },
+            // })
+
+            console.log("tagsPosts", tagsPosts)
+            const allTagsPosts = tagsPosts.filter(
+              ({ node: post }) =>
+                post.tags.filter(tag => tag.slug === selectedTag.slug).length >
+                0
+            )
+            // console.log("allTagsPosts", allTagsPosts)
+            paginate({
+              createPage,
+              items: allTagsPosts,
+              itemsPerPage: 18,
+              component:
+                selectedTag.slug === "ask-dr-debra-common-questions"
+                  ? drDebraTemplate
+                  : tagsTemplate,
+              pathPrefix: ({ pageNumber }) =>
+                pageNumber === 0
+                  ? `/tags/${selectedTag.slug}/`
+                  : `/tags/${selectedTag.slug}/page`,
+              context: {
+                id: selectedTag.id,
+                slug: selectedTag.slug,
+                tag_name: selectedTag.name,
+              },
+            })
+          }
+        )
       })
       .then(() => {
         return graphql(`
